@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Leonardo Arruda — Links</title>
+<meta name="description" content="Consultor de Investimentos. Conecte-se, agende uma conversa e acompanhe conteúdos."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,1,400;9..144,0,500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0A0A0B; --ink-2:#141416;
+  --cream:#EDEAE3; --dim:#8C8A93;
+  --gold:#C6A062; --gold-soft:#E1C58E;
+  --line:rgba(237,234,227,.1);
+  --display:'Fraunces',serif; --fn:'Space Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--ink);color:var(--cream);font-family:var(--fn);
+  min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;align-items:center;padding:50px 22px 40px;}
+::selection{background:var(--gold);color:var(--ink);}
+
+/* glow de fundo */
+body::before{content:'';position:fixed;top:-15%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;z-index:-1;filter:blur(60px);
+  background:radial-gradient(circle,rgba(198,160,98,.13),transparent 65%);}
+/* grão */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+.card{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;}
+
+/* reveal */
+.fade{opacity:0;transform:translateY(24px);animation:up .8s cubic-bezier(.16,1,.3,1) forwards;}
+@keyframes up{to{opacity:1;transform:none;}}
+.f1{animation-delay:.05s;}.f2{animation-delay:.13s;}.f3{animation-delay:.21s;}
+.f4{animation-delay:.29s;}.f5{animation-delay:.37s;}.f6{animation-delay:.45s;}.f7{animation-delay:.53s;}
+
+/* AVATAR */
+.avatar{width:104px;height:104px;border-radius:50%;position:relative;margin-bottom:22px;
+  background:linear-gradient(160deg,#1c1c20,#0d0d0f);display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-style:italic;font-size:2.4rem;color:var(--gold);}
+.avatar::before{content:'';position:absolute;inset:-2px;border-radius:50%;padding:2px;
+  background:linear-gradient(135deg,var(--gold),transparent 50%,var(--gold-soft));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;}
+/* trocar por foto: .avatar{background:url('foto.jpg') center/cover;} e remover o texto */
+
+h1{font-family:var(--display);font-weight:400;font-size:1.7rem;letter-spacing:-.5px;}
+.role{font-size:.74rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:8px;}
+.bio{color:var(--dim);font-weight:300;font-size:.92rem;text-align:center;margin-top:16px;max-width:320px;line-height:1.6;}
+.creds{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;justify-content:center;}
+.creds span{font-size:.66rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);
+  border:1px solid var(--line);padding:6px 12px;border-radius:30px;}
+
+/* LINKS */
+.links{width:100%;margin-top:34px;display:flex;flex-direction:column;gap:14px;}
+.link{position:relative;display:flex;align-items:center;gap:16px;width:100%;
+  background:rgba(237,234,227,.04);border:1px solid var(--line);border-radius:16px;
+  padding:18px 20px;text-decoration:none;color:var(--cream);overflow:hidden;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s,background .35s;}
+.link::before{content:'';position:absolute;left:0;top:0;height:100%;width:3px;background:var(--gold);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .4s;}
+.link:hover{transform:translateY(-3px);background:rgba(237,234,227,.07);border-color:rgba(198,160,98,.35);}
+.link:hover::before{transform:scaleY(1);}
+.link:active{transform:scale(.98);}
+.link .ic{width:40px;height:40px;border-radius:10px;background:rgba(198,160,98,.12);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);}
+.link .ic svg{width:20px;height:20px;}
+.link .tx{flex:1;}
+.link .tx b{display:block;font-weight:500;font-size:.95rem;}
+.link .tx small{color:var(--dim);font-size:.76rem;font-weight:300;}
+.link .arrow{color:var(--dim);transition:.35s;}
+.link:hover .arrow{color:var(--gold);transform:translateX(4px);}
+
+/* destaque (CTA principal) */
+.link.primary{background:linear-gradient(135deg,var(--gold),var(--gold-soft));border:none;color:var(--ink);}
+.link.primary .ic{background:rgba(10,10,11,.15);color:var(--ink);}
+.link.primary .tx small{color:rgba(10,10,11,.6);}
+.link.primary .arrow{color:rgba(10,10,11,.7);}
+.link.primary:hover{box-shadow:0 16px 40px rgba(198,160,98,.3);}
+
+/* badge clique (admin) */
+.clk{position:absolute;top:10px;right:12px;font-size:.6rem;color:var(--gold);
+  background:rgba(198,160,98,.12);padding:2px 8px;border-radius:20px;opacity:0;transition:.3s;}
+body.admin .clk{opacity:1;}
+
+/* footer */
+footer{margin-top:46px;text-align:center;}
+.socials{display:flex;gap:18px;justify-content:center;margin-bottom:20px;}
+.socials a{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--cream);transition:.3s;}
+.socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);}
+.socials svg{width:18px;height:18px;}
+.brand{font-family:var(--display);font-style:italic;color:var(--dim);font-size:.85rem;}
+.legal{color:#4b4b4f;font-size:.64rem;margin-top:14px;max-width:340px;line-height:1.5;}
+
+/* painel admin */
+.admin-panel{display:none;width:100%;max-width:440px;margin-top:30px;background:var(--ink-2);
+  border:1px solid var(--line);border-radius:16px;padding:22px;}
+body.admin .admin-panel{display:block;}
+.admin-panel h3{font-family:var(--display);font-size:1.1rem;margin-bottom:6px;}
+.admin-panel p.hint{color:var(--dim);font-size:.74rem;margin-bottom:16px;}
+.stat-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:.85rem;}
+.stat-row:last-child{border:none;}
+.stat-row span:last-child{color:var(--gold);font-weight:500;}
+.admin-actions{display:flex;gap:10px;margin-top:16px;}
+.admin-actions button{flex:1;background:transparent;border:1px solid var(--line);color:var(--cream);
+  padding:10px;border-radius:10px;font-family:var(--fn);font-size:.78rem;cursor:pointer;transition:.3s;}
+.admin-actions button:hover{border-color:var(--gold);color:var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- PERFIL -->
+  <div class="avatar fade f1">LA</div>
+  <h1 class="fade f1">Leonardo Arruda</h1>
+  <p class="role fade f2">Consultor de Investimentos</p>
+  <p class="bio fade f2">Patrimônio é legado. Estratégia de alta performance, sem conflito de interesse — feita sob medida para quem constrói o futuro.</p>
+  <div class="creds fade f3">
+    <span>CEA · Anbima</span><span>Desde 2012</span><span>Independente</span>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links">
+
+    <a href="https://wa.me/5599999999999?text=Olá%20Leonardo,%20quero%20agendar%20uma%20conversa" target="_blank" rel="noopener" class="link primary fade f3" data-link="WhatsApp / Agendar">
+      <span class="clk">0</span>
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .9 1.8 1.2 2.1 1.3.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.8-.1 1.4z"/></svg></span>
+      <span class="tx"><b>Agendar conversa estratégica</b><small>Fale comigo no WhatsApp</small></span>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a href="https://leonardoarruda.com.br" target="_blank" rel="noopener" class="link fade f4" data-link="Site oficial">
+      <span class="clk">0</span>
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg></span>
+      <span class="tx"><b>Site oficial</b><small>Conheça meu trabalho</small></span>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="link fade f4" data-link="Instagram">
+      <span class="clk">0</span>
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+      <span class="tx"><b>Conteúdos no Instagram</b><small>Educação financeira diária</small></span>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a href="#" target="_blank" rel="noopener" class="link fade f5" data-link="Diagnóstico gratuito">
+      <span class="clk">0</span>
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l5-5 4 4 8-8M21 8v5h-5"/></svg></span>
+      <span class="tx"><b>Diagnóstico patrimonial</b><small>Análise gratuita e sem compromisso</small></span>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a href="https://linkedin.com/" target="_blank" rel="noopener" class="link fade f6" data-link="LinkedIn">
+      <span class="clk">0</span>
+      <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 100 3.5a2.5 2.5 0 004.98 0zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4 0 4.8 2.6 4.8 6V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24h-4V8z"/></svg></span>
+      <span class="tx"><b>LinkedIn</b><small>Conexão profissional</small></span>
+      <span class="arrow">↗</span>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="fade f7">
+    <div class="socials">
+      <a href="https://wa.me/5599999999999" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2z"/></svg></a>
+      <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 100 3.5a2.5 2.5 0 004.98 0zM.5 8h4V24h-4V8zm7 0h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4 0 4.8 2.6 4.8 6V24h-4v-7.1c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24h-4V8z"/></svg></a>
+    </div>
+    <p class="brand">Leonardo Arruda</p>
+    <p class="legal">Conteúdo informativo. Não constitui oferta ou recomendação. Rentabilidade passada não garante resultados futuros.</p>
+  </footer>
+
+  <!-- PAINEL ADMIN (só o Leo vê com ?admin) -->
+  <div class="admin-panel">
+    <h3>📊 Painel de cliques</h3>
+    <p class="hint">Visível só para você (URL com <code>?admin</code>). Dados salvos neste navegador.</p>
+    <div id="statsList"></div>
+    <div class="admin-actions">
+      <button onclick="exportData()">Exportar CSV</button>
+      <button onclick="resetData()">Zerar dados</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ====== ANALYTICS DE CLIQUES ====== */
+const KEY='leo_link_clicks';
+const getData=()=>JSON.parse(localStorage.getItem(KEY)||'{}');
+const setData=d=>localStorage.setItem(KEY,JSON.stringify(d));
+
+// registra clique
+document.querySelectorAll('.link').forEach(link=>{
+  const name=link.dataset.link;
+  link.addEventListener('click',()=>{
+    const d=getData(); d[name]=(d[name]||0)+1; setData(d);
+    // 👉 Plugue aqui Google Analytics / Meta Pixel:
+    if(window.gtag) gtag('event','click_link',{link_name:name});
+    if(window.fbq) fbq('trackCustom','LinkClick',{link:name});
+    renderBadges();
+  });
+});
+
+// mostra contador em cada botão (modo admin)
+function renderBadges(){
+  const d=getData();
+  document.querySelectorAll('.link').forEach(l=>{
+    const b=l.querySelector('.clk'); if(b) b.textContent=d[l.dataset.link]||0;
+  });
+}
+
+// painel admin via ?admin na URL
+if(location.search.includes('admin')){
+  document.body.classList.add('admin');
+  renderStats();
+}
+function renderStats(){
+  const d=getData(); const list=document.getElementById('statsList');
+  const total=Object.values(d).reduce((a,b)=>a+b,0);
+  let html='';
+  document.querySelectorAll('.link').forEach(l=>{
+    const n=l.dataset.link; html+=`<div class="stat-row"><span>${n}</span><span>${d[n]||0}</span></div>`;
+  });
+  html+=`<div class="stat-row"><span><b>Total</b></span><span>${total}</span></div>`;
+  list.innerHTML=html;
+}
+function exportData(){
+  const d=getData();
+  let csv='Link,Cliques\n';
+  document.querySelectorAll('.link').forEach(l=>{csv+=`"${l.dataset.link}",${d[l.dataset.link]||0}\n`;});
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='cliques-leo.csv'; a.click();
+}
+function resetData(){ if(confirm('Zerar todos os dados de cliques?')){localStorage.removeItem(KEY);renderBadges();renderStats();} }
+
+renderBadges();
+</script>
+</body>
+</html>

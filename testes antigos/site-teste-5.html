@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Leonardo Arruda — Consultor de Investimentos</title>
+<meta name="description" content="Consultoria de investimentos independente, sem comissão e sem conflito. Gestão patrimonial sob medida para quem já construiu e quer multiplicar com estratégia."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,1,400;9..144,0,500;9..144,0,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#08080A; --ink-soft:#111114; --ink-card:#16161A;
+  --cream:#EDEAE3; --cream-dim:#94908A;
+  --gold:#C2A26A; --gold-bright:#E0C48E;
+  --line:rgba(237,234,227,.1);
+  --display:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--ink);color:var(--cream);line-height:1.5;overflow-x:hidden;cursor:none;}
+::selection{background:var(--gold);color:var(--ink);}
+.wrap{max-width:1300px;margin:0 auto;padding:0 44px;}
+img{max-width:100%;display:block;}
+
+/* grão sutil */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* cursor */
+.cursor{position:fixed;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;
+  z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;mix-blend-mode:difference;}
+.cursor.grow{width:60px;height:60px;background:rgba(194,162,106,.3);}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(42px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+/* header */
+header{position:fixed;top:0;width:100%;z-index:200;padding:28px 0;transition:.4s;mix-blend-mode:difference;}
+header.scrolled{padding:16px 0;}
+header .wrap{display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:var(--display);font-size:1.3rem;font-weight:500;letter-spacing:.5px;}
+.brand i{font-style:italic;color:var(--gold);}
+nav a{color:var(--cream);text-decoration:none;margin-left:38px;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.7;transition:.3s;}
+nav a:hover{opacity:1;}
+.btn-top{border:1px solid var(--cream);padding:11px 22px;border-radius:40px;opacity:1!important;}
+.btn-top:hover{background:var(--cream);color:var(--ink);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:120px;}
+.hero::after{content:'';position:absolute;top:12%;right:-12%;width:680px;height:680px;
+  background:radial-gradient(circle,rgba(194,162,106,.16),transparent 70%);filter:blur(40px);z-index:-1;
+  animation:float 9s ease-in-out infinite;}
+@keyframes float{50%{transform:translateY(-30px);}}
+.eyebrow{font-size:.76rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:32px;}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(3rem,8.5vw,8.2rem);line-height:.96;letter-spacing:-2px;margin-bottom:38px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero .lead{max-width:500px;color:var(--cream-dim);font-size:1.06rem;font-weight:300;line-height:1.75;margin-left:auto;margin-bottom:48px;}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px;}
+.scroll-hint{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--cream-dim);display:flex;align-items:center;gap:12px;}
+.scroll-hint::before{content:'';width:50px;height:1px;background:var(--gold);animation:ln 2s infinite;transform-origin:left;}
+@keyframes ln{0%,100%{transform:scaleX(.4);}50%{transform:scaleX(1);}}
+
+/* CTA */
+.cta{display:inline-flex;align-items:center;gap:14px;color:var(--cream);text-decoration:none;font-size:.85rem;
+  letter-spacing:2px;text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--gold);transition:.3s;}
+.cta:hover{color:var(--gold);gap:22px;}
+.btn-gold{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--ink);text-decoration:none;font-weight:500;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
+  padding:16px 34px;border-radius:40px;transition:.4s;}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(194,162,106,.3);}
+
+section{padding:140px 0;position:relative;}
+.kicker{font-size:.74rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+.kicker::before{content:'';width:30px;height:1px;background:var(--gold);}
+.kicker.center{justify-content:center;}
+
+/* faixa de prova social (Portfel-style) */
+.proof-bar{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-soft);}
+.proof-bar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;}
+.pb{display:flex;align-items:baseline;gap:12px;}
+.pb b{font-family:var(--display);font-size:2.2rem;font-weight:400;color:var(--gold);}
+.pb span{color:var(--cream-dim);font-size:.82rem;letter-spacing:1px;text-transform:uppercase;max-width:130px;}
+
+/* manifesto */
+.manifesto h2{font-family:var(--display);font-weight:300;font-size:clamp(2rem,4.6vw,3.7rem);line-height:1.25;letter-spacing:-1px;max-width:1050px;}
+.manifesto h2 em{font-style:italic;color:var(--gold);}
+.manifesto .meta{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:80px;}
+.manifesto .meta p{color:var(--cream-dim);font-weight:300;line-height:1.85;}
+
+/* pilares (sem comissão / sem conflito) */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.pil{padding:54px 40px;border-right:1px solid var(--line);}
+.pil:last-child{border-right:none;}
+.pil .ic{color:var(--gold);font-family:var(--display);font-style:italic;font-size:1.6rem;margin-bottom:20px;}
+.pil h3{font-family:var(--display);font-weight:400;font-size:1.4rem;margin-bottom:12px;}
+.pil p{color:var(--cream-dim);font-weight:300;font-size:.92rem;line-height:1.7;}
+
+/* figures */
+.figures .grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.fig{padding:60px 40px;border-right:1px solid var(--line);}
+.fig:last-child{border-right:none;}
+.num{font-family:var(--display);font-weight:300;font-size:clamp(3rem,6vw,5.4rem);line-height:1;}
+.num i{color:var(--gold);font-style:normal;font-size:.48em;}
+.cap{color:var(--cream-dim);font-size:.84rem;letter-spacing:1px;margin-top:18px;text-transform:uppercase;}
+
+/* services */
+.services .row{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:40px;align-items:center;padding:50px 0;border-top:1px solid var(--line);transition:.5s;}
+.services .row:last-child{border-bottom:1px solid var(--line);}
+.services .row:hover{padding-left:24px;background:linear-gradient(90deg,rgba(194,162,106,.05),transparent);}
+.services .idx{font-family:var(--display);color:var(--gold);font-size:1.1rem;}
+.services .row h3{font-family:var(--display);font-weight:300;font-size:clamp(1.6rem,3vw,2.6rem);letter-spacing:-.5px;}
+.services .row p{color:var(--cream-dim);font-weight:300;line-height:1.7;}
+
+/* approach */
+.approach{background:var(--ink-soft);}
+.appr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;margin-top:70px;}
+.appr .n{font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.6rem;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--line);}
+.appr h3{font-family:var(--display);font-weight:400;font-size:1.5rem;margin-bottom:16px;}
+.appr p{color:var(--cream-dim);font-weight:300;line-height:1.7;font-size:.94rem;}
+
+/* portrait */
+.portrait{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center;}
+.portrait-img{aspect-ratio:4/5;background:linear-gradient(160deg,#1a1a1d,#0c0c0e);border:1px solid var(--line);border-radius:6px;
+  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.portrait-img span{font-family:var(--display);font-size:7rem;color:rgba(194,162,106,.18);}
+.portrait-img small{position:absolute;bottom:24px;left:24px;color:var(--cream-dim);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;}
+.portrait h2{font-family:var(--display);font-weight:300;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;letter-spacing:-1px;margin-bottom:30px;}
+.portrait h2 em{font-style:italic;color:var(--gold);}
+.portrait p{color:var(--cream-dim);font-weight:300;line-height:1.8;margin-bottom:18px;}
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;}
+.creds span{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:9px 16px;border-radius:30px;}
+
+/* depoimento */
+.quote{text-align:center;}
+.quote blockquote{font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(1.6rem,3.4vw,2.8rem);
+  line-height:1.4;max-width:900px;margin:0 auto;letter-spacing:-.5px;}
+.quote blockquote em{color:var(--gold);font-style:italic;}
+.quote .who{margin-top:34px;color:var(--cream-dim);font-size:.84rem;letter-spacing:2px;text-transform:uppercase;}
+
+/* invite */
+.invite{text-align:center;}
+.invite h2{font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,7vw,6rem);line-height:1.05;letter-spacing:-2px;margin-bottom:40px;}
+.invite h2 em{font-style:italic;color:var(--gold);}
+.invite p{color:var(--cream-dim);max-width:480px;margin:0 auto 50px;font-weight:300;line-height:1.7;}
+
+/* footer */
+footer{padding:70px 0 40px;border-top:1px solid var(--line);}
+footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;}
+footer .brand{font-size:1.6rem;}
+.fcol h4{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--cream-dim);margin-bottom:16px;}
+.fcol a{display:block;color:var(--cream);text-decoration:none;font-size:.9rem;margin-bottom:8px;opacity:.7;transition:.3s;}
+.fcol a:hover{opacity:1;color:var(--gold);}
+.legal{font-size:.68rem;color:#555;max-width:700px;margin-top:36px;line-height:1.6;}
+
+/* whatsapp flutuante */
+.wpp{position:fixed;bottom:26px;right:26px;width:58px;height:58px;border-radius:50%;z-index:300;
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(194,162,106,.4);transition:.3s;}
+.wpp:hover{transform:scale(1.1);}
+.wpp svg{width:30px;height:30px;fill:var(--ink);}
+
+@media(max-width:860px){
+  body{cursor:auto;}.cursor{display:none;}
+  .wrap{padding:0 24px;}nav a:not(.btn-top){display:none;}
+  .hero .lead{margin-left:0;}
+  .manifesto .meta,.figures .grid,.appr-grid,.portrait,.pillars{grid-template-columns:1fr;}
+  .fig,.pil{border-right:none;border-bottom:1px solid var(--line);}
+  .services .row{grid-template-columns:1fr;gap:14px;}
+  .portrait-img{order:-1;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor"></div>
+
+<header id="hdr">
+  <div class="wrap">
+    <div class="brand">Leonardo <i>Arruda</i></div>
+    <nav>
+      <a href="#manifesto">Filosofia</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#metodo">Método</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato" class="btn-top">Falar com Leo</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow reveal">Consultoria de Investimentos · Independente</p>
+    <h1 class="reveal d1">Sem comissão.<br>Sem conflito.<br><em>100% do seu lado.</em></h1>
+    <p class="lead reveal d2">Para quem já construiu — e agora deseja multiplicar com a precisão, a discrição e a estratégia que o seu capital merece.</p>
+    <div class="hero-bottom">
+      <a href="#contato" class="cta reveal d3">Iniciar uma conversa privada <span>→</span></a>
+      <div class="scroll-hint reveal d3">Role para descobrir</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<div class="proof-bar">
+  <div class="wrap">
+    <div class="pb reveal"><b>+12</b><span>anos de mercado</span></div>
+    <div class="pb reveal d1"><b>+R$300mi</b><span>sob consultoria</span></div>
+    <div class="pb reveal d2"><b>97</b><span>NPS de clientes</span></div>
+    <div class="pb reveal d3"><b>CEA</b><span>certificação Anbima</span></div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="wrap">
+    <p class="kicker reveal">Filosofia</p>
+    <h2 class="reveal d1">Não existe carteira de prateleira. Existe <em>uma estratégia</em> construída sobre quem você é, o que conquistou e até onde pretende chegar.</h2>
+    <div class="meta">
+      <p class="reveal d1">A gestão de grandes patrimônios sempre foi um privilégio de poucos. Trago essa mesma profundidade de análise para a sua realidade — sem o ruído, sem o conflito de interesse e sem a complexidade desnecessária do mercado tradicional.</p>
+      <p class="reveal d2">Trabalho no modelo de consultoria independente, fee-based: meus interesses estão integralmente alinhados aos seus. O que é bom para o seu patrimônio é o único parâmetro que me move.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<div class="pillars">
+  <div class="pil reveal">
+    <div class="ic">i.</div>
+    <h3>Sem comissão</h3>
+    <p>Você paga por consultoria, não por produto. Nenhum centavo vem de quem eu indico — vem de quem eu sirvo: você.</p>
+  </div>
+  <div class="pil reveal d1">
+    <div class="ic">ii.</div>
+    <h3>Sem conflito</h3>
+    <p>Independência total. Recomendo o que faz sentido para o seu objetivo, não o que rende comissão para um banco.</p>
+  </div>
+  <div class="pil reveal d2">
+    <div class="ic">iii.</div>
+    <h3>Visão integral</h3>
+    <p>Investimentos, proteção, sucessão e legado orquestrados sob uma única estratégia coerente e viva.</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicos">
+  <div class="wrap">
+    <p class="kicker reveal">Atuação</p>
+    <div class="row reveal">
+      <div class="idx">01</div>
+      <h3>Gestão Patrimonial</h3>
+      <p>Visão integral do seu patrimônio — investimentos, liquidez e proteção — sob uma única estratégia coerente.</p>
+    </div>
+    <div class="row reveal">
+      <div class="idx">02</div>
+      <h3>Carteira sob medida</h3>
+      <p>Alocação desenhada para o seu perfil e objetivos, revisada e rebalanceada com disciplina e visão de longo prazo.</p>
+    </div>
+    <div class="row reveal">
+      <div class="idx">03</div>
+      <h3>Planejamento & Legado</h3>
+      <p>Estruturação patrimonial e sucessória — holdings, offshore, previdência — para que o que você construiu atravesse gerações.</p>
+    </div>
+    <div class="row reveal">
+      <div class="idx">04</div>
+      <h3>Proteção & Seguros</h3>
+      <p>Blindagem do patrimônio com instrumentos sofisticados: unit linked, seguros estruturados e proteção para operações.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="approach" id="metodo">
+  <div class="wrap">
+    <p class="kicker reveal">O Método</p>
+    <h2 class="reveal d1" style="font-family:var(--display);font-weight:300;font-size:clamp(2rem,4vw,3.2rem);max-width:780px;line-height:1.2;letter-spacing:-1px;">Três movimentos. Uma relação construída para durar.</h2>
+    <div class="appr-grid">
+      <div class="appr reveal"><div class="n">i.</div><h3>Diagnóstico</h3><p>Uma conversa profunda sobre o seu momento, perfil de risco e ambições. Antes de qualquer recomendação, eu escuto.</p></div>
+      <div class="appr reveal d1"><div class="n">ii.</div><h3>Arquitetura</h3><p>Desenho um plano e uma carteira inteiramente personalizados, com clareza absoluta sobre cada decisão.</p></div>
+      <div class="appr reveal d2"><div class="n">iii.</div><h3>Acompanhamento</h3><p>Presença contínua. Ajustes precisos. Um interlocutor único que conhece a sua história — e zela por ela.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section class="figures" style="padding:0;">
+  <div class="wrap">
+    <div class="grid">
+      <div class="fig reveal"><div class="num"><i>+</i><span data-count="12">0</span></div><div class="cap">Anos no mercado</div></div>
+      <div class="fig reveal d1"><div class="num"><i>R$ </i><span data-count="300">0</span><i> mi</i></div><div class="cap">Sob consultoria</div></div>
+      <div class="fig reveal d2"><div class="num"><span data-count="97">0</span></div><div class="cap">NPS dos clientes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTRAIT -->
+<section class="portrait" id="sobre">
+  <div class="wrap" style="display:contents;">
+    <div class="portrait-img reveal"><span>LA</span><small>Leonardo Arruda — Retrato</small></div>
+    <div>
+      <p class="kicker reveal">Quem conduz</p>
+      <h2 class="reveal d1">Estratégia de quem vive o mercado e <em>pensa como dono.</em></h2>
+      <p class="reveal d1">Atuo no mercado de investimentos desde 2012. Mais do que técnica certificada, trago uma visão prática de negócios — porque entendo, de dentro, o que significa construir e proteger patrimônio.</p>
+      <p class="reveal d2">Meu compromisso é com uma relação de longo prazo, pautada por transparência radical e atendimento próximo. Você não fala com um número de protocolo. Fala comigo.</p>
+      <div class="creds reveal d2">
+        <span>CEA · Anbima</span><span>Desde 2012</span><span>Consultoria Independente</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTO -->
+<section class="quote">
+  <div class="wrap">
+    <p class="kicker center reveal">Quem confia</p>
+    <blockquote class="reveal d1">"Pela primeira vez senti que alguém olhava para o meu patrimônio <em>como se fosse seu.</em> Sem produto empurrado, sem letra miúda. Só estratégia."</blockquote>
+    <p class="who reveal d2">— Empresário · Cliente desde 2020</p>
+  </div>
+</section>
+
+<!-- INVITE -->
+<section class="invite" id="contato">
+  <div class="wrap">
+    <p class="kicker center reveal">Convite</p>
+    <h2 class="reveal d1">Conversas raras<br>geram <em>decisões raras.</em></h2>
+    <p class="reveal d2">O primeiro passo é uma conversa, sem compromisso. A partir dela, construímos algo feito sob medida para o seu patrimônio.</p>
+    <a href="https://wa.me/5599999999999?text=Ol%C3%A1%20Leonardo,%20gostaria%20de%20uma%20conversa%20privada." target="_blank" class="btn-gold reveal d3">Solicitar conversa privada →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">Leonardo <i style="color:var(--gold)">Arruda</i></div>
+      <p class="legal">Leonardo Arruda atua como consultor de investimentos. Este site possui caráter exclusivamente informativo e não constitui oferta, promessa de rentabilidade ou recomendação personalizada de investimento. Rentabilidade passada não garante resultados futuros.</p>
+    </div>
+    <div class="fcol"><h4>Navegação</h4><a href="#manifesto">Filosofia</a><a href="#servicos">Serviços</a><a href="#metodo">Método</a><a href="#sobre">Sobre</a></div>
+    <div class="fcol"><h4>Conectar</h4><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="https://wa.me/5599999999999" target="_blank">WhatsApp</a></div>
+  </div>
+</footer>
+
+<a class="wpp" href="https://wa.me/5599999999999" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .9 1.8 1.2 2.1 1.3.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.8-.1 1.4z"/></svg>
+</a>
+
+<script>
+const cursor=document.querySelector('.cursor');let mx=0,my=0,cx=0,cy=0;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cursor.style.left=cx+'px';cursor.style.top=cy+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,.row,.fig,.pil').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('grow'));el.addEventListener('mouseleave',()=>cursor.classList.remove('grow'));});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>60));
+
+function countUp(el){const t=+el.dataset.count;let c=0;const s=Math.max(1,Math.ceil(t/45));const iv=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(iv);}el.textContent=c;},32);}
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target);}}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>

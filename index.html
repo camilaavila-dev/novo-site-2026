@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonardo Arruda | Consultor de Investimentos · Portfel</title>
+<meta name="description" content="Consultoria de investimentos independente. Fee Based. 100% no seu lado. ANBIMA CEA · Portfel · Grupo Primo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04020C;--s1:#080517;--s2:#0B071A;--s3:#130E28;
+  --vio:#3B36CC;--vio2:#6B66E8;--vio3:#1B1762;
+  --vio-fill:rgba(59,54,204,.12);
+  --grn:#1CD98A;--grn2:#23F09A;--grn-bg:#04120A;
+  --txt:#EDE8D5;--mut:#9590B0;--sub:#524E6A;
+  --brd:rgba(255,255,255,.06);--brd2:rgba(255,255,255,.13);
+  --d:'Cormorant Garamond',Georgia,serif;
+  --s:'DM Sans',-apple-system,sans-serif;
+  --m:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--s);background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden;font-weight:300}
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--vio),var(--vio2));z-index:9999;pointer-events:none}
+#c-dot{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--grn);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .2s}
+#c-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(59,54,204,.55);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .22s,height .22s,border-color .22s}
+::selection{background:var(--vio);color:#fff}
+#grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.042;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>")}
+@keyframes heroIn{0%{transform:scale(1.05);opacity:.7}100%{transform:scale(1);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes scrollDown{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* TOOLTIP FEE BASED */
+.tip{position:relative;display:inline-flex;align-items:center;gap:7px}
+.tip-icon{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;border:1px solid var(--sub);font-family:var(--m);font-size:9px;color:var(--sub);cursor:help;flex:none;transition:border-color .2s,color .2s}
+.tip:hover .tip-icon{border-color:var(--vio2);color:var(--vio2)}
+.tip-box{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);width:280px;background:#13103A;border:1px solid rgba(107,102,232,.35);border-radius:8px;padding:14px 16px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:300;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.tip:hover .tip-box{opacity:1}
+.tip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#13103A}
+.tip-box p{font-family:var(--s);font-size:12.5px;line-height:1.65;color:var(--mut);font-weight:300}
+.tip-box strong{color:var(--txt);font-weight:500}
+</style>
+<!-- Schema.org para Otimização de IAs (LLMO/GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://leonardoarruda.com.br/#person",
+      "name": "Leonardo Arruda",
+      "jobTitle": "Consultor de Investimentos",
+      "description": "Consultor de investimentos independente, certificado ANBIMA CEA, atuando pela Portfel (Grupo Primo) com modelo Fee Based.",
+      "url": "https://leonardoarruda.com.br",
+      "sameAs": [
+        "https://www.linkedin.com/in/leonardo-arruda",
+        "https://www.instagram.com/leonardoarruda"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Portfel",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Grupo Primo"
+        }
+      },
+      "knowsAbout": ["Planejamento Financeiro", "Previdência Privada", "Holding Patrimonial", "Fee Based", "Investimentos"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "ANBIMA CEA"
+      }
+    },
+    {
+      "@type": "FinancialService",
+      "@id": "https://leonardoarruda.com.br/#service",
+      "name": "Leonardo Arruda Consultoria Financeira",
+      "provider": {
+        "@id": "https://leonardoarruda.com.br/#person"
+      },
+      "serviceType": ["Gestão de Patrimônio", "Planejamento Financeiro", "Consultoria Fee Based"],
+      "areaServed": "BR",
+      "description": "Consultoria de investimentos independente focada em empresários, famílias patrimoniais e investidores de alta renda."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual a relação do Leonardo com a Portfel e o Grupo Primo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Leonardo Arruda é um consultor de investimentos que atua de forma independente. Desde 2023, escolheu a plataforma da Portfel (ecossistema do Grupo Primo) pela robustez de infraestrutura e acesso a produtos de alto nível no Brasil e no exterior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que contratar consultoria se já invisto sozinho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O valor está em organizar melhor a estratégia, reduzir ruído e tomar decisões com mais clareza. Não apenas em indicar produtos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é Fee Based e por que importa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fee Based significa que Leonardo é remunerado diretamente por você — não pelos bancos ou gestoras. Qualquer comissão recebida das instituições é integralmente devolvida ao cliente. O consultor trabalha exclusivamente nos seus interesses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe conflito de interesse nas recomendações?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A Portfel opera com remuneração transparente. Sem comissão por produto. A independência é a base do serviço."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual o patrimônio mínimo para começar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A conversa inicial é aberta. O encaixe ideal é avaliado durante o diagnóstico, de forma honesta e sem pressão."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ESTILOS MOBILE / RESPONSIVO -->
+<style>
+@media (max-width: 900px) {
+  /* GLOBAL */
+  section { padding: 60px 24px !important; }
+  h1 { font-size: clamp(42px, 12vw, 60px) !important; }
+  h2 { font-size: clamp(32px, 8vw, 42px) !important; }
+  h1 br, h2 br { display: none; }
+  
+  /* NAV */
+  #site-nav { padding: 0 16px !important; }
+  #site-nav div a.nav-link { display: none !important; } 
+  #nav-logo { height: 34px !important; }
+  #site-nav > div { gap: 10px !important; }
+  .nav-cta { display: none !important; }
+  .header-menu-btn { display: flex !important; padding: 8px !important; }
+  
+  /* HERO */
+  #hero-vid { width: 100vw; height: 100vh; object-fit: cover; }
+  .hero-content { padding: 0 24px 60px !important; }
+  .hero-scroll { display: none !important; }
+  .hero-top-text { font-size: 8px !important; letter-spacing: 0.1em !important; white-space: nowrap !important; }
+  
+  /* STATS */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .stats-grid > div { padding: 32px 16px !important; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .stats-grid > div:nth-child(even) { border-right: none !important; }
+  .stats-grid > div:nth-last-child(-n+2) { border-bottom: none !important; }
+
+  /* MEDIA LOGOS */
+  .media-logos { gap: 24px !important; }
+  .media-logos img { height: 20px !important; }
+  .media-logos img.logo-valores { height: 32px !important; }
+  
+  /* FILOSOFIA */
+  .filo-flex { flex-direction: column !important; gap: 24px !important; }
+  .filo-flex div { width: auto !important; }
+
+  /* SOBRE */
+  .sobre-grid { grid-template-columns: 1fr !important; }
+  
+  /* PARA QUEM */
+  .para-quem-grid { grid-template-columns: 1fr !important; }
+  
+  /* SERVIÇOS */
+  .svc-wrap { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; min-height: auto !important; }
+  .svc-nav { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; border-right: none !important; border-bottom: none !important; overflow: visible !important; white-space: normal !important; align-items: stretch !important; }
+  .svc-tab { padding: 16px 8px !important; min-width: 0 !important; border: 1px solid var(--brd) !important; border-radius: 8px; background: rgba(255,255,255,0.02) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; }
+  .svc-tab::before { display: none !important; }
+  .svc-tab.is-active { background: rgba(28,217,138,0.1) !important; border-color: var(--grn) !important; }
+  .svc-tab .svc-tab-num, .svc-tab .svc-tab-bar { display: none !important; }
+  .svc-tab .svc-tab-name { display: block !important; margin: 0 !important; font-size: 13px !important; line-height: 1.3 !important; }
+  .svc-tab .svc-tab-name br { display: none !important; }
+  .svc-tab .svc-tab-count { font-size: 10px !important; margin-top: 6px !important; }
+  .svc-panel { position: relative !important; padding: 32px 24px !important; box-sizing: border-box !important; }
+  .svc-panels { min-height: auto !important; }
+  .svc-item { padding-left: 16px !important; }
+  
+  /* METODO */
+  .met-accordion { display: flex !important; flex-direction: column !important; height: auto !important; }
+  .met-card { position: relative !important; width: 100% !important; min-height: auto !important; flex: none !important; margin-bottom: 16px; overflow: visible !important; border: 1px solid rgba(107,102,232,0.15) !important; background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01)) !important; border-radius: 16px !important; }
+  .met-card-closed { display: none !important; }
+  .met-card-open { position: static !important; opacity: 1 !important; pointer-events: auto !important; padding: 32px 24px !important; background: none !important; border: none !important; min-width: 0 !important; }
+  
+  .garantias-grid { grid-template-columns: 1fr 1fr !important; }
+  .garantias-grid > div:last-child { grid-column: 1 / -1; }
+  
+  /* PARCERIA */
+  .parceria-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .parceria-grid > div:last-child { display: none !important; }
+  #parceria [style*="max-width:58%"] { max-width: 100% !important; }
+  .parceria-title-wrap { max-width: 100% !important; }
+  .parceria-bg { display: none !important; }
+  .mobile-parceria-img { display: block !important; margin-top: 40px; width: 100%; border-radius: 16px; object-fit: cover; height: 380px; object-position: center 20%; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+
+    .parceria-subtext { font-size: 19px !important; line-height: 1.6 !important; color: rgba(255,255,255,0.7) !important; margin-bottom: 24px !important; }
+  .mobile-parceria-img { display: block !important; width: 100%; border-radius: 12px; margin-bottom: 32px; object-fit: cover; max-height: 350px; mask-image: linear-gradient(to top, transparent 0%, black 15%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%); }
+  .parceria-bg { display: none !important; } /* Hide the background version on mobile since we have the inline image */
+  
+  /* PRESENÇA */
+  .map-bg { width: 100% !important; opacity: 0.2 !important; }
+  
+  /* FAQ */
+  .faq-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  
+  /* CTA */
+  #cta { padding: 60px 24px !important; }
+  #cta h2 { font-size: clamp(32px, 8vw, 42px) !important; }
+
+  /* FOOTER */
+  footer { padding: 40px 24px !important; }
+  .footer-top { flex-direction: column !important; gap: 40px !important; }
+  .footer-links { gap: 40px !important; flex-direction: column !important; }
+}
+</style>
+</head>
+<body>
+
+
+<div id="grain"></div>
+<div id="prog"></div>
+<div id="c-dot"></div>
+<div id="c-ring"></div>
+
+<!-- FLOATING CTA (FORMULÁRIO) -->
+<a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" id="float-cta" style="position:fixed;bottom:30px;right:30px;z-index:190;display:flex;align-items:center;gap:9px;padding:13px 22px;background:var(--vio);color:#fff;font-family:var(--s);font-weight:600;font-size:13px;border-radius:30px;text-decoration:none;box-shadow:0 6px 28px rgba(59,54,204,.35);opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+  Agendar conversa
+</a>
+
+<!-- NAV -->
+<nav id="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:200;height:100px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:transparent;backdrop-filter:blur(0px);border-bottom:1px solid transparent;transition:height 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease">
+  <a href="#" style="display:flex;align-items:center;text-decoration:none">
+    <img id="nav-logo" src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:54px;object-fit:contain;transition:height 0.4s ease;">
+  </a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div style="display:flex;align-items:center;gap:36px" id="nav-links">
+      <a href="#sobre" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Sobre</a>
+      <a href="#servicos" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Serviços</a>
+      <a href="#metodo" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Método</a>
+      <a href="#presenca" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Atendimento</a>
+      <a href="#parceria" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Portfel</a>
+    </div>
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" class="nav-cta" style="padding:11px 24px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:600;font-size:13px;border-radius:6px;text-decoration:none">Agendar conversa</a>
+    <a href="/linktree" target="_self" class="header-menu-btn" style="display:none;align-items:center;justify-content:center;padding:10px;background:rgba(255,255,255,.05);border-radius:8px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.1)">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO (VÃDEO FULLSCREEN) -->
+<section style="position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end">
+  <div style="position:absolute;inset:0;overflow:hidden">
+    <video autoplay loop muted playsinline id="hero-vid" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;filter:saturate(.45) brightness(.75)">
+      <source src="https://videos.pexels.com/video-files/8231701/8231701-uhd_2732_1440_30fps.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(230,110,30,.22) 0%,rgba(4,2,12,.45) 35%,rgba(4,2,12,.8) 70%,rgba(4,2,12,1) 100%)"></div>
+  <div style="position:absolute;top:0;left:0;bottom:0;width:44%;background:linear-gradient(to right,rgba(4,2,12,.92),transparent)"></div>
+  <div class="hero-content" style="position:relative;z-index:2;padding:0 56px 88px;max-width:1400px">
+    <div style="display:flex;align-items:center;gap:10px;font-family:var(--m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grn);margin-bottom:28px">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite;flex:none"></span>
+      <span class="hero-top-text">ANBIMA CEA · Portfel · Grupo Primo</span>
+    </div>
+    <h1 style="font-family:var(--d);font-weight:300;font-size:clamp(68px,8.5vw,128px);line-height:.9;letter-spacing:-.02em;color:var(--txt);animation:fadeUp .9s .3s var(--ease) both">Você levou <br>anos construindo. <br><em style="font-style:italic;color:var(--grn)">Cuide como merece.</em></h1>
+    <p style="font-family:var(--s);font-size:clamp(15px,1.4vw,18px);line-height:1.72;color:rgba(237,232,213,.58);margin-top:28px;max-width:50ch;animation:fadeUp .9s .52s var(--ease) both;font-weight:300">Consultoria de investimentos independente. Fee Based. 100% no seu lado.</p>
+    <div style="margin-top:36px;animation:fadeUp .9s .68s var(--ease) both">
+      <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" style="padding:16px 34px;background:var(--vio);color:#fff;font-family:var(--s);font-weight:600;font-size:15px;border-radius:7px;text-decoration:none">Agendar uma conversa</a>
+    </div>
+  </div>
+  <div class="hero-scroll" style="position:absolute;right:56px;bottom:44px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.3">
+    <div style="font-family:var(--m);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--txt);writing-mode:vertical-rl">Scroll</div>
+    <div style="width:1px;height:44px;background:var(--txt);animation:scrollDown 1.8s ease-in-out infinite"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div style="overflow:hidden;background:var(--vio);padding:14px 0">
+  <div style="display:flex;width:max-content;animation:marq 36s linear infinite">
+    <span style="flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);padding-right:48px">Investir é coisa séria, mas não precisa ser complicado&nbsp;&nbsp;·&nbsp;&nbsp;A maior consultoria financeira independente do Brasil&nbsp;&nbsp;·&nbsp;&nbsp;+R$20Bi Sob Consultoria&nbsp;&nbsp;·&nbsp;&nbsp;+25k Clientes&nbsp;&nbsp;·&nbsp;&nbsp;+700 Consultores&nbsp;&nbsp;·&nbsp;&nbsp;97 NPS&nbsp;&nbsp;·&nbsp;&nbsp;Fee Based&nbsp;&nbsp;·&nbsp;&nbsp;Sem conflito&nbsp;&nbsp;·&nbsp;&nbsp;100% alinhada com você&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span style="flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);padding-right:48px">Investir é coisa séria, mas não precisa ser complicado&nbsp;&nbsp;·&nbsp;&nbsp;A maior consultoria financeira independente do Brasil&nbsp;&nbsp;·&nbsp;&nbsp;+R$20Bi Sob Consultoria&nbsp;&nbsp;·&nbsp;&nbsp;+25k Clientes&nbsp;&nbsp;·&nbsp;&nbsp;+700 Consultores&nbsp;&nbsp;·&nbsp;&nbsp;97 NPS&nbsp;&nbsp;·&nbsp;&nbsp;Fee Based&nbsp;&nbsp;·&nbsp;&nbsp;Sem conflito&nbsp;&nbsp;·&nbsp;&nbsp;100% alinhada com você&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- PORTFEL STATS BAR -->
+<section style="background:var(--vio3)">
+  <div class="stats-grid" style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+    <div data-reveal style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:#fff;line-height:.92;letter-spacing:-.02em">+R$20<em style="font-style:normal;font-size:.5em">Bi</em></div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">sob consultoria</div>
+    </div>
+    <div data-reveal data-reveal-delay=".12" style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:#fff;line-height:.92;letter-spacing:-.02em">+25<em style="font-style:normal;font-size:.5em">k</em></div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">clientes</div>
+    </div>
+    <div data-reveal data-reveal-delay=".24" style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:#fff;line-height:.92;letter-spacing:-.02em">+700</div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">consultores</div>
+    </div>
+    <div data-reveal data-reveal-delay=".36" style="padding:48px 40px;text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:var(--grn);line-height:.92;letter-spacing:-.02em">97</div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">NPS</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);text-align:center;padding:10px">
+    <span style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2)">Leonardo Arruda &amp; Portfel · 2026</span>
+  </div>
+</section>
+
+<!-- MÃDIA / PRESS -->
+<section style="background:var(--bg);padding:72px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="text-align:center;margin-bottom:44px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Reconhecimento</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(28px,2.5vw,42px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">A consultoria que está mudando o mercado <br><em style="font-style:italic;color:var(--vio2)">e sendo reconhecida por isso.</em></h2>
+      <p style="font-family:var(--s);font-size:15px;line-height:1.7;color:var(--mut);margin-top:18px;font-weight:300;max-width:600px;margin-left:auto;margin-right:auto">Minha atuação tem sido destaque nos principais veículos de negócios e finanças:</p>
+    </div>
+    
+    <div class="media-logos" data-reveal data-reveal-delay=".1" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;opacity:.5;transition:opacity .3s">
+      <img src="midias/fotos da midia/logo_infomoney.webp" alt="InfoMoney" style="height:26px;filter:brightness(0) invert(1);object-fit:contain">
+      <img src="midias/fotos da midia/logo_estadao.webp" alt="Estadão" style="height:26px;filter:brightness(0) invert(1);object-fit:contain">
+      <img src="midias/fotos da midia/logo_gazeta_do_povo.webp" alt="Gazeta do Povo" style="height:26px;filter:brightness(0) invert(1);object-fit:contain">
+      <img src="midias/fotos da midia/logo_jovem_pan.webp" alt="Jovem Pan" style="height:32px;filter:brightness(0) invert(1);object-fit:contain">
+      <img src="midias/fotos da midia/logo_bp_money.webp" alt="BP Money" style="height:28px;filter:brightness(0) invert(1);object-fit:contain">
+      <img src="midias/fotos da midia/logo_din.webp" alt="Dinheiro" style="height:24px;filter:brightness(0) invert(1);object-fit:contain">
+      <img src="midias/fotos da midia/logo_valores_rs.webp" class="logo-valores" alt="Valores RS" style="height:48px;filter:brightness(0) invert(1);object-fit:contain">
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFIA -->
+<section style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div class="filo-flex" data-reveal style="display:flex;gap:72px;align-items:flex-start">
+      <div style="flex:none;font-family:var(--m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);padding-top:10px;width:140px;line-height:1.8">Filosofia</div>
+      <blockquote style="font-family:var(--d);font-weight:400;font-size:clamp(28px,3vw,48px);line-height:1.1;letter-spacing:-.015em;color:var(--txt)">"O objetivo não é fazer mais barulho. É tomar <em style="font-style:italic;color:var(--grn)">decisões melhores</em> com o patrimônio que você construiu."</blockquote>
+    </div>
+  </div>
+</section>
+
+<style>
+.sobre-section { position: relative; background: var(--bg); padding: 120px 0; border-top: 1px solid var(--brd); display: flex; align-items: center; min-height: 850px; overflow: hidden; }
+.sobre-img-box[data-reveal] { position: absolute; top: 0; bottom: 0; left: 0; width: 38%; border-radius: 0 40px 40px 0; overflow: hidden; z-index: 1; transform: translateX(-150px); opacity: 0; transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.2s ease; }
+.sobre-img-box[data-reveal].in { transform: translateX(0); opacity: 1; }
+.sobre-text-box { max-width: 1300px; margin: 0 auto; width: 100%; display: flex; justify-content: flex-end; padding: 0 56px; position: relative; z-index: 2; }
+.sobre-text-inner { width: 48%; }
+@media(max-width: 900px) {
+  .sobre-section { flex-direction: column; padding: 56px 24px; min-height: auto; display: block; }
+  .sobre-img-box[data-reveal] { position: relative; width: 100%; height: 550px; border-radius: 20px; transform: translateY(30px); margin-bottom: 40px; }
+  .sobre-img-box[data-reveal].in { transform: translateY(0); }
+  .sobre-text-box { padding: 0; display: block; }
+  .sobre-text-inner { width: 100%; }
+}
+</style>
+
+<!-- SOBRE -->
+<section id="sobre" class="sobre-section">
+  <div data-reveal class="sobre-img-box">
+    <img src="midias/fotos novas do leonardo/leonardo-arruda-consultor-de-investimentos-portfel (4).jpeg" alt="Leonardo Arruda" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:saturate(0.6) contrast(1.05);">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(4,2,12,0.9) 0%, transparent 40%);"></div>
+    <div style="position:absolute;bottom:40px;left:40px;right:40px;">
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(4,2,12,.82);border:1px solid var(--brd2);border-radius:8px;max-width:max-content;backdrop-filter:blur(10px)">
+        <img src="midias/selo-anbima.webp" alt="ANBIMA CEA" style="width:38px;height:38px;filter:invert(1);mix-blend-mode:screen;object-fit:contain;flex:none">
+        <div>
+          <div style="font-family:var(--d);font-weight:500;font-size:15px;color:var(--txt)">ANBIMA CEA</div>
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub)">Profissional certificado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sobre-text-box">
+    <div class="sobre-text-inner">
+      <div data-reveal>
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--vio2);margin-bottom:22px">Leonardo Arruda</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(34px,3vw,52px);line-height:1.05;letter-spacing:-.02em;color:var(--txt)">Uma carreira construída sobre <em style="font-style:italic;color:var(--vio2)">clareza</em> e não sobre promessas.</h2>
+      <div style="width:40px;height:1px;background:var(--brd2);margin:28px 0"></div>
+      <p style="font-family:var(--s);font-size:16px;line-height:1.78;color:var(--mut);font-weight:300"><strong style="color:#fff;font-weight:600;font-size:18px">Leonardo Arruda</strong> é consultor de investimentos certificado ANBIMA CEA, com atuação através da <strong style="color:var(--txt);font-weight:500">Portfel</strong>, plataforma do Grupo Primo. Atende investidores, empresários e famílias com patrimônio relevante que buscam estratégia, organização e acompanhamento de longo prazo.</p>
+      <p style="font-family:var(--s);font-size:16px;line-height:1.78;color:var(--mut);margin-top:16px;font-weight:300">Sua abordagem une rigor técnico com linguagem acessível: diagnóstico completo, alocação estruturada e presença constante em cada decisão relevante.</p>
+      <div class="sobre-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px">
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:7px">Certificação</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">ANBIMA CEA</div>
+        </div>
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:7px">Plataforma</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Portfel · Grupo Primo</div>
+        </div>
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:7px">Foco</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Patrimônio e Estratégia</div>
+        </div>
+        <!-- MODELO: FEE BASED COM TOOLTIP -->
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:7px">Modelo</div>
+          <div class="tip">
+            <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Fee Based</div>
+            <span class="tip-icon">?</span>
+            <div class="tip-box">
+              <p><strong>Fee Based</strong> significa que Leonardo é remunerado diretamente pelo investidor, não pelos bancos ou gestoras. Qualquer comissão ou benefício recebido das instituições é <strong>integralmente devolvido ao cliente</strong>. O consultor trabalha para você, não para quem quer te vender algo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="margin-bottom:52px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Para quem</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Quem busca essa consultoria.</h2>
+    </div>
+    <div class="para-quem-grid" data-reveal style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd)">
+      <div style="background:var(--s1);padding:44px 38px">
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">01</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:26px;letter-spacing:-.015em;color:var(--txt);margin-bottom:12px">Investidor em crescimento</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.68;color:var(--mut);font-weight:300">Já investe mas sente falta de estratégia e de alguém que entenda o cenário completo. Sem empurrão de produto.</p>
+      </div>
+      <div style="background:var(--s2);padding:44px 38px">
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">02</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:26px;letter-spacing:-.015em;color:var(--txt);margin-bottom:12px">Empresário e C-level</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.68;color:var(--mut);font-weight:300">Renda relevante, agenda intensa. Quer clareza patrimonial e eficiência nas decisões sem precisar virar especialista.</p>
+      </div>
+      <div style="background:var(--s1);padding:44px 38px">
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">03</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:26px;letter-spacing:-.015em;color:var(--txt);margin-bottom:12px">Família patrimonial</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.68;color:var(--mut);font-weight:300">Pensa em décadas: proteção, sucessão e preservação. Quer um consultor que proteja o que foi construído.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS INTERATIVO -->
+<style>
+.svc-wrap{display:grid;grid-template-columns:280px 1fr;border:1px solid var(--brd);border-radius:14px;overflow:hidden;min-height:520px}
+.svc-nav{border-right:1px solid var(--brd);display:flex;flex-direction:column}
+.svc-tab{all:unset;display:flex;flex-direction:column;gap:5px;padding:26px 28px;cursor:pointer;position:relative;border-bottom:1px solid var(--brd);transition:background .25s;overflow:hidden}
+.svc-tab:last-child{border-bottom:none;flex:1}
+.svc-tab::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--vio2);transform:scaleY(0);transition:transform .3s cubic-bezier(.22,.61,.36,1);transform-origin:bottom}
+.svc-tab:hover{background:rgba(59,54,204,.05)}
+.svc-tab.is-active{background:rgba(59,54,204,.09)}
+.svc-tab.is-active::before{transform:scaleY(1)}
+.svc-tab-num{font-family:var(--m);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--sub);transition:color .25s}
+.svc-tab.is-active .svc-tab-num{color:var(--vio2)}
+.svc-tab-name{font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em;line-height:1.1}
+.svc-tab-count{font-family:var(--m);font-size:9px;letter-spacing:.12em;color:var(--sub);text-transform:uppercase;margin-top:2px;transition:color .25s}
+.svc-tab.is-active .svc-tab-count{color:var(--vio2)}
+/* Indicador de progresso da tab */
+.svc-tab-bar{height:2px;border-radius:1px;background:rgba(107,102,232,.18);margin-top:10px;overflow:hidden}
+.svc-tab-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--vio),var(--vio2));transition:width .35s}
+.svc-tab.is-active .svc-tab-bar-fill{width:100%}
+
+/* PAINEL DE CONTEÚDO */
+.svc-panels{position:relative;background:url('midias/servicos-conceito.png') center/cover no-repeat;}
+.svc-panels::before{content:'';position:absolute;inset:0;background:rgba(4,2,12,.88)}
+.svc-panel{position:absolute;inset:0;padding:44px 48px;display:none;flex-direction:column;z-index:2}
+.svc-panel.is-active{display:flex}
+
+/* Número decorativo de fundo */
+.svc-panel-bg-num{position:absolute;right:20px;bottom:-20px;font-family:var(--d);font-weight:300;font-size:220px;line-height:1;letter-spacing:-.05em;color:rgba(255,255,255,.025);pointer-events:none;user-select:none}
+
+/* Header do painel */
+.svc-panel-label{font-family:var(--m);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--vio2);margin-bottom:12px}
+.svc-panel-title{font-family:var(--d);font-weight:400;font-size:clamp(28px,2.4vw,36px);color:var(--txt);letter-spacing:-.02em;line-height:1;margin-bottom:6px}
+.svc-panel-desc{font-family:var(--s);font-size:13.5px;color:var(--sub);font-weight:300;margin-bottom:30px;line-height:1.6}
+
+/* Cards de serviço */
+.svc-items{display:flex;flex-direction:column;gap:28px;flex:1;padding-top:10px}
+.svc-item{display:flex;flex-direction:column;gap:6px;padding-left:24px;border-left:1px solid var(--brd2);cursor:default;transition:transform .3s ease,border-color .3s;opacity:0;transform:translateY(14px)}
+.svc-item.in{opacity:1;transform:none}
+.svc-item:hover{transform:translateX(5px);border-left-color:var(--vio2)}
+.svc-item-name{font-family:var(--s);font-size:18px;color:#fff;font-weight:400;line-height:1.2;letter-spacing:-0.01em}
+.svc-item-desc{font-family:var(--s);font-size:14px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.5}
+
+/* Variantes de cor por tab */
+.svc-tab[data-tab="1"].is-active::before{background:var(--grn)}
+.svc-tab[data-tab="1"].is-active .svc-tab-num,
+.svc-tab[data-tab="1"].is-active .svc-tab-count{color:var(--grn)}
+.svc-tab[data-tab="1"].is-active .svc-tab-bar-fill{background:linear-gradient(90deg,var(--grn),var(--grn2))}
+.svc-panel[data-panel="1"] .svc-panel-label{color:var(--grn)}
+.svc-panel[data-panel="1"] .svc-item:hover{border-left-color:var(--grn)}
+
+.svc-tab[data-tab="2"].is-active::before{background:#8B7FE8}
+.svc-tab[data-tab="2"].is-active .svc-tab-num,
+.svc-tab[data-tab="2"].is-active .svc-tab-count{color:#8B7FE8}
+.svc-tab[data-tab="2"].is-active .svc-tab-bar-fill{background:linear-gradient(90deg,#3B36CC,#8B7FE8)}
+.svc-panel[data-panel="2"] .svc-panel-label{color:#8B7FE8}
+.svc-panel[data-panel="2"] .svc-item:hover{border-left-color:#8B7FE8}
+
+.svc-tab[data-tab="3"].is-active::before{background:#C4A97D}
+.svc-tab[data-tab="3"].is-active .svc-tab-num,
+.svc-tab[data-tab="3"].is-active .svc-tab-count{color:#C4A97D}
+.svc-tab[data-tab="3"].is-active .svc-tab-bar-fill{background:linear-gradient(90deg,#8B7040,#C4A97D)}
+.svc-panel[data-panel="3"] .svc-panel-label{color:#C4A97D}
+.svc-panel[data-panel="3"] .svc-item:hover{border-left-color:#C4A97D}
+</style>
+
+<section id="servicos" style="background:var(--bg);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+
+    <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px">
+      <div>
+        <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Escopo de atuação</div>
+        <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(36px,3.2vw,54px);line-height:.97;letter-spacing:-.02em;color:var(--txt)">Quatro pilares.<br>Um patrimônio completo.</h2>
+      </div>
+      <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub)">via Portfel Platform</div>
+    </div>
+
+    <div data-reveal class="svc-wrap">
+
+      <!-- ABAS LATERAIS -->
+      <div class="svc-nav">
+        <button class="svc-tab is-active" data-tab="0">
+          <div class="svc-tab-num">01</div>
+          <div class="svc-tab-name">Planejamento <br>Financeiro</div>
+          <div class="svc-tab-count">4 serviços</div>
+          <div class="svc-tab-bar"><div class="svc-tab-bar-fill"></div></div>
+        </button>
+        <button class="svc-tab" data-tab="1">
+          <div class="svc-tab-num">02</div>
+          <div class="svc-tab-name">Previdência <br>e Seguros</div>
+          <div class="svc-tab-count">4 serviços</div>
+          <div class="svc-tab-bar"><div class="svc-tab-bar-fill"></div></div>
+        </button>
+        <button class="svc-tab" data-tab="2">
+          <div class="svc-tab-num">03</div>
+          <div class="svc-tab-name">Proteção <br>e Riscos</div>
+          <div class="svc-tab-count">4 serviços</div>
+          <div class="svc-tab-bar"><div class="svc-tab-bar-fill"></div></div>
+        </button>
+        <button class="svc-tab" data-tab="3">
+          <div class="svc-tab-num">04</div>
+          <div class="svc-tab-name">Serviços <br>Especiais</div>
+          <div class="svc-tab-count">4 serviços</div>
+          <div class="svc-tab-bar"><div class="svc-tab-bar-fill"></div></div>
+        </button>
+      </div>
+
+      <!-- PAINÉIS -->
+      <div class="svc-panels">
+
+        <!-- PAINEL 0: PLANEJAMENTO -->
+        <div class="svc-panel is-active" data-panel="0">
+          <div class="svc-panel-bg-num">01</div>
+          <div class="svc-panel-label">Planejamento Financeiro</div>
+          <div class="svc-panel-title">Organização e <br>crescimento patrimonial.</div>
+          <div class="svc-panel-desc">Estratégia de longo prazo, carteira estruturada e acesso a produtos exclusivos.</div>
+          <div class="svc-items">
+            <div class="svc-item">
+              <div class="svc-item-name">Carteira de Investimentos</div>
+              <div class="svc-item-desc">Gestão ativa e alocação estruturada.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Fundo Exclusivo</div>
+              <div class="svc-item-desc">Eficiência tributária e sucessória.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Fundo Exclusivo de Previdência</div>
+              <div class="svc-item-desc">Benefícios fiscais focados no longo prazo.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Financiamento Imobiliário</div>
+              <div class="svc-item-desc">Acesso a capital com taxas otimizadas.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAINEL 1: PREVIDÊNCIA -->
+        <div class="svc-panel" data-panel="1">
+          <div class="svc-panel-bg-num">02</div>
+          <div class="svc-panel-label">Previdência e Seguros</div>
+          <div class="svc-panel-title">Proteção para o <br>que mais importa.</div>
+          <div class="svc-panel-desc">Planejamento de longo prazo com proteção de vida, renda e legado familiar.</div>
+          <div class="svc-items">
+            <div class="svc-item">
+              <div class="svc-item-name">Previdência Privada</div>
+              <div class="svc-item-desc">Planejamento de aposentadoria blindado.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Pan American Seguros</div>
+              <div class="svc-item-desc">Proteção internacional de alto padrão.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Seguros de Vida</div>
+              <div class="svc-item-desc">Liquidez imediata na sucessão.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Fundo Exclusivo de Previdência</div>
+              <div class="svc-item-desc">Benefícios fiscais focados no longo prazo.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAINEL 2: PROTEÇÃO -->
+        <div class="svc-panel" data-panel="2">
+          <div class="svc-panel-bg-num">03</div>
+          <div class="svc-panel-label">Proteção e Riscos</div>
+          <div class="svc-panel-title">Estrutura que preserva <br>o que foi construído.</div>
+          <div class="svc-panel-desc">Blindagem patrimonial, internacionalização e proteção de operações comerciais.</div>
+          <div class="svc-items">
+            <div class="svc-item">
+              <div class="svc-item-name">Holding Patrimonial</div>
+              <div class="svc-item-desc">Blindagem e sucessão em vida.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Holding Offshore</div>
+              <div class="svc-item-desc">Proteção e diversificação global.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Unit Linked</div>
+              <div class="svc-item-desc">Investimento no exterior com seguro.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Proteção p/ Exportações e Importações</div>
+              <div class="svc-item-desc">Hedge cambial e mitigação de riscos.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAINEL 3: ESPECIAIS -->
+        <div class="svc-panel" data-panel="3">
+          <div class="svc-panel-bg-num">04</div>
+          <div class="svc-panel-label">Serviços Especiais</div>
+          <div class="svc-panel-title">Operações complexas.<br>Atendimento exclusivo.</div>
+          <div class="svc-panel-desc">Para clientes com necessidades sofisticadas e operações corporativas estratégicas.</div>
+          <div class="svc-items">
+            <div class="svc-item">
+              <div class="svc-item-name">Private Banking</div>
+              <div class="svc-item-desc">Acesso a mesas exclusivas.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Concierge</div>
+              <div class="svc-item-desc">Gestão de estilo de vida e facilitadores.</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">M&amp;A   Fusões e Aquisições</div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-item-name">Estruturação de Recebíveis</div>
+              <div class="svc-item-desc">Otimização do fluxo de caixa empresarial.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /svc-panels -->
+    </div><!-- /svc-wrap -->
+  </div>
+</section>
+
+<script>
+(function(){
+  const tabs = document.querySelectorAll('.svc-tab');
+  const panels = document.querySelectorAll('.svc-panel');
+
+  function activateTab(idx){
+    tabs.forEach(t => t.classList.remove('is-active'));
+    panels.forEach(p => { p.classList.remove('is-active'); });
+    tabs[idx].classList.add('is-active');
+
+    // Stagger items entrance
+    const panel = panels[idx];
+    const items = panel.querySelectorAll('.svc-item');
+    items.forEach(item => { item.classList.remove('in'); item.style.transitionDelay = '0s'; });
+
+    // Small tick to trigger reflow, then animate in
+    requestAnimationFrame(() => {
+      panel.classList.add('is-active');
+      requestAnimationFrame(() => {
+        items.forEach((item, i) => {
+          item.style.transitionDelay = (i * 0.07) + 's';
+          item.classList.add('in');
+        });
+      });
+    });
+  }
+
+  // Init: animate first panel on load
+  activateTab(0);
+
+  tabs.forEach((tab, idx) => {
+    tab.addEventListener('click', () => activateTab(idx));
+  });
+})();
+</script>
+
+<!-- MÉTODO -->
+<style>
+/* TIMELINE CONNECTOR */
+.met-wrap{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.met-connector{position:absolute;top:52px;left:calc(16.666% + 28px);right:calc(16.666% + 28px);height:1px;background:var(--brd);z-index:0}
+.met-connector-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--vio),var(--grn));transition:width 1.4s 0.3s cubic-bezier(.22,.61,.36,1)}
+.met-connector-fill.filled{width:100%}
+
+/* STEP CARDS */
+.met-step{position:relative;z-index:1;padding:0 28px;display:flex;flex-direction:column;cursor:default}
+.met-step-dot{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:28px;position:relative;transition:transform .25s,box-shadow .25s;flex:none}
+.met-step-dot::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid transparent;transition:border-color .3s,inset .3s}
+.met-step:hover .met-step-dot{transform:translateY(-4px)}
+
+.met-step-dot-1{background:rgba(59,54,204,.18);color:var(--vio2)}
+.met-step:hover .met-step-dot-1{box-shadow:0 0 32px rgba(59,54,204,.4)}
+.met-step:hover .met-step-dot-1::before{border-color:rgba(59,54,204,.3);inset:-14px}
+
+.met-step-dot-2{background:rgba(107,102,232,.18);color:var(--vio2)}
+.met-step:hover .met-step-dot-2{box-shadow:0 0 32px rgba(107,102,232,.4)}
+.met-step:hover .met-step-dot-2::before{border-color:rgba(107,102,232,.3);inset:-14px}
+
+.met-step-dot-3{background:rgba(28,217,138,.15);color:var(--grn)}
+.met-step:hover .met-step-dot-3{box-shadow:0 0 32px rgba(28,217,138,.35)}
+.met-step:hover .met-step-dot-3::before{border-color:rgba(28,217,138,.28);inset:-14px}
+
+.met-step-num{font-family:var(--m);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--sub);margin-bottom:10px}
+.met-step-hook{font-family:var(--d);font-weight:400;font-size:clamp(16px,1.4vw,20px);font-style:italic;color:var(--vio2);margin-bottom:12px;line-height:1.25}
+.met-step-hook-2{color:var(--vio2)}
+.met-step-hook-3{color:var(--grn)}
+.met-step-title{font-family:var(--d);font-weight:500;font-size:clamp(22px,2vw,28px);letter-spacing:-.015em;color:var(--txt);margin-bottom:14px;line-height:1.0}
+.met-step-desc{font-family:var(--s);font-size:14px;line-height:1.75;color:var(--mut);font-weight:300;flex:1}
+.met-step-badge{display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding:7px 13px;border-radius:30px;font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+.met-step-badge-1{background:rgba(59,54,204,.12);color:var(--vio2);border:1px solid rgba(59,54,204,.25)}
+.met-step-badge-2{background:rgba(107,102,232,.12);color:var(--vio2);border:1px solid rgba(107,102,232,.25)}
+.met-step-badge-3{background:rgba(28,217,138,.1);color:var(--grn);border:1px solid rgba(28,217,138,.22)}
+
+/* DIVIDERS */
+.met-step:not(:first-child)::before{content:'';position:absolute;left:0;top:28px;bottom:28px;width:1px;background:var(--brd)}
+</style>
+
+<section id="metodo" style="background:var(--bg);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+
+    <!-- HEADER -->
+    <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:76px">
+      <div>
+        <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Como funciona</div>
+        <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(34px,3vw,52px);line-height:.97;letter-spacing:-.02em;color:var(--txt)">Três decisões.<br><em style="font-style:italic;color:var(--vio2)">Um caminho sem desvios.</em></h2>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--s);font-size:14px;color:var(--mut);font-weight:300;max-width:28ch;line-height:1.6">Do primeiro diagnóstico ao acompanhamento permanente. Sem atalhos.</div>
+      </div>
+    </div>
+
+<style>
+.met-accordion {
+  display: flex;
+  height: 480px;
+  gap: 12px;
+  width: 100%;
+}
+.met-card {
+  flex: 1;
+  background: url('midias/card_texture.png') center/cover no-repeat;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+}
+.met-card:hover {
+  flex: 4;
+}
+
+.met-card-closed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: scale(-1);
+  padding: 30px;
+  font-family: var(--d);
+  font-size: 24px;
+  color: #fff;
+  white-space: nowrap;
+  transition: opacity 0.4s;
+}
+.met-card:hover .met-card-closed {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.met-card-open {
+  position: absolute;
+  inset: 0;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+  background: var(--s2);
+  min-width: 400px;
+  border: 1px solid rgba(107,102,232,0.15);
+}
+.met-card.is-active .met-card-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.met-card:hover .met-card-open {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0.1s;
+}
+.met-card-open h3 {
+  font-family: var(--d);
+  font-size: clamp(34px, 3.5vw, 44px);
+  color: var(--txt);
+  margin-bottom: 20px;
+  line-height: 1.0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.met-card-open p {
+  font-family: var(--s);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--mut);
+  font-weight: 300;
+}
+.met-card-num {
+  font-family: var(--m);
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--vio2);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+@media(max-width: 900px) {
+  .met-accordion { flex-direction: column; height: auto; gap: 16px; }
+  .met-card { flex: none !important; border-radius: 16px; min-width: 0; height: auto !important; }
+  .met-card-closed { display: none !important; }
+  .met-card-open { position: relative !important; opacity: 1 !important; pointer-events: auto !important; padding: 32px 24px; inset: auto !important; display: flex; flex-direction: column; justify-content: flex-start; }
+  .met-card-open h3 { font-size: 28px; margin-bottom: 16px; margin-top: 0; line-height: 1.1; }
+  .met-card-open p { font-size: 15px; line-height: 1.6; margin: 0; }
+  .met-card-num { margin-bottom: 12px; }
+}
+</style>
+    <div data-reveal class="met-accordion">
+      
+      <!-- CARD 1 -->
+      <div class="met-card is-active">
+        <div class="met-card-closed">01 · Diagnóstico</div>
+        <div class="met-card-open">
+          <div class="met-card-num">01 · Diagnóstico</div>
+          <h3>Entender antes <br>de agir.</h3>
+          <p>Levantamento completo do patrimônio atual, objetivos de vida, perfil de risco e horizonte de tempo. Sem achismos. Com perguntas certas. A maioria das carteiras erradas começa aqui   no diagnóstico que nunca aconteceu.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="met-card">
+        <div class="met-card-closed">02 · Estratégia</div>
+        <div class="met-card-open">
+          <div class="met-card-num">02 · Estratégia</div>
+          <h3>Estruturar com <br>inteligência.</h3>
+          <p>Alocação personalizada alinhada aos seus objetivos reais   não aos produtos do banco. Acesso ao ecossistema completo da Portfel: fundos exclusivos, estruturas offshore e soluções que as agências não oferecem.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="met-card">
+        <div class="met-card-closed">03 · Acompanhamento</div>
+        <div class="met-card-open">
+          <div class="met-card-num">03 · Acompanhamento</div>
+          <h3>Presença contínua.<br>Sem interrupção.</h3>
+          <p>Revisões periódicas, ajustes conforme o cenário econômico e acesso direto ao consultor quando você precisar. Uma parceria construída para durar décadas   não uma venda pontual com meta de trimestre.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM STRIP: GARANTIAS -->
+    <div class="garantias-grid" data-reveal style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd2);margin-top:70px;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.2)">
+      <div style="background:var(--s2);padding:28px 32px;display:flex;flex-direction:column;gap:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--txt)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <span style="font-family:var(--s);font-size:15px;color:var(--mut);font-weight:300;line-height:1.4">Atendimento ágil <br><strong style="color:var(--txt);font-weight:500;font-size:17px">Respostas rápidas</strong></span>
+      </div>
+      <div style="background:var(--s2);padding:28px 32px;display:flex;flex-direction:column;gap:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--txt)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-family:var(--s);font-size:15px;color:var(--mut);font-weight:300;line-height:1.4">Modelo fee-based <br><strong style="color:var(--txt);font-weight:500;font-size:17px">Sem conflito</strong></span>
+      </div>
+      <div style="background:var(--s2);padding:28px 32px;display:flex;flex-direction:column;gap:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--txt)" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span style="font-family:var(--s);font-size:15px;color:var(--mut);font-weight:300;line-height:1.4">Alinhamento total <br><strong style="color:var(--txt);font-weight:500;font-size:17px">1ª conversa grátis</strong></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- INSTITUIÇÕES -->
+<section style="background:var(--s2);padding:72px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto;display:flex;flex-direction:column;align-items:center">
+    <div data-reveal style="text-align:center;margin-bottom:44px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grn);margin-bottom:14px">Independência real</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(28px,2.5vw,42px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Atendo você em qualquer <br>instituição financeira.</h2>
+      <p style="font-family:var(--s);font-size:15px;line-height:1.7;color:var(--mut);margin-top:18px;font-weight:300;max-width:600px;margin-left:auto;margin-right:auto">Sou um consultor 100% independente. Tudo com transparência e foco exclusivo em você, sem viés comercial ou gerentes bancários.</p>
+    </div>
+    
+<style>
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 40px 0;
+  display: flex;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  animation: scrollMarquee 40s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.marquee-track img {
+  height: 48px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(2) contrast(0.5);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  margin: 0 60px;
+}
+.marquee-track img:hover {
+  opacity: 1;
+  filter: none;
+}
+</style>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <img src="midias/bancos parceiros/btg-pactual-nome-.svg" alt="BTG Pactual">
+        <img src="midias/bancos parceiros/xp-investimentos-logo.svg" alt="XP Investimentos" style="height:58px">
+        <img src="midias/bancos parceiros/logo-safra.svg" alt="Safra" style="height:44px">
+        <img src="midias/bancos parceiros/morganstanley.webp" alt="Morgan Stanley" style="height:44px">
+        <img src="midias/bancos parceiros/inter.svg" alt="Inter" style="height:44px">
+        <img src="midias/bancos parceiros/logo-new-avenue.svg" alt="Avenue" style="height:44px">
+        <img src="midias/bancos parceiros/nomad.webp" alt="Nomad" style="height:44px">
+        <img src="midias/bancos parceiros/agora.webp" alt="Agora" style="height:44px">
+        <!-- DUPLICATE SET -->
+        <img src="midias/bancos parceiros/btg-pactual-nome-.svg" alt="BTG Pactual">
+        <img src="midias/bancos parceiros/xp-investimentos-logo.svg" alt="XP Investimentos" style="height:58px">
+        <img src="midias/bancos parceiros/logo-safra.svg" alt="Safra" style="height:44px">
+        <img src="midias/bancos parceiros/morganstanley.webp" alt="Morgan Stanley" style="height:44px">
+        <img src="midias/bancos parceiros/inter.svg" alt="Inter" style="height:44px">
+        <img src="midias/bancos parceiros/logo-new-avenue.svg" alt="Avenue" style="height:44px">
+        <img src="midias/bancos parceiros/nomad.webp" alt="Nomad" style="height:44px">
+        <img src="midias/bancos parceiros/agora.webp" alt="Agora" style="height:44px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFEL PARCERIA -->
+<section id="parceria" style="position:relative;padding:80px 56px;border-top:1px solid rgba(59,54,204,.35);overflow:hidden;background:#04020C;">
+  <!-- FOTO MAIS LARGA (Ajuste no background-size e mask) -->
+  <div class="parceria-bg" style="position:absolute;inset:0;background-image:url('midias/fotos novas do leonardo/leonardo-arruda-consultor-de-investimentos-portfel (1).jpeg');background-size: 52vw auto;background-repeat:no-repeat;background-position:right 20%;z-index:0;mask-image:linear-gradient(to right, transparent 0%, black 20%);-webkit-mask-image:linear-gradient(to right, transparent 0%, black 20%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top, #04020C 0%, transparent 15%), linear-gradient(90deg, #04020C 0%, rgba(4,2,12,0.85) 45%, transparent 80%);z-index:1;"></div>
+  
+  <div style="max-width:1300px;margin:0 auto;position:relative;z-index:2;">
+    <!-- TÍTULO À ESQUERDA -->
+    <div data-reveal class="parceria-title-wrap" style="text-align:left;margin-bottom:64px;max-width:58%;">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:20px">O que Leonardo Arruda &amp; Portfel oferecem?</div>
+      <h2 style="font-family:var(--d);font-weight:300;font-size:clamp(36px,4vw,66px);line-height:.97;letter-spacing:-.025em;color:#fff">Estrutura de elite <br><em style="font-style:italic;color:var(--grn)">para o seu patrimônio.</em></h2>
+      <p class="parceria-subtext" style="font-family:var(--s);font-size:17px;line-height:1.7;color:rgba(255,255,255,.48);margin:22px 0 0;max-width:56ch;font-weight:300">Minha consultoria une o atendimento pessoal, próximo e artesanal com a estrutura institucional robusta da maior plataforma independente do Brasil.</p>
+    </div>
+    
+    <!-- GRID DE 3 COLUNAS (TEXTO, CARDS, ESPAÇO PARA FOTO) -->
+    <div class="parceria-grid" data-reveal style="display:grid;grid-template-columns: 3fr 4fr 5fr;gap:60px;align-items:start">
+      <div>
+        
+        
+        <!-- IMAGEM MOBILE REVELADA APENAS NO CELULAR -->
+        <img src="midias/fotos novas do leonardo/leonardo-arruda-consultor-de-investimentos-portfel (1).jpeg" alt="Leonardo Arruda Segurando Prêmio" class="mobile-parceria-img" style="display:none;">
+        <p style="font-family:var(--s);font-size:16px;line-height:1.75;color:rgba(255,255,255,.52);font-weight:300">Atuo através da <strong style="color:#fff;font-weight:500">Portfel</strong>, consultoria do ecossistema <strong style="color:#fff;font-weight:500">Grupo Primo</strong>. Juntos, entregamos o que há de melhor no mercado financeiro global. Acesso a estruturas e soluções avançadas que não estão disponíveis no varejo bancário.</p>
+        <a href="https://portfel.com.br" target="_blank" style="display:inline-flex;margin-top:40px;padding:16px 32px;background:linear-gradient(90deg, rgba(255,255,255,.1), rgba(255,255,255,.05));color:#fff;font-family:var(--s);font-weight:500;font-size:14px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,.16);transition:background 0.3s, transform 0.3s;box-shadow: 0 4px 15px rgba(0,0,0,0.2)" onmouseover="this.style.background='linear-gradient(90deg, rgba(255,255,255,.15), rgba(255,255,255,.08))'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='linear-gradient(90deg, rgba(255,255,255,.1), rgba(255,255,255,.05))'; this.style.transform='none'">Conhecer a estrutura</a>
+      </div>
+      
+      <!-- CARDS MAIS ESPALHADOS E BONITOS -->
+      <div style="display:grid;gap:24px">
+        <div style="padding:28px 32px;background:linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:16px;backdrop-filter:blur(10px);box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(28,217,138,0.4)'" onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,.08)'">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--grn);box-shadow:0 0 10px var(--grn)"></div>
+            <div style="font-family:var(--d);font-weight:500;font-size:22px;color:#fff;">Fee Based</div>
+          </div>
+          <div style="font-family:var(--s);font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:300">Remuneração transparente, alinhada ao cliente e nunca ao produto.</div>
+        </div>
+        
+        <div style="padding:28px 32px;background:linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:16px;backdrop-filter:blur(10px);box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(28,217,138,0.4)'" onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,.08)'">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--grn);box-shadow:0 0 10px var(--grn)"></div>
+            <div style="font-family:var(--d);font-weight:500;font-size:22px;color:#fff;">Produtos exclusivos</div>
+          </div>
+          <div style="font-family:var(--s);font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:300">Fundos exclusivos, estruturas offshore e produtos que bancos não oferecem.</div>
+        </div>
+        
+        <div style="padding:28px 32px;background:linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:16px;backdrop-filter:blur(10px);box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-5px)';this.style.borderColor='rgba(28,217,138,0.4)'" onmouseout="this.style.transform='none';this.style.borderColor='rgba(255,255,255,.08)'">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--grn);box-shadow:0 0 10px var(--grn)"></div>
+            <div style="font-family:var(--d);font-weight:500;font-size:22px;color:#fff;">Plataforma nacional</div>
+          </div>
+          <div style="font-family:var(--s);font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:300">Infraestrutura e tecnologia de uma das maiores consultorias do Grupo Primo.</div>
+        </div>
+      </div>
+      <div></div> <!-- Coluna vazia para a foto ocupar o espaço -->
+    </div>
+  </div>
+</section>
+
+<!-- PRESENÇA / ONDE LEO ATENDE -->
+<section id="presenca" style="position:relative;background:var(--bg);padding:140px 56px;border-top:1px solid var(--brd);overflow:hidden;">
+  <div class="map-bg" style="position:absolute;top:0;bottom:0;right:0;width:55%;background:url('midias/Mapa de Atendimento.jpeg') center/cover no-repeat;mask-image:linear-gradient(to right, transparent, black 40%);-webkit-mask-image:linear-gradient(to right, transparent, black 40%);opacity:.65"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to right, var(--bg) 40%, transparent);pointer-events:none"></div>
+  
+  <div style="max-width:1300px;margin:0 auto;position:relative;z-index:2">
+    <div data-reveal style="max-width:550px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grn);margin-bottom:20px">Atendimento Global</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(36px,3.5vw,52px);line-height:1.05;letter-spacing:-.02em;color:var(--txt)">Hoje tenho clientes em todo o Brasil e na Europa.</h2>
+      
+      <div style="display:flex;align-items:center;gap:16px;margin-top:48px;margin-bottom:48px">
+        <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;flex:none;border:1px solid var(--brd2)">
+          <img src="midias/leo-photo-2.jpg" alt="Leonardo Arruda" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;filter:saturate(.5) contrast(1.1)">
+        </div>
+        <div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Leonardo Arruda</div>
+          <div style="font-family:var(--m);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);margin-top:3px">Consultor · Atendimento Remoto e Presencial</div>
+        </div>
+      </div>
+
+      <a href="https://forms.office.com/pages/responsepage.aspx?id=0sB_G11vUEO_0B1-yL_T41SihZlTmsJEnYw1V7x5G8RURVhRMFRNMlUyUkhSRUdQUDU4UEs5TEVIMi4u" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;background:var(--txt);color:var(--bg);font-family:var(--s);font-size:15px;font-weight:500;padding:0 36px;height:54px;border-radius:27px;text-decoration:none;transition:transform .2s, opacity .2s;box-shadow:0 10px 30px rgba(237,232,213,.15)">Agendar Reunião</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FAQ -->
+<section style="background:var(--bg);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div class="faq-grid" style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:80px">
+    <div data-reveal>
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Perguntas frequentes</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:36px;line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Dúvidas comuns.</h2>
+    </div>
+    <div data-reveal>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Qual a relação do Leonardo com a Portfel e o Grupo Primo?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">Leonardo Arruda é um consultor de investimentos que atua de forma independente. Desde 2023, escolheu a plataforma da Portfel (ecossistema do Grupo Primo) pela robustez de infraestrutura e acesso a produtos de alto nível no Brasil e no exterior.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Por que contratar consultoria se já invisto sozinho?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">O valor está em organizar melhor a estratégia, reduzir ruído e tomar decisões com mais clareza. Não apenas em indicar produtos.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">O que é Fee Based e por que importa?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">Fee Based significa que Leonardo é remunerado diretamente por você   não pelos bancos ou gestoras. Qualquer comissão recebida das instituições é integralmente devolvida ao cliente. O consultor trabalha exclusivamente nos seus interesses.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Existe conflito de interesse nas recomendações?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">Não. A Portfel opera com remuneração transparente. Sem comissão por produto. A independência é a base do serviço.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Qual o patrimônio mínimo para começar?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">A conversa inicial é aberta. O encaixe ideal é avaliado durante o diagnóstico, de forma honesta e sem pressão.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta" style="position:relative;overflow:hidden;background:var(--s3);padding:140px 56px;border-top:1px solid rgba(59,54,204,.35)">
+  <div style="position:absolute;inset:0;background:url('midias/fotos novas do leonardo/leonardo-arruda-consultor-de-investimentos-portfel (2).jpeg') center 30%/cover no-repeat;opacity:0.65;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top, var(--s3) 10%, transparent);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, var(--s3) 5%, transparent);pointer-events:none"></div>
+
+  <div style="max-width:1300px;margin:0 auto;text-align:center;position:relative;z-index:2">
+    <div data-reveal>
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--vio2);margin-bottom:20px">Pronto para começar?</div>
+      <h2 style="font-family:var(--d);font-weight:300;font-size:clamp(44px,5vw,78px);line-height:1.0;letter-spacing:-.025em;color:var(--txt);text-shadow:0 10px 40px rgba(0,0,0,.5)">Organize o patrimônio <br>que você construiu.</h2>
+      <p style="font-family:var(--s);font-size:18px;line-height:1.65;color:rgba(237,232,213,.7);margin:26px auto 0;max-width:50ch;font-weight:300">Uma conversa inicial. Sem compromisso. Para entender o seu cenário e ver se faz sentido avançar juntos.</p>
+      <div style="margin-top:40px">
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" style="display:inline-flex;align-items:center;justify-content:center;padding:0 48px;height:56px;background:var(--txt);color:var(--bg);font-family:var(--s);font-weight:500;font-size:16px;border-radius:28px;text-decoration:none;box-shadow:0 10px 30px rgba(237,232,213,.2);transition:transform .2s">Agendar conversa sem custo</a>
+      </div>
+      <div style="font-family:var(--m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,232,213,.4);margin-top:28px">Resposta em até 24h · Sem custo · Sem compromisso</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg);padding:60px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div class="footer-top" style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:60px;flex-wrap:wrap;gap:40px">
+      <div>
+        <div style="margin-bottom:24px"><img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:54px;object-fit:contain;"></div>
+        <div style="font-family:var(--s);font-size:13.5px;color:var(--sub);line-height:1.8;font-weight:300">
+          Consultor de Investimentos · ANBIMA CEA <br>
+          Portfel · Grupo Primo <br><br>
+          <strong style="color:var(--txt);font-weight:500">LA CONSULTORIA & NEGÓCIOS</strong><br>
+          CNPJ: 54.475.818/0001-90
+        </div>
+        <div style="font-family:var(--s);font-size:13.5px;color:var(--sub);line-height:1.5;font-weight:300;margin-top:24px;max-width:350px">
+          Acompanhe minha newsletter semanal com as principais notícias do mercado pelo <a href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" style="color:var(--txt);text-decoration:none;font-weight:500">LinkedIn</a>.
+        </div>
+        <div style="display:flex;gap:14px;margin-top:16px">
+          <a href="https://www.instagram.com/leoarruda.s/" target="_blank" style="color:var(--sub);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'" aria-label="Instagram">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" style="color:var(--sub);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'" aria-label="LinkedIn">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links" style="display:flex;gap:80px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">Menu</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="#sobre" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Leonardo Arruda</a>
+            <a href="#servicos" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Escopo de Atuação</a>
+            <a href="#metodo" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">O Método</a>
+            <a href="#presenca" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Atendimento Global</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">Ecossistema</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://portfel.com.br" target="_blank" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Portfel Consultoria</a>
+            <a href="https://investimentos.com.br" target="_blank" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Portal Investimentos.com.br</a>
+            <a href="https://www.grupo-primo.com/" target="_blank" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Grupo Primo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="border-top:1px solid var(--brd2);padding-top:32px;margin-bottom:32px;">
+      <p style="font-family:var(--s);font-size:12px;line-height:1.8;color:rgba(255,255,255,.55);font-weight:300;max-width:1000px;text-align:justify;">
+        A Portfel Consultoria Financeira LTDA, inscrita no CNPJ/ME sob o nº 37.576.416/0001-62, é registrada como Consultoria de Valores Mobiliários na Comissão de Valores Mobiliários (CVM), nos termos da Resolução CVM nº 19/2021 e é controlada pela O Primo Rico Mídia, Educacional e Participações S.A.<br><br>
+        A Portfel não realiza intermediação, custódia ou administração de recursos de clientes. Todas as aplicações devem ser efetuadas diretamente em instituições autorizadas a operar pelo Banco Central do Brasil e/ou pela CVM.<br><br>
+        As informações disponibilizadas têm caráter exclusivamente informativo e não constituem oferta ou recomendação de investimento. Rentabilidade passada não garante resultados futuros.
+      </p>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--brd2)">
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);line-height:1.7">
+        © 2026 Leonardo Arruda. Todos os direitos reservados.<br>
+        Desenvolvido por <a href="https://agenciabrasilis.com" target="_blank" style="color:var(--sub);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'">Agência Brasilis</a>
+      </div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <a href="termos.html" style="color:var(--sub);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'">Política de Privacidade</a>
+        <a href="termos.html" style="color:var(--sub);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'">Termos de Uso</a>
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:8px 16px;border-radius:20px;cursor:pointer;font-family:var(--s);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:6px;transition:all 0.3s;margin-left:10px" onmouseover="this.style.background='#fff';this.style.color='#000'" onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#fff'">
+          Topo
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const FORM = 'https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u';
+
+  // CURSOR
+  const dot=document.getElementById('c-dot'),ring=document.getElementById('c-ring');
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0';});
+  document.addEventListener('mouseenter',()=>{dot.style.opacity='1';ring.style.opacity='1';});
+  (function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.tip').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(28,217,138,.65)';});
+    el.addEventListener('mouseleave',()=>{ring.style.width='38px';ring.style.height='38px';ring.style.borderColor='rgba(59,54,204,.55)';});
+  });
+
+  
+  // MET-CARD HOVER
+  const metCards = document.querySelectorAll('.met-card');
+  metCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      metCards.forEach(c => c.classList.remove('is-active'));
+      card.classList.add('is-active');
+    });
+  });
+
+  
+  // NAV SCROLL EFFECT
+  const siteNav = document.getElementById('site-nav');
+  const navLogo = document.getElementById('nav-logo');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) {
+      siteNav.style.height = '70px';
+      siteNav.style.background = 'rgba(4,2,12,.85)';
+      siteNav.style.backdropFilter = 'blur(22px)';
+      siteNav.style.borderBottom = '1px solid var(--brd)';
+      if(navLogo) navLogo.style.height = '32px';
+    } else {
+      siteNav.style.height = '100px';
+      siteNav.style.background = 'transparent';
+      siteNav.style.backdropFilter = 'blur(0px)';
+      siteNav.style.borderBottom = '1px solid transparent';
+      if(navLogo) navLogo.style.height = '54px';
+    }
+  });
+
+  // REVEAL
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target;
+      const d=el.dataset.revealDelay||'0';
+      el.style.transition='opacity .85s '+d+'s cubic-bezier(.22,.61,.36,1), transform .85s '+d+'s cubic-bezier(.22,.61,.36,1)';
+      el.style.opacity='1';el.style.transform='translateY(0)';
+      io.unobserve(el);
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -28px 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(28px)';io.observe(el);
+  });
+
+  // PARALLAX VÃDEO HERO
+  const vid=document.getElementById('hero-vid');
+  if(vid){window.addEventListener('scroll',()=>{const y=window.pageYOffset;if(y<window.innerHeight*1.2)vid.style.transform='translateY('+(y*0.25)+'px)';},{passive:true});}
+
+  // NAV SCROLL
+  const nav=document.getElementById('site-nav');
+  window.addEventListener('scroll',()=>{nav.style.background=window.pageYOffset>60?'rgba(4,2,12,.96)':'rgba(4,2,12,.72)';},{passive:true});
+
+  // SCROLL PROGRESS
+  const bar=document.getElementById('prog');
+  window.addEventListener('scroll',()=>{const s=window.pageYOffset;const d=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(d>0?(s/d)*100:0)+'%';},{passive:true});
+
+  // FLOATING CTA
+  const fcta=document.getElementById('float-cta');
+  window.addEventListener('scroll',()=>{
+    if(window.pageYOffset>window.innerHeight*.8){fcta.style.opacity='1';fcta.style.transform='translateY(0)';}
+    else{fcta.style.opacity='0';fcta.style.transform='translateY(16px)';}
+  },{passive:true});
+
+  // FAQ
+  document.querySelectorAll('[data-faq-btn]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.closest('[data-faq-item]');
+      const answer=item.querySelector('[data-faq-answer]');
+      const icon=btn.querySelector('[data-faq-icon]');
+      const isOpen=answer.style.maxHeight&&answer.style.maxHeight!=='0px';
+      document.querySelectorAll('[data-faq-answer]').forEach(a=>{a.style.maxHeight='0px';a.style.opacity='0';});
+      document.querySelectorAll('[data-faq-icon]').forEach(i=>{i.textContent='+';i.style.transform='';});
+      if(!isOpen){answer.style.maxHeight=(answer.scrollHeight+40)+'px';answer.style.opacity='1';icon.textContent=' ';icon.style.transform='rotate(180deg)';}
+    });
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

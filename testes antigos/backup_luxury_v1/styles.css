@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Leonardo Arruda - Hi-Fi Luxury Experience
+   Paleta: Midnight Violet (Portfel) + Emerald Green (Assinatura)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+:root {
+  /* Cores de Fundo - Portfel Midnight Violet */
+  --bg-deep: #05040A;        /* Preto com toque violáceo extremo */
+  --bg-surface: #0A0812;     /* Superfície levemente mais clara */
+  --bg-panel: #110D1C;       /* Painéis isolados */
+  
+  /* Cores de Acento */
+  --emerald-core: #00D084;   /* Verde Esmeralda Luminoso (Leo) */
+  --emerald-glow: rgba(0, 208, 132, 0.15);
+  --portfel-violet: #522C9E; /* Roxo Portfel Clássico */
+  
+  /* Tipografia & Elementos */
+  --text-white: #FFFFFF;
+  --text-silver: #A3A1AA;
+  --text-muted: #646070;
+  --line-color: rgba(255, 255, 255, 0.06);
+  
+  /* Fontes */
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-deep);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep);
+  color: var(--text-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--emerald-core);
+  color: #000;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+.display-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.display-title em {
+  font-style: italic;
+  color: var(--text-silver);
+}
+
+.display-title .highlight-emerald {
+  color: var(--emerald-core);
+  font-style: italic;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--emerald-core);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.body-large {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--text-silver);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 700px;
+}
+
+/* ==========================================================================
+   LAYOUT UTILS
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4vw;
+}
+
+.section {
+  padding: 15vh 0;
+  position: relative;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+}
+
+/* ==========================================================================
+   UI COMPONENTS
+   ========================================================================== */
+.btn-emerald {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text-white);
+  border: 1px solid var(--emerald-core);
+  padding: 1.2rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  border-radius: 100px; /* Pill shape */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-emerald::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--emerald-core);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.btn-emerald:hover {
+  color: #000;
+}
+
+.btn-emerald:hover::before {
+  transform: translateY(0);
+}
+
+.line-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line-color);
+  margin: 4rem 0;
+}
+
+/* ==========================================================================
+   HEADER / NAV
+   ========================================================================== */
+.nav-wrapper {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 100;
+  padding: 2rem 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mix-blend-mode: difference; /* Elegância suprema em cima de fundos claros/escuros */
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFF;
+  letter-spacing: -0.01em;
+}
+
+.nav-brand span {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-silver);
+}
+
+.nav-cta {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: #FFF;
+  position: relative;
+}
+
+.nav-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--emerald-core);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.nav-cta:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 10vh;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  top: -20vh;
+  right: -10vw;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, var(--emerald-glow) 0%, transparent 60%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 1100px;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.hero-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-metric strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+.hero-metric span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   STATEMENT / EDITORIAL SECTION
+   ========================================================================== */
+.statement-section {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.2;
+  color: var(--text-white);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.statement-text em {
+  font-style: italic;
+  color: var(--emerald-core);
+}
+
+/* ==========================================================================
+   THE CONFLICT / SOLUTION GRID
+   ========================================================================== */
+.architectural-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  min-height: 80vh;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.arch-visual {
+  border-right: 1px solid var(--line-color);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+  opacity: 0.6;
+  transition: all 1s ease;
+}
+
+.arch-visual:hover .arch-visual-img {
+  filter: grayscale(0%) contrast(1.1);
+  opacity: 1;
+}
+
+/* Marca d'agua gigantesca ao fundo */
+.arch-visual::after {
+  content: 'PORTFEL';
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 15vw;
+  font-weight: 700;
+  color: rgba(255,255,255,0.02);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.arch-content {
+  padding: 8vw 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.arch-list {
+  list-style: none;
+  margin-top: 3rem;
+}
+
+.arch-list-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.arch-list-item:first-child {
+  border-top: 1px solid var(--line-color);
+}
+
+.arch-item-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+}
+
+.arch-item-desc {
+  color: var(--text-silver);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 80%;
+}
+
+/* ==========================================================================
+   FINAL CTA
+   ========================================================================== */
+.monumental-cta {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, var(--bg-panel) 0%, var(--bg-deep) 100%);
+  padding: 0 4vw;
+}
+
+.monumental-cta .display-title {
+  margin-bottom: 3rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.luxury-footer {
+  padding: 4rem 4vw;
+  border-top: 1px solid var(--line-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-white);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   GSAP ANIMATION CLASSES
+   ========================================================================== */
+.gsap-reveal-text {
+  overflow: hidden;
+}
+
+.gsap-reveal-text span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.gsap-clip-img {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  will-change: clip-path;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .architectural-grid {
+    grid-template-columns: 1fr;
+  }
+  .arch-visual {
+    height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid var(--line-color);
+  }
+  .arch-content {
+    padding: 10vw 4vw;
+  }
+  .hero-meta {
+    flex-wrap: wrap;
+  }
+}

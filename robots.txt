@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Allow and encourage AI bots to crawl the site to use the data in AI search tools
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://leonardoarruda.com.br/sitemap.xml

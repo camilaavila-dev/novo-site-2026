@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardo Arruda | Consultoria de Investimentos & Gestão Patrimonial</title>
+  <meta name="description" content="Consultoria de investimentos sem conflito de interesse. Multiplique e proteja seu patrimônio com estratégia personalizada. Certificado Anbima CEA | Portfel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0A1F3D;
+      --navy-light: #13315C;
+      --gold: #C9A24B;
+      --gold-soft: #E3C77E;
+      --cream: #F7F5F0;
+      --graphite: #2B2F36;
+      --white: #FFFFFF;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--graphite); background: var(--cream); line-height: 1.6; }
+    h1, h2, h3 { font-family: var(--serif); color: var(--navy); line-height: 1.2; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .gold { color: var(--gold); }
+
+    /* HEADER */
+    header { position: fixed; top: 0; width: 100%; background: rgba(10,31,61,.92);
+      backdrop-filter: blur(8px); z-index: 100; transition: .3s; }
+    header .container { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+    .logo { font-family: var(--serif); font-size: 1.4rem; color: var(--white); font-weight: 600; }
+    .logo span { color: var(--gold); }
+    nav a { color: var(--cream); text-decoration: none; margin-left: 28px; font-size: .9rem;
+      font-weight: 400; transition: .2s; }
+    nav a:hover { color: var(--gold); }
+
+    /* BUTTONS */
+    .btn { display: inline-block; background: var(--gold); color: var(--navy); padding: 15px 34px;
+      border-radius: 4px; text-decoration: none; font-weight: 600; font-size: .95rem;
+      letter-spacing: .3px; transition: .25s; border: none; cursor: pointer; }
+    .btn:hover { background: var(--gold-soft); transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,162,75,.35); }
+    .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: var(--gold); color: var(--navy); }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white); padding: 180px 0 110px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; right: -120px; top: 50%; transform: translateY(-50%);
+      width: 480px; height: 480px; border: 1px solid rgba(201,162,75,.18); border-radius: 50%; }
+    .hero::before { content: ''; position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+      width: 320px; height: 320px; border: 1px solid rgba(201,162,75,.25); border-radius: 50%; }
+    .hero-content { max-width: 680px; position: relative; z-index: 2; }
+    .hero .tag { color: var(--gold); letter-spacing: 3px; text-transform: uppercase;
+      font-size: .8rem; font-weight: 500; margin-bottom: 20px; display: block; }
+    .hero h1 { font-size: 3.4rem; color: var(--white); margin-bottom: 24px; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero p { font-size: 1.15rem; color: #cdd6e4; font-weight: 300; margin-bottom: 36px; max-width: 540px; }
+
+    /* SECTION BASE */
+    section { padding: 90px 0; }
+    .section-tag { text-align: center; color: var(--gold); letter-spacing: 3px;
+      text-transform: uppercase; font-size: .8rem; font-weight: 600; margin-bottom: 12px; }
+    .section-title { text-align: center; font-size: 2.4rem; margin-bottom: 56px; }
+
+    /* ABOUT */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+    .about-photo { background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 8px; height: 420px; display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-family: var(--serif); font-size: 5rem; position: relative; }
+    .about-photo::after { content: 'CEA · ANBIMA'; position: absolute; bottom: 24px;
+      font-size: .8rem; letter-spacing: 2px; color: var(--cream); font-family: var(--sans); }
+    .about h2 { font-size: 2.2rem; margin-bottom: 20px; }
+    .about p { margin-bottom: 16px; color: #4a4f57; }
+    .badges { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+    .badge { background: var(--cream); border-left: 3px solid var(--gold); padding: 10px 18px;
+      font-size: .85rem; font-weight: 500; color: var(--navy); }
+
+    /* SERVICES */
+    .services { background: var(--cream); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .card { background: var(--white); padding: 40px 30px; border-radius: 8px;
+      border-top: 3px solid transparent; transition: .3s; }
+    .card:hover { transform: translateY(-6px); border-top-color: var(--gold);
+      box-shadow: 0 16px 40px rgba(10,31,61,.1); }
+    .card .icon { width: 52px; height: 52px; background: var(--navy); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 22px;
+      color: var(--gold); font-size: 1.4rem; }
+    .card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+    .card p { font-size: .95rem; color: #5a5f67; }
+
+    /* STEPS */
+    .steps { background: var(--navy); color: var(--white); }
+    .steps .section-title { color: var(--white); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step { text-align: center; }
+    .step .num { font-family: var(--serif); font-size: 3.5rem; color: var(--gold);
+      opacity: .9; margin-bottom: 14px; }
+    .step h3 { color: var(--white); font-size: 1.25rem; margin-bottom: 12px; }
+    .step p { color: #cdd6e4; font-size: .92rem; font-weight: 300; }
+
+    /* STATS */
+    .stats { background: var(--white); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+    .stat .number { font-family: var(--serif); font-size: 3rem; color: var(--navy); font-weight: 700; }
+    .stat .number span { color: var(--gold); }
+    .stat .label { font-size: .9rem; color: #5a5f67; margin-top: 6px; }
+
+    /* CTA FINAL */
+    .cta { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: var(--white);
+      text-align: center; }
+    .cta h2 { color: var(--white); font-size: 2.6rem; margin-bottom: 18px; }
+    .cta h2 em { color: var(--gold); font-style: italic; }
+    .cta p { color: #cdd6e4; max-width: 540px; margin: 0 auto 34px; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: #061427; color: #8a93a3; padding: 50px 0 30px; text-align: center; font-size: .85rem; }
+    footer .logo { font-size: 1.5rem; margin-bottom: 16px; display: inline-block; }
+    .socials a { color: var(--gold); text-decoration: none; margin: 0 12px; font-size: .9rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2.4rem; }
+      .about-grid, .cards, .steps-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="logo">Leonardo<span> Arruda</span></div>
+      <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#jornada">Como Funciona</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato" class="btn btn-outline" style="padding:9px 22px;">Falar com o consultor</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="tag">Gestão Patrimonial · Consultoria de Investimentos</span>
+      <h1>Você construiu seu patrimônio.<br><em>Nós ajudamos a multiplicá-lo.</em></h1>
+      <p>Consultoria de investimentos sem conflito de interesse. Uma estratégia personalizada para proteger o presente e garantir o futuro da sua família.</p>
+      <a href="#contato" class="btn">Quero falar com o consultor</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="container about-grid">
+      <div class="about-photo">LA</div>
+      <div>
+        <span class="section-tag" style="text-align:left;">Quem é Leonardo Arruda</span>
+        <h2>Especialista que vive o mercado financeiro.</h2>
+        <p>Consultor de investimentos certificado pela <strong>Anbima (CEA)</strong>, atuando no mercado financeiro desde 2012. Integra o time de consultores da <strong>Portfel®</strong>, a consultoria financeira do Grupo Primo®.</p>
+        <p>Mais de <strong>R$ 3 bilhões sob consultoria</strong> e milhares de clientes atendidos no Brasil e no mundo — com um único compromisso: o seu patrimônio em primeiro lugar.</p>
+        <div class="badges">
+          <div class="badge">Certificação CEA · Anbima</div>
+          <div class="badge">Consultor Portfel®</div>
+          <div class="badge">+12 anos de mercado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicos">
+    <div class="container">
+      <p class="section-tag">O que oferecemos</p>
+      <h2 class="section-title">Soluções para você, sua família<br>e o seu patrimônio</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">◆</div>
+          <h3>Carteira Personalizada</h3>
+          <p>Montagem de carteiras alinhadas ao seu perfil de investidor e aos seus objetivos de vida — não a comissões de produtos.</p>
+        </div>
+        <div class="card">
+          <div class="icon">◈</div>
+          <h3>Planejamento Financeiro</h3>
+          <p>Um plano completo e detalhado dos próximos passos, com visão de curto, médio e longo prazo para o seu legado.</p>
+        </div>
+        <div class="card">
+          <div class="icon">◉</div>
+          <h3>Acompanhamento Contínuo</h3>
+          <p>Monitoramento e rebalanceamento da sua carteira sempre que necessário, para você ganhar tempo e tranquilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps" id="jornada">
+    <div class="container">
+      <p class="section-tag">Como funciona</p>
+      <h2 class="section-title">Sua jornada em 3 etapas</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>Diagnóstico</h3>
+          <p>Apresentamos nossa estrutura e entendemos o seu perfil de investidor para construir a base certa.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>Planejamento</h3>
+          <p>Você preenche informações estratégicas e criamos um plano e uma carteira 100% personalizados.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>Acompanhamento</h3>
+          <p>Apresentamos o planejamento detalhado e acompanhamos seus investimentos de perto, sempre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat"><div class="number">+12</div><div class="label">Anos de experiência</div></div>
+        <div class="stat"><div class="number">R$ 3<span>bi</span></div><div class="label">Sob consultoria</div></div>
+        <div class="stat"><div class="number">+5<span>mil</span></div><div class="label">Clientes atendidos</div></div>
+        <div class="stat"><div class="number">0<span>%</span></div><div class="label">Conflito de interesse</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contato">
+    <div class="container">
+      <h2>Alcance <em>novos patamares.</em></h2>
+      <p>Agende uma conversa estratégica e descubra como uma consultoria sem conflito de interesse pode transformar a relação com o seu patrimônio.</p>
+      <a href="#" class="btn">Quero falar com o consultor</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="logo">Leonardo<span style="color:var(--gold)"> Arruda</span></div>
+      <div class="socials">
+        <a href="#">Instagram</a> · <a href="#">LinkedIn</a>
+      </div>
+      <p style="margin-top:18px;">© 2026 Leonardo Arruda · Consultor de Investimentos Portfel®</p>
+    </div>
+  </footer>
+
+</body>
+</html>

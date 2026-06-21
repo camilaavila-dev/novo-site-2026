@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#F2EDE2; --cream2:#E8E2D4; --ink:#0E0E0A; --ink2:#1A1A16;
+    --warm:#0C0C09; --warm2:#161612; --warm3:#1E1E1A;
+    --off:#EEEAD8; --offmut:#9A9480;
+    --grn:#1B5E38; --grn2:#2A7A4A; --grnvib:#17C76A; --grnvib2:#1AD47F;
+    --vio:#7C3AFF;
+    --d:"Bricolage Grotesque",-apple-system,sans-serif;
+    --s:"Space Grotesk",-apple-system,sans-serif;
+    --m:"JetBrains Mono",ui-monospace,monospace;
+  }
+  body{background:#D6D0C4;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div style="width:max-content;min-width:100%;min-height:100vh;padding:52px;background:#D4CEC2;background-image:none">
+
+  <!-- HEADER -->
+  <div style="margin-bottom:44px;max-width:680px">
+    <div style="font-family:var(--m);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6B6558;margin-bottom:12px">Leonardo Arruda · Nova direção</div>
+    <h1 style="font-family:var(--d);font-size:30px;font-weight:700;letter-spacing:-.025em;color:var(--ink)">Três direções sem concessão</h1>
+    <p style="font-family:var(--s);font-size:14px;line-height:1.6;color:#7A7468;margin-top:10px">Sem brilho decorativo. Sem glassmorphism. Sofisticação real vem de escala tipográfica, proporção e cor cirúrgica. Role cada coluna. Diga qual ou peça um mix.</p>
+  </div>
+
+  <div style="display:flex;gap:44px;align-items:flex-start">
+
+    <!-- ═══════ VAR 01 · PAPEL & FORMA (LIGHT) ═══════ -->
+    <div style="flex:none;width:1180px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <span style="font-family:var(--m);font-size:12px;color:var(--grn2);letter-spacing:.1em">01</span>
+        <span style="font-family:var(--s);font-size:14px;font-weight:600;color:#2A2620">Papel &amp; Forma</span>
+        <span style="font-family:var(--s);font-size:13px;color:#888078">— creme, tipo editorial, zero efeito. O inverso de todo concorrente.</span>
+      </div>
+      <div style="background:var(--cream);border-radius:2px;overflow:hidden;border:1px solid rgba(0,0,0,.09)">
+
+        <!-- NAV -->
+        <div style="background:var(--ink2);display:flex;align-items:center;justify-content:space-between;padding:18px 52px">
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:36px;height:36px;border:1.5px solid rgba(255,255,255,.25);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--d);font-weight:800;font-size:16px;letter-spacing:-.04em;color:#fff">LA</div>
+            <div>
+              <div style="font-family:var(--d);font-weight:700;font-size:13px;letter-spacing:.08em;color:#fff">LEONARDO ARRUDA</div>
+              <div style="font-family:var(--m);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.38)">Consultor de Investimentos</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:32px;font-family:var(--s);font-size:13px;color:rgba(255,255,255,.5)">
+            <span>Sobre</span><span>Serviços</span><span>Método</span><span>Parceria</span>
+            <span style="padding:10px 22px;background:var(--grn);color:#fff;font-weight:600;font-size:13px;border-radius:4px">Agendar conversa</span>
+          </div>
+        </div>
+
+        <!-- HERO -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;min-height:580px">
+          <div style="padding:72px 52px 60px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(0,0,0,.08)">
+            <div>
+              <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grn);margin-bottom:32px">( ANBIMA CEA · Portfel · Grupo Primo )</div>
+              <h2 style="font-family:var(--d);font-weight:800;font-size:82px;line-height:.93;letter-spacing:-.035em;color:var(--ink)">Patrimônio<br>gerido com<br><em style="font-style:normal;color:var(--grn)">método.</em></h2>
+              <p style="font-family:var(--s);font-size:17px;line-height:1.65;color:#6A6458;margin-top:30px;max-width:44ch">Para investidores que já construíram — e querem clareza, estratégia e um interlocutor de confiança para as próximas décadas.</p>
+            </div>
+            <div>
+              <div style="display:flex;gap:12px;margin-top:40px">
+                <span style="padding:14px 28px;background:var(--grn);color:#fff;font-family:var(--s);font-weight:600;font-size:14px;border-radius:4px">Agendar uma conversa</span>
+                <span style="padding:14px 26px;border:1px solid rgba(0,0,0,.15);color:var(--ink);font-family:var(--s);font-weight:500;font-size:14px;border-radius:4px">WhatsApp</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(0,0,0,.08)">
+                <span style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#A09880">Em parceria com</span>
+                <span style="font-family:var(--d);font-weight:700;font-size:17px;letter-spacing:.06em;color:var(--ink2)">PORTFEL</span>
+                <span style="width:1px;height:14px;background:rgba(0,0,0,.15)"></span>
+                <span style="font-family:var(--s);font-size:12px;color:#A09880">Grupo Primo</span>
+              </div>
+            </div>
+          </div>
+          <div style="position:relative;overflow:hidden;background:#1A1A16">
+            <img src="assets/leo-photo-2.jpg" alt="Leonardo Arruda" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.15)">
+            <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to top,rgba(10,10,6,.85),transparent)"></div>
+            <div style="position:absolute;bottom:28px;left:28px">
+              <div style="font-family:var(--d);font-weight:700;font-size:18px;color:#fff">Leonardo Arruda</div>
+              <div style="font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px">Consultor de Investimentos</div>
+            </div>
+            <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--grn)"></div>
+          </div>
+        </div>
+
+        <!-- METHOD STRIP -->
+        <div style="border-top:1px solid rgba(0,0,0,.08);display:grid;grid-template-columns:repeat(3,1fr)">
+          <div style="padding:32px 52px;border-right:1px solid rgba(0,0,0,.08)">
+            <div style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grn);margin-bottom:12px">01 · Diagnóstico</div>
+            <div style="font-family:var(--s);font-size:15px;font-weight:500;color:var(--ink);line-height:1.45">Leitura completa do patrimônio, objetivos e perfil de risco.</div>
+          </div>
+          <div style="padding:32px 52px;border-right:1px solid rgba(0,0,0,.08)">
+            <div style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grn);margin-bottom:12px">02 · Estratégia</div>
+            <div style="font-family:var(--s);font-size:15px;font-weight:500;color:var(--ink);line-height:1.45">Alocação estruturada alinhada a objetivos de longo prazo.</div>
+          </div>
+          <div style="padding:32px 52px">
+            <div style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grn);margin-bottom:12px">03 · Acompanhamento</div>
+            <div style="font-family:var(--s);font-size:15px;font-weight:500;color:var(--ink);line-height:1.45">Revisão contínua e proximidade real em cada decisão.</div>
+          </div>
+        </div>
+
+        <!-- SERVICES editorial list -->
+        <div style="padding:56px 52px;background:var(--cream2)">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px">
+            <h3 style="font-family:var(--d);font-weight:700;font-size:38px;letter-spacing:-.025em;color:var(--ink);line-height:1.0">Escopo de atuação</h3>
+            <span style="font-family:var(--m);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grn)">6 serviços</span>
+          </div>
+          <div>
+            <div style="display:flex;align-items:baseline;padding:20px 0;border-top:1px solid rgba(0,0,0,.09)"><span style="font-family:var(--m);font-size:11px;color:#B0A890;width:36px">01</span><span style="font-family:var(--d);font-weight:600;font-size:26px;color:var(--ink);flex:1">Planejamento Financeiro</span><span style="font-family:var(--s);font-size:13px;color:#7A7260;max-width:36ch;text-align:right">Carteira de investimentos, fundo exclusivo, financiamento imobiliário.</span></div>
+            <div style="display:flex;align-items:baseline;padding:20px 0;border-top:1px solid rgba(0,0,0,.09)"><span style="font-family:var(--m);font-size:11px;color:#B0A890;width:36px">02</span><span style="font-family:var(--d);font-weight:600;font-size:26px;color:var(--ink);flex:1">Proteção Patrimonial</span><span style="font-family:var(--s);font-size:13px;color:#7A7260;max-width:36ch;text-align:right">Holding patrimonial, unit linked, proteção de exportações.</span></div>
+            <div style="display:flex;align-items:baseline;padding:20px 0;border-top:1px solid rgba(0,0,0,.09)"><span style="font-family:var(--m);font-size:11px;color:#B0A890;width:36px">03</span><span style="font-family:var(--d);font-weight:600;font-size:26px;color:var(--ink);flex:1">Previdência &amp; Seguros</span><span style="font-family:var(--s);font-size:13px;color:#7A7260;max-width:36ch;text-align:right">Fundo exclusivo, previdência privada, Pan American.</span></div>
+            <div style="display:flex;align-items:baseline;padding:20px 0;border-top:1px solid rgba(0,0,0,.09)"><span style="font-family:var(--m);font-size:11px;color:#B0A890;width:36px">04</span><span style="font-family:var(--d);font-weight:600;font-size:26px;color:var(--ink);flex:1">M&amp;A</span><span style="font-family:var(--s);font-size:13px;color:#7A7260;max-width:36ch;text-align:right">Fusões e aquisições com assessoria dedicada.</span></div>
+            <div style="display:flex;align-items:baseline;padding:20px 0;border-top:1px solid rgba(0,0,0,.09)"><span style="font-family:var(--m);font-size:11px;color:#B0A890;width:36px">05</span><span style="font-family:var(--d);font-weight:600;font-size:26px;color:var(--ink);flex:1">Holding &amp; Offshore</span><span style="font-family:var(--s);font-size:13px;color:#7A7260;max-width:36ch;text-align:right">Estruturação patrimonial nacional e internacional.</span></div>
+            <div style="display:flex;align-items:baseline;padding:20px 0;border-top:1px solid rgba(0,0,0,.09);border-bottom:1px solid rgba(0,0,0,.09)"><span style="font-family:var(--m);font-size:11px;color:var(--grn);width:36px">06</span><span style="font-family:var(--d);font-weight:600;font-size:26px;color:var(--grn);flex:1">Concierge</span><span style="font-family:var(--s);font-size:13px;color:#7A7260;max-width:36ch;text-align:right">Serviços exclusivos para clientes private.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════ VAR 02 · TEMPO & PRECISÃO (DARK MANIFESTO) ═══════ -->
+    <div style="flex:none;width:1180px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <span style="font-family:var(--m);font-size:12px;color:var(--grnvib2);letter-spacing:.1em">02</span>
+        <span style="font-family:var(--s);font-size:14px;font-weight:600;color:#2A2620">Tempo &amp; Precisão</span>
+        <span style="font-family:var(--s);font-size:13px;color:#888078">— preto quente, tipo monumental, zero decoração. Anti-fintech.</span>
+      </div>
+      <div style="background:var(--warm);border-radius:2px;overflow:hidden;border:1px solid rgba(255,255,255,.05)">
+
+        <!-- NAV single line -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 52px;border-bottom:1px solid rgba(255,255,255,.07)">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="width:34px;height:34px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--d);font-weight:800;font-size:14px;color:#fff;letter-spacing:-.04em">LA</div>
+            <span style="font-family:var(--d);font-weight:700;font-size:14px;letter-spacing:.06em;color:#fff">LEONARDO ARRUDA</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:36px;font-family:var(--m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35)">
+            <span>Serviços</span><span>Método</span><span>Parceria</span>
+            <span style="color:var(--grnvib2)">Agendar →</span>
+          </div>
+        </div>
+
+        <!-- BIG STATEMENT HERO -->
+        <div style="padding:58px 52px 0">
+          <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:28px">Consultor de Investimentos · ANBIMA CEA · Itapetininga, SP</div>
+          <h2 style="font-family:var(--d);font-weight:800;font-size:96px;line-height:.9;letter-spacing:-.04em;color:#F0EBD8">Você já<br>construiu.<br>Agora <em style="font-style:normal;color:var(--grnvib2)">otimize.</em></h2>
+        </div>
+
+        <!-- HERO SPLIT: text left + photo right -->
+        <div style="display:grid;grid-template-columns:1fr 420px;gap:0;margin-top:44px">
+          <div style="padding:0 52px 64px">
+            <div style="width:100%;height:1px;background:rgba(255,255,255,.1);margin-bottom:36px"></div>
+            <p style="font-family:var(--s);font-size:18px;line-height:1.65;color:rgba(238,234,216,.65);max-width:50ch">Consultoria de investimentos para investidores, empresários e famílias com R$500k+ que querem clareza patrimonial, estratégia estruturada e acompanhamento próximo — sem conflito de interesse.</p>
+            <div style="display:flex;gap:14px;margin-top:38px">
+              <span style="padding:16px 32px;background:var(--grnvib2);color:#061A0E;font-family:var(--s);font-weight:700;font-size:15px;border-radius:5px">Agendar conversa</span>
+              <span style="padding:16px 28px;border:1px solid rgba(255,255,255,.15);color:#F0EBD8;font-family:var(--s);font-weight:500;font-size:15px;border-radius:5px">WhatsApp</span>
+            </div>
+            <div style="display:flex;gap:36px;margin-top:46px">
+              <div><div style="font-family:var(--d);font-weight:800;font-size:44px;color:#F0EBD8;letter-spacing:-.025em;line-height:1">R$180M<span style="color:var(--grnvib2)">+</span></div><div style="font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:6px">sob acompanhamento*</div></div>
+              <div style="width:1px;background:rgba(255,255,255,.08)"></div>
+              <div><div style="font-family:var(--d);font-weight:800;font-size:44px;color:#F0EBD8;letter-spacing:-.025em;line-height:1">8+<span style="color:var(--grnvib2)"> anos</span></div><div style="font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:6px">de mercado*</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;margin-top:42px;padding-top:30px;border-top:1px solid rgba(255,255,255,.07)">
+              <span style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25)">Parceria</span>
+              <span style="font-family:var(--d);font-weight:700;font-size:18px;letter-spacing:.05em;color:rgba(255,255,255,.65)">PORTFEL</span>
+              <span style="width:1px;height:14px;background:rgba(255,255,255,.12)"></span>
+              <span style="font-family:var(--s);font-size:12px;color:rgba(255,255,255,.3)">Grupo Primo</span>
+            </div>
+          </div>
+          <div style="position:relative;overflow:hidden;background:#0A0A07">
+            <img src="assets/leo-photo-2.jpg" alt="Leonardo Arruda" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.25) contrast(1.05)">
+            <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(12,12,9,.6),transparent 40%)"></div>
+            <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--grnvib2),transparent)"></div>
+          </div>
+        </div>
+
+        <!-- SERVICES editorial dark list -->
+        <div style="background:var(--warm2);border-top:1px solid rgba(255,255,255,.07);padding:52px 52px 60px">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px">
+            <h3 style="font-family:var(--d);font-weight:700;font-size:34px;letter-spacing:-.025em;color:#F0EBD8">Escopo completo</h3>
+            <span style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grnvib2)">Portfel Platform</span>
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.07)"><span style="font-family:var(--m);font-size:11px;color:rgba(255,255,255,.25);width:34px">01</span><span style="font-family:var(--d);font-weight:600;font-size:24px;color:#F0EBD8;flex:1">Planejamento Financeiro</span><span style="font-family:var(--s);font-size:13px;color:rgba(255,255,255,.36);max-width:36ch;text-align:right">Carteira, fundo exclusivo, financiamento.</span></div>
+            <div style="display:flex;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.07)"><span style="font-family:var(--m);font-size:11px;color:rgba(255,255,255,.25);width:34px">02</span><span style="font-family:var(--d);font-weight:600;font-size:24px;color:#F0EBD8;flex:1">Proteção Patrimonial</span><span style="font-family:var(--s);font-size:13px;color:rgba(255,255,255,.36);max-width:36ch;text-align:right">Holding, unit linked, proteção de exportações.</span></div>
+            <div style="display:flex;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.07)"><span style="font-family:var(--m);font-size:11px;color:rgba(255,255,255,.25);width:34px">03</span><span style="font-family:var(--d);font-weight:600;font-size:24px;color:#F0EBD8;flex:1">Previdência &amp; Seguros</span><span style="font-family:var(--s);font-size:13px;color:rgba(255,255,255,.36);max-width:36ch;text-align:right">Fundo exclusivo, previdência privada.</span></div>
+            <div style="display:flex;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.07)"><span style="font-family:var(--m);font-size:11px;color:rgba(255,255,255,.25);width:34px">04</span><span style="font-family:var(--d);font-weight:600;font-size:24px;color:#F0EBD8;flex:1">M&amp;A</span><span style="font-family:var(--s);font-size:13px;color:rgba(255,255,255,.36);max-width:36ch;text-align:right">Fusões e aquisições assessoradas.</span></div>
+            <div style="display:flex;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)"><span style="font-family:var(--m);font-size:11px;color:var(--grnvib2);width:34px">05</span><span style="font-family:var(--d);font-weight:600;font-size:24px;color:#F0EBD8;flex:1">Holding &amp; Offshore</span><span style="font-family:var(--s);font-size:13px;color:rgba(255,255,255,.36);max-width:36ch;text-align:right">Estruturação nacional e internacional.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ VAR 03 · GRADE ARQUITETURAL ═══════ -->
+    <div style="flex:none;width:1180px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <span style="font-family:var(--m);font-size:12px;color:var(--grnvib);letter-spacing:.1em">03</span>
+        <span style="font-family:var(--s);font-size:14px;font-weight:600;color:#2A2620">Grade Arquitetural</span>
+        <span style="font-family:var(--s);font-size:13px;color:#888078">— foto coluna full-height, grid estrutural, tipo dentro do espaço.</span>
+      </div>
+      <div style="background:#0A0A0A;border-radius:2px;overflow:hidden;border:1px solid rgba(255,255,255,.05)">
+
+        <!-- NAV -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 40px;border-bottom:1px solid rgba(255,255,255,.06)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;background:var(--grnvib2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--d);font-weight:800;font-size:14px;letter-spacing:-.04em;color:#061A0E">LA</div>
+            <span style="font-family:var(--d);font-weight:700;font-size:13px;letter-spacing:.08em;color:#EEEAD8">LEONARDO ARRUDA</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:28px;font-family:var(--m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)">
+            <span>Sobre</span><span>Serviços</span><span>Parceria</span>
+            <span style="padding:9px 20px;background:var(--grnvib2);color:#061A0E;font-weight:600;border-radius:3px">Agendar</span>
+          </div>
+        </div>
+
+        <!-- MAIN GRID: photo left col + content right col -->
+        <div style="display:grid;grid-template-columns:420px 1fr;min-height:720px">
+
+          <!-- Photo column (full-height, sticky) -->
+          <div style="position:relative;border-right:1px solid rgba(255,255,255,.06);overflow:hidden;background:#060606">
+            <img src="assets/leo-photo-2.jpg" alt="Leonardo Arruda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(.3) contrast(1.04) brightness(.9)">
+            <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(10,10,10,.8))"></div>
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--grnvib2)"></div>
+            <div style="position:absolute;bottom:36px;left:28px;right:28px">
+              <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">Consultor de Investimentos</div>
+              <div style="font-family:var(--d);font-weight:700;font-size:22px;color:#fff">Leonardo Arruda</div>
+              <div style="display:flex;align-items:center;gap:10px;margin-top:14px">
+                <span style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grnvib2)">ANBIMA CEA</span>
+                <span style="width:1px;height:10px;background:rgba(255,255,255,.2)"></span>
+                <span style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3)">PORTFEL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content column -->
+          <div>
+            <!-- Hero text -->
+            <div style="padding:56px 44px 48px;border-bottom:1px solid rgba(255,255,255,.06)">
+              <div style="font-family:var(--m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:24px">/ Estratégia patrimonial</div>
+              <h2 style="font-family:var(--d);font-weight:700;font-size:68px;line-height:.94;letter-spacing:-.035em;color:#EEEAD8">Seu patrimônio,<br>uma <em style="font-style:normal;color:var(--grnvib2)">estratégia</em><br>à altura dele.</h2>
+              <p style="font-family:var(--s);font-size:16px;line-height:1.65;color:rgba(238,234,216,.5);margin-top:26px;max-width:46ch">Para quem não tem tempo de cuidar do patrimônio com a profundidade que ele merece — e quer um interlocutor único, técnico e sem conflito.</p>
+              <div style="display:flex;gap:12px;margin-top:34px">
+                <span style="padding:14px 28px;background:var(--grnvib2);color:#061A0E;font-family:var(--s);font-weight:700;font-size:14px;border-radius:4px">Agendar uma conversa</span>
+                <span style="padding:14px 24px;border:1px solid rgba(255,255,255,.12);color:#EEEAD8;font-family:var(--s);font-weight:500;font-size:14px;border-radius:4px">WhatsApp</span>
+              </div>
+            </div>
+            <!-- Stats + services grid -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.06)">
+              <div style="padding:28px 44px;border-right:1px solid rgba(255,255,255,.06)">
+                <div style="font-family:var(--d);font-weight:800;font-size:42px;color:#EEEAD8;letter-spacing:-.02em">R$180M<span style="color:var(--grnvib2)">+</span></div>
+                <div style="font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:6px">sob acompanhamento*</div>
+              </div>
+              <div style="padding:28px 44px">
+                <div style="font-family:var(--d);font-weight:800;font-size:42px;color:#EEEAD8;letter-spacing:-.02em">8<span style="color:var(--grnvib2)">+</span> anos</div>
+                <div style="font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:6px">de mercado*</div>
+              </div>
+            </div>
+            <!-- Service grid 2×3 compact -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.06)">
+              <div style="padding:22px 44px;border-right:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)"><div style="font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grnvib2);margin-bottom:6px">01</div><div style="font-family:var(--d);font-weight:600;font-size:18px;color:#EEEAD8">Planejamento Financeiro</div></div>
+              <div style="padding:22px 44px;border-bottom:1px solid rgba(255,255,255,.06)"><div style="font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:6px">02</div><div style="font-family:var(--d);font-weight:600;font-size:18px;color:#EEEAD8">Proteção Patrimonial</div></div>
+              <div style="padding:22px 44px;border-right:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)"><div style="font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:6px">03</div><div style="font-family:var(--d);font-weight:600;font-size:18px;color:#EEEAD8">Previdência &amp; Seguros</div></div>
+              <div style="padding:22px 44px;border-bottom:1px solid rgba(255,255,255,.06)"><div style="font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:6px">04</div><div style="font-family:var(--d);font-weight:600;font-size:18px;color:#EEEAD8">M&amp;A</div></div>
+              <div style="padding:22px 44px;border-right:1px solid rgba(255,255,255,.06)"><div style="font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:6px">05</div><div style="font-family:var(--d);font-weight:600;font-size:18px;color:#EEEAD8">Holding &amp; Offshore</div></div>
+              <div style="padding:22px 44px"><div style="font-family:var(--m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grnvib2);margin-bottom:6px">06</div><div style="font-family:var(--d);font-weight:600;font-size:18px;color:#EEEAD8">Concierge</div></div>
+            </div>
+            <!-- Portfel partnership -->
+            <div style="display:flex;align-items:center;gap:18px;padding:22px 44px">
+              <span style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.22)">Em parceria com</span>
+              <span style="font-family:var(--d);font-weight:700;font-size:20px;letter-spacing:.06em;color:rgba(255,255,255,.6)">PORTFEL</span>
+              <span style="width:1px;height:14px;background:rgba(255,255,255,.1)"></span>
+              <span style="font-family:var(--s);font-size:12px;color:rgba(255,255,255,.25)">Grupo Primo</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04020C;--s1:#080517;--s2:#0B071A;--s3:#130E28;
+  --vio:#3B36CC;--vio2:#6B66E8;--vio3:#1B1762;
+  --vio-fill:rgba(59,54,204,.12);
+  --grn:#1CD98A;--grn2:#23F09A;--grn-bg:#04120A;
+  --txt:#EDE8D5;--mut:#9590B0;--sub:#524E6A;
+  --brd:rgba(255,255,255,.06);--brd2:rgba(255,255,255,.13);
+  --d:'Cormorant Garamond',Georgia,serif;
+  --s:'DM Sans',-apple-system,sans-serif;
+  --m:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--s);background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden;font-weight:300}
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--vio),var(--grn));z-index:9999;pointer-events:none}
+#c-dot{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--grn);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .2s}
+#c-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(59,54,204,.55);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .22s,height .22s,border-color .22s}
+::selection{background:var(--vio);color:#fff}
+#grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.042;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+@keyframes heroIn{0%{transform:scale(1.05);opacity:.7}100%{transform:scale(1);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes scrollDown{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div id="grain"></div>
+<div id="prog"></div>
+<div id="c-dot"></div>
+<div id="c-ring"></div>
+
+<a href="https://wa.me/5515999999999" id="float-cta" style="position:fixed;bottom:30px;right:30px;z-index:190;display:flex;align-items:center;gap:9px;padding:13px 22px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:600;font-size:13.5px;border-radius:30px;text-decoration:none;box-shadow:0 6px 28px rgba(28,217,138,.28);opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-4-4.6-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.7 1 .9 1.8 1.2 2.1 1.3.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.3.1.8-.1 1.4z"/></svg>
+  WhatsApp
+</a>
+
+<!-- NAV -->
+<nav id="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:200;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(4,2,12,.72);backdrop-filter:blur(22px);border-bottom:1px solid var(--brd);transition:background .4s">
+  <a href="#" style="display:flex;align-items:center;text-decoration:none">
+    <img src="assets/logo-leo.webp" alt="Leonardo Arruda" style="height:36px;filter:invert(1);object-fit:contain">
+  </a>
+  <div style="display:flex;align-items:center;gap:36px">
+    <a href="#sobre" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Sobre</a>
+    <a href="#servicos" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Serviços</a>
+    <a href="#metodo" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Método</a>
+    <a href="#parceria" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Portfel</a>
+    <a href="#cta" style="padding:11px 24px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:600;font-size:13px;border-radius:6px;text-decoration:none">Agendar conversa</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="position:relative;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end">
+  <div style="position:absolute;inset:0;overflow:hidden">
+    <img src="assets/leo-photo-2.jpg" alt="" id="hero-img" style="position:absolute;top:-12%;left:0;width:100%;height:122%;object-fit:cover;object-position:center 10%;filter:saturate(.38) contrast(1.15) brightness(.76);animation:heroIn 1.6s var(--ease) both">
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(4,2,12,.65) 0%,rgba(27,23,98,.3) 42%,rgba(4,2,12,0) 56%,rgba(4,2,12,.97) 100%)"></div>
+  <div style="position:absolute;top:0;left:0;bottom:0;width:44%;background:linear-gradient(to right,rgba(4,2,12,.92),transparent)"></div>
+  <div style="position:relative;z-index:2;padding:0 56px 88px;max-width:1400px">
+    <div style="display:flex;align-items:center;gap:10px;font-family:var(--m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grn);margin-bottom:28px">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--grn);animation:pulse 2s infinite;flex:none"></span>
+      ANBIMA CEA · Portfel · Grupo Primo
+    </div>
+    <h1 style="font-family:var(--d);font-weight:300;font-size:clamp(68px,8.5vw,132px);line-height:.9;letter-spacing:-.02em;color:var(--txt);animation:fadeUp .9s .3s var(--ease) both">Você construiu<br>patrimônio. Agora<br><em style="font-style:italic;color:var(--grn)">a estratégia certa.</em></h1>
+    <p style="font-family:var(--s);font-size:clamp(15px,1.4vw,18px);line-height:1.72;color:rgba(237,232,213,.58);margin-top:28px;max-width:50ch;animation:fadeUp .9s .52s var(--ease) both;font-weight:300">Consultoria de investimentos independente. Sem comissão. Sem conflito de interesse. 100% no seu lado.</p>
+    <div style="display:flex;gap:14px;margin-top:36px;animation:fadeUp .9s .68s var(--ease) both">
+      <a href="#cta" style="padding:16px 34px;background:var(--vio);color:#fff;font-family:var(--s);font-weight:600;font-size:15px;border-radius:7px;text-decoration:none">Agendar uma conversa</a>
+      <a href="https://wa.me/5515999999999" style="padding:16px 30px;border:1px solid var(--brd2);color:var(--txt);font-family:var(--s);font-weight:400;font-size:15px;border-radius:7px;text-decoration:none">WhatsApp</a>
+    </div>
+  </div>
+  <div style="position:absolute;right:56px;bottom:44px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.3">
+    <div style="font-family:var(--m);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--txt);writing-mode:vertical-rl">Scroll</div>
+    <div style="width:1px;height:44px;background:var(--txt);animation:scrollDown 1.8s ease-in-out infinite"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div style="overflow:hidden;background:var(--vio);padding:14px 0">
+  <div style="display:flex;width:max-content;animation:marq 36s linear infinite">
+    <span style="flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);padding-right:48px">Investir é coisa séria, mas não precisa ser complicado&nbsp;&nbsp;·&nbsp;&nbsp;A maior consultoria financeira independente do Brasil&nbsp;&nbsp;·&nbsp;&nbsp;+R$20Bi Sob Consultoria&nbsp;&nbsp;·&nbsp;&nbsp;+25k Clientes&nbsp;&nbsp;·&nbsp;&nbsp;+700 Consultores&nbsp;&nbsp;·&nbsp;&nbsp;97 NPS&nbsp;&nbsp;·&nbsp;&nbsp;Sem comissões&nbsp;&nbsp;·&nbsp;&nbsp;Sem conflito&nbsp;&nbsp;·&nbsp;&nbsp;100% alinhada com você&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span style="flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);padding-right:48px">Investir é coisa séria, mas não precisa ser complicado&nbsp;&nbsp;·&nbsp;&nbsp;A maior consultoria financeira independente do Brasil&nbsp;&nbsp;·&nbsp;&nbsp;+R$20Bi Sob Consultoria&nbsp;&nbsp;·&nbsp;&nbsp;+25k Clientes&nbsp;&nbsp;·&nbsp;&nbsp;+700 Consultores&nbsp;&nbsp;·&nbsp;&nbsp;97 NPS&nbsp;&nbsp;·&nbsp;&nbsp;Sem comissões&nbsp;&nbsp;·&nbsp;&nbsp;Sem conflito&nbsp;&nbsp;·&nbsp;&nbsp;100% alinhada com você&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- PORTFEL STATS BAR -->
+<section style="background:var(--vio3)">
+  <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)">
+    <div data-reveal style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:#fff;line-height:.92;letter-spacing:-.02em">+R$20<em style="font-style:normal;font-size:.5em">Bi</em></div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">sob consultoria</div>
+    </div>
+    <div data-reveal data-reveal-delay=".12" style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:#fff;line-height:.92;letter-spacing:-.02em">+25<em style="font-style:normal;font-size:.5em">k</em></div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">clientes</div>
+    </div>
+    <div data-reveal data-reveal-delay=".24" style="padding:48px 40px;border-right:1px solid rgba(255,255,255,.08);text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:#fff;line-height:.92;letter-spacing:-.02em">+700</div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">consultores</div>
+    </div>
+    <div data-reveal data-reveal-delay=".36" style="padding:48px 40px;text-align:center">
+      <div style="font-family:var(--d);font-weight:300;font-size:clamp(40px,4vw,64px);color:var(--grn);line-height:.92;letter-spacing:-.02em">97</div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.36);margin-top:12px">NPS</div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);text-align:center;padding:10px">
+    <span style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.2)">Plataforma Portfel · Grupo Primo · 2026</span>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="display:flex;gap:72px;align-items:flex-start">
+      <div style="flex:none;font-family:var(--m);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);padding-top:10px;width:140px;line-height:1.8">Filosofia</div>
+      <blockquote style="font-family:var(--d);font-weight:400;font-size:clamp(28px,3vw,48px);line-height:1.1;letter-spacing:-.015em;color:var(--txt)">"O objetivo não é fazer mais barulho. É tomar <em style="font-style:italic;color:var(--grn)">decisões melhores</em> com o patrimônio que você construiu."</blockquote>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd);margin-top:72px">
+      <div style="background:var(--s1);padding:34px 40px">
+        <div style="font-family:var(--d);font-weight:300;font-size:54px;color:var(--txt);letter-spacing:-.02em;line-height:1"><span data-counter="180" data-prefix="R$" data-suffix="M+">R$0</span></div>
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);margin-top:8px">patrimônio acompanhado</div>
+      </div>
+      <div style="background:var(--s1);padding:34px 40px">
+        <div style="font-family:var(--d);font-weight:300;font-size:54px;color:var(--txt);letter-spacing:-.02em;line-height:1"><span data-counter="120" data-suffix="+">0</span></div>
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);margin-top:8px">famílias atendidas</div>
+      </div>
+      <div style="background:var(--s1);padding:34px 40px">
+        <div style="font-family:var(--d);font-weight:300;font-size:54px;color:var(--txt);letter-spacing:-.02em;line-height:1"><span data-counter="8" data-suffix="+ anos">0</span></div>
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub);margin-top:8px">de mercado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" style="background:var(--bg);padding:104px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:460px 1fr;gap:80px;align-items:start">
+    <div data-reveal>
+      <div style="position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--brd2)">
+        <img src="assets/leo-photo-2.jpg" alt="Leonardo Arruda" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;filter:saturate(.5) contrast(1.08)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(4,2,12,.88) 0%,transparent 50%)"></div>
+        <div style="position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--vio),var(--grn))"></div>
+        <div style="position:absolute;bottom:24px;left:24px;right:24px">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(4,2,12,.82);border:1px solid var(--brd2);border-radius:8px">
+            <img src="assets/selo-anbima.webp" alt="ANBIMA CEA" style="width:38px;height:38px;filter:invert(1);object-fit:contain;flex:none">
+            <div>
+              <div style="font-family:var(--d);font-weight:500;font-size:15px;color:var(--txt)">ANBIMA CEA</div>
+              <div style="font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub)">Profissional certificado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal>
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grn);margin-bottom:22px">Sobre o consultor</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(34px,3vw,52px);line-height:1.05;letter-spacing:-.02em;color:var(--txt)">Uma carreira construída sobre <em style="font-style:italic;color:var(--vio2)">clareza</em> e não sobre promessas.</h2>
+      <div style="width:52px;height:3px;background:linear-gradient(90deg,var(--vio),var(--grn));border-radius:2px;margin:28px 0"></div>
+      <p style="font-family:var(--s);font-size:16px;line-height:1.78;color:var(--mut);font-weight:300">Leonardo Arruda é consultor de investimentos certificado ANBIMA CEA, com atuação através da <strong style="color:var(--txt);font-weight:500">Portfel</strong>, plataforma do Grupo Primo. Atende investidores, empresários e famílias com patrimônio relevante que buscam estratégia, organização e acompanhamento de longo prazo. Sem conflito de interesse.</p>
+      <p style="font-family:var(--s);font-size:16px;line-height:1.78;color:var(--mut);margin-top:16px;font-weight:300">Sua abordagem une rigor técnico com linguagem acessível: diagnóstico completo, alocação estruturada e presença constante em cada decisão relevante.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px">
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vio2);margin-bottom:7px">Certificação</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">ANBIMA CEA</div>
+        </div>
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vio2);margin-bottom:7px">Plataforma</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Portfel · Grupo Primo</div>
+        </div>
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vio2);margin-bottom:7px">Foco</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Patrimônio e Estratégia</div>
+        </div>
+        <div style="padding:20px 22px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--vio2);margin-bottom:7px">Modelo</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:18px;color:var(--txt)">Sem conflito de interesse</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="margin-bottom:52px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Para quem</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Quem busca essa consultoria.</h2>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--brd)">
+      <div style="background:var(--s1);padding:44px 38px">
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:18px">01</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:26px;letter-spacing:-.015em;color:var(--txt);margin-bottom:12px">Investidor em crescimento</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.68;color:var(--mut);font-weight:300">Já investe mas sente falta de estratégia e de alguém que entenda o cenário completo. Sem empurrão de produto.</p>
+      </div>
+      <div style="background:var(--s2);padding:44px 38px;border-left:3px solid var(--vio)">
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:18px">02</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:26px;letter-spacing:-.015em;color:var(--txt);margin-bottom:12px">Empresário e C-level</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.68;color:var(--mut);font-weight:300">Renda relevante, agenda intensa. Quer clareza patrimonial e eficiência nas decisões sem precisar virar especialista.</p>
+      </div>
+      <div style="background:var(--s1);padding:44px 38px">
+        <div style="font-family:var(--m);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:18px">03</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:26px;letter-spacing:-.015em;color:var(--txt);margin-bottom:12px">Família patrimonial</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.68;color:var(--mut);font-weight:300">Pensa em décadas: proteção, sucessão e preservação. Quer um consultor que proteja o que foi construído.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" style="background:var(--bg);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px">
+      <div>
+        <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Escopo de atuação</div>
+        <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(36px,3.2vw,54px);line-height:.97;letter-spacing:-.02em;color:var(--txt)">Um ecossistema<br>patrimonial completo.</h2>
+      </div>
+      <div style="font-family:var(--s);font-size:13px;color:var(--vio2);font-weight:400">via Portfel Platform</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:center">
+      <div data-reveal>
+        <div data-service style="display:flex;align-items:center;gap:28px;padding:24px 16px;margin:0 -16px;border-top:1px solid var(--brd);border-radius:6px;transition:background .25s">
+          <span style="font-family:var(--m);font-size:12px;color:var(--grn);width:36px;flex:none">01</span>
+          <span style="font-family:var(--d);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--txt);flex:1;letter-spacing:-.015em">Planejamento Financeiro</span>
+          <span style="font-family:var(--s);font-size:13px;color:var(--sub);max-width:30ch;text-align:right;font-weight:300">Carteira, fundo exclusivo, financiamento imobiliário.</span>
+          <span style="color:var(--vio2);font-size:18px;flex:none;transition:transform .2s">→</span>
+        </div>
+        <div data-service style="display:flex;align-items:center;gap:28px;padding:24px 16px;margin:0 -16px;border-top:1px solid var(--brd);border-radius:6px;transition:background .25s">
+          <span style="font-family:var(--m);font-size:12px;color:var(--grn);width:36px;flex:none">02</span>
+          <span style="font-family:var(--d);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--txt);flex:1;letter-spacing:-.015em">Proteção Patrimonial</span>
+          <span style="font-family:var(--s);font-size:13px;color:var(--sub);max-width:30ch;text-align:right;font-weight:300">Holding, unit linked, proteção de exportações.</span>
+          <span style="color:var(--vio2);font-size:18px;flex:none;transition:transform .2s">→</span>
+        </div>
+        <div data-service style="display:flex;align-items:center;gap:28px;padding:24px 16px;margin:0 -16px;border-top:1px solid var(--brd);border-radius:6px;transition:background .25s">
+          <span style="font-family:var(--m);font-size:12px;color:var(--grn);width:36px;flex:none">03</span>
+          <span style="font-family:var(--d);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--txt);flex:1;letter-spacing:-.015em">Previdência e Seguros</span>
+          <span style="font-family:var(--s);font-size:13px;color:var(--sub);max-width:30ch;text-align:right;font-weight:300">Fundo exclusivo, previdência privada, Pan American.</span>
+          <span style="color:var(--vio2);font-size:18px;flex:none;transition:transform .2s">→</span>
+        </div>
+        <div data-service style="display:flex;align-items:center;gap:28px;padding:24px 16px;margin:0 -16px;border-top:1px solid var(--brd);border-radius:6px;transition:background .25s">
+          <span style="font-family:var(--m);font-size:12px;color:var(--grn);width:36px;flex:none">04</span>
+          <span style="font-family:var(--d);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--txt);flex:1;letter-spacing:-.015em">Fusões e Aquisições</span>
+          <span style="font-family:var(--s);font-size:13px;color:var(--sub);max-width:30ch;text-align:right;font-weight:300">Assessoria dedicada em operações de M&amp;A.</span>
+          <span style="color:var(--vio2);font-size:18px;flex:none;transition:transform .2s">→</span>
+        </div>
+        <div data-service style="display:flex;align-items:center;gap:28px;padding:24px 16px;margin:0 -16px;border-top:1px solid var(--brd);border-radius:6px;transition:background .25s">
+          <span style="font-family:var(--m);font-size:12px;color:var(--grn);width:36px;flex:none">05</span>
+          <span style="font-family:var(--d);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--txt);flex:1;letter-spacing:-.015em">Holding e Offshore</span>
+          <span style="font-family:var(--s);font-size:13px;color:var(--sub);max-width:30ch;text-align:right;font-weight:300">Estruturação patrimonial nacional e internacional.</span>
+          <span style="color:var(--vio2);font-size:18px;flex:none;transition:transform .2s">→</span>
+        </div>
+        <div data-service style="display:flex;align-items:center;gap:28px;padding:24px 16px;margin:0 -16px;border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);border-radius:6px;transition:background .25s">
+          <span style="font-family:var(--m);font-size:12px;color:var(--grn);width:36px;flex:none">06</span>
+          <span style="font-family:var(--d);font-weight:500;font-size:clamp(20px,1.8vw,26px);color:var(--txt);flex:1;letter-spacing:-.015em">Concierge</span>
+          <span style="font-family:var(--s);font-size:13px;color:var(--sub);max-width:30ch;text-align:right;font-weight:300">Serviços exclusivos para clientes private.</span>
+          <span style="color:var(--vio2);font-size:18px;flex:none;transition:transform .2s">→</span>
+        </div>
+      </div>
+      <div data-reveal style="display:flex;align-items:center;justify-content:center">
+        <img src="assets/leo-arruda.png" alt="Ecossistema de serviços" style="width:100%;display:block;opacity:.9">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section id="metodo" style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="margin-bottom:60px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Como funciona</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(34px,3vw,50px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Três etapas. Um processo<br>que transforma clareza em resultado.</h2>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div style="padding:38px;background:var(--s2);border:1px solid var(--brd);border-radius:10px;border-top:3px solid var(--vio)">
+        <div style="font-family:var(--d);font-weight:300;font-size:64px;color:var(--s3);letter-spacing:-.04em;line-height:1;margin-bottom:22px">01</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:22px;color:var(--txt);margin-bottom:12px">Diagnóstico</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.7;color:var(--mut);font-weight:300">Leitura completa do patrimônio, objetivos, perfil de risco e horizonte de tempo. Identificamos o que funciona e o que pode melhorar.</p>
+      </div>
+      <div style="padding:38px;background:var(--s2);border:1px solid var(--brd);border-radius:10px;border-top:3px solid var(--grn)">
+        <div style="font-family:var(--d);font-weight:300;font-size:64px;color:var(--s3);letter-spacing:-.04em;line-height:1;margin-bottom:22px">02</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:22px;color:var(--txt);margin-bottom:12px">Estratégia</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.7;color:var(--mut);font-weight:300">Alocação estruturada alinhada a objetivos de vida. Diversificação real e acesso ao ecossistema completo da Portfel.</p>
+      </div>
+      <div style="padding:38px;background:var(--s2);border:1px solid var(--brd);border-radius:10px;border-top:3px solid var(--vio)">
+        <div style="font-family:var(--d);font-weight:300;font-size:64px;color:var(--s3);letter-spacing:-.04em;line-height:1;margin-bottom:22px">03</div>
+        <h3 style="font-family:var(--d);font-weight:500;font-size:22px;color:var(--txt);margin-bottom:12px">Acompanhamento</h3>
+        <p style="font-family:var(--s);font-size:14.5px;line-height:1.7;color:var(--mut);font-weight:300">Revisão contínua, ajustes conforme o cenário e acesso direto ao consultor. Uma parceria de longo prazo e não uma venda pontual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFEL -->
+<section id="parceria" style="background:var(--vio3);padding:88px 56px;border-top:1px solid rgba(59,54,204,.35)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="text-align:center;margin-bottom:64px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:20px">Parceria institucional</div>
+      <h2 style="font-family:var(--d);font-weight:300;font-size:clamp(36px,4vw,66px);line-height:.97;letter-spacing:-.025em;color:#fff">Investir é coisa séria,<br><em style="font-style:italic;color:var(--grn)">mas não precisa ser complicado.</em></h2>
+      <p style="font-family:var(--s);font-size:17px;line-height:1.7;color:rgba(255,255,255,.48);margin:22px auto 0;max-width:56ch;font-weight:300">A maior consultoria financeira independente do Brasil. Sem comissões. Sem conflito de interesse. 100% alinhada com você.</p>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <p style="font-family:var(--s);font-size:16px;line-height:1.75;color:rgba(255,255,255,.52);font-weight:300">Leo atua através da <strong style="color:#fff;font-weight:500">Portfel</strong>, consultoria do ecossistema <strong style="color:#fff;font-weight:500">Grupo Primo</strong>. Uma das maiores plataformas independentes de investimentos do Brasil. Acesso a produtos exclusivos, estrutura robusta e atendimento sem conflito de interesse.</p>
+        <a href="https://portfel.com.br" style="display:inline-flex;margin-top:30px;padding:14px 28px;background:rgba(255,255,255,.1);color:#fff;font-family:var(--s);font-weight:500;font-size:14px;border-radius:7px;text-decoration:none;border:1px solid rgba(255,255,255,.16)">Conhecer a Portfel →</a>
+      </div>
+      <div style="display:grid;gap:14px">
+        <div style="padding:24px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px">
+          <div style="font-family:var(--d);font-weight:500;font-size:19px;color:#fff;margin-bottom:6px">Sem conflito de interesse</div>
+          <div style="font-family:var(--s);font-size:14px;color:rgba(255,255,255,.46);line-height:1.55;font-weight:300">Remuneração transparente, alinhada ao cliente e nunca ao produto.</div>
+        </div>
+        <div style="padding:24px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px">
+          <div style="font-family:var(--d);font-weight:500;font-size:19px;color:#fff;margin-bottom:6px">Produtos exclusivos</div>
+          <div style="font-family:var(--s);font-size:14px;color:rgba(255,255,255,.46);line-height:1.55;font-weight:300">Fundos exclusivos, estruturas offshore e produtos que bancos não oferecem.</div>
+        </div>
+        <div style="padding:24px 28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px">
+          <div style="font-family:var(--d);font-weight:500;font-size:19px;color:#fff;margin-bottom:6px">Plataforma nacional</div>
+          <div style="font-family:var(--s);font-size:14px;color:rgba(255,255,255,.46);line-height:1.55;font-weight:300">Infraestrutura e tecnologia de uma das maiores consultorias do Grupo Primo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCEIROS -->
+<section style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="margin-bottom:56px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Independência real</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(32px,3vw,50px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Atendemos você em qualquer<br>instituição financeira.</h2>
+      <p style="font-family:var(--s);font-size:16px;line-height:1.7;color:var(--mut);margin-top:16px;max-width:56ch;font-weight:300">Somos uma consultoria 100% independente. Tudo com transparência e foco exclusivo em você.</p>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--brd)">
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">BTG Pactual</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">XP Investimentos</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:14px;font-weight:700;color:var(--txt);text-align:center;opacity:.55">Itaú</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Bradesco</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Safra Bank</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Banco Inter</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:14px;font-weight:700;color:var(--txt);text-align:center;opacity:.55">Nubank</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Modal</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Clear</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Genial</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Rico</span></div>
+      <div style="background:var(--s2);padding:28px 16px;display:flex;align-items:center;justify-content:center;min-height:78px"><span style="font-family:var(--s);font-size:13px;font-weight:600;color:var(--txt);text-align:center;opacity:.55">Órama</span></div>
+    </div>
+    <div style="margin-top:18px;text-align:center">
+      <span style="font-family:var(--m);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub)">e muitas outras instituições</span>
+    </div>
+  </div>
+</section>
+
+<!-- MÍDIA -->
+<section style="background:var(--bg);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="text-align:center;margin-bottom:52px">
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Na mídia</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(28px,2.8vw,44px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">A Portfel nos principais veículos<br>de comunicação financeira do Brasil.</h2>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--brd)">
+      <div style="background:var(--s1);padding:36px 16px;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--d);font-style:italic;font-size:19px;font-weight:400;color:var(--txt);opacity:.45;text-align:center">InfoMoney</span></div>
+      <div style="background:var(--s1);padding:36px 16px;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--s);font-size:13px;font-weight:700;color:var(--txt);opacity:.45;text-align:center;letter-spacing:.06em;text-transform:uppercase">Jovem Pan</span></div>
+      <div style="background:var(--s1);padding:36px 16px;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--d);font-style:italic;font-size:19px;font-weight:400;color:var(--txt);opacity:.45;text-align:center">Forbes</span></div>
+      <div style="background:var(--s1);padding:36px 16px;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--s);font-size:13px;font-weight:700;color:var(--txt);opacity:.45;text-align:center;letter-spacing:.04em;text-transform:uppercase">CNN Brasil</span></div>
+      <div style="background:var(--s1);padding:36px 16px;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--d);font-style:italic;font-size:19px;font-weight:400;color:var(--txt);opacity:.45;text-align:center">Exame</span></div>
+      <div style="background:var(--s1);padding:36px 16px;display:flex;align-items:center;justify-content:center"><span style="font-family:var(--d);font-style:italic;font-size:16px;font-weight:400;color:var(--txt);opacity:.45;text-align:center">Valor Econômico</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENÇA -->
+<section style="background:var(--s1);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grn);margin-bottom:20px">Presença</div>
+        <h2 style="font-family:var(--d);font-weight:400;font-size:clamp(32px,3vw,52px);line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Todo o Brasil.<br><em style="font-style:italic;color:var(--vio2)">E a Europa.</em></h2>
+        <p style="font-family:var(--s);font-size:16px;line-height:1.75;color:var(--mut);margin-top:20px;font-weight:300">Atendimento remoto e presencial em todas as regiões do território nacional. Atendemos também brasileiros residentes na Europa, com a mesma estrutura, cuidado e independência.</p>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="padding:22px 24px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:8px">Brasil</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:17px;color:var(--txt)">Norte</div>
+        </div>
+        <div style="padding:22px 24px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:8px">Brasil</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:17px;color:var(--txt)">Nordeste</div>
+        </div>
+        <div style="padding:22px 24px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:8px">Brasil</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:17px;color:var(--txt)">Centro-Oeste</div>
+        </div>
+        <div style="padding:22px 24px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:8px">Brasil</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:17px;color:var(--txt)">Sudeste</div>
+        </div>
+        <div style="padding:22px 24px;background:var(--s2);border:1px solid var(--brd);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--grn);margin-bottom:8px">Brasil</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:17px;color:var(--txt)">Sul</div>
+        </div>
+        <div style="padding:22px 24px;background:var(--vio3);border:1px solid rgba(107,102,232,.3);border-radius:8px">
+          <div style="font-family:var(--m);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--vio2);margin-bottom:8px">Internacional</div>
+          <div style="font-family:var(--d);font-weight:500;font-size:17px;color:#fff">Europa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--bg);padding:88px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:80px">
+    <div data-reveal>
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Perguntas frequentes</div>
+      <h2 style="font-family:var(--d);font-weight:400;font-size:36px;line-height:1.0;letter-spacing:-.02em;color:var(--txt)">Dúvidas comuns.</h2>
+    </div>
+    <div data-reveal>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Por que contratar consultoria se já invisto sozinho?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">O valor está em organizar melhor a estratégia, reduzir ruído e tomar decisões com mais clareza. Não apenas em indicar produtos.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Isso vai me fazer ganhar mais dinheiro?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">Não prometemos retorno. O foco é melhorar a qualidade das decisões, a estrutura da carteira e a visão de longo prazo.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Existe conflito de interesse nas recomendações?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">Não. A Portfel opera com remuneração transparente. Sem comissão por produto. A independência é a base do serviço.</p>
+        </div>
+      </div>
+      <div data-faq-item style="border-top:1px solid var(--brd);border-bottom:1px solid var(--brd)">
+        <button data-faq-btn style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;background:none;border:none;cursor:pointer;text-align:left;gap:24px">
+          <span style="font-family:var(--d);font-weight:500;font-size:19px;color:var(--txt);letter-spacing:-.01em">Qual o patrimônio mínimo para começar?</span>
+          <span data-faq-icon style="font-family:var(--m);font-size:18px;color:var(--vio2);flex:none;transition:transform .3s">+</span>
+        </button>
+        <div data-faq-answer style="max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .35s ease;opacity:0">
+          <p style="font-family:var(--s);font-size:15px;line-height:1.72;color:var(--mut);padding-bottom:26px;font-weight:300">A conversa inicial é aberta. O encaixe ideal é avaliado durante o diagnóstico, de forma honesta e sem pressão.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="position:relative;overflow:hidden;background:var(--grn-bg);padding:120px 56px;border-top:1px solid rgba(28,217,138,.12)">
+  <div style="position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:560px;height:560px;background:radial-gradient(circle,rgba(28,217,138,.13),transparent 65%);pointer-events:none"></div>
+  <div style="max-width:1300px;margin:0 auto;text-align:center;position:relative">
+    <div data-reveal>
+      <div style="font-family:var(--m);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--grn);margin-bottom:20px">Pronto para começar?</div>
+      <h2 style="font-family:var(--d);font-weight:300;font-size:clamp(44px,5vw,78px);line-height:.95;letter-spacing:-.025em;color:var(--txt)">Organize o patrimônio<br>que você construiu.</h2>
+      <p style="font-family:var(--s);font-size:18px;line-height:1.65;color:rgba(237,232,213,.52);margin:26px auto 0;max-width:50ch;font-weight:300">Uma conversa inicial. Sem compromisso. Para entender o seu cenário e ver se faz sentido avançar juntos.</p>
+      <div style="display:flex;gap:16px;justify-content:center;margin-top:40px">
+        <a href="https://wa.me/5515999999999" style="padding:18px 38px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:700;font-size:16px;border-radius:8px;text-decoration:none">Falar no WhatsApp</a>
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" style="padding:18px 34px;border:1px solid rgba(28,217,138,.3);color:var(--grn);font-family:var(--s);font-weight:400;font-size:16px;border-radius:8px;text-decoration:none">Agendar via formulário</a>
+      </div>
+      <div style="font-family:var(--m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,232,213,.2);margin-top:28px">Resposta em até 24h · Gratuito</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg);padding:52px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:44px">
+      <div>
+        <div style="margin-bottom:14px">
+          <img src="assets/logo-leo.webp" alt="Leonardo Arruda" style="height:30px;filter:invert(1);object-fit:contain">
+        </div>
+        <div style="font-family:var(--s);font-size:13px;color:var(--sub);line-height:1.7;font-weight:300">Consultor de Investimentos · ANBIMA CEA<br>Portfel · Grupo Primo · Itapetininga, SP</div>
+      </div>
+      <div style="display:flex;gap:60px">
+        <div>
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Links</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="#sobre" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Sobre</a>
+            <a href="#servicos" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Serviços</a>
+            <a href="#metodo" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Método</a>
+            <a href="#parceria" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Portfel</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Contato</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="https://wa.me/5515999999999" style="font-family:var(--s);font-size:13.5px;color:var(--grn);text-decoration:none;font-weight:400">WhatsApp</a>
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Formulário</a>
+            <a href="https://portfel.com.br" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">portfel.com.br</a>
+          </div>
+        </div>
+      </div>
+      <img src="assets/selo-anbima.webp" alt="ANBIMA CEA" style="height:60px;filter:invert(1);opacity:.45">
+    </div>
+    <div style="border-top:1px solid var(--brd);padding-top:22px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font-family:var(--s);font-size:12px;color:var(--sub);font-weight:300">Conteúdo informativo. Não constitui oferta ou recomendação de investimentos.</div>
+      <div style="font-family:var(--m);font-size:11px;letter-spacing:.1em;color:var(--sub)">© 2026 Leonardo Arruda · Consultoria de Investimentos</div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._cursor();
+    this._reveal();
+    this._counters();
+    this._parallax();
+    this._serviceRows();
+    this._navScroll();
+    this._scrollProgress();
+    this._floatingCTA();
+    this._faqAccordion();
+  }
+
+  _cursor() {
+    const dot = document.getElementById('c-dot');
+    const ring = document.getElementById('c-ring');
+    if (!dot || !ring) return;
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    });
+    document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+    const loop = () => {
+      rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
+      ring.style.left = Math.round(rx) + 'px'; ring.style.top = Math.round(ry) + 'px';
+      requestAnimationFrame(loop);
+    };
+    loop();
+    document.querySelectorAll('a, [data-service], [data-faq-btn]').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '56px'; ring.style.height = '56px';
+        ring.style.borderColor = 'rgba(28,217,138,.65)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '38px'; ring.style.height = '38px';
+        ring.style.borderColor = 'rgba(59,54,204,.55)';
+      });
+    });
+  }
+
+  _reveal() {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const delay = el.dataset.revealDelay || '0';
+        el.style.transition = 'opacity .85s ' + delay + 's cubic-bezier(.22,.61,.36,1), transform .85s ' + delay + 's cubic-bezier(.22,.61,.36,1)';
+        el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+        io.unobserve(el);
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -28px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.style.opacity = '0'; el.style.transform = 'translateY(28px)';
+      io.observe(el);
+    });
+  }
+
+  _counters() {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.counter);
+        const pre = el.dataset.prefix || '';
+        const suf = el.dataset.suffix || '';
+        let cur = 0;
+        const inc = target / (1600 / 16);
+        const t = setInterval(() => {
+          cur = Math.min(cur + inc, target);
+          el.textContent = pre + Math.round(cur) + suf;
+          if (cur >= target) clearInterval(t);
+        }, 16);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-counter]').forEach(el => io.observe(el));
+  }
+
+  _parallax() {
+    const img = document.getElementById('hero-img');
+    if (!img) return;
+    const onScroll = () => {
+      const y = window.pageYOffset;
+      if (y < window.innerHeight * 1.2) img.style.transform = 'translateY(' + (y * 0.32) + 'px)';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  _serviceRows() {
+    document.querySelectorAll('[data-service]').forEach(row => {
+      const arrow = row.querySelector('span:last-child');
+      row.addEventListener('mouseenter', () => {
+        row.style.background = 'rgba(59,54,204,.07)';
+        if (arrow) { arrow.style.transform = 'translateX(7px)'; arrow.style.color = 'var(--grn)'; }
+      });
+      row.addEventListener('mouseleave', () => {
+        row.style.background = '';
+        if (arrow) { arrow.style.transform = ''; arrow.style.color = ''; }
+      });
+    });
+  }
+
+  _navScroll() {
+    const nav = document.getElementById('site-nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.pageYOffset > 60
+        ? 'rgba(4,2,12,.96)'
+        : 'rgba(4,2,12,.72)';
+    }, { passive: true });
+  }
+
+  _scrollProgress() {
+    const bar = document.getElementById('prog');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docH > 0 ? (scrollTop / docH) * 100 : 0) + '%';
+    }, { passive: true });
+  }
+
+  _floatingCTA() {
+    const btn = document.getElementById('float-cta');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > window.innerHeight * 0.8) {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      } else {
+        btn.style.opacity = '0';
+        btn.style.transform = 'translateY(16px)';
+      }
+    }, { passive: true });
+  }
+
+  _faqAccordion() {
+    document.querySelectorAll('[data-faq-btn]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('[data-faq-item]');
+        const answer = item.querySelector('[data-faq-answer]');
+        const icon = btn.querySelector('[data-faq-icon]');
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+        document.querySelectorAll('[data-faq-answer]').forEach(a => {
+          a.style.maxHeight = '0px';
+          a.style.opacity = '0';
+        });
+        document.querySelectorAll('[data-faq-icon]').forEach(i => {
+          i.textContent = '+';
+          i.style.transform = '';
+        });
+        if (!isOpen) {
+          answer.style.maxHeight = (answer.scrollHeight + 40) + 'px';
+          answer.style.opacity = '1';
+          icon.textContent = '−';
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>O Capital do Futuro é Você — Leonardo Arruda</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,1,400;9..144,0,500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --obsidian:#0B0B0F; --obsidian-2:#121218;
+  --ivory:#F2EEE6; --dim:#8C8A93;
+  --aurum:#C6A062; --plasma:#6C5CE7; --mint:#1FE0A8;
+  --prism:linear-gradient(120deg,#6C5CE7,#1FE0A8,#C6A062);
+  --display:'Fraunces',serif; --fn:'Space Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--obsidian);color:var(--ivory);font-family:var(--fn);overflow-x:hidden;line-height:1.5;}
+::selection{background:var(--plasma);color:#fff;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+
+/* grain */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* tokens */
+.prism-line{height:1px;width:100%;background:var(--prism);opacity:.5;}
+.signal-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);display:inline-block;
+  box-shadow:0 0 0 0 rgba(31,224,168,.6);animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,224,168,.5);}70%{box-shadow:0 0 0 12px rgba(31,224,168,0);}100%{box-shadow:0 0 0 0 rgba(31,224,168,0);}}
+.aurum-tag{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--aurum);
+  border:1px solid rgba(198,160,98,.4);padding:8px 16px;border-radius:30px;display:inline-flex;align-items:center;gap:10px;}
+.kicker{font-size:.74rem;letter-spacing:4px;text-transform:uppercase;
+  background:var(--prism);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600;}
+
+.reveal{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+/* header */
+header{position:fixed;top:0;width:100%;z-index:100;padding:26px 0;transition:.4s;}
+header.scr{background:rgba(11,11,15,.7);backdrop-filter:blur(20px);padding:16px 0;}
+header .wrap{display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:var(--display);font-size:1.3rem;}
+.brand i{font-style:italic;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+.btn{position:relative;background:var(--ivory);color:var(--obsidian);border:none;padding:14px 28px;
+  border-radius:40px;font-family:var(--fn);font-weight:500;font-size:.85rem;letter-spacing:.5px;
+  text-decoration:none;cursor:pointer;overflow:hidden;transition:.4s;display:inline-block;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(108,92,231,.4);}
+.btn-prism{background:var(--prism);background-size:200%;color:#0B0B0F;animation:shift 5s infinite;}
+@keyframes shift{0%,100%{background-position:0%;}50%{background-position:100%;}}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:120px;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.4;z-index:0;}
+.orb1{width:500px;height:500px;background:var(--plasma);top:-10%;right:-5%;animation:drift 14s ease-in-out infinite;}
+.orb2{width:420px;height:420px;background:var(--mint);bottom:-15%;left:-8%;opacity:.22;animation:drift 18s ease-in-out infinite reverse;}
+.orb3{width:300px;height:300px;background:var(--aurum);top:40%;left:40%;opacity:.18;animation:drift 20s ease-in-out infinite;}
+@keyframes drift{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,-40px);}}
+.hero .wrap{position:relative;z-index:2;}
+.hero .aurum-tag{margin-bottom:34px;}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(3rem,8vw,7.5rem);
+  line-height:.96;letter-spacing:-2px;margin-bottom:36px;}
+.hero h1 em{font-style:italic;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+.hero .lead{max-width:520px;color:var(--dim);font-size:1.1rem;font-weight:300;line-height:1.7;margin-bottom:46px;}
+.hero-actions{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+.ghost{color:var(--ivory);text-decoration:none;font-size:.88rem;letter-spacing:1px;display:inline-flex;gap:10px;align-items:center;opacity:.8;transition:.3s;}
+.ghost:hover{opacity:1;gap:16px;}
+
+/* KINETIC marquee */
+.kinetic{padding:26px 0;border-top:1px solid rgba(242,238,230,.1);border-bottom:1px solid rgba(242,238,230,.1);
+  overflow:hidden;white-space:nowrap;margin-top:20px;}
+.kinetic-track{display:inline-block;animation:scroll 26s linear infinite;}
+.kinetic span{font-family:var(--display);font-style:italic;font-size:1.7rem;margin:0 30px;color:var(--dim);}
+.kinetic span b{font-style:normal;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+@keyframes scroll{to{transform:translateX(-50%);}}
+
+section{padding:130px 0;position:relative;}
+.sec-h{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,5vw,4rem);
+  line-height:1.1;letter-spacing:-1.5px;margin:22px 0 60px;max-width:900px;}
+.sec-h em{font-style:italic;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+
+/* MANIFESTO */
+.manifesto{text-align:center;}
+.manifesto p.big{font-family:var(--display);font-weight:300;font-size:clamp(1.8rem,4vw,3.2rem);
+  line-height:1.35;letter-spacing:-1px;max-width:980px;margin:0 auto;}
+.manifesto p.big em{font-style:italic;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+
+/* REFRACTION CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.rcard{position:relative;padding:42px 34px;border-radius:18px;background:rgba(242,238,230,.03);
+  border:1px solid rgba(242,238,230,.08);overflow:hidden;transition:.5s;backdrop-filter:blur(10px);}
+.rcard::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;
+  background:var(--prism);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.5s;}
+.rcard:hover{transform:translateY(-8px);background:rgba(242,238,230,.05);}
+.rcard:hover::before{opacity:1;}
+.rcard .ic{font-family:var(--display);font-size:1.6rem;font-style:italic;color:var(--aurum);margin-bottom:24px;}
+.rcard h3{font-family:var(--display);font-weight:400;font-size:1.5rem;margin-bottom:14px;}
+.rcard p{color:var(--dim);font-weight:300;font-size:.96rem;line-height:1.7;}
+
+/* STATS */
+.stats{border-top:1px solid rgba(242,238,230,.1);border-bottom:1px solid rgba(242,238,230,.1);background:var(--obsidian-2);}
+.stats .grid{display:grid;grid-template-columns:repeat(3,1fr);}
+.stat{padding:60px 36px;border-right:1px solid rgba(242,238,230,.08);}
+.stat:last-child{border:none;}
+.stat .n{font-family:var(--display);font-weight:300;font-size:clamp(3rem,6vw,5rem);line-height:1;}
+.stat .n em{font-style:normal;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+.stat .c{color:var(--dim);font-size:.84rem;letter-spacing:1px;text-transform:uppercase;margin-top:16px;}
+
+/* COMMUNITY / pertencimento */
+.club{text-align:center;position:relative;overflow:hidden;}
+.club .orb{opacity:.25;}
+.club .wrap{position:relative;z-index:2;}
+.club h2{font-family:var(--display);font-weight:300;font-size:clamp(2.5rem,6vw,5.5rem);
+  line-height:1.05;letter-spacing:-2px;margin-bottom:30px;}
+.club h2 em{font-style:italic;background:var(--prism);-webkit-background-clip:text;color:transparent;}
+.club p{color:var(--dim);max-width:520px;margin:0 auto 46px;font-weight:300;line-height:1.7;}
+
+footer{padding:60px 0;border-top:1px solid rgba(242,238,230,.1);}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center;}
+.legal{color:#555;font-size:.7rem;max-width:600px;margin-top:24px;line-height:1.6;}
+
+@media(max-width:860px){
+  .wrap{padding:0 22px;}
+  .cards,.stats .grid{grid-template-columns:1fr;}
+  .stat{border-right:none;border-bottom:1px solid rgba(242,238,230,.08);}
+  .hero h1{font-size:3rem;}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap">
+    <div class="brand">Leonardo <i>Arruda</i></div>
+    <a href="#aplicar" class="btn btn-prism">Solicitar acesso</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="wrap">
+    <div class="aurum-tag reveal"><span class="signal-dot"></span> Em constante evolução · Acesso selecionado</div>
+    <h1 class="reveal d1">O capital<br>do futuro<br><em>é você.</em></h1>
+    <p class="lead reveal d2">Para os que não acumulam por medo do amanhã — mas investem porque enxergam um amanhã que os outros ainda não veem. Isto não é consultoria. É a engenharia do que você está prestes a se tornar.</p>
+    <div class="hero-actions reveal d3">
+      <a href="#aplicar" class="btn btn-prism">Quero fazer parte</a>
+      <a href="#manifesto" class="ghost">Conheça a visão →</a>
+    </div>
+  </div>
+</section>
+
+<!-- KINETIC -->
+<div class="kinetic">
+  <div class="kinetic-track">
+    <span>Legado <b>·</b></span><span><b>Liberdade</b></span><span>Visão <b>·</b></span><span><b>Disrupção</b></span><span>Futuro <b>·</b></span><span><b>Propósito</b></span>
+    <span>Legado <b>·</b></span><span><b>Liberdade</b></span><span>Visão <b>·</b></span><span><b>Disrupção</b></span><span>Futuro <b>·</b></span><span><b>Propósito</b></span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="wrap">
+    <p class="kicker reveal">O Manifesto</p>
+    <p class="big reveal d1" style="margin-top:30px;">Há quem guarde dinheiro.<br>E há quem <em>construa tempo.</em><br>Você nunca pertenceu ao primeiro grupo.</p>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section>
+  <div class="wrap">
+    <p class="kicker reveal">Por que os visionários escolhem</p>
+    <h2 class="sec-h reveal d1">Um modelo que <em>evolui</em> tão rápido quanto a sua ambição.</h2>
+    <div class="cards">
+      <div class="rcard reveal">
+        <div class="ic">i.</div>
+        <h3>Inteligência viva</h3>
+        <p>Sua estratégia não é estática. Ela se recalibra com o mundo, com o mercado e com a sua próxima conquista. Capital que pensa.</p>
+      </div>
+      <div class="rcard reveal d1">
+        <div class="ic">ii.</div>
+        <h3>Alinhamento radical</h3>
+        <p>Zero conflito de interesse. Meus únicos incentivos são os seus resultados, sua tranquilidade e o legado da sua família.</p>
+      </div>
+      <div class="rcard reveal d2">
+        <div class="ic">iii.</div>
+        <h3>Pensamento de fronteira</h3>
+        <p>Para quem inova, soluções de prateleira são insuficientes. Aqui, a arquitetura patrimonial é tão fora da caixa quanto você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat reveal"><div class="n"><em>12+</em></div><div class="c">anos arquitetando patrimônios</div></div>
+      <div class="stat reveal d1"><div class="n"><em>1%</em></div><div class="c">acesso selecionado, sob convite</div></div>
+      <div class="stat reveal d2"><div class="n">∞</div><div class="c">um legado sem prazo de validade</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="club" id="aplicar">
+  <div class="orb orb1" style="left:50%;top:30%;"></div>
+  <div class="wrap">
+    <p class="kicker reveal">O Círculo</p>
+    <h2 class="reveal d1">Mais que clientes.<br>Uma <em>comunidade visionária.</em></h2>
+    <p class="reveal d2">O acesso é limitado e por afinidade. Trabalho com um número restrito de pessoas que compartilham uma mesma inquietação: construir algo maior do que elas mesmas. Se isso ressoa em você, este é o convite.</p>
+    <a href="#" class="btn btn-prism reveal d3" style="font-size:.95rem;padding:18px 40px;">Solicitar meu acesso →</a>
+    <p class="reveal d3" style="margin-top:24px;color:var(--dim);font-size:.8rem;"><span class="signal-dot"></span> Vagas limitadas para este ciclo</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Leonardo <i>Arruda</i></div>
+    <div style="display:flex;gap:24px;">
+      <a href="#" class="ghost">Instagram</a>
+      <a href="#" class="ghost">LinkedIn</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="legal">Leonardo Arruda — Consultor de Investimentos. Conteúdo de caráter informativo, não constitui oferta ou recomendação personalizada. Rentabilidade passada não garante resultados futuros.</p>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const h=document.getElementById('hdr');
+addEventListener('scroll',()=>h.classList.toggle('scr',scrollY>50));
+</script>
+</body>
+</html>

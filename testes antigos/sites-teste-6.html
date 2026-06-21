@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonardo Arruda — Consultor de Investimentos</title>
+<style>
+  :root{
+    --preto:#0A0A0B;
+    --grafite:#121214;
+    --azul:#0E5BD8;        /* acento Portfel */
+    --azul-claro:#2E7DF0;
+    --branco:#FFFFFF;
+    --cinza:#9A9CA3;
+    --linha:#1F2024;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter','Helvetica Neue',Arial,sans-serif;
+    background:var(--preto);
+    color:var(--branco);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+
+  /* HEADER */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(10,10,11,.7);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--linha);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-weight:700;letter-spacing:.5px;font-size:1.05rem}
+  .logo span{color:var(--azul-claro)}
+  .cta-top{
+    font-size:.85rem;font-weight:600;padding:10px 20px;
+    border:1px solid var(--azul);border-radius:6px;
+    transition:.25s;
+  }
+  .cta-top:hover{background:var(--azul);}
+
+  /* HERO */
+  .hero{padding:180px 0 100px;border-bottom:1px solid var(--linha)}
+  .hero .tag{
+    color:var(--azul-claro);font-size:.8rem;letter-spacing:2px;
+    text-transform:uppercase;font-weight:600;margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,5.5vw,4.2rem);
+    font-weight:700;line-height:1.08;letter-spacing:-1px;
+    max-width:880px;
+  }
+  .hero h1 em{color:var(--azul-claro);font-style:normal}
+  .hero p{
+    margin:28px 0 40px;color:var(--cinza);
+    font-size:1.15rem;max-width:600px;
+  }
+  .btn{
+    display:inline-block;background:var(--azul);
+    padding:16px 34px;border-radius:8px;font-weight:600;
+    transition:.25s;
+  }
+  .btn:hover{background:var(--azul-claro);transform:translateY(-2px)}
+
+  /* MÉTRICAS */
+  .metrics{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--linha);
+    border-bottom:1px solid var(--linha);
+  }
+  .metric{background:var(--preto);padding:48px 24px;text-align:center}
+  .metric .num{font-size:2.4rem;font-weight:700;color:var(--branco)}
+  .metric .num span{color:var(--azul-claro)}
+  .metric .lbl{color:var(--cinza);font-size:.85rem;margin-top:6px;
+    text-transform:uppercase;letter-spacing:1px}
+
+  /* SOBRE */
+  section{padding:96px 0}
+  .eyebrow{color:var(--azul-claro);font-size:.8rem;letter-spacing:2px;
+    text-transform:uppercase;font-weight:600;margin-bottom:18px}
+  h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;
+    letter-spacing:-.5px;margin-bottom:24px;line-height:1.15}
+  .sobre-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+  .sobre p{color:var(--cinza);margin-bottom:18px;font-size:1.05rem}
+  .sobre strong{color:var(--branco);font-weight:600}
+  .foto{
+    aspect-ratio:4/5;border-radius:12px;
+    background:linear-gradient(160deg,var(--grafite),#000);
+    border:1px solid var(--linha);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cinza);font-size:.85rem;
+  }
+  .badge-cea{
+    display:inline-block;margin-top:8px;padding:8px 16px;
+    border:1px solid var(--azul);border-radius:6px;
+    font-size:.8rem;font-weight:600;color:var(--azul-claro);
+  }
+
+  /* COMO FUNCIONA */
+  .steps-sec{background:var(--grafite);border-block:1px solid var(--linha)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+  .step{padding:36px;border:1px solid var(--linha);border-radius:12px;
+    background:var(--preto);transition:.25s}
+  .step:hover{border-color:var(--azul);transform:translateY(-4px)}
+  .step .n{font-size:1.1rem;font-weight:700;color:var(--azul-claro);
+    margin-bottom:18px}
+  .step h3{font-size:1.2rem;margin-bottom:10px}
+  .step p{color:var(--cinza);font-size:.95rem}
+
+  /* DIFERENCIAIS */
+  .diff{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .diff-item{padding:28px;border-radius:10px;border:1px solid var(--linha)}
+  .diff-item h4{color:var(--azul-claro);margin-bottom:10px;font-size:1.05rem}
+  .diff-item p{color:var(--cinza);font-size:.92rem}
+
+  /* CTA FINAL */
+  .final{text-align:center;background:
+    radial-gradient(circle at 50% 0%,rgba(14,91,216,.18),transparent 60%)}
+  .final h2{max-width:680px;margin-inline:auto}
+  .final p{color:var(--cinza);max-width:520px;margin:18px auto 36px;font-size:1.1rem}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--linha);padding:40px 0;color:var(--cinza);
+    font-size:.82rem}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+
+  @media(max-width:860px){
+    .metrics{grid-template-columns:repeat(2,1fr)}
+    .sobre-grid{grid-template-columns:1fr;gap:40px}
+    .steps,.diff{grid-template-columns:1fr}
+    .cta-top{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">Leonardo <span>Arruda</span></div>
+      <a href="#contato" class="cta-top">Falar com o Leonardo</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="tag">Consultor de Investimentos · CEA Anbima</div>
+    <h1>Seu patrimônio merece quem investe <em>do seu lado</em> — não contra você.</h1>
+    <p>Consultoria de investimentos sem comissões e sem conflito de interesse. Decisões pensadas para o seu objetivo, com total transparência.</p>
+    <a href="#contato" class="btn">Agendar uma conversa</a>
+  </div>
+</section>
+
+<!-- MÉTRICAS (oficiais Portfel) -->
+<div class="metrics">
+  <div class="metric"><div class="num">+R$<span>20</span>bi</div><div class="lbl">Sob consultoria</div></div>
+  <div class="metric"><div class="num">+<span>25</span>mil</div><div class="lbl">Clientes</div></div>
+  <div class="metric"><div class="num">NPS +<span>97</span></div><div class="lbl">Satisfação</div></div>
+  <div class="metric"><div class="num">Desde <span>2012</span></div><div class="lbl">No mercado</div></div>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="wrap sobre-grid">
+    <div>
+      <div class="eyebrow">Quem é Leonardo Arruda</div>
+      <h2>Um consultor que escolheu jogar pelas regras certas.</h2>
+      <p>Atuo no mercado financeiro <strong>desde 2012</strong>, com passagem pela B3 e anos acompanhando de perto como o setor funciona — inclusive seus conflitos.</p>
+      <p>Foi por isso que escolhi a <strong>consultoria fee-based</strong>: um modelo onde eu sou remunerado por você, não por vender produtos. Sem comissões escondidas, sem empurrar o que não serve.</p>
+      <p>Hoje faço parte da <strong>Portfel</strong>, a maior consultoria financeira independente do Brasil, eleita nº 1 no ranking XP Wealth Services.</p>
+      <span class="badge-cea">✓ Certificação CEA Anbima</span>
+    </div>
+    <div class="foto">[ foto do Leonardo ]</div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<div class="steps-sec">
+  <section class="wrap">
+    <div class="eyebrow">Como funciona</div>
+    <h2>Simples, claro e no seu tempo.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Conversa inicial</h3>
+        <p>Entendemos seu momento, seus objetivos e o que você espera do seu dinheiro. Sem compromisso.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Diagnóstico e plano</h3>
+        <p>Analiso sua carteira atual e monto uma estratégia alinhada ao seu perfil — com total transparência nos custos.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Acompanhamento contínuo</h3>
+        <p>Investir não é evento único. Sigo ao seu lado, revisando e ajustando conforme a vida e o mercado mudam.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- DIFERENCIAIS -->
+<section class="wrap">
+  <div class="eyebrow">Por que consultoria independente</div>
+  <h2>O que muda quando ninguém ganha por trás.</h2>
+  <div class="diff">
+    <div class="diff-item">
+      <h4>Sem comissões</h4>
+      <p>Minha remuneração vem de você. Não recebo por indicar nenhum produto específico.</p>
+    </div>
+    <div class="diff-item">
+      <h4>Sem conflito de interesse</h4>
+      <p>A recomendação é a melhor para o seu caso — não a que paga mais para mim.</p>
+    </div>
+    <div class="diff-item">
+      <h4>Transparência total</h4>
+      <p>Você sabe exatamente quanto paga e por quê. Nada nas entrelinhas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final" id="contato">
+  <div class="wrap">
+    <h2>Vamos conversar sobre o seu patrimônio?</h2>
+    <p>Uma conversa franca, sem compromisso, para entender se a consultoria faz sentido para o seu momento.</p>
+    <a href="https://wa.me/55SEUNUMERO" class="btn">Falar com o Leonardo</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 Leonardo Arruda · Consultor de Investimentos</div>
+    <div>Em parceria com a Portfel Consultoria Financeira</div>
+  </div>
+</footer>
+
+</body>
+</html>
