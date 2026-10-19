@@ -1,101 +1,462 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termos de Uso e Política de Privacidade - Leonardo Arruda</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #04020C;
-      --s1: #0A0716;
-      --txt: #FFF;
-      --mut: rgba(255,255,255,0.65);
-      --sub: rgba(255,255,255,0.45);
-      --brd: rgba(255,255,255,0.08);
-      --d: 'Outfit', sans-serif;
-      --s: 'Inter', sans-serif;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termos de Uso | Leonardo Arruda</title>
+<meta name="description" content="Consultoria de investimentos independente. Fee Based. 100% no seu lado. ANBIMA CEA · Portfel · Grupo Primo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04020C;--s1:#080517;--s2:#0B071A;--s3:#130E28;
+  --vio:#3B36CC;--vio2:#6B66E8;--vio3:#1B1762;
+  --vio-fill:rgba(59,54,204,.12);
+  --grn:#1CD98A;--grn2:#23F09A;--grn-bg:#04120A;
+  --txt:#EDE8D5;--mut:#9590B0;--sub:#524E6A;
+  --brd:rgba(255,255,255,.06);--brd2:rgba(255,255,255,.13);
+  --d:'Cormorant Garamond',Georgia,serif;
+  --s:'DM Sans',-apple-system,sans-serif;
+  --m:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--s);background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden;font-weight:300}
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--vio),var(--vio2));z-index:9999;pointer-events:none}
+#c-dot{position:fixed;width:7px;height:7px;border-radius:50%;background:var(--grn);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .2s}
+#c-ring{position:fixed;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(59,54,204,.55);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .22s,height .22s,border-color .22s}
+::selection{background:var(--vio);color:#fff}
+#grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.042;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>")}
+@keyframes heroIn{0%{transform:scale(1.05);opacity:.7}100%{transform:scale(1);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes scrollDown{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* TOOLTIP FEE BASED */
+.tip{position:relative;display:inline-flex;align-items:center;gap:7px}
+.tip-icon{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;border:1px solid var(--sub);font-family:var(--m);font-size:9px;color:var(--sub);cursor:help;flex:none;transition:border-color .2s,color .2s}
+.tip:hover .tip-icon{border-color:var(--vio2);color:var(--vio2)}
+.tip-box{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);width:280px;background:#13103A;border:1px solid rgba(107,102,232,.35);border-radius:8px;padding:14px 16px;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:300;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+.tip:hover .tip-box{opacity:1}
+.tip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#13103A}
+.tip-box p{font-family:var(--s);font-size:12.5px;line-height:1.65;color:var(--mut);font-weight:300}
+.tip-box strong{color:var(--txt);font-weight:500}
+</style>
+<!-- Schema.org para Otimização de IAs (LLMO/GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://leonardoarruda.com.br/#person",
+      "name": "Leonardo Arruda",
+      "jobTitle": "Consultor de Investimentos",
+      "description": "Consultor de investimentos independente, certificado ANBIMA CEA, atuando pela Portfel (Grupo Primo) com modelo Fee Based.",
+      "url": "https://leonardoarruda.com.br",
+      "sameAs": [
+        "https://www.linkedin.com/in/leonardo-arruda",
+        "https://www.instagram.com/leonardoarruda"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Portfel",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Grupo Primo"
+        }
+      },
+      "knowsAbout": ["Planejamento Financeiro", "Previdência Privada", "Holding Patrimonial", "Fee Based", "Investimentos"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "ANBIMA CEA"
+      }
+    },
+    {
+      "@type": "FinancialService",
+      "@id": "https://leonardoarruda.com.br/#service",
+      "name": "Leonardo Arruda Consultoria Financeira",
+      "provider": {
+        "@id": "https://leonardoarruda.com.br/#person"
+      },
+      "serviceType": ["Gestão de Patrimônio", "Planejamento Financeiro", "Consultoria Fee Based"],
+      "areaServed": "BR",
+      "description": "Consultoria de investimentos independente focada em empresários, famílias patrimoniais e investidores de alta renda."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qual a relação do Leonardo com a Portfel e o Grupo Primo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Leonardo Arruda é um consultor de investimentos que atua de forma independente. Desde 2023, escolheu a plataforma da Portfel (ecossistema do Grupo Primo) pela robustez de infraestrutura e acesso a produtos de alto nível no Brasil e no exterior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que contratar consultoria se já invisto sozinho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O valor está em organizar melhor a estratégia, reduzir ruído e tomar decisões com mais clareza. Não apenas em indicar produtos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é Fee Based e por que importa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fee Based significa que Leonardo é remunerado diretamente por você — não pelos bancos ou gestoras. Qualquer comissão recebida das instituições é integralmente devolvida ao cliente. O consultor trabalha exclusivamente nos seus interesses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe conflito de interesse nas recomendações?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A Portfel opera com remuneração transparente. Sem comissão por produto. A independência é a base do serviço."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual o patrimônio mínimo para começar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A conversa inicial é aberta. O encaixe ideal é avaliado durante o diagnóstico, de forma honesta e sem pressão."
+          }
+        }
+      ]
     }
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--txt);
-      font-family: var(--s);
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      font-family: var(--d);
-      font-weight: 400;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 100px 40px;
-    }
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--mut);
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 60px;
-      transition: color 0.2s;
-    }
-    .back-btn:hover {
-      color: var(--txt);
-    }
-    .content-block {
-      margin-bottom: 60px;
-    }
-    .content-block h2 {
-      font-size: 24px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--brd);
-      padding-bottom: 12px;
-    }
-    .content-block p {
-      color: var(--mut);
-      font-size: 15px;
-      margin-bottom: 16px;
-      line-height: 1.8;
-      font-weight: 300;
-      text-align: justify;
-    }
-  </style>
+  ]
+}
+</script>
+<!-- ESTILOS MOBILE / RESPONSIVO -->
+<style>
+@media (max-width: 900px) {
+  /* GLOBAL */
+  section { padding: 60px 24px !important; }
+  h1 { font-size: clamp(42px, 12vw, 60px) !important; }
+  h2 { font-size: clamp(32px, 8vw, 42px) !important; }
+  h1 br, h2 br { display: none; }
+  
+  /* NAV */
+  #site-nav { padding: 0 16px !important; }
+  #site-nav div a.nav-link { display: none !important; } 
+  #nav-logo { height: 34px !important; }
+  #site-nav > div { gap: 10px !important; }
+  .nav-cta { display: none !important; }
+  .header-menu-btn { display: flex !important; padding: 8px !important; }
+  
+  /* HERO */
+  #hero-vid { width: 100vw; height: 100vh; object-fit: cover; }
+  .hero-content { padding: 0 24px 60px !important; }
+  .hero-scroll { display: none !important; }
+  .hero-top-text { font-size: 8px !important; letter-spacing: 0.1em !important; white-space: nowrap !important; }
+  
+  /* STATS */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .stats-grid > div { padding: 32px 16px !important; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .stats-grid > div:nth-child(even) { border-right: none !important; }
+  .stats-grid > div:nth-last-child(-n+2) { border-bottom: none !important; }
+
+  /* MEDIA LOGOS */
+  .media-logos { gap: 24px !important; }
+  .media-logos img { height: 20px !important; }
+  .media-logos img.logo-valores { height: 32px !important; }
+  
+  /* FILOSOFIA */
+  .filo-flex { flex-direction: column !important; gap: 24px !important; }
+  .filo-flex div { width: auto !important; }
+
+  /* SOBRE */
+  .sobre-grid { grid-template-columns: 1fr !important; }
+  
+  /* PARA QUEM */
+  .para-quem-grid { grid-template-columns: 1fr !important; }
+  
+  /* SERVIÇOS */
+  .svc-wrap { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; min-height: auto !important; }
+  .svc-nav { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; border-right: none !important; border-bottom: none !important; overflow: visible !important; white-space: normal !important; align-items: stretch !important; }
+  .svc-tab { padding: 16px 8px !important; min-width: 0 !important; border: 1px solid var(--brd) !important; border-radius: 8px; background: rgba(255,255,255,0.02) !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; }
+  .svc-tab::before { display: none !important; }
+  .svc-tab.is-active { background: rgba(28,217,138,0.1) !important; border-color: var(--grn) !important; }
+  .svc-tab .svc-tab-num, .svc-tab .svc-tab-bar { display: none !important; }
+  .svc-tab .svc-tab-name { display: block !important; margin: 0 !important; font-size: 13px !important; line-height: 1.3 !important; }
+  .svc-tab .svc-tab-name br { display: none !important; }
+  .svc-tab .svc-tab-count { font-size: 10px !important; margin-top: 6px !important; }
+  .svc-panel { position: relative !important; padding: 32px 24px !important; box-sizing: border-box !important; }
+  .svc-panels { min-height: auto !important; }
+  .svc-item { padding-left: 16px !important; }
+  
+  /* METODO */
+  .met-accordion { display: flex !important; flex-direction: column !important; height: auto !important; }
+  .met-card { position: relative !important; width: 100% !important; min-height: auto !important; flex: none !important; margin-bottom: 16px; overflow: visible !important; border: 1px solid rgba(107,102,232,0.15) !important; background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01)) !important; border-radius: 16px !important; }
+  .met-card-closed { display: none !important; }
+  .met-card-open { position: static !important; opacity: 1 !important; pointer-events: auto !important; padding: 32px 24px !important; background: none !important; border: none !important; min-width: 0 !important; }
+  
+  .garantias-grid { grid-template-columns: 1fr 1fr !important; }
+  .garantias-grid > div:last-child { grid-column: 1 / -1; }
+  
+  /* PARCERIA */
+  .parceria-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .parceria-grid > div:last-child { display: none !important; }
+  #parceria [style*="max-width:58%"] { max-width: 100% !important; }
+  .parceria-title-wrap { max-width: 100% !important; }
+  .parceria-bg { display: none !important; }
+  .mobile-parceria-img { display: block !important; margin-top: 40px; width: 100%; border-radius: 16px; object-fit: cover; height: 380px; object-position: center 20%; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+
+    .parceria-subtext { font-size: 19px !important; line-height: 1.6 !important; color: rgba(255,255,255,0.7) !important; margin-bottom: 24px !important; }
+  .mobile-parceria-img { display: block !important; width: 100%; border-radius: 12px; margin-bottom: 32px; object-fit: cover; max-height: 350px; mask-image: linear-gradient(to top, transparent 0%, black 15%); -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%); }
+  .parceria-bg { display: none !important; } /* Hide the background version on mobile since we have the inline image */
+  
+  /* PRESENÇA */
+  .map-bg { width: 100% !important; opacity: 0.2 !important; }
+  
+  /* FAQ */
+  .faq-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  
+  /* CTA */
+  #cta { padding: 60px 24px !important; }
+  #cta h2 { font-size: clamp(32px, 8vw, 42px) !important; }
+
+  /* FOOTER */
+  footer { padding: 40px 24px !important; }
+  .footer-top { flex-direction: column !important; gap: 40px !important; }
+  .footer-links { gap: 40px !important; flex-direction: column !important; }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-btn">
-      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-      Voltar para a página inicial
+
+
+<div id="grain"></div>
+<div id="prog"></div>
+<div id="c-dot"></div>
+<div id="c-ring"></div>
+
+<!-- FLOATING CTA (FORMULÁRIO) -->
+<a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" id="float-cta" style="position:fixed;bottom:30px;right:30px;z-index:190;display:flex;align-items:center;gap:9px;padding:13px 22px;background:var(--vio);color:#fff;font-family:var(--s);font-weight:600;font-size:13px;border-radius:30px;text-decoration:none;box-shadow:0 6px 28px rgba(59,54,204,.35);opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+  Agendar conversa
+</a>
+
+<!-- NAV -->
+<nav id="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:200;height:100px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:transparent;backdrop-filter:blur(0px);border-bottom:1px solid transparent;transition:height 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease">
+  <a href="#" style="display:flex;align-items:center;text-decoration:none">
+    <img id="nav-logo" src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:54px;object-fit:contain;transition:height 0.4s ease;">
+  </a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div style="display:flex;align-items:center;gap:36px" id="nav-links">
+      <a href="#sobre" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Sobre</a>
+      <a href="#servicos" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Serviços</a>
+      <a href="#metodo" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Método</a>
+      <a href="#presenca" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Atendimento</a>
+      <a href="#parceria" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none">Portfel</a>
+    </div>
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" class="nav-cta" style="padding:11px 24px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:600;font-size:13px;border-radius:6px;text-decoration:none">Agendar conversa</a>
+    <a href="/linktree" target="_self" class="header-menu-btn" style="display:none;align-items:center;justify-content:center;padding:10px;background:rgba(255,255,255,.05);border-radius:8px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.1)">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </a>
-
-    <div style="margin-bottom: 60px;">
-      <h1 style="font-size: 42px; margin-bottom: 16px; letter-spacing: -0.02em;">Políticas e Termos</h1>
-      <p style="color: var(--sub); font-size: 15px;">Última atualização: Junho de 2026</p>
-    </div>
-
-    <div class="content-block">
-      <h2>Termos de Uso</h2>
-      <p>As informações disponíveis neste site têm finalidade exclusivamente informativa e educacional. Sob nenhuma circunstância, os conteúdos aqui apresentados devem ser interpretados como oferta, solicitação ou recomendação de compra ou venda de valores mobiliários ou produtos financeiros.</p>
-      <p>Leonardo Arruda atua como Consultor de Valores Mobiliários através da Portfel Consultoria, regularmente registrada na CVM. Toda e qualquer decisão de investimento é de inteira responsabilidade do investidor.</p>
-      <p>Os investimentos em mercado financeiro envolvem riscos e podem resultar em perdas patrimoniais. A rentabilidade obtida no passado não representa garantia de resultados futuros.</p>
-      <p>Este site não realiza intermediação, custódia ou administração de recursos. As aplicações devem ser realizadas pelo próprio cliente diretamente em sua conta em instituições financeiras autorizadas a operar pelo Banco Central do Brasil e/ou CVM.</p>
-    </div>
-
-    <div class="content-block">
-      <h2>Política de Privacidade</h2>
-      <p>A sua privacidade é levada a sério. Esta política descreve como tratamos as informações coletadas através deste site e visa a total transparência de acordo com a Lei Geral de Proteção de Dados (LGPD).</p>
-      <p><strong>Coleta de Dados:</strong> O site coleta apenas os dados inseridos voluntariamente nos formulários de contato e agendamento. Esses dados (como nome, contato e informações preliminares de escopo) são utilizados única e exclusivamente para avaliar a viabilidade de atendimento e iniciar a comunicação.</p>
-      <p><strong>Uso e Compartilhamento:</strong> Sob nenhuma hipótese comercializamos, alugamos ou compartilhamos os seus dados pessoais com terceiros não autorizados. As informações são mantidas sob rigoroso sigilo corporativo.</p>
-      <p><strong>Cookies:</strong> O site pode utilizar cookies básicos e anônimos (como os gerados pelo Google Analytics ou ferramentas similares) para avaliar métricas de tráfego e melhorar a experiência de navegação do usuário. Nenhum cookie utilizado permite identificação pessoal para venda a anunciantes de terceiros.</p>
-      <p><strong>Direitos do Usuário:</strong> Você possui o direito de solicitar a exibição, alteração ou exclusão definitiva dos seus dados armazenados por nossa equipe a qualquer momento, bastando entrar em contato diretamente com o consultor através dos canais de comunicação disponíveis no site.</p>
-    </div>
-
   </div>
+</nav>
+
+<!-- LEGAL CONTENT -->
+<section style="background:var(--bg);padding:140px 24px 80px;min-height:70vh;">
+  <div style="max-width:800px;margin:0 auto;">
+    <h1 style="font-family:var(--d);font-weight:400;font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.02em;color:var(--txt);margin-bottom:24px">Termos de Uso</h1>
+    <div style="width:60px;height:2px;background:var(--grn);margin-bottom:48px;"></div>
+    
+    <div style="font-family:var(--s);font-size:16px;line-height:1.8;color:rgba(255,255,255,.7);font-weight:300;">
+
+      <h2 style="font-family:var(--d);font-size:24px;color:var(--txt);margin:40px 0 16px;font-weight:400">1. Aceitação dos Termos</h2>
+      <p style="margin-bottom:24px">Ao acessar e utilizar este site, o usuário concorda com os presentes Termos de Uso. Caso não concorde com alguma das condições estabelecidas, recomenda-se a interrupção do uso deste canal.</p>
+
+      <h2 style="font-family:var(--d);font-size:24px;color:var(--txt);margin:40px 0 16px;font-weight:400">2. Natureza Informativa e Limitação de Responsabilidade</h2>
+      <p style="margin-bottom:24px">Todo o conteúdo disponibilizado neste site possui caráter exclusivamente informativo e educacional. <strong>Nenhuma informação contida neste site constitui recomendação direta de investimento, oferta de produtos financeiros, aconselhamento fiscal ou jurídico.</strong></p>
+      <p style="margin-bottom:24px">O serviço de consultoria financeira prestado por Leonardo Arruda (vinculado à Portfel e Grupo Primo) é realizado de forma estritamente personalizada, mediante assinatura de contrato de prestação de serviços específico e alinhamento de perfil de risco (Suitability). Decisões de investimento tomadas com base no conteúdo deste site, sem o devido acompanhamento profissional contratado, são de inteira responsabilidade do usuário.</p>
+
+      <h2 style="font-family:var(--d);font-size:24px;color:var(--txt);margin:40px 0 16px;font-weight:400">3. Vínculo Institucional</h2>
+      <p style="margin-bottom:24px">Leonardo Arruda atua como Consultor de Investimentos (CVM/ANBIMA CEA) parceiro da Portfel. As opiniões aqui expressas são pessoais e profissionais, podendo não refletir integralmente as opiniões institucionais da Portfel, do Grupo Primo ou de instituições parceiras mencionadas.</p>
+
+      <h2 style="font-family:var(--d);font-size:24px;color:var(--txt);margin:40px 0 16px;font-weight:400">4. Direitos Autorais e Propriedade Intelectual</h2>
+      <p style="margin-bottom:24px">A estrutura, textos, logotipos, imagens e a identidade visual (design) presentes neste site são protegidos por leis de propriedade intelectual. É proibida a reprodução, distribuição ou modificação de qualquer conteúdo sem a prévia autorização.</p>
+      <p style="margin-bottom:24px"><em>Design e desenvolvimento: Agência Brasilis (agenciabrasilis.com).</em></p>
+
+      <h2 style="font-family:var(--d);font-size:24px;color:var(--txt);margin:40px 0 16px;font-weight:400">5. Modificações nos Termos</h2>
+      <p style="margin-bottom:24px">Reservamo-nos o direito de alterar estes Termos de Uso a qualquer momento, sem aviso prévio. Recomendamos a leitura periódica desta página.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg);padding:60px 56px;border-top:1px solid var(--brd)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div class="footer-top" style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:60px;flex-wrap:wrap;gap:40px">
+      <div>
+        <div style="margin-bottom:24px"><img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:54px;object-fit:contain;"></div>
+        <div style="font-family:var(--s);font-size:13.5px;color:var(--sub);line-height:1.8;font-weight:300">
+          Consultor de Investimentos · ANBIMA CEA <br>
+          Portfel · Grupo Primo <br><br>
+          <strong style="color:var(--txt);font-weight:500">LA CONSULTORIA & NEGÓCIOS</strong><br>
+          CNPJ: 54.475.818/0001-90
+        </div>
+        <div style="font-family:var(--s);font-size:13.5px;color:var(--sub);line-height:1.5;font-weight:300;margin-top:24px;max-width:350px">
+          Acompanhe minha newsletter semanal com as principais notícias do mercado pelo <a href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" style="color:var(--txt);text-decoration:none;font-weight:500">LinkedIn</a>.
+        </div>
+        <div style="display:flex;gap:14px;margin-top:16px">
+          <a href="https://www.instagram.com/leoarruda.s/" target="_blank" style="color:var(--sub);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'" aria-label="Instagram">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" style="color:var(--sub);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'" aria-label="LinkedIn">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links" style="display:flex;gap:80px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">Menu</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="#sobre" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Leonardo Arruda</a>
+            <a href="#servicos" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Escopo de Atuação</a>
+            <a href="#metodo" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">O Método</a>
+            <a href="#presenca" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Atendimento Global</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:var(--m);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin-bottom:18px">Ecossistema</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://portfel.com.br" target="_blank" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Portfel Consultoria</a>
+            <a href="https://investimentos.com.br" target="_blank" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Portal Investimentos.com.br</a>
+            <a href="https://www.grupo-primo.com/" target="_blank" style="font-family:var(--s);font-size:13.5px;color:var(--mut);text-decoration:none;font-weight:300">Grupo Primo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="border-top:1px solid var(--brd2);padding-top:32px;margin-bottom:32px;">
+      <p style="font-family:var(--s);font-size:12px;line-height:1.8;color:rgba(255,255,255,.55);font-weight:300;max-width:1000px;text-align:justify;">
+        A Portfel Consultoria Financeira LTDA, inscrita no CNPJ/ME sob o nº 37.576.416/0001-62, é registrada como Consultoria de Valores Mobiliários na Comissão de Valores Mobiliários (CVM), nos termos da Resolução CVM nº 19/2021 e é controlada pela O Primo Rico Mídia, Educacional e Participações S.A.<br><br>
+        A Portfel não realiza intermediação, custódia ou administração de recursos de clientes. Todas as aplicações devem ser efetuadas diretamente em instituições autorizadas a operar pelo Banco Central do Brasil e/ou pela CVM.<br><br>
+        As informações disponibilizadas têm caráter exclusivamente informativo e não constituem oferta ou recomendação de investimento. Rentabilidade passada não garante resultados futuros.
+      </p>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--brd2)">
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);line-height:1.7">
+        © 2026 Leonardo Arruda. Todos os direitos reservados.<br>
+        Desenvolvido por <a href="https://agenciabrasilis.com" target="_blank" style="color:var(--sub);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'">Agência Brasilis</a>
+      </div>
+      <div style="font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <a href="termos.html" style="color:var(--sub);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'">Política de Privacidade</a>
+        <a href="termos.html" style="color:var(--sub);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--sub)'">Termos de Uso</a>
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:8px 16px;border-radius:20px;cursor:pointer;font-family:var(--s);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:6px;transition:all 0.3s;margin-left:10px" onmouseover="this.style.background='#fff';this.style.color='#000'" onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#fff'">
+          Topo
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const FORM = 'https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u';
+
+  // CURSOR
+  const dot=document.getElementById('c-dot'),ring=document.getElementById('c-ring');
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0';});
+  document.addEventListener('mouseenter',()=>{dot.style.opacity='1';ring.style.opacity='1';});
+  (function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.tip').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(28,217,138,.65)';});
+    el.addEventListener('mouseleave',()=>{ring.style.width='38px';ring.style.height='38px';ring.style.borderColor='rgba(59,54,204,.55)';});
+  });
+
+  
+  // MET-CARD HOVER
+  const metCards = document.querySelectorAll('.met-card');
+  metCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      metCards.forEach(c => c.classList.remove('is-active'));
+      card.classList.add('is-active');
+    });
+  });
+
+  
+  // NAV SCROLL EFFECT
+  const siteNav = document.getElementById('site-nav');
+  const navLogo = document.getElementById('nav-logo');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) {
+      siteNav.style.height = '70px';
+      siteNav.style.background = 'rgba(4,2,12,.85)';
+      siteNav.style.backdropFilter = 'blur(22px)';
+      siteNav.style.borderBottom = '1px solid var(--brd)';
+      if(navLogo) navLogo.style.height = '32px';
+    } else {
+      siteNav.style.height = '100px';
+      siteNav.style.background = 'transparent';
+      siteNav.style.backdropFilter = 'blur(0px)';
+      siteNav.style.borderBottom = '1px solid transparent';
+      if(navLogo) navLogo.style.height = '54px';
+    }
+  });
+
+  // REVEAL
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target;
+      const d=el.dataset.revealDelay||'0';
+      el.style.transition='opacity .85s '+d+'s cubic-bezier(.22,.61,.36,1), transform .85s '+d+'s cubic-bezier(.22,.61,.36,1)';
+      el.style.opacity='1';el.style.transform='translateY(0)';
+      io.unobserve(el);
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -28px 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(28px)';io.observe(el);
+  });
+
+  // PARALLAX VÃDEO HERO
+  const vid=document.getElementById('hero-vid');
+  if(vid){window.addEventListener('scroll',()=>{const y=window.pageYOffset;if(y<window.innerHeight*1.2)vid.style.transform='translateY('+(y*0.25)+'px)';},{passive:true});}
+
+  // NAV SCROLL
+  const nav=document.getElementById('site-nav');
+  window.addEventListener('scroll',()=>{nav.style.background=window.pageYOffset>60?'rgba(4,2,12,.96)':'rgba(4,2,12,.72)';},{passive:true});
+
+  // SCROLL PROGRESS
+  const bar=document.getElementById('prog');
+  window.addEventListener('scroll',()=>{const s=window.pageYOffset;const d=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(d>0?(s/d)*100:0)+'%';},{passive:true});
+
+  // FLOATING CTA
+  const fcta=document.getElementById('float-cta');
+  window.addEventListener('scroll',()=>{
+    if(window.pageYOffset>window.innerHeight*.8){fcta.style.opacity='1';fcta.style.transform='translateY(0)';}
+    else{fcta.style.opacity='0';fcta.style.transform='translateY(16px)';}
+  },{passive:true});
+
+  // FAQ
+  document.querySelectorAll('[data-faq-btn]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.closest('[data-faq-item]');
+      const answer=item.querySelector('[data-faq-answer]');
+      const icon=btn.querySelector('[data-faq-icon]');
+      const isOpen=answer.style.maxHeight&&answer.style.maxHeight!=='0px';
+      document.querySelectorAll('[data-faq-answer]').forEach(a=>{a.style.maxHeight='0px';a.style.opacity='0';});
+      document.querySelectorAll('[data-faq-icon]').forEach(i=>{i.textContent='+';i.style.transform='';});
+      if(!isOpen){answer.style.maxHeight=(answer.scrollHeight+40)+'px';answer.style.opacity='1';icon.textContent=' ';icon.style.transform='rotate(180deg)';}
+    });
+  });
+})();
+</script>
 </body>
 </html>
