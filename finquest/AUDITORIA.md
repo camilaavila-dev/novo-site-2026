@@ -41,21 +41,17 @@ já é "jogo" e o que dá para reaproveitar.
 5. **Testes**: o padrão "toda conta tem teste contra exemplo feito à mão" vale
    igual para o jogo.
 
-## Atritos que precisam de decisão
+## Atritos
 
 - **As regras do site dizem "não somos um jogo"** (`docs/REGRAS.md`, seção 2):
   na home e nas páginas principais não se usa XP, nível, missão, conquista nem
-  "game". O mapa e a jornada ficam com `noindex`. Ou seja: o finQuest **não
-  deve morar dentro do site do consultor**. Por isso ele começa isolado na pasta
-  `finquest/` e, quando virar código de verdade, o ideal é repositório e
-  domínio próprios.
+  "game". O mapa e a jornada ficam com `noindex`. **Resolvido [Léo]:** o jogo
+  é um projeto separado, com repositório próprio; o site é só base e
+  inspiração.
 - **Compliance** (`docs/REGRAS.md`, seção 1): nada de recomendação, nenhum
   número sem fonte, simulação não é promessa, avisos legais em toda página.
   Tudo isso vale para o jogo também, e com mais cuidado, porque o jogo
   premia decisões.
-- **Números da Portfel divergem**: o briefing fala em "mais de R$ 17 bi sob
-  consultoria"; `docs/REGRAS.md` usa "+R$ 22 bi, +25 mil clientes, +700
-  consultores, NPS 97". Precisa confirmar qual é o oficial.
 - **Testes presos ao Windows**: os testes de navegador apontam para
   `C:/Program Files/Google/Chrome/...`. No Claude Code na nuvem e no
   Antigravity, o caminho precisa vir de variável de ambiente.

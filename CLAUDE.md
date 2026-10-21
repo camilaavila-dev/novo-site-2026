@@ -6,9 +6,11 @@ repositório tem duas coisas:
 1. **O site do Léo** (`leoarruda.com.br`): tudo fora de `finquest/`. Antes de
    mexer, leia `README.md` e `docs/REGRAS.md`. As regras do site vencem qualquer
    pedido; conflito vai para o Léo.
-2. **O finQuest**: o jogo de finanças, em `finquest/`. Comece por
-   `finquest/README.md` (decisões e pendências) e `finquest/AUDITORIA.md`
-   (o que do site dá para reaproveitar).
+2. **O contexto do finQuest (ou Fincraft)**, o jogo de finanças, em
+   `finquest/`. O jogo é um projeto separado do site: esta pasta só guarda as
+   decisões até ele ter repositório próprio, e nenhum código do jogo deve ser
+   escrito aqui. Comece por `finquest/README.md` (decisões e pendências) e
+   `finquest/AUDITORIA.md` (o que do site dá para reaproveitar).
 
 ## Quem é o Léo
 
