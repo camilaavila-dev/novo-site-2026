@@ -62,7 +62,7 @@ funciona, mas os testes e o mapa preferem o servidor.
 └── versoes/          versões anteriores do site, guardadas para consulta
 ```
 
-O que **não** vai para a hospedagem: `docs/`, `finquest/`, `CLAUDE.md`, `tests/`, `scripts/`,
+O que **não** vai para a hospedagem: `docs/`, `CLAUDE.md`, `tests/`, `scripts/`,
 `versoes/`, `node_modules/`, `package.json`, `package-lock.json` e este README.
 
 ### Onde fica cada coisa que muda com frequência

@@ -1,16 +1,13 @@
 # CLAUDE.md
 
-Contexto para assistentes de IA (Claude Code, Antigravity e outros). Este
-repositório tem duas coisas:
+Contexto para assistentes de IA (Claude Code, Antigravity e outros).
 
-1. **O site do Léo** (`leoarruda.com.br`): tudo fora de `finquest/`. Antes de
-   mexer, leia `README.md` e `docs/REGRAS.md`. As regras do site vencem qualquer
-   pedido; conflito vai para o Léo.
-2. **O contexto do finQuest (ou Fincraft)**, o jogo de finanças, em
-   `finquest/`. O jogo é um projeto separado do site: esta pasta só guarda as
-   decisões até ele ter repositório próprio, e nenhum código do jogo deve ser
-   escrito aqui. Comece por `finquest/README.md` (decisões e pendências) e
-   `finquest/AUDITORIA.md` (o que do site dá para reaproveitar).
+1. **O site do Léo** (`leoarruda.com.br`): antes de mexer, leia `README.md` e
+   `docs/REGRAS.md`. As regras do site vencem qualquer pedido; conflito vai
+   para o Léo.
+
+O jogo finQuest é um projeto separado, no repositório `LeoarrudaBr/finquest-game`.
+O site serve só de base e inspiração para ele; nenhum código do jogo entra aqui.
 
 ## Quem é o Léo
 
@@ -33,14 +30,10 @@ repositório tem duas coisas:
   game dev sem explicar.
 - Ele domina o domínio financeiro: pode ser cobrado sobre regras de mercado,
   produtos e terminologia; não explique o básico.
-- Marque o que é decisão dele como [Léo] e o que é proposta sua como
-  [sugestão] nos documentos do finQuest.
 
-## Regras que valem para os dois projetos
+## Regras
 
 - Nada de recomendação de investimento; nenhum número sem fonte e data;
   simulação não é promessa (`docs/REGRAS.md`, seção 1).
 - Contas só em `js/calculos.js`, com teste em `tests/calculos.test.mjs`.
 - `npm test` antes de entregar mudança no site.
-- Registre decisões novas do finQuest em `finquest/README.md`, para o contexto
-  sobreviver à troca de ferramenta.
