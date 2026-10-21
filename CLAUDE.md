@@ -2,9 +2,9 @@
 
 Contexto para assistentes de IA (Claude Code, Antigravity e outros).
 
-1. **O site do Léo** (`leoarruda.com.br`): antes de mexer, leia `README.md` e
-   `docs/REGRAS.md`. As regras do site vencem qualquer pedido; conflito vai
-   para o Léo.
+Este repositório é o **site do Léo** (`leoarruda.com.br`). Antes de mexer, leia `README.md` e
+`docs/REGRAS.md`. As regras do site vencem qualquer pedido; conflito vai
+para o Léo.
 
 O jogo finQuest é um projeto separado, no repositório `LeoarrudaBr/finquest-game`.
 O site serve só de base e inspiração para ele; nenhum código do jogo entra aqui.
