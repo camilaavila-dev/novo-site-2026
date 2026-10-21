@@ -1,0 +1,1867 @@
+/* ==========================================================================
+   MUNDO INTERATIVO DA JORNADA DE INVESTIMENTOS — LEONARDO ARRUDA (PORTFEL)
+   Inspirado nas referências "Isometric World Map" (Ananya) & "Frogsound Widgets"
+   ========================================================================== */
+
+#jornada-world-app {
+  --w-bg-card: rgba(255, 255, 255, 0.86);
+  --w-bg-card-strong: rgba(255, 255, 255, 0.94);
+  --w-bg-pill: rgba(255, 255, 255, 0.78);
+  --w-txt: #1A162B;
+  --w-txt-mut: #5A5475;
+  --w-txt-sub: #8881A5;
+  --w-accent: #E0457B;
+  --w-accent-2: #3B36CC;
+  --w-grn: #0FA968;
+  --w-gold: #E69F00;
+  --w-brd: rgba(255, 255, 255, 0.75);
+  --w-shadow: 0 14px 36px rgba(26, 22, 43, 0.12), 0 2px 8px rgba(26, 22, 43, 0.06);
+  --w-map-filter: brightness(1.02) saturate(1.08);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  max-height: 1200px;
+  overflow: hidden;
+  user-select: none;
+  background: linear-gradient(180deg, #D8CEF8 0%, #F7D9E8 45%, #B8E2F4 100%);
+  font-family: var(--s), 'DM Sans', -apple-system, sans-serif;
+  color: var(--w-txt);
+  z-index: 50;
+  transition: background 0.5s ease;
+}
+
+/* Tema Pôr do Sol Imperial */
+#jornada-world-app[data-world-theme="sunset"] {
+  --w-bg-card: rgba(255, 248, 240, 0.88);
+  --w-bg-card-strong: rgba(255, 250, 244, 0.95);
+  --w-bg-pill: rgba(255, 246, 235, 0.82);
+  --w-txt: #261710;
+  --w-txt-mut: #6E4F3A;
+  --w-txt-sub: #9C7A63;
+  --w-accent: #E4572E;
+  --w-accent-2: #C87D20;
+  --w-grn: #12945A;
+  --w-brd: rgba(255, 225, 190, 0.8);
+  --w-map-filter: sepia(0.18) saturate(1.25) brightness(0.98) hue-rotate(-8deg);
+  background: linear-gradient(180deg, #F5B895 0%, #FCE1B6 45%, #8CC0DE 100%);
+}
+
+/* Tema Noite Outlier (Dark Mode) */
+#jornada-world-app[data-world-theme="night"] {
+  --w-bg-card: rgba(14, 10, 30, 0.84);
+  --w-bg-card-strong: rgba(18, 13, 38, 0.95);
+  --w-bg-pill: rgba(22, 16, 46, 0.82);
+  --w-txt: #F2EFE9;
+  --w-txt-mut: #A9A3C4;
+  --w-txt-sub: #746E94;
+  --w-accent: #1CD98A;
+  --w-accent-2: #7C77F4;
+  --w-grn: #1CD98A;
+  --w-brd: rgba(255, 255, 255, 0.14);
+  --w-shadow: 0 18px 44px rgba(0, 0, 0, 0.55), 0 0 24px rgba(59, 54, 204, 0.18);
+  --w-map-filter: brightness(0.68) contrast(1.18) saturate(1.22) hue-rotate(12deg);
+  background: linear-gradient(180deg, #070414 0%, #151030 50%, #091D2C 100%);
+}
+
+/* ==========================================================================
+   STAGE DO MUNDO ISOMÉTRICO & CÂMERA PANORÂMICA
+   ========================================================================== */
+.world-camera-viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.world-stage {
+  position: absolute;
+  inset: -3%;
+  width: 106%;
+  height: 106%;
+  transform-origin: center center;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.world-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: var(--w-map-filter);
+  transition: filter 0.6s ease;
+  pointer-events: none;
+}
+
+/* Vinheta suave nas laterais para dar leitura perfeita ao HUD (igual Ananya) */
+.world-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 42%, rgba(255, 255, 255, 0.52) 0%, transparent 45%),
+    linear-gradient(90deg, rgba(246, 238, 252, 0.55) 0%, transparent 28%, transparent 78%, rgba(235, 232, 252, 0.32) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, transparent 18%, transparent 82%, rgba(20, 16, 38, 0.28) 100%);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+}
+
+#jornada-world-app[data-world-theme="night"] .world-stage::after {
+  background:
+    linear-gradient(90deg, rgba(6, 4, 18, 0.72) 0%, transparent 30%, transparent 76%, rgba(6, 4, 18, 0.6) 100%),
+    linear-gradient(180deg, rgba(6, 4, 18, 0.5) 0%, transparent 20%, transparent 80%, rgba(6, 4, 18, 0.68) 100%);
+}
+
+#world-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   PLACA DE MADEIRA DE ETAPAS (WOODEN SIGNPOST)
+   ========================================================================== */
+.world-wooden-signpost {
+  position: absolute;
+  left: 33.4%;
+  top: 48.5%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 132px;
+  pointer-events: auto;
+}
+
+.wooden-plank-btn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(94, 58, 30, 0.88) 0%, rgba(68, 40, 18, 0.92) 100%);
+  border: 1px solid rgba(255, 218, 175, 0.38);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #FFF6E8;
+  font-family: var(--d), 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wooden-plank-btn:nth-child(odd) {
+  transform: rotate(-3.5deg);
+}
+.wooden-plank-btn:nth-child(even) {
+  transform: rotate(2.2deg);
+}
+
+.wooden-plank-btn:hover,
+.wooden-plank-btn.is-active {
+  transform: scale(1.08) rotate(0deg);
+  background: linear-gradient(180deg, #8A5429 0%, #5B3516 100%);
+  border-color: #FFD28A;
+  box-shadow: 0 6px 16px rgba(224, 69, 123, 0.35), 0 0 12px rgba(255, 210, 138, 0.5);
+}
+
+/* ==========================================================================
+   PINOS FLUTUANTES DAS 6 ILHAS (01 a 06 — ESTILO ANANYA)
+   ========================================================================== */
+.world-island-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 8;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.28s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.28s ease;
+  pointer-events: auto;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: center;
+}
+
+.world-island-pin:hover,
+.world-island-pin.is-current {
+  transform: translate(-50%, -108%) scale(1.07);
+  z-index: 12;
+}
+
+.island-pin-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 10px 14px 9px;
+  min-width: 128px;
+  max-width: 168px;
+  box-shadow: 0 10px 26px rgba(26, 22, 43, 0.18), 0 2px 6px rgba(26, 22, 43, 0.08);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+#jornada-world-app[data-world-theme="night"] .island-pin-card {
+  background: rgba(20, 15, 42, 0.92);
+  border-color: rgba(124, 119, 244, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 18px rgba(28, 217, 138, 0.16);
+}
+
+.world-island-pin:hover .island-pin-card,
+.world-island-pin.is-current .island-pin-card {
+  border-color: var(--w-accent);
+  box-shadow: 0 14px 32px rgba(224, 69, 123, 0.28), 0 0 0 3px rgba(224, 69, 123, 0.16);
+}
+
+.world-island-pin.is-visited .island-pin-card {
+  border-color: var(--w-grn);
+}
+
+/* Bolinha numerada 01..06 no canto superior esquerdo (idêntica à imagem) */
+.island-pin-num {
+  position: absolute;
+  top: -11px;
+  left: -10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F05288 0%, #D93870 100%);
+  color: #FFFFFF;
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(217, 56, 112, 0.45);
+  border: 2px solid #FFFFFF;
+}
+
+.world-island-pin.is-visited .island-pin-num {
+  background: linear-gradient(135deg, #1CD98A 0%, #0EA565 100%);
+  box-shadow: 0 4px 10px rgba(14, 165, 101, 0.45);
+}
+
+.island-pin-check {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1CD98A;
+  color: #04120A;
+  font-size: 11px;
+  font-weight: 800;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.world-island-pin.is-visited .island-pin-check {
+  display: flex;
+}
+
+.island-pin-title {
+  display: block;
+  font-family: var(--s);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--w-txt);
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+
+.island-pin-sub {
+  display: block;
+  font-family: var(--s);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--w-txt-mut);
+  line-height: 1.25;
+}
+
+/* Haste vertical e anel luminoso na ilha */
+.island-pin-stem {
+  width: 2px;
+  height: 22px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0px,
+    rgba(255, 255, 255, 0.95) 4px,
+    transparent 4px,
+    transparent 7px
+  );
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+.island-pin-beacon {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid var(--w-accent);
+  box-shadow: 0 0 14px var(--w-accent), 0 0 28px rgba(224, 69, 123, 0.6);
+  animation: beaconPulse 2.2s infinite ease-in-out;
+}
+
+.world-island-pin.is-visited .island-pin-beacon {
+  border-color: #1CD98A;
+  box-shadow: 0 0 14px #1CD98A, 0 0 28px rgba(28, 217, 138, 0.65);
+}
+
+@keyframes beaconPulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.85; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+/* ==========================================================================
+   O PERSONAGEM / AVATAR DO USUÁRIO (#world-traveler)
+   ========================================================================== */
+#world-traveler {
+  position: absolute;
+  left: 41%;
+  top: 76%;
+  transform: translate(-50%, -88%);
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  will-change: left, top, transform;
+}
+
+.traveler-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Balãozinho de fala / status sobre o personagem */
+.traveler-speech {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1A162B;
+  font-family: var(--s);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  border: 1.5px solid rgba(224, 69, 123, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: speechFloat 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.traveler-lvl-pill {
+  background: linear-gradient(135deg, #E0457B, #3B36CC);
+  color: #FFFFFF;
+  font-family: var(--m);
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+@keyframes speechFloat {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -4px); }
+}
+
+/* Animação de XP flutuante quando desbloqueia ilha */
+.traveler-xp-pop {
+  position: absolute;
+  bottom: calc(100% + 36px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  white-space: nowrap;
+  background: linear-gradient(135deg, #1CD98A, #0EA565);
+  color: #04120A;
+  font-family: var(--m);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(28, 217, 138, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+
+.traveler-xp-pop.is-popping {
+  opacity: 1;
+  transform: translate(-50%, -22px) scale(1.05);
+}
+
+/* Corpo do Avatar 3D Ilustrado */
+.traveler-body {
+  width: 78px;
+  height: 112px;
+  position: relative;
+  transition: transform 0.15s ease;
+  filter: drop-shadow(0 10px 14px rgba(15, 10, 30, 0.38));
+}
+
+#world-traveler.is-facing-left .traveler-body {
+  transform: scaleX(-1);
+}
+
+#world-traveler.is-walking .traveler-body {
+  animation: travelerWalkBob 0.34s infinite alternate ease-in-out;
+}
+
+#world-traveler.is-walking .traveler-leg-l {
+  animation: legSwingL 0.34s infinite alternate ease-in-out;
+  transform-origin: 34px 78px;
+}
+
+#world-traveler.is-walking .traveler-leg-r {
+  animation: legSwingR 0.34s infinite alternate ease-in-out;
+  transform-origin: 44px 78px;
+}
+
+@keyframes travelerWalkBob {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  100% { transform: translateY(-7px) rotate(2deg); }
+}
+
+#world-traveler.is-facing-left.is-walking .traveler-body {
+  animation: travelerWalkBobLeft 0.34s infinite alternate ease-in-out;
+}
+
+@keyframes travelerWalkBobLeft {
+  0% { transform: scaleX(-1) translateY(0px) rotate(-2deg); }
+  100% { transform: scaleX(-1) translateY(-7px) rotate(2deg); }
+}
+
+@keyframes legSwingL {
+  0% { transform: rotate(-16deg); }
+  100% { transform: rotate(16deg); }
+}
+
+@keyframes legSwingR {
+  0% { transform: rotate(16deg); }
+  100% { transform: rotate(-16deg); }
+}
+
+.traveler-shadow {
+  width: 48px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(15, 10, 30, 0.48) 0%, rgba(15, 10, 30, 0) 72%);
+  margin-top: -8px;
+}
+
+/* ==========================================================================
+   TOPO CENTRAL — BARRA E PÍLULA FLUTUANTE DE NAVEGAÇÃO
+   ========================================================================== */
+.world-top-bar {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.world-brand-sig {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: var(--w-bg-pill);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--w-brd);
+  box-shadow: var(--w-shadow);
+}
+
+.world-brand-sig-text {
+  font-family: var(--d), 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--w-txt);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.world-brand-sig-heart {
+  color: var(--w-accent);
+  font-size: 16px;
+}
+
+.world-nav-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: var(--w-bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--w-brd);
+  border-radius: 40px;
+  box-shadow: var(--w-shadow);
+}
+
+.world-nav-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-family: var(--s);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--w-txt-mut);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.world-nav-btn:hover {
+  color: var(--w-txt);
+  background: rgba(224, 69, 123, 0.08);
+}
+
+.world-nav-btn.is-active {
+  background: rgba(224, 69, 123, 0.14);
+  color: var(--w-accent);
+}
+
+.world-top-actions {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.world-icon-circle {
+  all: unset;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--w-bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--w-brd);
+  box-shadow: var(--w-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--w-txt);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.world-icon-circle:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.world-icon-circle.is-playing {
+  border-color: var(--w-accent);
+  box-shadow: 0 0 16px rgba(224, 69, 123, 0.35);
+}
+
+.world-top-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #E84A80 0%, #D4356B 100%);
+  color: #FFFFFF;
+  font-family: var(--s);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(212, 53, 107, 0.38);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.world-top-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(212, 53, 107, 0.5);
+}
+
+/* ==========================================================================
+   COLUNA FLUTUANTE ESQUERDA (HEADLINE + CURRENT QUEST + CREDENCIAIS)
+   ========================================================================== */
+.world-hud-left {
+  position: absolute;
+  top: 76px;
+  left: 24px;
+  bottom: 20px;
+  width: 326px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.world-hud-left > * {
+  pointer-events: auto;
+}
+
+.world-editorial-intro {
+  padding: 6px 4px 2px;
+}
+
+.world-eyebrow {
+  font-family: var(--s);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--w-accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.world-hero-title {
+  font-family: var(--s);
+  font-size: clamp(26px, 2.35vw, 35px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--w-txt);
+  margin-bottom: 8px;
+}
+
+.world-hero-title .hl-accent {
+  color: var(--w-accent);
+  font-weight: 600;
+}
+
+.world-hero-title .hl-script {
+  font-family: var(--d), 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.16em;
+  color: var(--w-txt);
+}
+
+.world-hero-desc {
+  font-family: var(--s);
+  font-size: 12.5px;
+  line-height: 1.48;
+  color: var(--w-txt-mut);
+  font-weight: 400;
+  margin-bottom: 12px;
+  max-width: 34ch;
+}
+
+.world-hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.world-btn-explore {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #E84A80 0%, #D4356B 100%);
+  color: #FFFFFF;
+  font-family: var(--s);
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(212, 53, 107, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.world-btn-explore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(212, 53, 107, 0.48);
+}
+
+.world-btn-classic {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  background: var(--w-bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--w-brd);
+  color: var(--w-txt);
+  font-family: var(--s);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--w-shadow);
+  transition: transform 0.2s ease;
+}
+
+.world-btn-classic:hover {
+  transform: translateY(-2px);
+}
+
+/* Cards de Vidro Flutuantes (Estilo Ananya + Frogsound) */
+.world-glass-widget {
+  background: var(--w-bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid var(--w-brd);
+  border-radius: 20px;
+  padding: 14px 16px;
+  box-shadow: var(--w-shadow);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.widget-tag-title {
+  font-family: var(--s);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-txt-mut);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Card CURRENT QUEST */
+.quest-top-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.quest-desc {
+  font-family: var(--s);
+  font-size: 12px;
+  line-height: 1.42;
+  color: var(--w-txt);
+  font-weight: 500;
+}
+
+.quest-avatar-btn {
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FAD0E2, #D8CEF8);
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.quest-avatar-btn:hover {
+  transform: scale(1.06);
+}
+
+.quest-avatar-swap-hint {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background: rgba(26, 22, 43, 0.72);
+  color: #FFFFFF;
+  font-size: 8px;
+  text-align: center;
+  padding: 1px 0;
+  font-weight: 600;
+}
+
+.quest-progress-row {
+  margin-top: 10px;
+}
+
+.quest-lvl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--m);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--w-txt);
+  margin-bottom: 5px;
+}
+
+.quest-bar-track {
+  width: 100%;
+  height: 7px;
+  border-radius: 10px;
+  background: rgba(26, 22, 43, 0.1);
+  overflow: hidden;
+}
+
+#jornada-world-app[data-world-theme="night"] .quest-bar-track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.quest-bar-fill {
+  height: 100%;
+  width: 18%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #E84A80 0%, #3B36CC 55%, #1CD98A 100%);
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quest-exp-sub {
+  font-family: var(--m);
+  font-size: 9.5px;
+  color: var(--w-txt-mut);
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Card CREDENCIAIS & ECOSSISTEMA (Estilo TECH STACK da Ananya) */
+.cred-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.cred-pill-item {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.cred-pill-item:hover {
+  transform: translateY(-2px);
+}
+
+.cred-pill-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--m);
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.cred-pill-label {
+  font-family: var(--s);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--w-txt-mut);
+  white-space: nowrap;
+}
+
+/* Barra inferior de status na esquerda */
+.world-bottom-left-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 30px;
+  background: rgba(24, 20, 40, 0.85);
+  color: #FFFFFF;
+  font-family: var(--s);
+  font-size: 11px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  width: max-content;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   COLUNA FLUTUANTE DIREITA (PERFIL LEO + BADGES + VIBE PLAYER + MAPA + NOTA)
+   ========================================================================== */
+.world-hud-right {
+  position: absolute;
+  top: 76px;
+  right: 24px;
+  bottom: 20px;
+  width: 268px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.world-hud-right > * {
+  pointer-events: auto;
+}
+
+/* Card de Perfil do Guia (Leonardo Arruda) */
+.guide-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.guide-avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+  flex: none;
+}
+
+.guide-name {
+  font-family: var(--s);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--w-txt);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.guide-bio {
+  font-family: var(--s);
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--w-txt-mut);
+  margin-top: 2px;
+}
+
+/* Barra DAILY XP / XP DA JORNADA */
+.guide-xp-box {
+  padding-top: 8px;
+  border-top: 1px solid rgba(136, 129, 165, 0.18);
+  margin-bottom: 10px;
+}
+
+.guide-xp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.xp-coin-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD166, #F4A261);
+  color: #4A2C00;
+  font-family: var(--m);
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-shadow: 0 3px 8px rgba(244, 162, 97, 0.4);
+}
+
+/* BADGES DESBLOQUEÁVEIS */
+.badges-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.world-badge-slot {
+  all: unset;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(136, 129, 165, 0.14);
+  border: 1.5px dashed rgba(136, 129, 165, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  filter: grayscale(1);
+  opacity: 0.48;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.world-badge-slot.is-unlocked {
+  filter: none;
+  opacity: 1;
+  background: #FFFFFF;
+  border: 2px solid var(--w-grn);
+  box-shadow: 0 4px 12px rgba(15, 169, 104, 0.28);
+  transform: scale(1.04);
+}
+
+#jornada-world-app[data-world-theme="night"] .world-badge-slot.is-unlocked {
+  background: rgba(28, 217, 138, 0.16);
+}
+
+.world-badge-slot:hover {
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Widget CURRENT VIBE / MODO FOCO */
+.vibe-player-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.vibe-cover {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6B66E8 0%, #E84A80 55%, #F4A261 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 18px;
+  flex: none;
+  box-shadow: 0 4px 12px rgba(107, 102, 232, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.vibe-track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vibe-track-title {
+  font-family: var(--s);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--w-txt);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vibe-track-sub {
+  font-family: var(--s);
+  font-size: 10.5px;
+  color: var(--w-txt-mut);
+}
+
+.vibe-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.vibe-ctrl-btn {
+  all: unset;
+  cursor: pointer;
+  color: var(--w-txt-mut);
+  font-size: 13px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.vibe-ctrl-btn:hover {
+  color: var(--w-txt);
+  transform: scale(1.12);
+}
+
+.vibe-play-main {
+  all: unset;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E84A80, #D4356B);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(212, 53, 107, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.vibe-play-main:hover {
+  transform: scale(1.08);
+}
+
+/* Post-it NOTA DO LEO (Estilo NOTE TO SELF da Ananya) */
+.world-sticky-note {
+  position: relative;
+  background: linear-gradient(165deg, #FFF6D6 0%, #FDE8B2 100%);
+  border-radius: 6px;
+  padding: 14px 16px 12px;
+  box-shadow: 0 10px 24px rgba(26, 22, 43, 0.18);
+  transform: rotate(-2.5deg);
+  color: #3A2A18;
+  border: 1px solid rgba(224, 185, 110, 0.5);
+  transition: transform 0.25s ease;
+}
+
+.world-sticky-note:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.sticky-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  width: 54px;
+  height: 16px;
+  background: rgba(232, 74, 128, 0.55);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-title {
+  font-family: var(--s);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8A5A36;
+  margin-bottom: 4px;
+}
+
+.sticky-quote {
+  font-family: var(--d), 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15.5px;
+  line-height: 1.22;
+  color: #2A1D10;
+}
+
+/* MINI-MAPA INTERATIVO (WORLD MAP no canto inferior direito) */
+.world-minimap-card {
+  position: absolute;
+  right: 306px;
+  bottom: 20px;
+  width: 215px;
+  height: 138px;
+  z-index: 16;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid var(--w-brd);
+  box-shadow: var(--w-shadow);
+  background: #1B4965;
+  pointer-events: auto;
+}
+
+.minimap-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.25) contrast(1.05);
+  opacity: 0.9;
+}
+
+.minimap-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 32, 54, 0.55) 0%, rgba(12, 32, 54, 0.25) 100%);
+}
+
+.minimap-label {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-family: var(--s);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+  z-index: 3;
+}
+
+.minimap-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.minimap-node {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #3B36CC;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 4;
+  transition: transform 0.2s ease, background 0.2s ease;
+  padding: 0;
+}
+
+.minimap-node:hover {
+  transform: translate(-50%, -50%) scale(1.35);
+  background: #1CD98A;
+}
+
+.minimap-node.is-visited {
+  background: #1CD98A;
+  border-color: #FFFFFF;
+}
+
+/* Pino pulsante da posição exata do personagem no mini-mapa */
+#minimap-player-pin {
+  position: absolute;
+  left: 41%;
+  top: 76%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50% 50% 50% 0;
+  background: #E84A80;
+  border: 2px solid #FFFFFF;
+  transform: translate(-50%, -100%) rotate(-45deg);
+  z-index: 5;
+  box-shadow: 0 0 12px #E84A80;
+  pointer-events: none;
+  transition: left 0.1s linear, top 0.1s linear;
+}
+
+.minimap-zoom-btns {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 5;
+}
+
+.minimap-zoom-btn {
+  all: unset;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1A162B;
+  font-family: var(--m);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.minimap-zoom-btn:hover {
+  background: #FFFFFF;
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   BASE CENTRAL — CONTROLE SCROLL / WASD INTERATIVO (IGUAL À ANANYA)
+   ========================================================================== */
+.world-controls-center {
+  position: absolute;
+  bottom: 18px;
+  left: 47%;
+  transform: translateX(-50%);
+  z-index: 18;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.world-scroll-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(20, 16, 36, 0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+  font-family: var(--s);
+  font-size: 11.5px;
+  font-weight: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.wasd-keys-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.wasd-key-btn {
+  all: unset;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(24, 20, 42, 0.76);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28), inset 0 -2px 0 rgba(0, 0, 0, 0.35);
+  color: #FFFFFF;
+  font-family: var(--m);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.wasd-key-btn:hover,
+.wasd-key-btn.is-pressed {
+  transform: translateY(2px);
+  background: linear-gradient(135deg, #E84A80, #3B36CC);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(232, 74, 128, 0.6);
+}
+
+/* ==========================================================================
+   MODAL INTERATIVO DAS ILHAS (ESTAÇÕES 01 A 06 + 5 CALCULADORAS PRÁTICAS)
+   ========================================================================== */
+#island-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  background: rgba(8, 5, 22, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+#island-modal-overlay.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+.island-modal-window {
+  width: 100%;
+  max-width: 1040px;
+  max-height: 90vh;
+  background: linear-gradient(160deg, #110C26 0%, #080517 100%);
+  border: 1.5px solid rgba(124, 119, 244, 0.38);
+  border-radius: 26px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(59, 54, 204, 0.25);
+  color: #F2EFE9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.island-modal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 26px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 16px;
+}
+
+.island-modal-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.island-modal-num-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #E84A80, #3B36CC);
+  color: #FFFFFF;
+  font-family: var(--m);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.island-modal-xp-tag {
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(28, 217, 138, 0.14);
+  border: 1px solid rgba(28, 217, 138, 0.4);
+  color: #1CD98A;
+  font-family: var(--m);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.island-modal-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.island-modal-step-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #EDE8D5;
+  font-family: var(--s);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.island-modal-step-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.island-modal-close {
+  all: unset;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.island-modal-close:hover {
+  background: #E84A80;
+  transform: scale(1.06);
+}
+
+.island-modal-body {
+  padding: 22px 26px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ==========================================================================
+   ESTÚDIO DAS 5 CALCULADORAS PRÁTICAS (ILHA 03 & SIMULADOR.HTML)
+   ========================================================================== */
+.calc5-tabs-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.calc5-tab-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #A9A3C4;
+  font-family: var(--s);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.calc5-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.calc5-tab-btn.is-active {
+  background: linear-gradient(135deg, rgba(28, 217, 138, 0.18), rgba(59, 54, 204, 0.24));
+  border-color: #1CD98A;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(28, 217, 138, 0.18);
+}
+
+.calc5-workspace {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.calc5-inputs-card,
+.calc5-results-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calc5-results-card {
+  background: linear-gradient(155deg, rgba(28, 217, 138, 0.08) 0%, rgba(59, 54, 204, 0.14) 100%);
+  border-color: rgba(28, 217, 138, 0.35);
+}
+
+.calc5-field-row {
+  margin-bottom: 12px;
+}
+
+.calc5-field-row:last-child {
+  margin-bottom: 0;
+}
+
+.calc5-field-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.calc5-field-label {
+  font-family: var(--s);
+  font-size: 12.5px;
+  color: #EDE8D5;
+  font-weight: 400;
+}
+
+.calc5-text-input {
+  width: 142px;
+  background: rgba(28, 217, 138, 0.1);
+  border: 1px solid rgba(28, 217, 138, 0.38);
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: #1CD98A;
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: right;
+  outline: none;
+  cursor: text;
+}
+
+.calc5-text-input:focus {
+  border-color: #1CD98A;
+  background: rgba(28, 217, 138, 0.2);
+  box-shadow: 0 0 12px rgba(28, 217, 138, 0.35);
+}
+
+.calc5-range-input {
+  width: 100%;
+  accent-color: #1CD98A;
+  cursor: pointer;
+  height: 5px;
+}
+
+.calc5-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.calc5-kpi-box {
+  background: rgba(8, 5, 23, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.calc5-kpi-label {
+  font-family: var(--m);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #A9A3C4;
+  margin-bottom: 4px;
+}
+
+.calc5-kpi-val {
+  font-family: var(--m);
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.calc5-kpi-val.is-green {
+  color: #1CD98A;
+}
+
+/* ==========================================================================
+   TRILHO LATERAL DE ATMOSFERAS / CORES (ESTILO FROGSOUND)
+   ========================================================================== */
+.world-theme-rail {
+  position: absolute;
+  left: 356px;
+  bottom: 22px;
+  z-index: 18;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 7px;
+  border-radius: 30px;
+  background: var(--w-hud-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid var(--w-brd);
+  box-shadow: var(--w-shadow);
+  pointer-events: auto;
+}
+
+.world-theme-rail-label {
+  font-family: var(--m);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--w-txt-mut);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-bottom: 2px;
+}
+
+.world-theme-swatch {
+  all: unset;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.world-theme-swatch:hover {
+  transform: scale(1.18);
+}
+
+.world-theme-swatch.is-active {
+  transform: scale(1.22);
+  box-shadow: 0 0 0 2.5px var(--w-accent), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE MOBILE E TABLET (<= 1100px e <= 900px)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .world-hud-left {
+    width: 280px;
+    left: 14px;
+  }
+  .world-hud-right {
+    width: 236px;
+    right: 14px;
+  }
+  .world-minimap-card {
+    right: 262px;
+    width: 180px;
+    height: 118px;
+  }
+  .world-theme-rail {
+    left: 304px;
+    bottom: 18px;
+  }
+  .world-wooden-signpost {
+    left: 34.5%;
+    top: 47%;
+    transform: scale(0.82);
+  }
+}
+
+@media (max-width: 900px) {
+  #jornada-world-app {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 84px;
+  }
+
+  .world-top-bar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .world-nav-pill {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .world-hud-left {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    padding: 6px 14px;
+    z-index: 16;
+  }
+
+  .world-camera-viewport {
+    position: relative;
+    height: 440px;
+    width: 100%;
+    border-radius: 20px;
+    margin: 6px 0;
+    overflow: hidden;
+  }
+
+  .world-wooden-signpost {
+    left: 28%;
+    top: 56%;
+    transform: scale(0.68);
+    transform-origin: left top;
+  }
+
+  .island-pin-card {
+    padding: 6px 8px 5px;
+    min-width: 92px;
+    max-width: 118px;
+    border-radius: 10px;
+  }
+
+  .island-pin-title {
+    font-size: 9.5px;
+  }
+
+  .island-pin-sub {
+    display: none;
+  }
+
+  .island-pin-stem {
+    height: 10px;
+  }
+
+  .world-theme-rail {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    flex-direction: row;
+    justify-content: center;
+    margin: 4px auto;
+    padding: 7px 14px;
+  }
+
+  .world-theme-rail-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-bottom: 0;
+    margin-right: 4px;
+  }
+
+  .world-hud-right {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    padding: 6px 14px;
+    z-index: 16;
+  }
+
+  .world-minimap-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: calc(100% - 28px);
+    height: 140px;
+    margin: 6px 14px;
+  }
+
+  .world-controls-center {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 10px auto;
+  }
+
+  .calc5-tabs-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calc5-workspace {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,9 @@
+/* ==========================================================================
+   PÁGINAS INTERNAS NO ESTILO ANTERIOR (diagnóstico, termos, privacidade)
+   Ajusta css/jornada.css aos tons da versão atual: botão principal claro,
+   o verde fica só para agendar (ver docs/REGRAS.md, seção Visual).
+   ========================================================================== */
+
+.jx-page .jx-btn-primary { background: #EFEBDD; border-color: #EFEBDD; color: #07061A; box-shadow: none; }
+.jx-page .jx-btn-primary:hover { background: #fff; border-color: #fff; }
+.jx-page .jx-btn-primary:disabled { background: rgba(239, 235, 221, 0.18); border-color: transparent; color: rgba(239, 235, 221, 0.5); }

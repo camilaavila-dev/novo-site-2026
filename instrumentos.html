@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Calculadoras · Leonardo Arruda, Consultor de Investimentos</title>
+  <meta name="description" content="Calculadoras de investimento com metodologia aberta: custo das taxas, comparador de renda fixa (CDB, LCI, LCA, Tesouro Selic), custo da sucessão, ano da independência financeira, alugar ou comprar imóvel e simulador de holding patrimonial.">
+  <meta name="theme-color" content="#07061A">
+  <link rel="icon" type="image/png" href="midias/04-logo-simbolo-leonardo-texto-branco-transparente.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/apps.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Calculadoras · Leonardo Arruda",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "O custo das taxas", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" } } },
+      { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "Comparador de renda fixa", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" } } },
+      { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "O custo da sucessão sem planejamento", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" } } },
+      { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "O ano da independência", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" } } },
+      { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Alugar ou comprar financiado", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" } } },
+      { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareApplication", "name": "Simulador de holding patrimonial", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" } } }
+    ]
+  }
+  </script>
+</head>
+<body class="ap-page">
+
+  <svg class="hm-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5 18.5 12 13 17.5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8M9.6 8H16v6.4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.01"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19.5 12h-14M11 6.5 5.5 12 11 17.5"/></symbol>
+    <!-- Ícones das calculadoras -->
+    <symbol id="a-taxas" viewBox="0 0 48 48"><path d="M8 14c6 0 10 4 16 10s10 10 16 10"/><path d="M34 34h6v-6"/><circle cx="14" cy="32" r="3"/><circle cx="34" cy="14" r="3"/><path d="M12 38 36 10" opacity=".5"/></symbol>
+    <symbol id="a-renda" viewBox="0 0 48 48"><path d="M10 38V28M20 38V20M30 38V24M40 38V12"/><path d="M6 40h36" opacity=".5"/></symbol>
+    <symbol id="a-sucessao" viewBox="0 0 48 48"><circle cx="24" cy="11" r="5"/><circle cx="12" cy="37" r="5"/><circle cx="36" cy="37" r="5"/><path d="M24 16v8M24 24H12v8M24 24h12v8"/></symbol>
+    <symbol id="a-indep" viewBox="0 0 48 48"><path d="M5 40 18 20l7 10 6-8 12 18Z"/><path d="M31 22V8l8 3-8 3"/></symbol>
+    <symbol id="a-imovel" viewBox="0 0 48 48"><path d="M8 22 24 9l16 13"/><path d="M12 19v20h24V19"/><path d="M21 39V29h6v10"/></symbol>
+    <symbol id="a-holding" viewBox="0 0 48 48"><path d="M8 40V18h12v22M20 40V8h20v32M4 40h40"/><path d="M26 15h3M33 15h3M26 22h3M33 22h3M26 29h3M33 29h3M12 25h4M12 32h4" opacity=".7"/></symbol>
+    <symbol id="a-diag" viewBox="0 0 48 48"><path d="M24 6 41 18l-6.5 20h-21L7 18Z" opacity=".5"/><path d="M24 14 33 21l-3.5 11h-11L15 21Z"/><circle cx="24" cy="24" r="1.5"/></symbol>
+  </svg>
+
+  <a class="hm-skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="hm-top">
+    <a class="hm-brand" href="index.html" aria-label="Leonardo Arruda, início">
+      <img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda · Portfel" width="144" height="40">
+    </a>
+    <nav class="hm-nav" aria-label="Páginas do site">
+      <a href="index.html">Início</a>
+      <a href="instrumentos.html" aria-current="page">Calculadoras</a>
+      <a href="raiox.html">Diagnóstico</a>
+      <a href="blog.html">Leitura semanal</a>
+    </nav>
+    <a class="hm-btn hm-btn-cta hm-top-cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">
+      Agendar conversa
+      <svg class="hm-i" aria-hidden="true"><use href="#i-out"/></svg>
+    </a>
+  </header>
+
+  <main class="ap-main" id="conteudo">
+    <div class="ap-launch">
+      <div class="ap-intro">
+        <p class="hm-kicker">Calculadoras</p>
+        <h1 class="hm-h2 hm-h2-lg">Contas que mudam <em>decisões.</em></h1>
+      </div>
+
+      <ul class="ap-grid" aria-label="Calculadoras">
+        <li><button type="button" class="ap-tile" data-app="taxas" style="--c1:#F06F5E;--c2:#8A2D4A">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-taxas"/></svg></span>
+          <strong>Custo das taxas</strong><span>Quanto o banco leva</span>
+        </button></li>
+        <li><button type="button" class="ap-tile" data-app="renda-fixa" style="--c1:#1CD98A;--c2:#0E6B57">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-renda"/></svg></span>
+          <strong>Renda fixa</strong><span>CDB, LCI ou Tesouro</span>
+        </button></li>
+        <li><button type="button" class="ap-tile" data-app="sucessao" style="--c1:#F2C14E;--c2:#8A5A12">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-sucessao"/></svg></span>
+          <strong>Sucessão</strong><span>O custo da herança</span>
+        </button></li>
+        <li><button type="button" class="ap-tile" data-app="independencia" style="--c1:#8B86FF;--c2:#2E2A9E">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-indep"/></svg></span>
+          <strong>Independência</strong><span>O ano em que você chega</span>
+        </button></li>
+        <li><button type="button" class="ap-tile" data-app="imovel" style="--c1:#4FC3F7;--c2:#145A86">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-imovel"/></svg></span>
+          <strong>Imóvel</strong><span>Alugar ou comprar</span>
+        </button></li>
+        <li><button type="button" class="ap-tile" data-app="holding" style="--c1:#E58BD8;--c2:#6B2A7A">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-holding"/></svg></span>
+          <strong>Holding</strong><span>Imóveis numa empresa</span>
+        </button></li>
+        <li><a class="ap-tile" href="raiox.html" style="--c1:#EFEBDD;--c2:#6E6A5E">
+          <span class="ap-icon"><svg aria-hidden="true"><use href="#a-diag"/></svg></span>
+          <strong>Diagnóstico</strong><span>A nota do seu patrimônio</span>
+        </a></li>
+      </ul>
+
+      <p class="ap-foot">Fórmulas abertas em cada calculadora. Premissas de mercado conferidas em <span data-premissas-data></span>. Simulações ilustrativas, não são recomendação. <a href="termos.html">Termos</a> · <a href="privacidade.html">Privacidade</a></p>
+    </div>
+  </main>
+
+  <!-- Janela da calculadora: o conteúdo é montado por js/apps.js -->
+  <dialog class="ap-win" id="ap-win" aria-labelledby="ap-win-title">
+    <header class="ap-bar">
+      <span class="ap-bar-icon" id="ap-win-icon"><svg aria-hidden="true"><use href=""/></svg></span>
+      <div class="ap-bar-text">
+        <h2 id="ap-win-title"></h2>
+        <p id="ap-win-q"></p>
+      </div>
+      <button type="button" class="ap-bar-btn" id="ap-win-method" aria-pressed="false">
+        <svg class="hm-i" aria-hidden="true"><use href="#i-info"/></svg><span>Como calculamos</span>
+      </button>
+      <button type="button" class="ap-bar-btn ap-bar-close" data-close aria-label="Fechar">
+        <svg class="hm-i" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </header>
+    <div class="ap-body" id="ap-win-body"></div>
+  </dialog>
+
+  <script src="data/premissas.js"></script>
+  <script src="js/calculos.js"></script>
+  <script src="js/instrumentos.js"></script>
+  <script src="js/apps.js"></script>
+</body>
+</html>

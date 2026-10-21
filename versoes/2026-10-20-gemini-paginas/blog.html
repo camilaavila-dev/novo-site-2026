@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar Macroeconômico & Inteligência Financeira | Leonardo Arruda · Portfel</title>
+<meta name="description" content="Pulso semanal dos mercados, Selic, dólar e inflação. Análise executiva em 1 minuto e visão quantitativa aprofundada para investidores de alta renda.">
+<link rel="canonical" href="https://leonardoarruda.com.br/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_legado/css/shared-outlier.css">
+<link rel="stylesheet" href="../_legado/css/blog.css">
+<style>
+/* Regras fundamentais de layout, anti-overflow e tipografia HUD */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--s);
+  background-color: var(--bg);
+  color: var(--txt);
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+.mono-telemetry {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+}
+</style>
+<!-- Schema.org JSON-LD para motores de IA e Google Search -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://leonardoarruda.com.br/blog.html#blog",
+      "name": "Radar Macroeconômico Leonardo Arruda",
+      "description": "Terminal editorial semanal com inteligência macroeconômica, pulso de juros, câmbio e blindagem patrimonial.",
+      "url": "https://leonardoarruda.com.br/blog.html",
+      "publisher": {
+        "@type": "Person",
+        "name": "Leonardo Arruda",
+        "jobTitle": "Consultor de Investimentos ANBIMA CEA",
+        "url": "https://leonardoarruda.com.br"
+      }
+    },
+    {
+      "@type": "FinancialService",
+      "@id": "https://leonardoarruda.com.br/#service",
+      "name": "Leonardo Arruda Consultoria Financeira",
+      "serviceType": ["Inteligência Macroeconômica", "Alocação Global", "Consultoria Fee Based"],
+      "provider": {
+        "@type": "Person",
+        "name": "Leonardo Arruda"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="has-bottom-dock">
+
+<!-- BARRA DE NAVEGAÇÃO SUPERIOR (#site-nav) -->
+<nav id="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:200;height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(4,2,12,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);transition:height 0.3s ease, background 0.3s ease">
+  <a href="index.html" style="display:flex;align-items:center;min-height:48px;text-decoration:none">
+    <img id="nav-logo" src="../../midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:44px;object-fit:contain;transition:height 0.3s ease;">
+  </a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div style="display:flex;align-items:center;gap:32px" id="nav-links">
+      <a href="index.html" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Home</a>
+      <a href="simulador.html" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Simulador</a>
+      <a href="raiox.html" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Raio-X</a>
+      <a href="blog.html" class="nav-link is-active" style="font-family:var(--s);font-size:13.5px;font-weight:500;color:var(--grn);text-decoration:none">Radar</a>
+      <a href="index.html#guia" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Sobre</a>
+    </div>
+    <a href="index.html#primeiro-passo" class="nav-cta" style="padding:11px 24px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:600;font-size:13px;border-radius:6px;text-decoration:none;transition:background .2s">Agendar conversa</a>
+  </div>
+</nav>
+
+<div class="blog-page-wrapper">
+  <!-- Canvas de Ondas Cósmicas Macroeconômicas (60fps) -->
+  <canvas id="radar-universe" class="radar-universe-bg" aria-hidden="true"></canvas>
+
+  <!-- Confinamento de Halos Luminescentes -->
+  <div class="blog-halo-container">
+    <div class="blog-halo-top"></div>
+    <div class="blog-halo-accent"></div>
+    <div class="blog-halo-bottom"></div>
+  </div>
+
+  <div class="blog-container">
+    <!-- HERO CINEMATOGRÁFICO DO OBSERVATÓRIO -->
+    <header class="blog-hero">
+      <div class="blog-badge">
+        <span class="blog-badge-dot"></span>
+        Radar Macroeconômico · Inteligência Semanal de Elite
+      </div>
+      <h1 class="blog-title">
+        Radar Macroeconômico & <br>Inteligência Financeira
+      </h1>
+      <p class="blog-subtitle">
+        O pulso semanal dos mercados globais traduzido para a realidade do seu patrimônio — sem jargões desnecessários, com precisão quantitativa e visão fiduciária de longo prazo.
+      </p>
+    </header>
+
+    <!-- COCKPIT DO OBSERVATÓRIO: TERMÔMETRO MACROECONÔMICO HUD -->
+    <section class="macro-hud-card" id="macro-hud" aria-label="Termômetro Macroeconômico da Semana">
+      <div class="macro-hud-header">
+        <div class="macro-hud-title-wrap">
+          <div class="macro-hud-icon">☵</div>
+          <h2 class="macro-hud-heading">Termômetro do Mercado</h2>
+        </div>
+        <div class="macro-hud-date" id="hud-date">Semana de 20 de Outubro de 2026</div>
+      </div>
+
+      <!-- Grade dos 5 Indicadores Essenciais -->
+      <div class="macro-metrics-grid">
+        <!-- 1. Selic / CDI -->
+        <div class="metric-card" id="metric-selic">
+          <div class="metric-label-row">
+            <span class="metric-name">Taxa Selic</span>
+            <span class="metric-trend-pill up">+0,25%</span>
+          </div>
+          <div class="metric-value">10,75% a.a.</div>
+          <div class="metric-status">Alta Vigilante</div>
+        </div>
+
+        <!-- 2. IPCA -->
+        <div class="metric-card" id="metric-ipca">
+          <div class="metric-label-row">
+            <span class="metric-name">IPCA (12M)</span>
+            <span class="metric-trend-pill neutral">-0,08%</span>
+          </div>
+          <div class="metric-value">4,12% a.a.</div>
+          <div class="metric-status">Projeção Ancorada</div>
+        </div>
+
+        <!-- 3. Câmbio Dólar / USD -->
+        <div class="metric-card" id="metric-usd">
+          <div class="metric-label-row">
+            <span class="metric-name">Dólar (USD/BRL)</span>
+            <span class="metric-trend-pill down">-1,1%</span>
+          </div>
+          <div class="metric-value">R$ 5,42</div>
+          <div class="metric-status">Acomodação Global</div>
+        </div>
+
+        <!-- 4. S&P 500 -->
+        <div class="metric-card" id="metric-sp500">
+          <div class="metric-label-row">
+            <span class="metric-name">S&P 500</span>
+            <span class="metric-trend-pill up">+1,4%</span>
+          </div>
+          <div class="metric-value">5.860 pts</div>
+          <div class="metric-status">Máxima Histórica</div>
+        </div>
+
+        <!-- 5. Ibovespa -->
+        <div class="metric-card" id="metric-ibov">
+          <div class="metric-label-row">
+            <span class="metric-name">Ibovespa</span>
+            <span class="metric-trend-pill up">+0,8%</span>
+          </div>
+          <div class="metric-value">131.200 pts</div>
+          <div class="metric-status">Valuation Atrativo</div>
+        </div>
+      </div>
+
+      <!-- Sentimento de Mercado & Resumo Humano -->
+      <div class="macro-pulse-bottom">
+        <div class="sentiment-meter-box">
+          <div class="sentiment-meter-top">
+            <span class="sentiment-meter-label">Sentimento de Mercado</span>
+            <span class="sentiment-score-badge" id="hud-sentiment-score">68 / 100</span>
+          </div>
+          <div class="sentiment-bar-track">
+            <div class="sentiment-bar-fill" id="hud-sentiment-bar" style="width:68%"></div>
+          </div>
+          <div class="sentiment-meter-desc" id="hud-sentiment-label">Otimismo Cauteloso</div>
+        </div>
+
+        <div class="human-summary-box">
+          <div class="human-summary-eyebrow">Diagnóstico em Linguagem Humana</div>
+          <p class="human-summary-text" id="hud-human-summary">
+            O momento atual combina Selic elevada no Brasil com o início do ciclo de corte de juros pelo Federal Reserve nos Estados Unidos. Esse descasamento cria uma janela histórica para travar taxas de renda fixa real (IPCA+ acima de 6,2% a.a.) e remeter recursos para o exterior com o dólar em acomodação técnica.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDIÇÃO EM DESTAQUE NO COCKPIT -->
+    <section class="featured-edition-card" id="featured-edition-section" aria-label="Edição em Destaque do Radar Macroeconômico">
+      <div class="featured-meta-row">
+        <div class="featured-tags-wrap">
+          <span class="badge-featured">✦ Edição em Destaque</span>
+          <span class="badge-category" id="featured-category">Macro & Selic</span>
+          <span class="badge-time" id="featured-time">⏱ 3 min de leitura</span>
+        </div>
+        <div class="badge-time" id="featured-date">19 de Outubro de 2026</div>
+      </div>
+
+      <h2 class="featured-title" id="featured-title">
+        Juros e Câmbio no Ponto de Inflexão: Como Blindar o Patrimônio em 2026
+      </h2>
+
+      <!-- ALTERNADOR TÁTIL (TOGGLE) -->
+      <div class="reader-toggle-wrap" id="reader-toggle-wrap" role="tablist" aria-label="Modo de Leitura da Análise">
+        <button type="button" class="reader-toggle-btn is-active" data-mode="exec" role="tab" aria-selected="true">
+          <span>⚡</span>
+          <span>Resumo Executivo (1 min)</span>
+        </button>
+        <button type="button" class="reader-toggle-btn" data-mode="quant" role="tab" aria-selected="false">
+          <span>∿</span>
+          <span>Visão Quant / Nerd do Leo</span>
+        </button>
+      </div>
+
+      <!-- PAINEL DINÂMICO DE CONTEÚDO -->
+      <div class="reader-content-panel" id="reader-content-panel">
+        <!-- Renderizado dinamicamente via js/blog-core.js -->
+      </div>
+
+      <!-- MATRIZ DE IMPACTO PATRIMONIAL (4 QUADRANTES) -->
+      <div class="impact-matrix-wrap">
+        <div class="impact-matrix-title-row">
+          <h3 class="impact-matrix-heading">O que isso muda no seu patrimônio?</h3>
+          <span class="impact-matrix-badge">Diretrizes Práticas</span>
+        </div>
+
+        <div class="impact-quadrants-grid">
+          <!-- 1. Renda Fixa -->
+          <div class="quadrant-card rf">
+            <div class="quadrant-header">
+              <div class="quadrant-icon">◈</div>
+              <div class="quadrant-name">Renda Fixa</div>
+            </div>
+            <p class="quadrant-body" id="quadrant-rf-desc">
+              Travar taxas em títulos IPCA+ intermediários (2029 a 2035) com taxa real acima de 6,2% a.a. e manter reserva tática de liquidez no CDI diário.
+            </p>
+          </div>
+
+          <!-- 2. Ações -->
+          <div class="quadrant-card eq">
+            <div class="quadrant-header">
+              <div class="quadrant-icon">↗</div>
+              <div class="quadrant-name">Ações Brasil</div>
+            </div>
+            <p class="quadrant-body" id="quadrant-eq-desc">
+              Priorizar empresas pagadoras de dividendos perenes e geradoras de caixa livre em setores resilientes (elétricas, saneamento e bancos).
+            </p>
+          </div>
+
+          <!-- 3. Offshore -->
+          <div class="quadrant-card off">
+            <div class="quadrant-header">
+              <div class="quadrant-icon">🌐</div>
+              <div class="quadrant-name">Dólar & Offshore</div>
+            </div>
+            <p class="quadrant-body" id="quadrant-off-desc">
+              Aproveitar o alívio do dólar abaixo de R$ 5,50 para remessas estruturais a contas nos EUA, aportando em Treasuries de curto prazo e ETFs globais.
+            </p>
+          </div>
+
+          <!-- 4. Imobiliário -->
+          <div class="quadrant-card re">
+            <div class="quadrant-header">
+              <div class="quadrant-icon">🏢</div>
+              <div class="quadrant-name">Imobiliário & FIIs</div>
+            </div>
+            <p class="quadrant-body" id="quadrant-re-desc">
+              Foco exclusivo em fundos de tijolo AAA com contratos atípicos; evitar compra de imóveis físicos com alta vacância ou baixa rentabilidade líquida.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARQUIVO DE EDIÇÕES: FILTRO POR CATEGORIAS & BUSCA -->
+    <section class="archive-section" aria-label="Arquivo de Edições do Radar">
+      <div class="archive-header-row">
+        <h2 class="archive-heading">Edições do Radar Macroeconômico</h2>
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="search-editions" class="search-input" placeholder="Buscar por tema, ativo ou palavra-chave..." aria-label="Buscar edições do radar">
+        </div>
+      </div>
+
+      <!-- Pílulas de Filtro por Categoria -->
+      <div class="filter-pills-row" id="filter-pills-row" role="tablist" aria-label="Filtrar por Categoria">
+        <button type="button" class="filter-pill is-active" data-category="all" role="tab" aria-selected="true">
+          Todas as Edições
+        </button>
+        <button type="button" class="filter-pill" data-category="macro" role="tab" aria-selected="false">
+          Macro & Selic
+        </button>
+        <button type="button" class="filter-pill" data-category="offshore" role="tab" aria-selected="false">
+          Offshore & Câmbio
+        </button>
+        <button type="button" class="filter-pill" data-category="blindagem" role="tab" aria-selected="false">
+          Blindagem & Sucessão
+        </button>
+      </div>
+
+      <!-- Grade com as Demais Edições -->
+      <div class="editions-grid" id="editions-grid">
+        <!-- Renderizado dinamicamente via js/blog-core.js -->
+      </div>
+    </section>
+
+    <!-- BLOCO DE CAPTURA VIP DA NEWSLETTER -->
+    <section class="newsletter-vip-card" id="newsletter-vip-card" aria-label="Assinatura da Newsletter VIP">
+      <div class="newsletter-inner">
+        <div class="newsletter-badge">✦ Inteligência Macroeconômica Exclusiva</div>
+        <h2 class="newsletter-title">
+          Radar Semanal na Sua <br>Caixa Postal Privada
+        </h2>
+        <p class="newsletter-subtitle">
+          A inteligência patrimonial e os modelos quantitativos que orientam investidores de alta renda, entregues todo sábado de manhã. Em linguagem direta, sem ruído de mercado.
+        </p>
+
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <input type="email" id="newsletter-email" name="email" required placeholder="seu.melhor.email@exemplo.com.br" class="newsletter-input" aria-label="Seu melhor e-mail para receber a newsletter">
+          <button type="submit" id="newsletter-btn" class="newsletter-btn">Receber Inteligência VIP</button>
+        </form>
+
+        <div id="newsletter-feedback" class="newsletter-feedback" role="status" aria-live="polite"></div>
+        <p class="newsletter-microcopy">
+          🔒 100% Confidencial. Zero spam. Desinscreva-se a qualquer momento com 1 clique.
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- RODAPÉ INSTITUCIONAL UNIFICADO -->
+<footer style="background:var(--s1);border-top:1px solid var(--brd);padding:56px 40px 100px;position:relative;z-index:2">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px">
+      <div style="max-width:380px">
+        <img src="../../midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:44px;object-fit:contain;margin-bottom:18px">
+        <p style="font-family:var(--s);font-size:13.5px;line-height:1.7;color:var(--mut);font-weight:300">
+          Consultor de Investimentos credenciado pela ANBIMA (CEA), atuando em parceria com a Portfel (Grupo Primo) sob modelo 100% Fee-Based e alinhamento fiduciário integral.
+        </p>
+      </div>
+
+      <div style="display:flex;gap:48px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Ecossistema</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-family:var(--s);font-size:13.5px">
+            <a href="index.html" style="color:var(--mut);text-decoration:none">Home</a>
+            <a href="simulador.html" style="color:var(--mut);text-decoration:none">Simulador de Liberdade</a>
+            <a href="raiox.html" style="color:var(--mut);text-decoration:none">Diagnóstico Raio-X</a>
+            <a href="blog.html" style="color:var(--grn);text-decoration:none">Radar Macroeconômico</a>
+            <a href="linktree.html" style="color:var(--mut);text-decoration:none">Linktree Mobile</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Conformidade</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-family:var(--s);font-size:13.5px">
+            <a href="termos.html" style="color:var(--mut);text-decoration:none">Termos de Uso</a>
+            <a href="privacidade.html" style="color:var(--mut);text-decoration:none">Política de Privacidade</a>
+            <span style="color:var(--sub);font-size:12px">CNPJ: 54.475.818/0001-90</span>
+            <span style="color:var(--sub);font-size:12px">Resolução CVM nº 19/2021</span>
+            <span style="color:var(--sub);font-size:12px">A consultoria não realiza intermediação, custódia ou administração de valores mobiliários.</span>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Institucional</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-family:var(--s);font-size:13.5px">
+            <a href="https://portfel.com.br" target="_blank" rel="noopener noreferrer" style="color:var(--mut);text-decoration:none">Portfel</a>
+            <a href="https://grupo-primo.com" target="_blank" rel="noopener noreferrer" style="color:var(--mut);text-decoration:none">Grupo Primo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-top:24px;border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--m);font-size:10.5px;color:var(--sub);letter-spacing:.08em;text-transform:uppercase">
+      <div>© 2026 Leonardo Arruda. Todos os direitos reservados.</div>
+      <button type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="background:rgba(255,255,255,0.05);border:1px solid var(--brd);color:var(--txt);padding:8px 16px;border-radius:20px;cursor:pointer;font-family:var(--s);font-size:11px">
+        Voltar ao Topo ↑
+      </button>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS INTEGRADOS -->
+<script src="../../data/editorial.js"></script>
+<script src="../_legado/js/shared-navigation.js"></script>
+<script src="../_legado/js/blog-core.js"></script>
+</body>
+</html>

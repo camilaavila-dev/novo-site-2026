@@ -1,0 +1,1283 @@
+/**
+ * ==============================================================================
+ * LEONARDO ARRUDA — LENTE FÍSICA DE RAIO-X & ESCANEAMENTO PATRIMONIAL CSS (2026+)
+ * Experiência Cinematográfica no Padrão Omshiva.ai / Astra / Private Wealth
+ * ==============================================================================
+ * Design System: Obsidiana Sideral, Feixe Laser Esmeralda, Violeta Luminescente
+ * & Telemetria HUD Monospace Fluorescente
+ * ==============================================================================
+ */
+
+/* ==========================================================================
+   1. AMBIENTAÇÃO & ESTRUTURA GERAL DA PÁGINA
+   ========================================================================== */
+.rx-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Container de confinamento absoluto para halos luminosos (Zero Overflow) */
+.rx-halo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  max-width: 100vw;
+}
+
+.rx-halo-top {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 800px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(59, 54, 204, 0.25) 0%, rgba(28, 217, 138, 0.1) 45%, transparent 70%);
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.rx-halo-accent {
+  position: absolute;
+  top: 40%;
+  right: 0;
+  max-width: 70%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 217, 138, 0.14) 0%, transparent 65%);
+  pointer-events: none;
+  filter: blur(90px);
+}
+
+.rx-halo-bottom {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  max-width: 70%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 102, 232, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(85px);
+}
+
+.rx-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ==========================================================================
+   2. HERO CINEMATOGRÁFICO & STORYTELLING DO ESCANEAMENTO
+   ========================================================================== */
+.rx-hero {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto 48px;
+}
+
+.rx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 22px;
+  border-radius: 30px;
+  background: rgba(28, 217, 138, 0.08);
+  border: 1px solid rgba(28, 217, 138, 0.35);
+  color: var(--grn);
+  font-family: var(--m);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  box-shadow: 0 0 28px rgba(28, 217, 138, 0.2);
+}
+
+.rx-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--grn);
+  box-shadow: 0 0 10px var(--grn);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.rx-title {
+  font-family: var(--d);
+  font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 62px);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--txt);
+  margin-bottom: 20px;
+}
+
+.rx-subtitle {
+  font-family: var(--s);
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.7;
+  color: var(--mut);
+  font-weight: 300;
+  max-width: 740px;
+  margin: 0 auto 32px;
+}
+
+.rx-hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.rx-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--brd);
+  font-family: var(--m);
+  font-size: 11px;
+  color: var(--txt);
+  letter-spacing: 0.08em;
+  min-height: 40px;
+}
+
+.rx-stat-icon {
+  color: var(--grn);
+  font-size: 13px;
+}
+
+/* ==========================================================================
+   3. ESCUDO HOLOGRÁFICO 3D CONCÊNTRICO & FEIXE LASER DE ESCANEAMENTO
+   ========================================================================== */
+.rx-scanner-stage {
+  max-width: 960px;
+  margin: 0 auto 64px;
+  position: relative;
+}
+
+/* Orbe / Escudo Holográfico no topo do Quiz */
+.rx-orb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.rx-orb-svg-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rx-orb-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 16px rgba(28, 217, 138, 0.3));
+}
+
+.rx-orb-ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.09);
+  stroke-width: 1.5;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rx-orb-ring.is-active {
+  stroke: #1CD98A;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 8px #1CD98A);
+}
+
+@keyframes rotateOrb {
+  0% { transform: rotate(0deg); transform-origin: 100px 100px; }
+  100% { transform: rotate(360deg); transform-origin: 100px 100px; }
+}
+
+@keyframes rotateCounter {
+  0% { transform: rotate(360deg); transform-origin: 100px 100px; }
+  100% { transform: rotate(0deg); transform-origin: 100px 100px; }
+}
+
+.rx-orb-orbit-1 {
+  animation: rotateOrb 24s linear infinite;
+}
+
+.rx-orb-orbit-2 {
+  animation: rotateCounter 16s linear infinite;
+}
+
+.rx-orb-caption {
+  margin-top: 10px;
+  font-family: var(--m);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grn);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(28, 217, 138, 0.08);
+  padding: 4px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(28, 217, 138, 0.2);
+}
+
+.rx-orb-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--grn);
+  box-shadow: 0 0 6px var(--grn);
+}
+
+/* Card Principal Glassmorphic com Feixe Laser Ativo */
+.rx-quiz-glass-card {
+  position: relative;
+  background: rgba(8, 5, 23, 0.78);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--brd2);
+  border-radius: 24px;
+  padding: 44px 48px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+/* Feixe Laser Óptico de Varredura que percorre suavemente a tela */
+.rx-scanner-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(28, 217, 138, 0.2) 20%, #1CD98A 50%, rgba(28, 217, 138, 0.2) 80%, transparent 100%);
+  box-shadow: 0 0 16px #1CD98A, 0 0 32px rgba(28, 217, 138, 0.5);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.75;
+  animation: laserScan 6s ease-in-out infinite alternate;
+}
+
+@keyframes laserScan {
+  0% { top: 0%; opacity: 0.2; }
+  25% { opacity: 0.85; }
+  50% { top: 98%; opacity: 0.9; }
+  75% { opacity: 0.85; }
+  100% { top: 0%; opacity: 0.2; }
+}
+
+/* Terminal de Decodificação Quântica em JetBrains Mono */
+.rx-quantum-decoder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(4, 2, 12, 0.85);
+  border: 1px solid rgba(28, 217, 138, 0.2);
+  margin-bottom: 24px;
+  font-family: var(--m);
+  font-size: 11px;
+  color: var(--grn);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 8px rgba(28, 217, 138, 0.4);
+}
+
+.rx-decoder-stream {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rx-decoder-live-pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--grn);
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* Header do Stepper e Barra de Progresso */
+.rx-stepper-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.rx-step-tag {
+  font-family: var(--m);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grn);
+}
+
+.rx-territory-pill {
+  font-family: var(--m);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vio2);
+}
+
+.rx-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.rx-progress-fill {
+  height: 100%;
+  width: 20%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--vio) 0%, var(--grn) 100%);
+  box-shadow: 0 0 12px rgba(28, 217, 138, 0.5);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Questão do Território */
+.rx-question-header {
+  margin-bottom: 36px;
+}
+
+.rx-question-title {
+  font-family: var(--d);
+  font-size: clamp(24px, 2.7vw, 38px);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--txt);
+  margin-bottom: 14px;
+}
+
+.rx-question-sub {
+  font-family: var(--s);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--mut);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   4. CARDS DE OPÇÃO COM PROFUNDIDADE 3D E REFLEXO ÓPTICO
+   ========================================================================== */
+.rx-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 32px;
+  perspective: 1200px;
+}
+
+.rx-option-card {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(11, 7, 26, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 24px 22px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 138px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+  outline: none;
+  transform-style: preserve-3d;
+  touch-action: manipulation;
+}
+
+.rx-opt-glow-sheen {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.7s ease;
+}
+
+.rx-option-card:hover .rx-opt-glow-sheen {
+  left: 140%;
+}
+
+.rx-option-card:hover {
+  border-color: rgba(28, 217, 138, 0.45);
+  background: rgba(28, 217, 138, 0.04);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(28, 217, 138, 0.15);
+}
+
+.rx-option-card:focus-visible {
+  border-color: var(--grn);
+  box-shadow: 0 0 0 2px rgba(28, 217, 138, 0.4);
+}
+
+.rx-option-card.is-selected {
+  border-color: var(--grn);
+  background: rgba(28, 217, 138, 0.09);
+  box-shadow: 0 0 32px rgba(28, 217, 138, 0.28);
+}
+
+.rx-opt-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.rx-opt-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--txt);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--m);
+  font-size: 13px;
+  font-weight: 600;
+  flex: none;
+  transition: all 0.2s ease;
+}
+
+.rx-option-card.is-selected .rx-opt-badge {
+  background: var(--grn);
+  border-color: var(--grn);
+  color: #04120A;
+  box-shadow: 0 0 12px rgba(28, 217, 138, 0.6);
+}
+
+.rx-opt-title {
+  font-family: var(--s);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--txt);
+  line-height: 1.25;
+}
+
+.rx-opt-desc {
+  font-family: var(--s);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--mut);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.rx-opt-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rx-opt-score-tag {
+  font-family: var(--m);
+  font-size: 11px;
+  color: var(--sub);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.rx-option-card.is-selected .rx-opt-score-tag {
+  color: var(--grn);
+  background: rgba(28, 217, 138, 0.14);
+  font-weight: 600;
+}
+
+.rx-opt-check {
+  font-size: 14px;
+  color: var(--grn);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rx-option-card.is-selected .rx-opt-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Barra de Controles */
+.rx-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rx-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--brd);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--txt);
+  font-family: var(--s);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
+
+.rx-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--brd2);
+}
+
+/* ==========================================================================
+   5. REVELAÇÃO MONUMENTAL DO ARQUÉTIPO & INSÍGNIA CELESTIAL
+   ========================================================================== */
+.rx-results-panel {
+  display: none;
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.rx-results-panel.fade-in {
+  animation: revealPortal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes revealPortal {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(30px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.rx-insignia-stage {
+  text-align: center;
+  margin-bottom: 52px;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.rx-insignia-aura {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  max-width: 100%;
+  height: 350px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(75px);
+  z-index: 0;
+}
+
+/* Selo Heráldico Celestial com Ícone SVG */
+.rx-insignia-seal {
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(28, 217, 138, 0.2) 0%, rgba(4, 2, 12, 0.85) 75%);
+  border: 1.5px solid rgba(28, 217, 138, 0.5);
+  box-shadow: 0 0 36px rgba(28, 217, 138, 0.3), inset 0 0 16px rgba(28, 217, 138, 0.2);
+}
+
+.rx-insignia-seal svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 8px rgba(28, 217, 138, 0.7));
+}
+
+.rx-archetype-badge-lg {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-family: var(--m);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--grn);
+  color: var(--grn);
+  background: rgba(28, 217, 138, 0.08);
+  margin-bottom: 16px;
+  box-shadow: 0 0 24px rgba(28, 217, 138, 0.2);
+}
+
+.rx-archetype-title-lg {
+  position: relative;
+  z-index: 1;
+  font-family: var(--d);
+  font-size: clamp(38px, 5.2vw, 70px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #FFFFFF 0%, #EDE8D5 50%, var(--grn) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.rx-archetype-crest-subtitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--m);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vio2);
+  margin-bottom: 22px;
+}
+
+.rx-impact-quote {
+  position: relative;
+  z-index: 1;
+  font-family: var(--d);
+  font-style: italic;
+  font-size: clamp(20px, 2.1vw, 26px);
+  line-height: 1.45;
+  color: var(--txt);
+  max-width: 820px;
+  margin: 0 auto 20px;
+}
+
+.rx-profile-lead {
+  position: relative;
+  z-index: 1;
+  font-family: var(--s);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--mut);
+  max-width: 760px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   6. GRID DE RESULTADOS: RADAR PENTAGONAL & GARGALOS
+   ========================================================================== */
+.rx-results-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.rx-radar-card {
+  background: rgba(8, 5, 23, 0.78);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--brd2);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rx-score-hud-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: rgba(4, 2, 12, 0.75);
+  border: 1px solid var(--brd);
+  margin-bottom: 24px;
+}
+
+.rx-score-hud-title {
+  font-family: var(--m);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin-bottom: 6px;
+}
+
+.rx-score-display {
+  font-family: var(--m);
+  font-size: clamp(38px, 4vw, 54px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--grn);
+  text-shadow: 0 0 16px rgba(28, 217, 138, 0.5);
+}
+
+.rx-score-max {
+  font-size: 20px;
+  color: var(--sub);
+  font-weight: 400;
+  text-shadow: none;
+}
+
+.rx-maturity-pill {
+  font-family: var(--m);
+  font-size: 11px;
+  color: var(--grn);
+  background: rgba(28, 217, 138, 0.1);
+  border: 1px solid rgba(28, 217, 138, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.rx-radar-svg-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+#radar-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.4); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
+
+.rx-pulse-ring {
+  animation: pulseRing 2.5s infinite ease-in-out;
+  transform-origin: center;
+}
+
+/* Card Direito: Diagnóstico dos 2 Maiores Gargalos */
+.rx-diagnosis-card {
+  background: rgba(8, 5, 23, 0.78);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--brd2);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rx-section-badge {
+  font-family: var(--m);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vio2);
+  margin-bottom: 8px;
+}
+
+.rx-card-title {
+  font-family: var(--d);
+  font-size: 26px;
+  color: var(--txt);
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+
+.rx-bottleneck-card {
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: rgba(228, 87, 46, 0.05);
+  border: 1px solid rgba(228, 87, 46, 0.3);
+  margin-bottom: 18px;
+}
+
+.rx-gap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.rx-gap-index {
+  font-family: var(--m);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E4572E;
+  font-weight: 600;
+}
+
+.rx-gap-score {
+  font-family: var(--m);
+  font-size: 12px;
+  color: var(--sub);
+}
+
+.rx-gap-tag {
+  font-family: var(--s);
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--txt);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.rx-gap-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rx-gap-risk,
+.rx-gap-sol {
+  font-family: var(--s);
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: var(--mut);
+  font-weight: 300;
+}
+
+.rx-gap-risk strong,
+.rx-gap-sol strong {
+  color: var(--txt);
+  font-weight: 600;
+}
+
+/* Telemetria das Dimensões */
+.rx-dim-telemetry-wrap {
+  margin-top: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.rx-dim-telemetry-row {
+  margin-bottom: 12px;
+}
+
+.rx-dim-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.rx-dim-label {
+  font-size: 11.5px;
+  color: var(--txt);
+}
+
+.rx-dim-val {
+  font-size: 11.5px;
+  color: var(--mut);
+}
+
+.rx-dim-track {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.rx-dim-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* Ações e CTAs de Conversão */
+.rx-results-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.rx-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 16px 36px;
+  border-radius: 10px;
+  background: var(--grn);
+  color: #04120A;
+  font-family: var(--s);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(28, 217, 138, 0.35);
+  transition: all 0.25s ease;
+  touch-action: manipulation;
+}
+
+.rx-cta-primary:hover {
+  background: #23F09A;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 38px rgba(28, 217, 138, 0.5);
+}
+
+.rx-cta-wpp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 16px 30px;
+  border-radius: 10px;
+  background: rgba(28, 217, 138, 0.1);
+  border: 1px solid var(--grn);
+  color: var(--grn);
+  font-family: var(--s);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  touch-action: manipulation;
+}
+
+.rx-cta-wpp:hover {
+  background: rgba(28, 217, 138, 0.22);
+  transform: translateY(-2px);
+}
+
+.rx-cta-restart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 14px 26px;
+  border-radius: 10px;
+  border: 1px solid var(--brd2);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--mut);
+  font-family: var(--s);
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
+
+.rx-cta-restart:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--txt);
+}
+
+/* ==========================================================================
+   7. SEÇÃO DE AUTORIDADE & METODOLOGIA CIENTÍFICA
+   ========================================================================== */
+.rx-method-section {
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+
+.rx-method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+}
+
+.rx-lupa-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(28, 217, 138, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(28, 217, 138, 0.12);
+}
+
+/* ==========================================================================
+   COCKPIT DE TELA ÚNICA (ZERO-SCROLL NO DESKTOP >= 1024px)
+   Encaixe ergonômico na viewport para responder perguntas sem scroll vertical
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .rx-page-wrapper {
+    padding-top: 86px;
+    padding-bottom: 60px;
+  }
+
+  .rx-hero {
+    margin: 0 auto 20px;
+    max-width: 820px;
+  }
+
+  .rx-badge {
+    padding: 6px 18px;
+    font-size: 10.5px;
+    margin-bottom: 12px;
+  }
+
+  .rx-title {
+    font-size: clamp(28px, 2.6vw, 40px);
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+
+  .rx-subtitle {
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 0 auto 16px;
+    max-width: 720px;
+  }
+
+  .rx-hero-stats {
+    gap: 12px;
+  }
+
+  .rx-stat-pill {
+    padding: 6px 14px;
+    min-height: 34px;
+    font-size: 10.5px;
+  }
+
+  .rx-scanner-stage {
+    margin: 0 auto 36px;
+  }
+
+  .rx-orb-container {
+    margin-bottom: 14px;
+  }
+
+  .rx-orb-svg-wrap {
+    width: 90px;
+    height: 90px;
+  }
+
+  .rx-orb-caption {
+    margin-top: 6px;
+    font-size: 10px;
+    padding: 3px 12px;
+  }
+
+  .rx-quiz-glass-card {
+    padding: 22px 28px;
+  }
+
+  .rx-quantum-decoder {
+    padding: 8px 14px;
+    margin-bottom: 16px;
+    font-size: 10.5px;
+  }
+
+  .rx-stepper-meta {
+    margin-bottom: 10px;
+  }
+
+  .rx-progress-track {
+    margin-bottom: 20px;
+    height: 5px;
+  }
+
+  .rx-question-header {
+    margin-bottom: 20px;
+  }
+
+  .rx-question-title {
+    font-size: clamp(20px, 1.8vw, 26px);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .rx-question-sub {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .rx-options-grid {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .rx-option-card {
+    padding: 16px 18px;
+    min-height: 96px;
+    border-radius: 14px;
+  }
+
+  .rx-opt-badge {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .rx-opt-title {
+    font-size: 15px;
+  }
+
+  .rx-opt-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .rx-controls-bar {
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE & REGRAS MOBILE (320px, 390px, 430px, 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  #site-nav {
+    padding: 0 16px !important;
+  }
+
+  #site-nav div a.nav-link,
+  #nav-links {
+    display: none !important;
+  }
+
+  #site-nav > div {
+    gap: 10px !important;
+  }
+
+  #site-nav .nav-cta {
+    display: none !important;
+  }
+
+  #nav-logo {
+    height: 36px !important;
+  }
+
+  #site-nav > a {
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .rx-insignia-aura {
+    width: min(100%, 360px) !important;
+    height: 220px !important;
+    max-width: 100% !important;
+  }
+
+  .rx-page-wrapper {
+    padding-top: 96px;
+    padding-bottom: 110px;
+  }
+
+  .rx-container {
+    padding: 0 18px;
+  }
+
+  .rx-quiz-glass-card {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .rx-options-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .rx-option-card {
+    min-height: 120px;
+    padding: 20px 18px;
+  }
+
+  .rx-results-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .rx-radar-card,
+  .rx-diagnosis-card {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .rx-results-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .rx-cta-primary,
+  .rx-cta-wpp,
+  .rx-cta-restart {
+    width: 100%;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rx-insignia-aura {
+    width: min(100%, 360px) !important;
+    height: 220px !important;
+    max-width: 100% !important;
+  }
+
+  .rx-title {
+    font-size: 30px;
+  }
+
+  .rx-hero-stats {
+    gap: 10px;
+  }
+
+  .rx-stat-pill {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  .rx-score-display {
+    font-size: 34px;
+  }
+
+  .rx-opt-title {
+    font-size: 15px;
+  }
+
+  .rx-opt-desc {
+    font-size: 13px;
+  }
+}

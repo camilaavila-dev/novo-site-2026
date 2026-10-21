@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Leitura semanal · O mercado e o seu patrimônio · Leonardo Arruda</title>
+  <meta name="description" content="A leitura semanal de Leonardo Arruda: Selic, inflação, câmbio e bolsas, com fonte, e o que observar no seu patrimônio. Em um minuto ou com calma.">
+  <meta name="theme-color" content="#07061A">
+  <link rel="icon" type="image/png" href="midias/04-logo-simbolo-leonardo-texto-branco-transparente.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/leitura.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="lw-page">
+
+  <svg class="hm-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5 18.5 12 13 17.5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8M9.6 8H16v6.4"/></symbol>
+    <symbol id="o-rendaFixa" viewBox="0 0 24 24"><path d="M5 19V13M10 19V9M15 19V11M20 19V5"/></symbol>
+    <symbol id="o-acoes" viewBox="0 0 24 24"><path d="M3.5 17 9 11.5l4 4 7.5-8"/><path d="M15 7.5h5.5V13"/></symbol>
+    <symbol id="o-exterior" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.4 3.6 5.2 3.6 8.5s-1.1 6.1-3.6 8.5c-2.5-2.4-3.6-5.2-3.6-8.5s1.1-6.1 3.6-8.5Z"/></symbol>
+    <symbol id="o-imoveis" viewBox="0 0 24 24"><path d="M4 11 12 4.5 20 11"/><path d="M6 9.5V19.5h12V9.5"/><path d="M10 19.5v-5h4v5"/></symbol>
+  </svg>
+
+  <a class="hm-skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="hm-top">
+    <a class="hm-brand" href="index.html" aria-label="Leonardo Arruda, início">
+      <img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda · Portfel" width="144" height="40">
+    </a>
+    <nav class="hm-nav" aria-label="Páginas do site">
+      <a href="index.html">Início</a>
+      <a href="instrumentos.html">Calculadoras</a>
+      <a href="raiox.html">Diagnóstico</a>
+      <a href="blog.html" aria-current="page">Leitura semanal</a>
+    </nav>
+    <a class="hm-btn hm-btn-cta hm-top-cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">
+      Agendar conversa
+      <svg class="hm-i" aria-hidden="true"><use href="#i-out"/></svg>
+    </a>
+  </header>
+
+  <!-- Faixa de indicadores, como um painel de cotações -->
+  <section class="lw-ticker" aria-labelledby="t-semana">
+    <h2 class="hm-sr" id="t-semana">Indicadores da semana</h2>
+    <p class="lw-ticker-date" id="lw-data"></p>
+    <dl class="lw-ticker-list" id="lw-indicadores"></dl>
+  </section>
+
+  <main id="conteudo" class="lw-main">
+    <div class="lw-layout">
+      <div class="lw-col">
+        <header class="lw-mast">
+          <p class="hm-kicker">Leitura semanal <span class="lw-issue" id="lw-num"></span></p>
+          <p class="lw-resumo-semana" id="lw-resumo"></p>
+        </header>
+        <div id="lw-edicoes" aria-live="polite">
+          <noscript><p>As edições precisam de JavaScript para aparecer. Acompanhe também pelo <a href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/">LinkedIn</a>.</p></noscript>
+        </div>
+      </div>
+
+      <aside class="lw-side" aria-label="Mais da leitura semanal">
+        <div class="lw-card lw-sub">
+          <p class="lw-card-label">Receba toda semana</p>
+          <p>A mesma leitura, pelo LinkedIn: os números, com fonte, e o que observar. Sem ruído de manchete.</p>
+          <a class="hm-btn hm-btn-ghost" href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" rel="noopener">
+            Seguir no LinkedIn
+            <svg class="hm-i" aria-hidden="true"><use href="#i-out"/></svg>
+          </a>
+        </div>
+        <div class="lw-card" id="lw-arquivo-box" hidden>
+          <p class="lw-card-label">Edições anteriores</p>
+          <div class="lw-filtros" id="lw-filtros" role="group" aria-label="Filtrar por tema" hidden></div>
+          <ol class="lw-arquivo" id="lw-arquivo"></ol>
+        </div>
+        <div class="lw-card lw-talk">
+          <p class="lw-card-label">E no seu caso?</p>
+          <p>A leitura é geral. Na conversa, entram os seus números, os seus prazos e os seus impostos.</p>
+          <a class="hm-btn hm-btn-cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">
+            Conversar sobre o meu caso
+            <svg class="hm-i" aria-hidden="true"><use href="#i-out"/></svg>
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="lw-foot">
+      <img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda · Portfel" width="130" height="36" loading="lazy">
+      <p>Leonardo Arruda · Consultor de Investimentos · ANBIMA CEA · LA Consultoria &amp; Negócios · CNPJ 54.475.818/0001-90. A Portfel Consultoria Financeira LTDA (CNPJ 37.576.416/0001-62) é registrada como Consultoria de Valores Mobiliários na CVM, nos termos da Resolução CVM nº 19/2021, e é controlada pela O Primo Rico Mídia, Educacional e Participações S.A.</p>
+      <p>A leitura semanal tem caráter exclusivamente informativo e não constitui oferta ou recomendação de investimento. Recomendações são individuais e dependem do perfil de cada investidor. Rentabilidade passada não garante resultados futuros.</p>
+      <p class="lw-foot-links"><a href="privacidade.html">Política de Privacidade</a> · <a href="termos.html">Termos de Uso</a> · © 2026 Leonardo Arruda</p>
+    </footer>
+  </main>
+
+  <script src="data/editorial.js" defer></script>
+  <script src="js/leitura.js" defer></script>
+</body>
+</html>

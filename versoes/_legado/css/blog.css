@@ -1,0 +1,1189 @@
+/**
+ * ==============================================================================
+ * LEONARDO ARRUDA — TERMINAL EDITORIAL & RADAR MACROECONÔMICO CSS (2026+)
+ * Padrão Private Wealth / Astra / Omshiva.ai — Milestone M4
+ * ==============================================================================
+ * Paleta: Obsidiana (#04020C), Violeta (#3B36CC), Esmeralda (#1CD98A), Pergaminho (#EDE8D5)
+ * Tipografia: Cormorant Garamond + DM Sans + JetBrains Mono
+ * ==============================================================================
+ */
+
+/* ==========================================================================
+   1. AMBIENTAÇÃO & ESTRUTURA GERAL DA PÁGINA
+   ========================================================================== */
+.blog-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 110px;
+  padding-bottom: 120px;
+  background-color: var(--bg);
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Canvas de Ondas Cósmicas Macroeconômicas (60fps) */
+#radar-universe {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none !important;
+}
+
+/* Confinamento de Halos Luminescentes (Zero Overflow) */
+.blog-halo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none !important;
+  z-index: 0;
+  max-width: 100vw;
+}
+
+.blog-halo-top {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  max-width: 90vw;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(59, 54, 204, 0.22) 0%, rgba(28, 217, 138, 0.08) 50%, transparent 70%);
+  filter: blur(90px);
+}
+
+.blog-halo-accent {
+  position: absolute;
+  top: 45%;
+  right: 0;
+  width: 500px;
+  max-width: 60%;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 217, 138, 0.12) 0%, transparent 65%);
+  filter: blur(100px);
+}
+
+.blog-halo-bottom {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 480px;
+  max-width: 60%;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 102, 232, 0.15) 0%, transparent 70%);
+  filter: blur(90px);
+}
+
+.blog-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ==========================================================================
+   2. HERO CINEMATOGRÁFICO DO OBSERVATÓRIO
+   ========================================================================== */
+.blog-hero {
+  text-align: center;
+  max-width: 940px;
+  margin: 0 auto 48px;
+}
+
+.blog-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 22px;
+  border-radius: 30px;
+  background: rgba(28, 217, 138, 0.08);
+  border: 1px solid rgba(28, 217, 138, 0.25);
+  color: var(--grn);
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(28, 217, 138, 0.12);
+}
+
+.blog-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--grn);
+  box-shadow: 0 0 8px var(--grn);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.blog-title {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5.2vw, 62px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--txt);
+  margin-bottom: 18px;
+}
+
+.blog-title span.txt-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--grn) 60%, var(--vio2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blog-subtitle {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--mut);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. TERMÔMETRO MACROECONÔMICO HUD
+   ========================================================================== */
+.macro-hud-card {
+  background: rgba(11, 7, 26, 0.75);
+  border: 1px solid var(--brd2);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.macro-hud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--grn), var(--vio2), transparent);
+}
+
+.macro-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--brd);
+}
+
+.macro-hud-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.macro-hud-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(28, 217, 138, 0.12);
+  border: 1px solid rgba(28, 217, 138, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grn);
+  font-size: 18px;
+}
+
+.macro-hud-heading {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: var(--txt);
+  font-weight: 500;
+}
+
+.macro-hud-date {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--mut);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--brd);
+}
+
+/* Grade dos 5 Indicadores Essenciais */
+.macro-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.metric-card {
+  background: rgba(19, 14, 40, 0.65);
+  border: 1px solid var(--brd);
+  border-radius: 14px;
+  padding: 18px 16px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(28, 217, 138, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(28, 217, 138, 0.15);
+}
+
+.metric-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.metric-name {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mut);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metric-trend-pill {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.metric-trend-pill.up {
+  color: var(--grn);
+  background: rgba(28, 217, 138, 0.12);
+  border: 1px solid rgba(28, 217, 138, 0.25);
+}
+
+.metric-trend-pill.down {
+  color: #60A5FA;
+  background: rgba(96, 165, 250, 0.12);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+.metric-trend-pill.neutral {
+  color: var(--amb);
+  background: rgba(242, 183, 5, 0.12);
+  border: 1px solid rgba(242, 183, 5, 0.25);
+}
+
+.metric-value {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--txt);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.metric-status {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: var(--grn);
+  font-weight: 400;
+}
+
+/* Sentimento de Mercado & Resumo Humano */
+.macro-pulse-bottom {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.sentiment-meter-box {
+  background: rgba(19, 14, 40, 0.65);
+  border: 1px solid var(--brd);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sentiment-meter-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sentiment-meter-label {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--mut);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sentiment-score-badge {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--grn);
+}
+
+.sentiment-bar-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.sentiment-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #E4572E 0%, #F2B705 45%, #1CD98A 100%);
+  width: 68%;
+  box-shadow: 0 0 12px rgba(28, 217, 138, 0.4);
+  transition: width 1s ease-in-out;
+}
+
+.sentiment-meter-desc {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  color: var(--txt);
+  font-weight: 500;
+}
+
+.human-summary-box {
+  background: rgba(19, 14, 40, 0.65);
+  border: 1px solid var(--brd);
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.human-summary-eyebrow {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--grn);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.human-summary-text {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--txt);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   4. EDIÇÃO EM DESTAQUE (FEATURED COCKPIT)
+   ========================================================================== */
+.featured-edition-card {
+  background: rgba(11, 7, 26, 0.85);
+  border: 1px solid rgba(107, 102, 232, 0.3);
+  border-radius: 24px;
+  padding: 44px;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(59, 54, 204, 0.12);
+  margin-bottom: 64px;
+  position: relative;
+}
+
+.featured-edition-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 25px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(28, 217, 138, 0.4), transparent 50%, rgba(107, 102, 232, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.featured-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.featured-tags-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge-featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(28, 217, 138, 0.15);
+  border: 1px solid rgba(28, 217, 138, 0.35);
+  color: var(--grn);
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.badge-category {
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(107, 102, 232, 0.15);
+  border: 1px solid rgba(107, 102, 232, 0.3);
+  color: var(--vio2);
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-time {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--mut);
+}
+
+.featured-title {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.8vw, 44px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--txt);
+  margin-bottom: 32px;
+}
+
+/* ALTERNADOR TÁTIL (TOGGLE EXECUTIVO VS NERD) */
+.reader-toggle-wrap {
+  display: inline-flex;
+  background: rgba(4, 2, 12, 0.7);
+  border: 1px solid var(--brd2);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 32px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.reader-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: var(--mut);
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.reader-toggle-btn:hover {
+  color: var(--txt);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.reader-toggle-btn.is-active {
+  background: rgba(28, 217, 138, 0.14);
+  color: var(--grn);
+  border: 1px solid rgba(28, 217, 138, 0.35);
+  box-shadow: 0 4px 16px rgba(28, 217, 138, 0.15);
+  font-weight: 600;
+}
+
+/* Painel de Conteúdo com Transição Fluida */
+.reader-content-panel {
+  background: rgba(19, 14, 40, 0.5);
+  border: 1px solid var(--brd);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 40px;
+  min-height: 180px;
+}
+
+.exec-bullets-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.exec-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--txt);
+  font-weight: 300;
+}
+
+.exec-bullet-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(28, 217, 138, 0.15);
+  color: var(--grn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* Visão Quant / Nerd do Leo */
+.quant-view-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.quant-tese-box {
+  background: rgba(59, 54, 204, 0.1);
+  border-left: 3px solid var(--vio2);
+  padding: 16px 20px;
+  border-radius: 0 10px 10px 0;
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--txt);
+}
+
+.quant-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--brd);
+  border-radius: 10px;
+}
+
+.quant-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+}
+
+.quant-table th {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px 16px;
+  text-align: left;
+  color: var(--mut);
+  font-weight: 500;
+  border-bottom: 1px solid var(--brd);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.quant-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--txt);
+}
+
+.quant-table tr:last-child td {
+  border-bottom: none;
+}
+
+.quant-conclusao {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  color: var(--mut);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   5. MATRIZ DE IMPACTO PATRIMONIAL (4 QUADRANTES)
+   ========================================================================== */
+.impact-matrix-wrap {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--brd2);
+}
+
+.impact-matrix-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.impact-matrix-heading {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--txt);
+  font-weight: 500;
+}
+
+.impact-matrix-badge {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--grn);
+  background: rgba(28, 217, 138, 0.08);
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(28, 217, 138, 0.25);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.impact-quadrants-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.quadrant-card {
+  background: rgba(19, 14, 40, 0.7);
+  border: 1px solid var(--brd);
+  border-radius: 14px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quadrant-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.quadrant-card.rf { border-top: 3px solid var(--grn); }
+.quadrant-card.eq { border-top: 3px solid var(--vio2); }
+.quadrant-card.off { border-top: 3px solid #60A5FA; }
+.quadrant-card.re { border-top: 3px solid var(--amb); }
+
+.quadrant-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.quadrant-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.quadrant-card.rf .quadrant-icon { background: rgba(28, 217, 138, 0.15); color: var(--grn); }
+.quadrant-card.eq .quadrant-icon { background: rgba(107, 102, 232, 0.15); color: var(--vio2); }
+.quadrant-card.off .quadrant-icon { background: rgba(96, 165, 250, 0.15); color: #60A5FA; }
+.quadrant-card.re .quadrant-icon { background: rgba(242, 183, 5, 0.15); color: var(--amb); }
+
+.quadrant-name {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--txt);
+  font-weight: 600;
+}
+
+.quadrant-body {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--mut);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   6. BARRA DE BUSCA & FILTRO POR CATEGORIA
+   ========================================================================== */
+.archive-section {
+  margin-bottom: 72px;
+}
+
+.archive-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.archive-heading {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--txt);
+  font-weight: 500;
+}
+
+.search-input-wrap {
+  position: relative;
+  min-width: 280px;
+  max-width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 18px 10px 42px;
+  background: rgba(11, 7, 26, 0.85);
+  border: 1px solid var(--brd2);
+  border-radius: 30px;
+  color: var(--txt);
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: var(--grn);
+  box-shadow: 0 0 16px rgba(28, 217, 138, 0.25);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mut);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+/* Pílulas de Filtro */
+.filter-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.filter-pill {
+  min-height: 48px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  background: rgba(19, 14, 40, 0.6);
+  border: 1px solid var(--brd);
+  color: var(--mut);
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  touch-action: manipulation;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-pill:hover {
+  color: var(--txt);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.filter-pill.is-active {
+  background: rgba(28, 217, 138, 0.14);
+  border-color: var(--grn);
+  color: var(--grn);
+  font-weight: 600;
+  box-shadow: 0 0 16px rgba(28, 217, 138, 0.2);
+}
+
+/* ==========================================================================
+   7. GRID DAS DEMAIS EDIÇÕES DO RADAR
+   ========================================================================== */
+.editions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.edition-card {
+  background: rgba(11, 7, 26, 0.7);
+  border: 1px solid var(--brd);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s, box-shadow 0.28s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edition-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(107, 102, 232, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(59, 54, 204, 0.15);
+}
+
+.edition-card-top {
+  margin-bottom: 20px;
+}
+
+.edition-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.edition-card-cat {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--vio2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.edition-card-date {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--mut);
+}
+
+.edition-card-title {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--txt);
+  margin-bottom: 12px;
+}
+
+.edition-card-snippet {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--mut);
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+
+.edition-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.edition-tag {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--brd);
+  color: var(--sub);
+}
+
+.edition-card-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--brd2);
+  color: var(--txt);
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.edition-card-cta-btn:hover {
+  background: rgba(28, 217, 138, 0.12);
+  border-color: var(--grn);
+  color: var(--grn);
+}
+
+/* ==========================================================================
+   8. BLOCO DE CAPTURA VIP DA NEWSLETTER
+   ========================================================================== */
+.newsletter-vip-card {
+  background: linear-gradient(135deg, rgba(19, 14, 40, 0.85) 0%, rgba(8, 5, 23, 0.95) 100%);
+  border: 1px solid rgba(28, 217, 138, 0.3);
+  border-radius: 28px;
+  padding: 56px 48px;
+  margin-bottom: 72px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(28, 217, 138, 0.1);
+}
+
+.newsletter-vip-card::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 217, 138, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.newsletter-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(28, 217, 138, 0.1);
+  border: 1px solid rgba(28, 217, 138, 0.3);
+  color: var(--grn);
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.newsletter-title {
+  font-family: var(--d), 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4.2vw, 48px);
+  color: var(--txt);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.newsletter-subtitle {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--mut);
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 580px;
+  margin: 0 auto 16px;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-height: 52px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(4, 2, 12, 0.85);
+  border: 1px solid var(--brd2);
+  color: var(--txt);
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.newsletter-input:focus {
+  border-color: var(--grn);
+  box-shadow: 0 0 16px rgba(28, 217, 138, 0.3);
+}
+
+.newsletter-btn {
+  min-height: 52px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: var(--grn);
+  color: #04120A;
+  border: none;
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(28, 217, 138, 0.4);
+  background: var(--grn2);
+}
+
+.newsletter-feedback {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  min-height: 22px;
+  margin-top: 10px;
+  color: var(--grn);
+}
+
+.newsletter-microcopy {
+  font-family: var(--s), 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--sub);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE ERGONÔMICA & VIEWPORTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .macro-metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .impact-quadrants-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .editions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  /* Regra mandatória de layout para menu mobile */
+  #site-nav {
+    padding: 0 16px !important;
+  }
+  #nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+
+  .blog-container {
+    padding: 0 20px;
+  }
+  .blog-page-wrapper {
+    padding-top: 90px;
+    padding-bottom: 100px;
+  }
+
+  .macro-hud-card {
+    padding: 24px 18px;
+  }
+  .macro-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .macro-pulse-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-edition-card {
+    padding: 28px 20px;
+  }
+  .reader-toggle-wrap {
+    width: 100%;
+    display: flex;
+  }
+  .reader-toggle-btn {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+
+  .impact-quadrants-grid {
+    grid-template-columns: 1fr;
+  }
+  .editions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-vip-card {
+    padding: 36px 20px;
+  }
+  .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .newsletter-input,
+  .newsletter-btn {
+    width: 100%;
+  }
+
+  .filter-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+  .filter-pill {
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .macro-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .metric-value {
+    font-size: 20px;
+  }
+}

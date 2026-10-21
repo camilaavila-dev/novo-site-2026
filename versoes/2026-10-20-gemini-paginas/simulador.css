@@ -1,0 +1,1004 @@
+/**
+ * ==============================================================================
+ * LEONARDO ARRUDA — SIMULADOR & ENGENHARIA PATRIMONIAL CSS (2026+)
+ * Estilos Dedicados no Padrão Omshiva.ai / Astra / Private Wealth
+ * ==============================================================================
+ * Design System: Obsidiana Sideral, Violeta Luminescente, Esmeralda Neon & HUD Monospace
+ * ==============================================================================
+ */
+
+/* ==========================================================================
+   1. AMBIENTAÇÃO & ESTRUTURA GERAL DA PÁGINA
+   ========================================================================== */
+.sim-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 102px;
+  padding-bottom: 50px;
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Halos luminescentes de fundo */
+.sim-halo-top {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 100vw);
+  max-width: 100%;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(59, 54, 204, 0.22) 0%, rgba(28, 217, 138, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sim-halo-accent {
+  position: absolute;
+  bottom: 15%;
+  right: 0;
+  width: min(600px, 100vw);
+  max-width: 100%;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(28, 217, 138, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.sim-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO HERO DO LABORATÓRIO QUANTITATIVO
+   ========================================================================== */
+.sim-hero {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.sim-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 15px;
+  border-radius: 30px;
+  background: rgba(28, 217, 138, 0.08);
+  border: 1px solid rgba(28, 217, 138, 0.3);
+  color: var(--grn);
+  font-family: var(--m);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px rgba(28, 217, 138, 0.12);
+}
+
+.sim-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--grn);
+  box-shadow: 0 0 8px var(--grn);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.sim-title {
+  font-family: var(--d);
+  font-weight: 400;
+  font-size: clamp(26px, 2.5vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--txt);
+  margin-bottom: 8px;
+}
+
+.sim-title em {
+  font-style: italic;
+  color: var(--grn);
+}
+
+.sim-subtitle {
+  font-family: var(--s);
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.5;
+  color: var(--mut);
+  font-weight: 300;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. GRID PRINCIPAL (PAINEL DE CONTROLES + PAINEL DE TELEMETRIA)
+   ========================================================================== */
+.sim-grid {
+  display: grid;
+  grid-template-columns: 410px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* Card Glassmorphism Padrão Omshiva / Astra */
+.sim-glass-card {
+  background: rgba(11, 7, 26, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--brd2);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  transition: border-color var(--trans-med), box-shadow var(--trans-med);
+}
+
+.sim-glass-card:hover {
+  border-color: rgba(107, 102, 232, 0.35);
+}
+
+/* ==========================================================================
+   4. CONTROLES DE SLIDERS TÁTEIS DE ALTA PRECISÃO
+   ========================================================================== */
+.sim-control-group {
+  margin-bottom: 28px;
+}
+
+.sim-control-group:last-child {
+  margin-bottom: 0;
+}
+
+.sim-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.sim-label {
+  font-family: var(--s);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--txt);
+  letter-spacing: 0.02em;
+}
+
+.sim-label-hint {
+  font-family: var(--s);
+  font-size: 11.5px;
+  color: var(--sub);
+  margin-left: 6px;
+  font-weight: 300;
+}
+
+.sim-display-val {
+  font-family: var(--m);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--grn);
+  background: rgba(28, 217, 138, 0.08);
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(28, 217, 138, 0.2);
+  letter-spacing: 0.03em;
+  min-width: 110px;
+  text-align: right;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+/* Estilização Customizada do Slider Input Range */
+.sim-slider-wrap {
+  position: relative;
+  padding: 8px 0;
+}
+
+.sim-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: var(--s3);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  margin: 0;
+}
+
+/* WebKit Track & Thumb */
+.sim-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sim-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #04020C;
+  border: 2.5px solid var(--grn);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 12px rgba(28, 217, 138, 0.5);
+  margin-top: -8px;
+  transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s;
+}
+
+.sim-slider:hover::-webkit-slider-thumb,
+.sim-slider:active::-webkit-slider-thumb {
+  transform: scale(1.18);
+  border-color: #23F09A;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 0 20px rgba(28, 217, 138, 0.7);
+}
+
+/* Firefox Track & Thumb */
+.sim-slider::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 6px;
+  background: var(--s3);
+  cursor: pointer;
+}
+
+.sim-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #04020C;
+  border: 2.5px solid var(--grn);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 12px rgba(28, 217, 138, 0.5);
+  transition: transform 0.15s var(--ease), border-color 0.15s, box-shadow 0.15s;
+}
+
+.sim-slider:hover::-moz-range-thumb,
+.sim-slider:active::-moz-range-thumb {
+  transform: scale(1.18);
+  border-color: #23F09A;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.9), 0 0 20px rgba(28, 217, 138, 0.7);
+}
+
+/* Quick Pills (Saltos rápidos de patrimônio/aporte) */
+.sim-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sim-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--brd);
+  color: var(--mut);
+  font-family: var(--m);
+  font-size: 11px;
+  padding: 5px 11px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sim-pill:hover {
+  background: rgba(107, 102, 232, 0.15);
+  border-color: rgba(107, 102, 232, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.sim-pill:active {
+  transform: translateY(0);
+}
+
+/*/* ==========================================================================
+   5. PAINEL DE TELEMETRIA HUD & RESULTADOS EM TEMPO REAL (BENTO GRID)
+   ========================================================================== */
+.sim-bento-top-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: stretch;
+}
+
+.sim-astrolabe-card {
+  background: radial-gradient(circle at 50% 25%, rgba(19, 14, 40, 0.88) 0%, rgba(8, 5, 23, 0.94) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--brd-vio);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(107, 102, 232, 0.12);
+  display: flex;
+  align-items: center;
+}
+
+.astrolabe-bento-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.astrolabe-bento-wrap .astrolabe-canvas-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  max-width: 140px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.astrolabe-bento-wrap #astrolabe-canvas {
+  width: 140px;
+  height: 140px;
+  max-width: 140px;
+  max-height: 140px;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(107, 102, 232, 0.25));
+}
+
+.astrolabe-bento-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.astrolabe-bento-meta .astrolabe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: var(--m);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(13, 9, 32, 0.90);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--brd);
+  transition: all 0.3s ease;
+}
+
+.astrolabe-bento-meta .astrolabe-metrics {
+  font-family: var(--m);
+  font-size: 12px;
+  color: var(--txt);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.astrolabe-bento-meta .astrolabe-metric-title {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+}
+
+.astrolabe-bento-meta .astrolabe-metric-val {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.astrolabe-bento-meta .astrolabe-legend {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--brd);
+  width: 100%;
+  font-family: var(--s);
+  font-size: 11px;
+  color: var(--mut);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  line-height: 1.35;
+}
+
+.astrolabe-badge.is-accumulating {
+  color: var(--vio2);
+  border-color: rgba(107, 102, 232, 0.45);
+  box-shadow: 0 0 16px rgba(107, 102, 232, 0.3);
+}
+
+.astrolabe-badge.is-sovereign {
+  color: var(--grn);
+  border-color: rgba(28, 217, 138, 0.6);
+  box-shadow: 0 0 24px rgba(28, 217, 138, 0.45), 0 0 8px #F2B705;
+}
+
+.astrolabe-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  animation: pulse 1.6s infinite ease-in-out;
+}
+
+.sim-hud-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.sim-hud-card {
+  background: rgba(8, 5, 23, 0.85);
+  border: 1px solid var(--brd2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sim-hud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--vio);
+  opacity: 0.6;
+}
+
+.sim-hud-card.hud-card-accent::before {
+  background: var(--grn);
+  box-shadow: 0 0 12px var(--grn);
+  opacity: 1;
+}
+
+.sim-hud-card.hud-card-sovereign::before {
+  background: var(--amb);
+  box-shadow: 0 0 12px var(--amb);
+  opacity: 1;
+}
+
+.sim-hud-label {
+  font-family: var(--m);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sim-hud-val {
+  font-family: var(--m);
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 600;
+  color: var(--txt);
+  line-height: 1.15;
+}
+
+.sim-hud-val-green {
+  color: var(--grn);
+}
+
+.sim-hud-val-amber {
+  color: var(--amb);
+}
+
+.sim-hud-subtext {
+  font-family: var(--s);
+  font-size: 10.5px;
+  color: var(--mut);
+  margin-top: 2px;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   6. CONTAINER DO GRÁFICO DINÂMICO NATIVO (CANVAS 2D)
+   ========================================================================== */
+.sim-chart-card {
+  position: relative;
+  background: rgba(8, 5, 23, 0.85);
+  border: 1px solid var(--brd2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.sim-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sim-chart-title {
+  font-family: var(--d);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--txt);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--m);
+  font-size: 10.5px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--mut);
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot-fee {
+  background: var(--grn);
+  box-shadow: 0 0 6px var(--grn);
+}
+
+.dot-trad {
+  background: var(--vio2);
+}
+
+.dot-sovereign {
+  background: var(--amb);
+}
+
+.sim-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+}
+
+#sim-chart {
+  width: 100%;
+  height: 220px;
+  display: block;
+  cursor: crosshair;
+}
+
+/* Tooltip flutuante de scrubbing do gráfico */
+#sim-tooltip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(13, 9, 32, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(28, 217, 138, 0.35);
+  border-radius: 10px;
+  padding: 12px 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 15px rgba(28, 217, 138, 0.15);
+  min-width: 220px;
+}
+
+/* ==========================================================================
+   7. CALLOUT NARRATIVO & CTA ESTRATÉGICO
+   ========================================================================== */
+.sim-narrative-box {
+  background: rgba(28, 217, 138, 0.05);
+  border: 1px solid rgba(28, 217, 138, 0.22);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.sim-narrative-icon {
+  font-size: 24px;
+  line-height: 1;
+  color: var(--grn);
+  flex: none;
+  margin-top: 2px;
+}
+
+.sim-narrative-text {
+  font-family: var(--s);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--mut);
+  font-weight: 300;
+}
+
+.sim-cta-wrap {
+  text-align: center;
+  padding: 32px 0 10px;
+}
+
+.sim-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 42px;
+  min-height: 54px;
+  background: var(--grn);
+  color: #04120A;
+  font-family: var(--s);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 30px rgba(28, 217, 138, 0.35);
+  transition: transform var(--trans-med), box-shadow var(--trans-med), background-color var(--trans-med);
+}
+
+.sim-cta-btn:hover {
+  transform: translateY(-2px);
+  background: var(--grn2);
+  box-shadow: 0 12px 40px rgba(28, 217, 138, 0.5);
+}
+
+.sim-cta-microcopy {
+  font-family: var(--s);
+  font-size: 12.5px;
+  color: var(--sub);
+  margin-top: 14px;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   7.1 WARGAME DE CRISES INTERATIVO (STRESS-TEST DE MERCADO)
+   ========================================================================== */
+.sim-wargame-card {
+  background: rgba(11, 7, 26, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--brd2);
+  border-radius: 18px;
+  padding: 26px 30px;
+  margin-top: 36px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.wargame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.wargame-title {
+  font-family: var(--d);
+  font-size: 22px;
+  color: var(--txt);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wargame-badge {
+  font-family: var(--m);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cor);
+  background: rgba(228, 87, 46, 0.12);
+  border: 1px solid rgba(228, 87, 46, 0.3);
+  padding: 4px 12px;
+  border-radius: 14px;
+}
+
+.wargame-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.crisis-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14px 16px;
+  min-height: 52px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--brd);
+  border-radius: 12px;
+  color: var(--txt);
+  font-family: var(--s);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  text-align: left;
+  user-select: none;
+}
+
+.crisis-btn-tag {
+  font-family: var(--m);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin-bottom: 4px;
+}
+
+.crisis-btn:hover {
+  background: rgba(107, 102, 232, 0.15);
+  border-color: rgba(107, 102, 232, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.crisis-btn.is-active-crisis {
+  background: rgba(28, 217, 138, 0.12);
+  border-color: var(--grn);
+  box-shadow: 0 0 16px rgba(28, 217, 138, 0.25);
+}
+
+.crisis-banner {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-family: var(--s);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 14px;
+  border: 1px solid transparent;
+}
+
+.crisis-tag-amber {
+  background: rgba(242, 183, 5, 0.08);
+  border-color: rgba(242, 183, 5, 0.35);
+  color: var(--amb);
+}
+
+.crisis-tag-coral {
+  background: rgba(228, 87, 46, 0.08);
+  border-color: rgba(228, 87, 46, 0.35);
+  color: var(--cor);
+}
+
+.crisis-tag-emerald {
+  background: rgba(28, 217, 138, 0.08);
+  border-color: rgba(28, 217, 138, 0.35);
+  color: var(--grn);
+}
+
+.crisis-tag-violet {
+  background: rgba(107, 102, 232, 0.08);
+  border-color: rgba(107, 102, 232, 0.35);
+  color: var(--vio2);
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE & ADAPTAÇÃO MOBILE (390px, 430px, 900px)
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .sim-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* BARRA DE NAVEGAÇÃO SUPERIOR NO MOBILE (#site-nav) */
+  #site-nav {
+    padding: 0 16px !important;
+  }
+
+  #site-nav div a.nav-link,
+  #nav-links {
+    display: none !important;
+  }
+
+  #site-nav > div {
+    gap: 10px !important;
+  }
+
+  #site-nav .nav-cta {
+    display: none !important;
+  }
+
+  #nav-logo {
+    height: 36px !important;
+  }
+
+  .sim-page-wrapper {
+    padding-top: 96px;
+    padding-bottom: 110px;
+  }
+
+  .sim-container {
+    padding: 0 20px;
+  }
+
+  .sim-glass-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .sim-hud-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sim-canvas-wrap {
+    height: 300px;
+  }
+
+  .sim-slider-wrap {
+    padding: 14px 0; /* Touch zone expandida para mobile */
+  }
+
+  .sim-slider::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+    margin-top: -10px;
+  }
+
+  .sim-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Touch Target das Pílulas Rápidas na Thumb Zone */
+  .sim-pill {
+    min-height: 40px;
+    padding: 8px 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sim-chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sim-chart-legend {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .sim-narrative-box {
+    padding: 18px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sim-cta-btn {
+    width: 100%;
+    padding: 18px 24px;
+  }
+
+  /* Astrolábio e Wargame no Tablet / Mobile */
+  .sim-bento-top-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .astrolabe-canvas-wrap {
+    height: 300px;
+    max-width: 100%;
+  }
+
+  .sim-astrolabe-card {
+    padding: 20px 14px;
+    margin-bottom: 18px;
+  }
+
+  .sim-wargame-card {
+    padding: 20px 16px;
+  }
+
+  .wargame-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .crisis-btn {
+    min-height: 48px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sim-display-val {
+    font-size: 14px;
+    padding: 4px 8px;
+    min-width: 95px;
+  }
+
+  .sim-label {
+    font-size: 12.5px;
+  }
+
+  .sim-pill {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 10.5px;
+  }
+
+  .astrolabe-bento-wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .astrolabe-bento-wrap .astrolabe-canvas-wrap {
+    width: 100%;
+    max-width: 140px;
+    height: 140px;
+    margin: 0 auto;
+  }
+
+  .astrolabe-bento-meta {
+    align-items: center;
+    text-align: center;
+  }
+
+  .astrolabe-bento-meta .astrolabe-metrics {
+    align-items: center;
+  }
+
+  .sim-canvas-wrap {
+    height: 260px;
+  }
+
+  .astrolabe-canvas-wrap {
+    height: 240px;
+  }
+
+  .wargame-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .wargame-title {
+    font-size: 19px;
+  }
+}
+

@@ -1,0 +1,763 @@
+/* ==========================================================================
+   LEONARDO ARRUDA · A CIDADELA DO PATRIMÔNIO — HUD
+   --------------------------------------------------------------------------
+   Camada de interface sobre o mapa. Herda os tokens da home institucional
+   (--bg, --vio, --grn, --txt, --d, --s, --m) para que o topo da página e o
+   restante do site pertençam ao mesmo sistema.
+
+   Gramática: painéis de vidro flutuantes (referência Ananya), paleta e
+   tipografia de private wealth (referência Astra/Linear), arte renderizada
+   ao fundo (referência omshiva.ai).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. ÍCONES VETORIAIS
+   Sem width/height explícitos um <svg> sem viewport intrínseco expande para o
+   tamanho padrão de substituição (300x150). É o que torna esta regra crítica.
+   -------------------------------------------------------------------------- */
+.ic {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.14em;
+  display: inline-block;
+}
+
+.ic-lg { width: 1.35em; height: 1.35em; }
+.ic-xl { width: 2em; height: 2em; stroke-width: 1.4; }
+
+/* A folha de símbolos não deve ocupar espaço no fluxo. */
+#ws-icon-sprite,
+.ws-symbols {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#jornada-world-app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg, #04020C);
+  isolation: isolate;
+}
+
+/* O mapa ocupa a seção inteira; o HUD flutua por cima. */
+.citadel-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. PAINÉIS
+   -------------------------------------------------------------------------- */
+/* O site tem um #site-nav fixo de 100px (z-index 200). Todo o HUD da Cidadela
+   começa abaixo dele e fica num plano inferior, para nunca colidir. */
+.citadel-hud {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 340px;
+  top: 168px;
+  bottom: 94px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: none;
+  /* Barra de rolagem discreta: o HUD não deve parecer uma caixa de scroll. */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(237, 232, 213, 0.16) transparent;
+}
+
+.citadel-hud::-webkit-scrollbar { width: 4px; }
+.citadel-hud::-webkit-scrollbar-track { background: transparent; }
+.citadel-hud::-webkit-scrollbar-thumb {
+  background: rgba(237, 232, 213, 0.16);
+  border-radius: 999px;
+}
+
+.citadel-hud > * {
+  pointer-events: auto;
+  flex: none;
+}
+
+.citadel-hud-left  { left: 40px; }
+.citadel-hud-right { right: 40px; width: 296px; }
+
+.citadel-card {
+  background: rgba(10, 6, 26, 0.74);
+  backdrop-filter: blur(24px) saturate(1.25);
+  -webkit-backdrop-filter: blur(24px) saturate(1.25);
+  border: 1px solid rgba(237, 232, 213, 0.11);
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow:
+    0 22px 54px rgba(2, 1, 8, 0.62),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: var(--txt, #EDE8D5);
+}
+
+/* --------------------------------------------------------------------------
+   2. ABERTURA
+   -------------------------------------------------------------------------- */
+.citadel-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--m, monospace);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--grn, #1CD98A);
+  margin-bottom: 14px;
+}
+
+.citadel-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--grn, #1CD98A);
+  box-shadow: 0 0 10px var(--grn, #1CD98A);
+  flex: none;
+  animation: citadel-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes citadel-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* Serifa editorial: é o que separa private wealth de aplicativo. */
+.citadel-headline {
+  font-family: var(--d, Georgia, serif);
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--txt, #EDE8D5);
+  margin-bottom: 12px;
+}
+
+.citadel-headline em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--grn, #1CD98A);
+}
+
+.citadel-lede {
+  font-family: var(--s, sans-serif);
+  font-size: 13px;
+  line-height: 1.62;
+  font-weight: 300;
+  color: rgba(237, 232, 213, 0.6);
+  margin-bottom: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   3. BOTÕES
+   -------------------------------------------------------------------------- */
+.citadel-btn-row {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.citadel-btn-primary,
+.citadel-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-family: var(--s, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.26s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-btn-primary {
+  background: var(--vio, #3B36CC);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(59, 54, 204, 0.34);
+}
+
+.citadel-btn-primary:hover {
+  background: var(--vio2, #6B66E8);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(107, 102, 232, 0.46);
+}
+
+.citadel-btn-ghost {
+  background: rgba(237, 232, 213, 0.04);
+  border-color: rgba(237, 232, 213, 0.14);
+  color: var(--txt, #EDE8D5);
+}
+
+.citadel-btn-ghost:hover {
+  background: rgba(237, 232, 213, 0.09);
+  border-color: rgba(107, 102, 232, 0.45);
+}
+
+.citadel-btn-block { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   4. ÍNDICE DO DOSSIÊ
+   -------------------------------------------------------------------------- */
+.citadel-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--m, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub, #524E6A);
+}
+
+.citadel-index-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.citadel-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 11px;
+  border-radius: 7px;
+  background: rgba(237, 232, 213, 0.04);
+  border: 1px solid rgba(237, 232, 213, 0.1);
+  color: rgba(237, 232, 213, 0.62);
+  font-family: var(--s, sans-serif);
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.22s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-chip span {
+  font-family: var(--m, monospace);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--sub, #524E6A);
+  transition: color 0.22s ease;
+}
+
+.citadel-chip:hover {
+  color: var(--txt, #EDE8D5);
+  border-color: rgba(107, 102, 232, 0.45);
+  background: rgba(59, 54, 204, 0.14);
+}
+
+.citadel-chip:hover span { color: var(--vio2, #6B66E8); }
+
+.citadel-chip.active {
+  background: rgba(59, 54, 204, 0.22);
+  border-color: rgba(107, 102, 232, 0.55);
+  color: var(--txt, #EDE8D5);
+}
+
+.citadel-chip.done span { color: var(--grn, #1CD98A); }
+
+/* --------------------------------------------------------------------------
+   5. PROGRESSO
+   -------------------------------------------------------------------------- */
+.citadel-progress-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.citadel-pct {
+  font-family: var(--m, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--grn, #1CD98A);
+}
+
+.citadel-next {
+  font-family: var(--s, sans-serif);
+  font-size: 12.5px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: rgba(237, 232, 213, 0.66);
+  margin: 10px 0 13px;
+}
+
+.citadel-bar {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(237, 232, 213, 0.08);
+  overflow: hidden;
+}
+
+.citadel-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--vio, #3B36CC), var(--grn, #1CD98A));
+  box-shadow: 0 0 14px rgba(28, 217, 138, 0.45);
+  transition: width 0.8s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-progress-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 9px;
+  font-family: var(--m, monospace);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sub, #524E6A);
+}
+
+/* --------------------------------------------------------------------------
+   6. CONSULTOR
+   -------------------------------------------------------------------------- */
+.citadel-profile-top {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.citadel-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: top;
+  flex: none;
+  border: 1px solid rgba(28, 217, 138, 0.4);
+}
+
+.citadel-profile-name {
+  font-family: var(--d, Georgia, serif);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--txt, #EDE8D5);
+  line-height: 1.15;
+}
+
+.citadel-profile-role {
+  font-family: var(--m, monospace);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grn, #1CD98A);
+  margin-top: 3px;
+}
+
+.citadel-profile-note {
+  font-family: var(--s, sans-serif);
+  font-size: 12px;
+  line-height: 1.58;
+  font-weight: 300;
+  color: rgba(237, 232, 213, 0.56);
+  margin: 14px 0 16px;
+}
+
+.citadel-badges-label {
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(237, 232, 213, 0.08);
+}
+
+.citadel-badges {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin-top: 11px;
+}
+
+/* Etapa pendente fica apagada; concluída acende em esmeralda. */
+.citadel-badge {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: rgba(237, 232, 213, 0.035);
+  border: 1px solid rgba(237, 232, 213, 0.09);
+  color: var(--sub, #524E6A);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-badge:hover {
+  border-color: rgba(107, 102, 232, 0.45);
+  color: rgba(237, 232, 213, 0.75);
+}
+
+.citadel-badge.unlocked {
+  background: rgba(28, 217, 138, 0.1);
+  border-color: rgba(28, 217, 138, 0.42);
+  color: var(--grn, #1CD98A);
+  box-shadow: 0 0 16px rgba(28, 217, 138, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   7. NOTA / POR TRÁS DO EXTRATO
+   -------------------------------------------------------------------------- */
+.citadel-note {
+  text-align: left;
+  cursor: pointer;
+  border-color: rgba(242, 183, 5, 0.2);
+  background: rgba(24, 16, 6, 0.6);
+  transition: all 0.26s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-note:hover {
+  border-color: rgba(242, 183, 5, 0.42);
+  background: rgba(32, 22, 8, 0.72);
+  transform: translateY(-2px);
+}
+
+.citadel-note .citadel-label { color: var(--amb, #F2B705); }
+
+.citadel-note-text {
+  font-family: var(--s, sans-serif);
+  font-size: 12px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: rgba(237, 232, 213, 0.62);
+  margin: 10px 0 12px;
+}
+
+.citadel-note-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--m, monospace);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amb, #F2B705);
+}
+
+.citadel-note:hover .citadel-note-go .ic { transform: translateX(3px); }
+.citadel-note-go .ic { transition: transform 0.26s ease; }
+
+/* --------------------------------------------------------------------------
+   8. RODAPÉ DO MAPA
+   -------------------------------------------------------------------------- */
+.citadel-footer {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 9px 10px 9px 18px;
+  border-radius: 999px;
+  background: rgba(10, 6, 26, 0.74);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(237, 232, 213, 0.11);
+  box-shadow: 0 18px 44px rgba(2, 1, 8, 0.6);
+}
+
+.citadel-hint {
+  font-family: var(--m, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--sub, #524E6A);
+  white-space: nowrap;
+}
+
+.citadel-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: rgba(59, 54, 204, 0.2);
+  border: 1px solid rgba(107, 102, 232, 0.4);
+  color: var(--txt, #EDE8D5);
+  font-family: var(--s, sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.24s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-scroll:hover {
+  background: rgba(107, 102, 232, 0.32);
+  border-color: rgba(107, 102, 232, 0.7);
+}
+
+.citadel-scroll .ic {
+  transform: rotate(90deg);
+  transition: transform 0.24s ease;
+}
+
+.citadel-scroll:hover .ic { transform: rotate(90deg) translateX(3px); }
+
+/* --------------------------------------------------------------------------
+   9. AVISO DE ETAPA
+   -------------------------------------------------------------------------- */
+.jw-xp-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 96px;
+  transform: translate(-50%, 14px);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: rgba(14, 9, 34, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(28, 217, 138, 0.42);
+  box-shadow: 0 16px 42px rgba(2, 1, 8, 0.66), 0 0 28px rgba(28, 217, 138, 0.16);
+  font-family: var(--s, sans-serif);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--txt, #EDE8D5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.jw-xp-toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.jw-xp-toast .ic { color: var(--grn, #1CD98A); }
+
+/* --------------------------------------------------------------------------
+   10. TELAS ESTREITAS
+   Em mobile os painéis saem de cima do mapa e viram uma folha rolável logo
+   abaixo dele, para a arte continuar legível.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1280px) {
+  .citadel-hud-left  { width: 310px; left: 24px; }
+  .citadel-hud-right { width: 268px; right: 24px; }
+  .citadel-headline  { font-size: 29px; }
+}
+
+@media (max-width: 1024px) {
+  #jornada-world-app { height: auto; }
+
+  .citadel-stage {
+    position: relative;
+    height: 56vh;
+    min-height: 340px;
+  }
+
+  .citadel-hud {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    padding: 0 20px;
+    margin-top: 14px;
+  }
+
+  .citadel-hud-left,
+  .citadel-hud-right { left: auto; right: auto; top: auto; }
+
+  .citadel-hud-right { margin-bottom: 18px; }
+
+  .citadel-footer {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0 20px 24px;
+    justify-content: space-between;
+  }
+
+  .citadel-hint { display: none; }
+  .citadel-scroll { width: 100%; justify-content: center; }
+
+  .jw-xp-toast { position: fixed; top: auto; bottom: 22px; }
+}
+
+@media (max-width: 560px) {
+  .citadel-headline { font-size: 26px; }
+  .citadel-card { padding: 17px 18px; }
+  .citadel-btn-row { flex-direction: column; }
+  .citadel-btn-primary, .citadel-btn-ghost { width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   11. BARRA SUPERIOR DO MAPA
+   -------------------------------------------------------------------------- */
+/* Abaixo do #site-nav de 100px, centralizada sobre o mapa. */
+.citadel-topbar {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.citadel-nav,
+.citadel-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(10, 6, 26, 0.74);
+  backdrop-filter: blur(20px) saturate(1.25);
+  -webkit-backdrop-filter: blur(20px) saturate(1.25);
+  border: 1px solid rgba(237, 232, 213, 0.11);
+  box-shadow: 0 16px 40px rgba(2, 1, 8, 0.56);
+}
+
+.citadel-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(237, 232, 213, 0.56);
+  font-family: var(--s, sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.22s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-nav-btn:hover {
+  color: var(--txt, #EDE8D5);
+  background: rgba(107, 102, 232, 0.16);
+}
+
+.citadel-nav-btn.is-active {
+  background: rgba(59, 54, 204, 0.3);
+  color: var(--txt, #EDE8D5);
+  box-shadow: inset 0 0 0 1px rgba(107, 102, 232, 0.45);
+}
+
+.citadel-icon-btn {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: rgba(237, 232, 213, 0.56);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.22s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-icon-btn:hover {
+  color: var(--txt, #EDE8D5);
+  background: rgba(107, 102, 232, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   12. PERFIL E SOM, no rodapé do painel de progresso
+   -------------------------------------------------------------------------- */
+.citadel-profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(237, 232, 213, 0.08);
+}
+
+.citadel-avatar,
+.citadel-sound-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 8px;
+  background: rgba(237, 232, 213, 0.04);
+  border: 1px solid rgba(237, 232, 213, 0.1);
+  color: rgba(237, 232, 213, 0.62);
+  font-family: var(--m, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s var(--ease, cubic-bezier(.22,.61,.36,1));
+}
+
+.citadel-avatar:hover,
+.citadel-sound-btn:hover {
+  color: var(--txt, #EDE8D5);
+  border-color: rgba(107, 102, 232, 0.45);
+  background: rgba(59, 54, 204, 0.14);
+}
+
+.citadel-avatar-glyph {
+  display: inline-flex;
+  color: var(--vio2, #6B66E8);
+}
+
+.citadel-sound {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* O disco só acende quando o som está tocando. */
+.citadel-sound-disc {
+  display: inline-flex;
+  color: var(--sub, #524E6A);
+  transition: color 0.3s ease;
+}
+
+.citadel-sound-disc.playing {
+  color: var(--grn, #1CD98A);
+  animation: citadel-pulse 1.8s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+  .citadel-topbar {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 14px 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .citadel-nav-btn { padding: 8px 11px; font-size: 11px; }
+  .citadel-profile-row { flex-direction: column; align-items: stretch; }
+  .citadel-avatar, .citadel-sound-btn { justify-content: center; }
+}

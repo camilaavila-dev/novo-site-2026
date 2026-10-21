@@ -20,7 +20,7 @@
 ## Diferenciais
 - Independência total: Não vende produtos bancários.
 - Foco em empresários, C-levels e famílias patrimoniais.
-- A maior consultoria financeira independente do Brasil (+R$20Bi sob consultoria, +25k clientes, 97 de NPS).
+- Atua pela Portfel, que se apresenta como a maior consultoria financeira independente do Brasil (+R$ 22 bi sob consultoria, +25 mil clientes, +700 consultores, NPS 97, R$ 10 milhões em comissões devolvidas aos clientes, segundo portfel.com.br em outubro de 2026).
 
 ## Perguntas Frequentes
 
@@ -32,3 +32,16 @@ Fee Based significa que Leonardo é remunerado diretamente por você — não pe
 
 **Existe conflito de interesse nas recomendações?**
 Não. A Portfel opera com remuneração transparente e sem comissão por produto. A independência é a base do serviço.
+
+## Páginas do site
+
+- **Início (`index.html`)**: sete telas: o custo invisível das taxas, o modelo fee-based, o que a consultoria cobre, quem é o consultor, na mídia e como começar.
+- **Calculadoras (`instrumentos.html`)**: seis calculadoras com metodologia aberta e premissas datadas: custo das taxas, renda fixa (CDB, LCI/LCA, Tesouro Selic), custo da sucessão, ano da independência financeira, alugar ou comprar e holding patrimonial.
+- **Diagnóstico patrimonial (`raiox.html`)**: dez perguntas em cinco dimensões (custos, diversificação, liquidez, tributação, sucessão), nota de 0 a 100 e orientações.
+- **Leitura semanal (`blog.html`)**: indicadores da semana com fonte, resumo em 1 minuto ou leitura completa e o que observar no patrimônio. Sem recomendação de investimento.
+
+## Premissas de mercado (conferidas em 20/10/2026)
+- Selic: 13,75% a.a. (Copom de 16/09/2026)
+- CDI: 13,65% a.a.
+- IPCA 12 meses: 4,58% (setembro de 2026, IBGE)
+

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de Liberdade Financeira & Planejamento de Futuro | Leonardo Arruda · Portfel</title>
+<meta name="description" content="Descubra em que ano seus investimentos pagam 100% das suas despesas. Simulação fiduciária transparente, ganho real descontado da inflação e zero comissões ocultas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_legado/css/shared-outlier.css">
+<link rel="stylesheet" href="../_legado/css/simulador.css">
+<link rel="stylesheet" href="../_legado/css/world-journey.css">
+<style>
+/* Regras fundamentais de layout e tipografia monospace */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--s);
+  background-color: var(--bg);
+  color: var(--txt);
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+.mono-telemetry {
+  font-family: var(--m), 'JetBrains Mono', monospace;
+}
+/* Prevenção de bloqueio de cliques por elementos de fundo */
+#visual-universe,
+#astrolabe-canvas,
+.sim-halo-top,
+.sim-halo-accent,
+.astrolabe-overlay {
+  pointer-events: none !important;
+}
+/* Inputs digitáveis no teclado com sincronização bidirecional */
+input.sim-display-val {
+  width: 140px;
+  max-width: 48%;
+  background: rgba(28, 217, 138, 0.08);
+  border: 1px solid rgba(28, 217, 138, 0.25);
+  border-radius: 6px;
+  color: var(--grn);
+  font-family: var(--m), 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: right;
+  padding: 4px 10px;
+  outline: none;
+  cursor: text;
+  box-sizing: border-box;
+  transition: border-color 0.15s, background-color 0.15s, box-shadow 0.15s;
+}
+input.sim-display-val:hover {
+  border-color: rgba(28, 217, 138, 0.45);
+  background: rgba(28, 217, 138, 0.12);
+}
+input.sim-display-val:focus {
+  border-color: var(--grn);
+  background: rgba(28, 217, 138, 0.18);
+  box-shadow: 0 0 12px rgba(28, 217, 138, 0.35);
+}
+</style>
+<!-- Schema.org JSON-LD para motores de IA e Google Search -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://leonardoarruda.com.br/simulador.html#app",
+      "name": "Simulador de Soberania Financeira Leonardo Arruda",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Calculadora quantitativa de independência patrimonial, Equação de Fisher e comparador de fee drag determinístico.",
+      "url": "https://leonardoarruda.com.br/simulador.html",
+      "author": {
+        "@type": "Person",
+        "name": "Leonardo Arruda",
+        "jobTitle": "Consultor de Investimentos ANBIMA CEA",
+        "url": "https://leonardoarruda.com.br"
+      }
+    },
+    {
+      "@type": "FinancialService",
+      "@id": "https://leonardoarruda.com.br/#service",
+      "name": "Leonardo Arruda Consultoria Financeira",
+      "serviceType": ["Simulador de Aposentadoria", "Planejamento Financeiro", "Consultoria Fee Based"],
+      "provider": {
+        "@type": "Person",
+        "name": "Leonardo Arruda"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="has-bottom-dock">
+
+<!-- BARRA DE NAVEGAÇÃO SUPERIOR (#site-nav) -->
+<nav id="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:200;height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;background:rgba(4,2,12,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);transition:height 0.3s ease, background 0.3s ease">
+  <a href="index.html" style="display:flex;align-items:center;text-decoration:none">
+    <img id="nav-logo" src="../../midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:44px;object-fit:contain;transition:height 0.3s ease;">
+  </a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div style="display:flex;align-items:center;gap:32px" id="nav-links">
+      <a href="index.html" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Home</a>
+      <a href="simulador.html" class="nav-link is-active" style="font-family:var(--s);font-size:13.5px;font-weight:500;color:var(--grn);text-decoration:none">Simulador</a>
+      <a href="raiox.html" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Raio-X</a>
+      <a href="blog.html" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Radar</a>
+      <a href="index.html#guia" class="nav-link" style="font-family:var(--s);font-size:13.5px;font-weight:400;color:var(--mut);text-decoration:none;transition:color .2s">Sobre</a>
+    </div>
+    <a href="index.html#primeiro-passo" class="nav-cta" style="padding:11px 24px;background:var(--grn);color:#04120A;font-family:var(--s);font-weight:600;font-size:13px;border-radius:6px;text-decoration:none;transition:background .2s">Agendar conversa</a>
+  </div>
+</nav>
+
+<div class="sim-page-wrapper">
+  <!-- Canvas de Fundo Atmosférico Quântico (Astra / Omshiva.ai) -->
+  <canvas id="visual-universe" class="visual-universe-bg" aria-hidden="true"></canvas>
+
+  <!-- Halos luminescentes -->
+  <div class="sim-halo-top"></div>
+  <div class="sim-halo-accent"></div>
+
+  <div class="sim-container">
+    <!-- HERO INTRODUTÓRIO -->
+    <header class="sim-hero">
+      <div class="sim-badge">
+        <span class="sim-badge-dot"></span>
+        Planejamento de Futuro · Simulador Interativo
+      </div>
+      <h1 class="sim-title">
+        Quando você pode parar de <br>trabalhar por <span class="txt-shimmer-gold">obrigação?</span>
+      </h1>
+      <p class="sim-subtitle">
+        Descubra em que ano os seus investimentos passam a pagar 100% do seu estilo de vida — já descontando a inflação e sem deixar taxas escondidas comerem o seu futuro.
+      </p>
+    </header>
+
+    <!-- AS 5 CALCULADORAS PRÁTICAS DA VIDA (EM 1 TELA, DIGITÁVEIS NO TECLADO) -->
+    <section aria-label="As 5 Calculadoras Práticas da Vida" style="margin-bottom:36px;background:rgba(14,10,30,0.82);border:1px solid rgba(107,102,232,0.32);border-radius:24px;padding:24px 26px;backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,0.4)">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div>
+          <span style="font-family:var(--m);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--grn)">✦ 5 Calculadoras Rápidas da Vida Real · Sem Economês</span>
+          <h2 style="font-family:var(--d);font-size:clamp(22px,2.2vw,30px);font-weight:400;color:var(--txt);margin-top:4px">Escolha sua dúvida prática e digite os valores no teclado</h2>
+        </div>
+        <a href="index.html#mirante" style="padding:8px 16px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid var(--brd2);color:var(--txt);font-family:var(--s);font-size:12px;text-decoration:none">🗺️ Voltar ao Mundo das Ilhas</a>
+      </div>
+      <div id="simulador-calc5-mount"></div>
+    </section>
+
+    <!-- GRID PRINCIPAL -->
+    <main class="sim-grid">
+      <!-- COLUNA DA ESQUERDA: PARÂMETROS E SLIDERS TÁTEIS -->
+      <section class="sim-glass-card sim-tilt-card sim-controls-panel" aria-label="Parâmetros de Entrada da Simulação">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--brd2)">
+          <div style="font-family:var(--d);font-size:20px;color:var(--txt);font-weight:500">Seus Dados de Futuro</div>
+          <span style="font-family:var(--m);font-size:10px;color:var(--grn);letter-spacing:.08em;text-transform:uppercase">Clique para digitar</span>
+        </div>
+
+        <!-- 1. Quanto você já tem investido hoje -->
+        <div class="sim-control-group">
+          <div class="sim-label-row">
+            <label for="slider-p0" class="sim-label">
+              Quanto você já tem investido hoje
+            </label>
+            <input type="text" id="disp-p0" class="sim-display-val mono-telemetry" value="R$ 500.000" aria-label="Quanto você já tem investido hoje" inputmode="numeric">
+          </div>
+          <div class="sim-slider-wrap">
+            <input type="range" id="slider-p0" class="sim-slider" min="0" max="50000000" step="50000" value="500000" aria-label="Quanto você já tem investido hoje">
+          </div>
+          <div class="sim-pills-row">
+            <button type="button" class="sim-pill" data-pill-target="slider-p0" data-pill-value="100000">R$ 100k</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-p0" data-pill-value="500000">R$ 500k</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-p0" data-pill-value="1000000">R$ 1M</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-p0" data-pill-value="3000000">R$ 3M</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-p0" data-pill-value="5000000">R$ 5M</button>
+          </div>
+        </div>
+
+        <!-- 2. Quanto consegue guardar por mês -->
+        <div class="sim-control-group">
+          <div class="sim-label-row">
+            <label for="slider-pmt" class="sim-label">
+              Quanto consegue guardar por mês
+            </label>
+            <input type="text" id="disp-pmt" class="sim-display-val mono-telemetry" value="R$ 10.000 / mês" aria-label="Quanto consegue guardar por mês" inputmode="numeric">
+          </div>
+          <div class="sim-slider-wrap">
+            <input type="range" id="slider-pmt" class="sim-slider" min="0" max="200000" step="500" value="10000" aria-label="Quanto consegue guardar por mês">
+          </div>
+          <div class="sim-pills-row">
+            <button type="button" class="sim-pill" data-pill-target="slider-pmt" data-pill-value="2000">R$ 2k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-pmt" data-pill-value="5000">R$ 5k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-pmt" data-pill-value="10000">R$ 10k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-pmt" data-pill-value="20000">R$ 20k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-pmt" data-pill-value="50000">R$ 50k/mês</button>
+          </div>
+        </div>
+
+        <!-- 3. Por quantos anos vai investir -->
+        <div class="sim-control-group">
+          <div class="sim-label-row">
+            <label for="slider-anos" class="sim-label">
+              Por quantos anos vai investir
+            </label>
+            <input type="text" id="disp-anos" class="sim-display-val mono-telemetry" value="15 anos" aria-label="Por quantos anos vai investir" inputmode="numeric">
+          </div>
+          <div class="sim-slider-wrap">
+            <input type="range" id="slider-anos" class="sim-slider" min="1" max="40" step="1" value="15" aria-label="Por quantos anos vai investir">
+          </div>
+          <div class="sim-pills-row">
+            <button type="button" class="sim-pill" data-pill-target="slider-anos" data-pill-value="5">5 anos</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-anos" data-pill-value="10">10 anos</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-anos" data-pill-value="15">15 anos</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-anos" data-pill-value="20">20 anos</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-anos" data-pill-value="30">30 anos</button>
+          </div>
+        </div>
+
+        <!-- 4. Quanto quer receber por mês no futuro -->
+        <div class="sim-control-group">
+          <div class="sim-label-row">
+            <label for="slider-despesa" class="sim-label">
+              Quanto quer receber por mês no futuro
+            </label>
+            <input type="text" id="disp-despesa" class="sim-display-val mono-telemetry" value="R$ 25.000 / mês" aria-label="Quanto quer receber por mês no futuro" inputmode="numeric">
+          </div>
+          <div class="sim-slider-wrap">
+            <input type="range" id="slider-despesa" class="sim-slider" min="5000" max="150000" step="1000" value="25000" aria-label="Quanto quer receber por mês no futuro">
+          </div>
+          <div class="sim-pills-row">
+            <button type="button" class="sim-pill" data-pill-target="slider-despesa" data-pill-value="15000">R$ 15k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-despesa" data-pill-value="25000">R$ 25k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-despesa" data-pill-value="40000">R$ 40k/mês</button>
+            <button type="button" class="sim-pill" data-pill-target="slider-despesa" data-pill-value="60000">R$ 60k/mês</button>
+          </div>
+        </div>
+
+        <!-- Parâmetros Macroeconômicos Opcionais (Acordeão Compacto) -->
+        <details class="sim-premissas-accordion" style="margin-top:20px;padding-top:14px;border-top:1px solid var(--brd)">
+          <summary style="font-family:var(--m);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--vio2);cursor:pointer;padding:4px 0;user-select:none;display:flex;align-items:center;gap:6px">
+            <span>⚙️ Ajustes de Rentabilidade e Inflação (opcional)</span>
+          </summary>
+          <div style="margin-top:14px">
+            <!-- Rendimento médio ao ano -->
+            <div class="sim-control-group">
+              <div class="sim-label-row">
+                <label for="slider-rnom" class="sim-label">
+                  Rendimento médio ao ano
+                </label>
+                <input type="text" id="disp-rnom" class="sim-display-val mono-telemetry" value="11,50% a.a." style="color:var(--txt)" aria-label="Rendimento médio ao ano" inputmode="decimal">
+              </div>
+              <div class="sim-slider-wrap">
+                <input type="range" id="slider-rnom" class="sim-slider" min="6.0" max="18.0" step="0.25" value="11.5" aria-label="Rendimento médio ao ano">
+              </div>
+            </div>
+
+            <!-- Inflação média ao ano (IPCA) -->
+            <div class="sim-control-group">
+              <div class="sim-label-row">
+                <label for="slider-iinf" class="sim-label">
+                  Inflação média ao ano (IPCA)
+                </label>
+                <input type="text" id="disp-iinf" class="sim-display-val mono-telemetry" value="4,50% a.a." style="color:var(--mut)" aria-label="Inflação média ao ano" inputmode="decimal">
+              </div>
+              <div class="sim-slider-wrap">
+                <input type="range" id="slider-iinf" class="sim-slider" min="2.5" max="9.0" step="0.25" value="4.5" aria-label="Inflação média ao ano">
+              </div>
+            </div>
+
+            <!-- Retirada anual segura (para o dinheiro nunca acabar) -->
+            <div class="sim-control-group" style="margin-bottom:0">
+              <div class="sim-label-row">
+                <label for="slider-swr" class="sim-label">
+                  Retirada anual segura (para o dinheiro nunca acabar)
+                </label>
+                <input type="text" id="disp-swr" class="sim-display-val mono-telemetry" value="3,5% a.a." style="color:var(--amb)" aria-label="Retirada anual segura" inputmode="decimal">
+              </div>
+              <div class="sim-slider-wrap">
+                <input type="range" id="slider-swr" class="sim-slider" min="2.5" max="5.0" step="0.1" value="3.5" aria-label="Retirada anual segura">
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- COLUNA DA DIREITA: TELEMETRIA HUD, GRÁFICO E INSIGHTS -->
+      <section class="sim-results-panel" aria-label="Resultados e Telemetria em Tempo Real">
+        <!-- LINHA SUPERIOR DO BENTO GRID: ASTROLÁBIO HORIZONTAL + KPIS -->
+        <div class="sim-bento-top-row">
+          <!-- ASTROLÁBIO 3D & NÚCLEO DE LIBERDADE FINANCEIRA -->
+          <div class="sim-astrolabe-card sim-tilt-card border-beam-card" id="astrolabe-card" aria-label="Núcleo de Liberdade Financeira">
+            <div class="astrolabe-bento-wrap">
+              <div class="astrolabe-canvas-wrap">
+                <canvas id="astrolabe-canvas" width="460" height="460" aria-label="Visualização 3D da sua Liberdade Financeira"></canvas>
+              </div>
+              <div class="astrolabe-bento-meta">
+                <div class="astrolabe-badge is-accumulating" id="astrolabe-status-badge">
+                  <span class="astrolabe-pulse-dot"></span>
+                  <span id="astrolabe-status-text">CONSTRUINDO SUA RENDA MENSAL</span>
+                </div>
+                <div class="astrolabe-metrics">
+                  <div class="astrolabe-metric-title">Quanto falta para viver de renda</div>
+                  <div class="astrolabe-metric-val mono-telemetry" id="astrolabe-metric-val">Calculando projeção...</div>
+                </div>
+                <div class="astrolabe-legend">
+                  <span style="color:var(--grn);font-size:13px">✦</span>
+                  <span id="astrolabe-narrative-state"><strong style="color:var(--vio2)">Em construção:</strong> Seu dinheiro está crescendo mês a mês até pagar todas as suas contas sozinho.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HUD CARDS DE RESULTADOS (KPIS) -->
+          <div class="sim-hud-cards">
+            <!-- Card 1: Ano da sua Liberdade -->
+            <div class="sim-hud-card sim-tilt-card hud-card-sovereign">
+              <div class="sim-hud-label">
+                <span>✦</span> Ano da sua Liberdade
+              </div>
+              <div id="hud-ano-soberania" class="sim-hud-val mono-telemetry">
+                Calculando...
+              </div>
+              <div class="sim-hud-subtext">
+                Momento em que seus investimentos pagam todas as suas despesas.
+              </div>
+            </div>
+
+            <!-- Card 2: Total acumulado -->
+            <div class="sim-hud-card sim-tilt-card hud-card-accent">
+              <div class="sim-hud-label">
+                <span>◈</span> Total acumulado (em dinheiro de hoje)
+              </div>
+              <div id="hud-patrimonio-real" class="sim-hud-val sim-hud-val-green mono-telemetry">
+                R$ 4.078.918
+              </div>
+              <div class="sim-hud-subtext">
+                Ganho real já descontando a inflação.
+              </div>
+            </div>
+
+            <!-- Card 3: Sua Renda Mensal Vitalícia -->
+            <div class="sim-hud-card sim-tilt-card">
+              <div class="sim-hud-label">
+                <span>∿</span> Sua Renda Mensal Vitalícia
+              </div>
+              <div id="hud-renda-swr" class="sim-hud-val mono-telemetry">
+                R$ 11.897 / mês
+              </div>
+              <div class="sim-hud-subtext">
+                Renda mensal segura sem gastar seu patrimônio.
+              </div>
+            </div>
+
+            <!-- Card 4: Dinheiro salvo de taxas ocultas -->
+            <div class="sim-hud-card sim-tilt-card hud-card-accent">
+              <div class="sim-hud-label">
+                <span>⚖</span> Dinheiro salvo de taxas ocultas
+              </div>
+              <div id="hud-delta-fee" class="sim-hud-val sim-hud-val-green mono-telemetry">
+                +R$ 467.710
+              </div>
+              <div class="sim-hud-subtext">
+                Quanto você deixa de perder para comissões e bancos.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRÁFICO INTERATIVO NATIVO -->
+        <div class="sim-chart-card sim-tilt-card">
+          <div class="sim-chart-header">
+            <h2 class="sim-chart-title">
+              A Evolução do Seu Patrimônio Ano a Ano
+            </h2>
+            <div class="sim-chart-legend">
+              <div class="legend-item">
+                <span class="legend-dot dot-fee"></span>
+                <span>Com Consultoria Independente</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-trad"></span>
+                <span>No Banco Comum (~2,0%)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot dot-sovereign"></span>
+                <span>Linha da Liberdade</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Área do Canvas com Tooltip Flutuante -->
+          <div class="sim-canvas-wrap">
+            <canvas id="sim-chart" width="700" height="380" aria-label="Gráfico de Evolução Patrimonial e Liberdade Financeira"></canvas>
+            <div id="sim-tooltip"></div>
+          </div>
+        </div>
+
+        <!-- CALLOUT NARRATIVO HUMANO & EQUIVALÊNCIA REAL -->
+        <div class="sim-narrative-box sim-tilt-card">
+          <div class="sim-narrative-icon">✦</div>
+          <div class="sim-narrative-text" id="hud-narrative">
+            Eliminando comissões e taxas ocultas do modelo tradicional, seu patrimônio ganha <strong style="color:var(--grn)">+R$ 467.710</strong> adicionais no mesmo prazo. Isso representa <strong style="color:var(--txt)">2,4 anos de trabalho poupados</strong> — valor suficiente para bancar a <strong style="color:var(--txt)">faculdade de medicina dos filhos</strong>, anos de viagens em família ou antecipar sua aposentadoria com tranquilidade.
+          </div>
+        </div>
+
+        <!-- WARGAME DE CRISES INTERATIVO (STRESS-TEST DE MERCADO) -->
+        <div class="sim-wargame-card sim-tilt-card" id="wargame-crises-card">
+          <div class="wargame-header">
+            <div class="wargame-title">
+              <span>⚡</span> Wargame Tático de Crises
+            </div>
+            <span class="wargame-badge">Simulação de Estresse</span>
+          </div>
+          <p style="font-family:var(--s);font-size:13px;color:var(--mut);margin-bottom:12px;line-height:1.5;font-weight:300">
+            Teste a resiliência do seu patrimônio contra choques reais de mercado e comprove a proteção do modelo fiduciário:
+          </p>
+          <div class="wargame-grid">
+            <button type="button" class="crisis-btn" data-crisis-scenario="choque-selic" aria-label="Simular Choque Selic e Alta de Juros">
+              <span class="crisis-btn-tag">Cenário 01</span>
+              <strong>Choque Selic (+14,75%)</strong>
+            </button>
+            <button type="button" class="crisis-btn" data-crisis-scenario="cisne-negro" aria-label="Simular Cisne Negro e Queda Global">
+              <span class="crisis-btn-tag">Cenário 02</span>
+              <strong>Cisne Negro (-40% Global)</strong>
+            </button>
+            <button type="button" class="crisis-btn" data-crisis-scenario="hiperinflacao" aria-label="Simular Hiperinflação e Dólar Disparado">
+              <span class="crisis-btn-tag">Cenário 03</span>
+              <strong>Hiperinflação (IPCA 9,0%)</strong>
+            </button>
+            <button type="button" class="crisis-btn" data-crisis-scenario="evento-ma" aria-label="Simular Venda de Empresa / Liquidez">
+              <span class="crisis-btn-tag">Cenário 04</span>
+              <strong>Liquidez (+R$ 5M)</strong>
+            </button>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:8px">
+            <button type="button" class="crisis-btn" data-crisis-scenario="baseline" style="min-height:34px;padding:6px 14px;font-size:11.5px;background:rgba(255,255,255,0.06);color:var(--mut)" aria-label="Restaurar Parâmetros Base">
+              ↺ Restaurar Cenário Base
+            </button>
+          </div>
+          <div id="crisis-telemetry-banner" class="crisis-banner" role="status" aria-live="polite">
+            <span style="font-size:18px">◈</span>
+            <span id="crisis-telemetry-text">Selecione um cenário acima para disparar o stress-test.</span>
+          </div>
+        </div>
+
+        <!-- CTA DE AGENDAMENTO ESTRATÉGICO -->
+        <div class="sim-cta-wrap">
+          <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" id="cta-simulador" class="sim-cta-btn">
+            <span>Levar Esta Simulação para Reunião com Leonardo</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <div class="sim-cta-microcopy">
+            Diagnóstico fiduciário individual · Sem conflito de interesse · Certificação ANBIMA CEA
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- METODOLOGIA E RIGOR QUANTITATIVO TRADUZIDO -->
+    <section style="margin-top:80px;padding-top:60px;border-top:1px solid var(--brd2)">
+      <div style="text-align:center;max-width:700px;margin:0 auto 48px">
+        <div style="font-family:var(--m);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);margin-bottom:12px">Transparência Fiduciária</div>
+        <h2 style="font-family:var(--d);font-size:clamp(28px,2.8vw,42px);font-weight:400;color:var(--txt);line-height:1.15">
+          Por que a consultoria independente <br>muda o destino da sua família
+        </h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr));gap:24px">
+        <!-- Ponto 1 -->
+        <div class="sim-glass-card sim-tilt-card" style="padding:28px">
+          <div style="font-family:var(--m);font-size:12px;color:var(--grn);margin-bottom:14px">01 · DINHEIRO DE VERDADE (DESCONTANDO A INFLAÇÃO)</div>
+          <h3 style="font-family:var(--d);font-size:22px;color:var(--txt);margin-bottom:12px">Poder de Compra Real Garantido</h3>
+          <p style="font-family:var(--s);font-size:14px;line-height:1.7;color:var(--mut);font-weight:300">
+            A maioria dos bancos mostra números nominais que parecem grandes, mas escondem que a inflação corrói seu poder de compra. Aqui, cada real projetado representa o valor de compra exato do dinheiro de hoje — sem ilusão de ótica financeira.
+          </p>
+        </div>
+
+        <!-- Ponto 2 -->
+        <div class="sim-glass-card sim-tilt-card" style="padding:28px">
+          <div style="font-family:var(--m);font-size:12px;color:var(--amb);margin-bottom:14px">02 · RENDA QUE NUNCA SECA</div>
+          <h3 style="font-family:var(--d);font-size:22px;color:var(--txt);margin-bottom:12px">Renda Vitalícia para a Sua Vida</h3>
+          <p style="font-family:var(--s);font-size:14px;line-height:1.7;color:var(--mut);font-weight:300">
+            Para garantir que o patrimônio nunca se esgote ao longo das décadas, calculamos uma taxa de retirada calibrada para o cenário brasileiro. Seus rendimentos pagam o seu padrão de vida sem precisar tocar no valor principal que você construiu.
+          </p>
+        </div>
+
+        <!-- Ponto 3 -->
+        <div class="sim-glass-card sim-tilt-card" style="padding:28px">
+          <div style="font-family:var(--m);font-size:12px;color:var(--vio2);margin-bottom:14px">03 · O RALO INVISÍVEL DAS COMISSÕES</div>
+          <h3 style="font-family:var(--d);font-size:22px;color:var(--txt);margin-bottom:12px">O Custo Oculto das Taxas de Banco</h3>
+          <p style="font-family:var(--s);font-size:14px;line-height:1.7;color:var(--mut);font-weight:300">
+            A diferença entre pagar 2% ao ano em taxas embutidas no banco comum e estar em um modelo transparente com consultoria independente parece pequena no início. Em 15 anos, são centenas de milhares a milhões de reais que saem do futuro da sua família e vão para o intermediário.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- RODAPÉ INSTITUCIONAL UNIFICADO -->
+<footer style="background:var(--s1);border-top:1px solid var(--brd);padding:56px 40px 100px;position:relative;z-index:2">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px">
+      <div style="max-width:380px">
+        <img src="../../midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda" style="height:44px;object-fit:contain;margin-bottom:18px">
+        <p style="font-family:var(--s);font-size:13.5px;line-height:1.7;color:var(--mut);font-weight:300">
+          Consultor de Investimentos credenciado pela ANBIMA (CEA), atuando em parceria com a Portfel (Grupo Primo) sob modelo 100% Fee-Based e alinhamento fiduciário integral.
+        </p>
+      </div>
+
+      <div style="display:flex;gap:48px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Ecossistema</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-family:var(--s);font-size:13.5px">
+            <a href="index.html" style="color:var(--mut);text-decoration:none">Home</a>
+            <a href="simulador.html" style="color:var(--grn);text-decoration:none">Simulador de Liberdade</a>
+            <a href="raiox.html" style="color:var(--mut);text-decoration:none">Diagnóstico Raio-X</a>
+            <a href="blog.html" style="color:var(--mut);text-decoration:none">Radar Macroeconômico</a>
+            <a href="linktree.html" style="color:var(--mut);text-decoration:none">Linktree Mobile</a>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-family:var(--m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:14px">Conformidade</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-family:var(--s);font-size:13.5px">
+            <a href="termos.html" style="color:var(--mut);text-decoration:none">Termos de Uso</a>
+            <a href="privacidade.html" style="color:var(--mut);text-decoration:none">Política de Privacidade</a>
+            <span style="color:var(--sub);font-size:12px">CNPJ: 54.475.818/0001-90</span>
+            <span style="color:var(--sub);font-size:12px">Resolução CVM nº 19/2021</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-top:24px;border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--m);font-size:10.5px;color:var(--sub);letter-spacing:.08em;text-transform:uppercase">
+      <div>© 2026 Leonardo Arruda. Todos os direitos reservados.</div>
+      <button type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})" style="background:rgba(255,255,255,0.05);border:1px solid var(--brd);color:var(--txt);padding:8px 16px;border-radius:20px;cursor:pointer;font-family:var(--s);font-size:11px">
+        Voltar ao Topo ↑
+      </button>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS INTEGRADOS -->
+<script src="../_legado/js/shared-navigation.js"></script>
+<script src="../_legado/js/simulador-core.js"></script>
+<script src="../_legado/js/simulador-visual-fx.js"></script>
+<script src="../_legado/js/world-journey.js"></script>
+</body>
+</html>

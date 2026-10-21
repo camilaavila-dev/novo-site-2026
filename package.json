@@ -1,5 +1,14 @@
 {
-  "dependencies": {
-    "jimp": "^1.6.1"
+  "name": "site-leonardo-arruda",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Site de Leonardo Arruda, consultor de investimentos ANBIMA CEA pela Portfel. HTML, CSS e JavaScript puros.",
+  "scripts": {
+    "start": "node scripts/servidor.mjs",
+    "rede": "node scripts/servidor.mjs --rede",
+    "test": "node tests/calculos.test.mjs && node tests/home-check.mjs && node tests/site-check.mjs && node tests/jornada-check.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.64.1"
   }
 }

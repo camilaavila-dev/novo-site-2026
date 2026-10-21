@@ -1,0 +1,111 @@
+/* ==========================================================================
+   LINKS (bio do Instagram e do LinkedIn)
+   Pensada para o celular: tudo numa tela, a conversa em destaque.
+   ========================================================================== */
+
+.lk-main {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 460px; margin: 0 auto;
+  min-height: 100svh;
+  padding: max(28px, env(safe-area-inset-top)) 18px 24px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.lk-head { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.lk-photo {
+  width: 104px; height: 104px; padding: 3px; border-radius: 50%;
+  background: conic-gradient(from 200deg, var(--grn), var(--gold), var(--vio-2), var(--grn));
+  box-shadow: 0 20px 50px -20px rgba(28, 217, 138, 0.6);
+}
+.lk-photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 22%; border: 3px solid var(--ink); }
+.lk-name { margin: 14px 0 0; font-family: var(--f-display); font-weight: 400; font-size: 32px; line-height: 1.1; }
+.lk-role { margin: 4px 0 0; font-size: 14px; color: var(--txt-2); }
+.lk-creds { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.lk-creds li { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-2); font: 500 11px var(--f-mono); letter-spacing: 0.06em; color: var(--txt-2); }
+
+/* ---------- Ação principal ---------- */
+
+.lk-go {
+  margin-top: 6px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 18px 20px; border-radius: 20px; text-decoration: none; color: #04130C;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(255, 255, 255, 0.35), transparent 50%),
+    linear-gradient(140deg, #3BE6A0, #12B873);
+  box-shadow: 0 24px 60px -24px rgba(28, 217, 138, 0.75);
+  transition: transform 0.2s var(--ease);
+}
+.lk-go:hover { transform: translateY(-2px); }
+.lk-go:active { transform: scale(0.98); }
+.lk-go span { display: grid; gap: 2px; }
+.lk-go strong { font-family: var(--f-display); font-weight: 500; font-size: 24px; line-height: 1.1; }
+.lk-go em { font-style: normal; font-size: 13px; opacity: 0.75; }
+.lk-go .hm-i { width: 26px; height: 26px; stroke-width: 2; }
+
+/* ---------- Atalhos ---------- */
+
+.lk-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.lk-grid a {
+  height: 100%; display: grid; gap: 4px; align-content: start;
+  padding: 16px; border-radius: 18px; text-decoration: none;
+  border: 1px solid var(--line-2); background: rgba(14, 12, 43, 0.7);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease);
+}
+.lk-grid a:hover { border-color: var(--txt-3); background: rgba(239, 235, 221, 0.05); }
+.lk-grid a:active { transform: scale(0.98); }
+.lk-grid svg {
+  width: 34px; height: 34px; margin-bottom: 8px; padding: 7px; border-radius: 10px;
+  background: rgba(28, 217, 138, 0.12);
+  fill: none; stroke: var(--grn); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+.lk-grid strong { font-size: 15px; font-weight: 500; }
+.lk-grid span { font-size: 12.5px; line-height: 1.35; color: var(--txt-3); }
+
+/* ---------- Números ---------- */
+
+.lk-stats {
+  margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.lk-stats div { padding: 12px 0; text-align: center; }
+.lk-stats div + div { border-left: 1px solid var(--line); }
+.lk-stats dt { font-size: 11px; color: var(--txt-3); }
+.lk-stats dd { margin: 2px 0 0; font: 500 18px var(--f-mono); letter-spacing: -0.02em; white-space: nowrap; }
+
+/* ---------- Redes ---------- */
+
+.lk-social { display: flex; justify-content: center; gap: 10px; }
+.lk-social a {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 42px; padding: 0 16px; border-radius: 999px; text-decoration: none;
+  border: 1px solid var(--line-2); font-size: 13.5px; color: var(--txt-2);
+}
+.lk-social a:hover { color: var(--txt); border-color: var(--txt-3); }
+.lk-social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Rodapé ---------- */
+
+.lk-foot { margin-top: auto; padding-top: 6px; text-align: center; }
+.lk-foot img { height: 40px; width: auto; margin: 0 auto 6px; }
+.lk-foot p { margin: 0; font-size: 10px; line-height: 1.5; color: var(--txt-3); }
+.lk-foot a { color: var(--txt-2); }
+
+/* Entrada suave */
+.lk-main > * { animation: lk-in 0.6s var(--ease) both; }
+.lk-main > :nth-child(2) { animation-delay: 0.06s; }
+.lk-main > :nth-child(3) { animation-delay: 0.12s; }
+.lk-main > :nth-child(4) { animation-delay: 0.18s; }
+.lk-main > :nth-child(n+5) { animation-delay: 0.24s; }
+@keyframes lk-in { from { opacity: 0; transform: translateY(12px); } }
+@media (prefers-reduced-motion: reduce) { .lk-main > * { animation: none; } }
+
+@media (max-height: 700px) {
+  .lk-main { gap: 12px; padding-top: 18px; }
+  .lk-photo { width: 84px; height: 84px; }
+  .lk-name { font-size: 28px; margin-top: 10px; }
+  .lk-grid a { padding: 12px 14px; }
+  .lk-grid svg { width: 30px; height: 30px; padding: 6px; margin-bottom: 4px; }
+  .lk-grid span { display: none; }
+}

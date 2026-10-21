@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mapa da jornada · Leonardo Arruda</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="O mapa da jornada do investimento: ande pelo mundo e visite cada etapa, do diagnóstico ao acompanhamento.">
+  <meta name="theme-color" content="#07061A">
+  <link rel="icon" type="image/png" href="midias/04-logo-simbolo-leonardo-texto-branco-transparente.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mapa.css">
+</head>
+<body>
+
+  <header class="mp-top">
+    <a class="mp-brand" href="index.html" aria-label="Leonardo Arruda, início">
+      <img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda · Portfel" width="144" height="40">
+    </a>
+    <p class="mp-title">Mapa da jornada</p>
+    <nav class="mp-nav" aria-label="Páginas do site">
+      <a href="jornada.html">Versão ilustrada</a>
+      <a href="index.html">Sair do mapa</a>
+    </nav>
+  </header>
+
+  <!-- O mundo: a arte de fundo, os lugares e o viajante. A câmera acompanha. -->
+  <main class="mp-view" id="mp-view" aria-label="Mapa da jornada. Use as setas ou W A S D para andar, ou toque num lugar.">
+    <div class="mp-world" id="mp-world">
+      <img class="mp-art" src="midias/mapa/mundo.jpg" alt="" width="1206" height="768" draggable="false">
+      <div class="mp-places" id="mp-places"></div>
+      <div class="mp-player" id="mp-player" aria-hidden="true">
+        <img id="mp-sprite" src="midias/mapa/viajante-frente.png" alt="" draggable="false">
+        <span class="mp-shadow"></span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Caixa de diálogo, no estilo dos RPGs antigos -->
+  <section class="mp-box" id="mp-box" aria-live="polite" hidden>
+    <p class="mp-box-kicker" id="mp-box-kicker"></p>
+    <h1 class="mp-box-title" id="mp-box-title"></h1>
+    <p class="mp-box-text" id="mp-box-text"></p>
+    <div class="mp-box-actions" id="mp-box-actions"></div>
+  </section>
+
+  <aside class="mp-hud" aria-label="Como andar">
+    <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> ou setas para andar · <kbd>Enter</kbd> para entrar · toque no mapa para ir até lá</p>
+    <p class="mp-count" id="mp-count"></p>
+  </aside>
+
+  <noscript><p class="mp-noscript">O mapa precisa de JavaScript. Veja a <a href="jornada.html">versão ilustrada</a>.</p></noscript>
+
+  <script src="js/mapa.js"></script>
+</body>
+</html>

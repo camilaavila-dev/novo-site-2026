@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>A Jornada do Investimento · Leonardo Arruda, Consultor de Investimentos</title>
+  <meta name="description" content="A jornada do investimento em sete capítulos: diagnóstico, estratégia, proteção e acompanhamento do seu patrimônio com Leonardo Arruda, consultor de investimentos ANBIMA CEA pela Portfel (Grupo Primo), no modelo fee-based.">
+  <meta name="theme-color" content="#0B0722">
+  <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="A Jornada do Investimento · Leonardo Arruda">
+  <meta property="og:description" content="Consultoria de investimentos independente, fee-based, para investidores, empresários e famílias.">
+  <meta property="og:image" content="midias/jornada/00-mirante.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/jornada.css">
+  <link rel="stylesheet" href="css/jornada-tela.css">
+
+  <!-- Marca que o JavaScript está ativo. Sem ela, todo o conteúdo fica visível
+       e estático: o site continua completo mesmo se o script falhar. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "#leonardo",
+        "name": "Leonardo Arruda",
+        "jobTitle": "Consultor de Investimentos",
+        "description": "Consultor de investimentos certificado ANBIMA CEA, atuando pela Portfel (Grupo Primo) no modelo fee-based.",
+        "hasCredential": { "@type": "EducationalOccupationalCredential", "name": "ANBIMA CEA" },
+        "worksFor": { "@type": "Organization", "name": "Portfel", "parentOrganization": { "@type": "Organization", "name": "Grupo Primo" } },
+        "sameAs": ["https://www.linkedin.com/in/leonardo-arruda-b49ab8104/", "https://www.instagram.com/leoarruda.s/"]
+      },
+      {
+        "@type": "FinancialService",
+        "name": "Leonardo Arruda · Consultoria de Investimentos",
+        "provider": { "@id": "#leonardo" },
+        "areaServed": ["BR", "Europa"],
+        "description": "Diagnóstico, estratégia, proteção patrimonial e acompanhamento contínuo de investimentos, com remuneração fee-based e sem conflito de interesses."
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Ícones vetoriais. Embutidos no HTML para não depender de JavaScript. -->
+  <svg class="jx-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5 18.5 12 13 17.5"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19.5 12h-14M11 6.5 5.5 12 11 17.5"/></symbol>
+    <symbol id="i-arrow-d" viewBox="0 0 24 24"><path d="M12 4.5v14M6.5 13 12 18.5 17.5 13"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8M9.6 8H16v6.4"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8.5 6.5h11M8.5 12h11M8.5 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5.5v13M5.5 12h13"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4.2 4.2 8.8-9.4"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4"/><path d="m15.2 8.8-1.9 4.5-4.5 1.9 1.9-4.5 4.5-1.9Z"/></symbol>
+  </svg>
+
+  <a class="jx-skip" href="#mirante">Ir para o conteúdo</a>
+
+  <!-- ======================================================================
+       BARRA SUPERIOR
+       ====================================================================== -->
+  <header class="jx-top">
+    <a class="jx-brand" href="#mirante" aria-label="Leonardo Arruda, início da jornada">
+      <img src="midias/01-logo-completa-leonardo-portfel-texto-branco-transparente.png" alt="Leonardo Arruda · Portfel" width="144" height="40">
+    </a>
+
+    <div class="jx-now" aria-live="polite">
+      <span class="jx-now-label">Jornada do Investimento</span>
+      <span class="jx-now-title" id="jx-now-title">Prólogo · O Mirante</span>
+    </div>
+
+    <div class="jx-top-end">
+      <nav class="jx-topnav" aria-label="Páginas do site">
+        <a href="index.html">Início</a>
+        <a href="instrumentos.html">Calculadoras</a>
+        <a href="raiox.html">Diagnóstico</a>
+        <a href="blog.html">Leitura semanal</a>
+      </nav>
+      <a class="jx-btn jx-btn-cta jx-top-cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">
+        Agendar conversa
+        <svg class="jx-i" aria-hidden="true"><use href="#i-out"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       A JORNADA: uma tela por capítulo
+       Com JavaScript, só um capítulo aparece por vez e se avança pelos
+       botões, pelo teclado, pela roda do mouse ou deslizando o dedo.
+       Sem JavaScript, os capítulos aparecem um abaixo do outro.
+       ====================================================================== -->
+  <main class="jx-stage" id="jx-stage">
+
+    <!-- PRÓLOGO · O MIRANTE -->
+    <section class="jx-ch jx-ch-hero" id="mirante" data-title="Prólogo · O Mirante" data-num="·" aria-labelledby="t-mirante">
+      <div class="jx-scene" data-scene="mirante" style="--focus: 70% 55%; --focus-m: 78% 50%">
+        <img class="jx-art" src="midias/jornada/00-mirante.jpg" alt="" fetchpriority="high" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker">Jornada do Investimento</p>
+        <h1 class="jx-title" id="t-mirante">Você levou anos construindo. <em>Agora, enxergue o caminho inteiro.</em></h1>
+        <p class="jx-lede">Consultoria de investimentos independente para investidores, empresários e famílias. Sete capítulos, do diagnóstico ao acompanhamento, com um consultor do seu lado da mesa.</p>
+        <ul class="jx-creds" aria-label="Credenciais">
+          <li>ANBIMA CEA</li>
+          <li>Portfel · Grupo Primo</li>
+          <li>Fee-based</li>
+        </ul>
+        <div class="jx-actions">
+          <a class="jx-btn jx-btn-primary" href="#partida" data-go="next">
+            Começar a jornada
+            <svg class="jx-i" aria-hidden="true"><use href="#i-arrow-r"/></svg>
+          </a>
+          <a class="jx-btn jx-btn-ghost" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">Agendar uma conversa</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO I · O PONTO DE PARTIDA -->
+    <section class="jx-ch" id="partida" data-title="Capítulo I · O Ponto de Partida" data-num="I" aria-labelledby="t-partida">
+      <div class="jx-scene" data-scene="partida" style="--focus: 62% 50%; --focus-m: 66% 50%">
+        <img class="jx-art" src="midias/jornada/01-encruzilhada.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo I</span></p>
+        <h2 class="jx-title" id="t-partida">O Ponto de Partida</h2>
+        <p class="jx-question">Qual descreve melhor o seu momento?</p>
+
+        <div class="jx-profiles" role="group" aria-label="O seu perfil">
+          <button type="button" class="jx-profile" data-profile="investidor" aria-pressed="false">
+            <span class="jx-profile-num">01</span>
+            <span class="jx-profile-body"><strong>Investidor em crescimento</strong><span>Já investe, mas falta estratégia e alguém que veja o cenário completo.</span></span>
+            <svg class="jx-i jx-profile-check" aria-hidden="true"><use href="#i-check"/></svg>
+          </button>
+          <button type="button" class="jx-profile" data-profile="empresario" aria-pressed="false">
+            <span class="jx-profile-num">02</span>
+            <span class="jx-profile-body"><strong>Empresário e C-level</strong><span>Renda relevante, agenda intensa, decisões que não podem esperar.</span></span>
+            <svg class="jx-i jx-profile-check" aria-hidden="true"><use href="#i-check"/></svg>
+          </button>
+          <button type="button" class="jx-profile" data-profile="familia" aria-pressed="false">
+            <span class="jx-profile-num">03</span>
+            <span class="jx-profile-body"><strong>Família patrimonial</strong><span>Pensa em décadas: proteção, sucessão e continuidade.</span></span>
+            <svg class="jx-i jx-profile-check" aria-hidden="true"><use href="#i-check"/></svg>
+          </button>
+        </div>
+
+        <p class="jx-note" id="jx-profile-note" hidden></p>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO II · O GUIA -->
+    <section class="jx-ch" id="guia" data-title="Capítulo II · O Guia" data-num="II" aria-labelledby="t-guia">
+      <div class="jx-scene" data-scene="guia" style="--focus: 66% 45%; --focus-m: 74% 40%">
+        <img class="jx-art" src="midias/jornada/02-guia.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo II</span></p>
+        <h2 class="jx-title" id="t-guia">O Guia</h2>
+        <p class="jx-question">Com quem eu caminho, e por que confiar?</p>
+        <p class="jx-text">Leonardo Arruda, consultor de investimentos ANBIMA CEA, no mercado desde 2012. Remunerado por você, não pelo produto: a recomendação nunca depende de comissão.</p>
+        <dl class="jx-stats">
+          <div><dt>Sob consultoria</dt><dd>+R$ 22 bi</dd></div>
+          <div><dt>Clientes</dt><dd>+25 mil</dd></div>
+          <div><dt>Consultores</dt><dd>+700</dd></div>
+          <div><dt>NPS</dt><dd>97</dd></div>
+        </dl>
+        <p class="jx-fine">Números da Portfel · Grupo Primo</p>
+        <div class="jx-actions">
+          <button type="button" class="jx-btn jx-btn-primary" data-sheet="d-guia">
+            Conhecer o Leonardo
+            <svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO III · A NÉVOA -->
+    <section class="jx-ch" id="nevoa" data-title="Capítulo III · A Névoa" data-num="III" aria-labelledby="t-nevoa">
+      <div class="jx-scene" data-scene="nevoa" style="--focus: 62% 50%; --focus-m: 68% 55%">
+        <img class="jx-art" src="midias/jornada/03-nevoa.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo III</span> · Diagnóstico</p>
+        <h2 class="jx-title" id="t-nevoa">A Névoa</h2>
+        <p class="jx-question">O que o meu extrato não mostra?</p>
+        <p class="jx-text">Taxas somadas, produtos escolhidos por meta comercial, imposto mal planejado. Num ano parecem pequenos. Em vinte, viram uma fortuna.</p>
+        <div class="jx-actions">
+          <button type="button" class="jx-btn jx-btn-primary" data-sheet="d-nevoa">
+            Calcular o custo da névoa
+            <svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+          <a class="jx-btn jx-btn-ghost" href="raiox.html">Fazer o diagnóstico</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO IV · O MAPA -->
+    <section class="jx-ch" id="mapa" data-title="Capítulo IV · O Mapa" data-num="IV" aria-labelledby="t-mapa">
+      <div class="jx-scene" data-scene="mapa" style="--focus: 60% 50%; --focus-m: 86% 60%">
+        <img class="jx-art" src="midias/jornada/04-mapa.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo IV</span> · Estratégia</p>
+        <h2 class="jx-title" id="t-mapa">O Mapa</h2>
+        <p class="jx-question">Qual é o plano?</p>
+        <p class="jx-text">Estratégia é coordenar quatro frentes ao mesmo tempo. Qualquer uma esquecida deixa o patrimônio exposto no ponto que ninguém olhou.</p>
+        <ul class="jx-pillars" aria-label="Os quatro pilares">
+          <li><button type="button" data-sheet="d-mapa" data-tab="0"><span>01</span> Planejamento</button></li>
+          <li><button type="button" data-sheet="d-mapa" data-tab="1"><span>02</span> Previdência e seguros</button></li>
+          <li><button type="button" data-sheet="d-mapa" data-tab="2"><span>03</span> Proteção</button></li>
+          <li><button type="button" data-sheet="d-mapa" data-tab="3"><span>04</span> Serviços especiais</button></li>
+        </ul>
+        <div class="jx-actions">
+          <button type="button" class="jx-btn jx-btn-primary" data-sheet="d-rendafixa">
+            Comparar renda fixa
+            <svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO V · A FORTALEZA -->
+    <section class="jx-ch" id="fortaleza" data-title="Capítulo V · A Fortaleza" data-num="V" aria-labelledby="t-fortaleza">
+      <div class="jx-scene" data-scene="fortaleza" style="--focus: 62% 45%; --focus-m: 76% 75%">
+        <img class="jx-art" src="midias/jornada/05-fortaleza.jpg" alt=""
+             onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='midias/cidadela-patrimonio.jpg';}else{this.remove();}">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo V</span> · Proteção e legado</p>
+        <h2 class="jx-title" id="t-fortaleza">A Fortaleza</h2>
+        <p class="jx-question">Como protejo o que construí, e quem vem depois de mim?</p>
+        <p class="jx-text">Sucessão se planeja em vida, com calma. Em 2025 o Brasil bateu o recorde de testamentos: 38.740, segundo o Colégio Notarial.</p>
+        <ul class="jx-walls-mini">
+          <li>Separar o pessoal do empresarial</li>
+          <li>Não depender de uma só moeda</li>
+          <li>Liquidez no momento mais difícil</li>
+          <li>Eficiência tributária</li>
+        </ul>
+        <div class="jx-actions">
+          <button type="button" class="jx-btn jx-btn-primary" data-sheet="d-fortaleza">
+            Calcular o custo da sucessão
+            <svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO VI · O CUME -->
+    <section class="jx-ch" id="cume" data-title="Capítulo VI · O Cume" data-num="VI" aria-labelledby="t-cume">
+      <div class="jx-scene" data-scene="cume" style="--focus: 66% 40%; --focus-m: 80% 45%">
+        <img class="jx-art" src="midias/jornada/06-cume.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo VI</span> · Independência financeira</p>
+        <h2 class="jx-title" id="t-cume">O Cume</h2>
+        <p class="jx-question">Quando eu chego?</p>
+        <p class="jx-text">Independência financeira não é um sentimento, é uma data: o ano em que o patrimônio sustenta o seu custo de vida sem ser consumido.</p>
+        <div class="jx-actions">
+          <button type="button" class="jx-btn jx-btn-primary" data-sheet="d-cume">
+            Calcular o meu ano
+            <svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+          <a class="jx-btn jx-btn-ghost" href="instrumentos.html">Todos os instrumentos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPÍTULO VII · O FAROL -->
+    <section class="jx-ch" id="farol" data-title="Capítulo VII · O Farol" data-num="VII" aria-labelledby="t-farol">
+      <div class="jx-scene" data-scene="farol" style="--focus: 64% 45%; --focus-m: 70% 45%">
+        <img class="jx-art" src="midias/jornada/07-farol.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker"><span class="jx-num">Capítulo VII</span> · Acompanhamento</p>
+        <h2 class="jx-title" id="t-farol">O Farol</h2>
+        <p class="jx-question">E depois que eu chegar?</p>
+        <p class="jx-text">O mercado muda várias vezes numa vida. O acompanhamento não para: revisões, ajustes e acesso direto ao consultor.</p>
+        <dl class="jx-radar-grid jx-radar-mini" data-radar="3" aria-label="Indicadores da semana"></dl>
+        <div class="jx-actions">
+          <button type="button" class="jx-btn jx-btn-primary" data-sheet="d-farol">
+            Ver a leitura da semana
+            <svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EPÍLOGO · O PRIMEIRO PASSO -->
+    <section class="jx-ch jx-ch-end" id="primeiro-passo" data-title="Epílogo · O Primeiro Passo" data-num="·" aria-labelledby="t-passo">
+      <div class="jx-scene" data-scene="passo" style="--focus: 62% 50%; --focus-m: 74% 55%">
+        <img class="jx-art" src="midias/jornada/08-primeiro-passo.jpg" alt="" onerror="this.remove()">
+      </div>
+      <div class="jx-panel">
+        <p class="jx-kicker">Epílogo</p>
+        <h2 class="jx-title" id="t-passo">O Primeiro Passo</h2>
+        <p class="jx-question">Como começo?</p>
+        <p class="jx-text" id="jx-epilogue-line">Com uma conversa. Sem compromisso, para entender o seu cenário e ver, com honestidade, se faz sentido caminharmos juntos.</p>
+        <ol class="jx-steps-mini" aria-label="Como funciona a consultoria">
+          <li>Primeira conversa</li>
+          <li>Levantamento</li>
+          <li>Planejamento</li>
+          <li>Acompanhamento</li>
+        </ol>
+        <div class="jx-actions">
+          <a class="jx-btn jx-btn-cta jx-btn-lg" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">
+            Agendar a primeira conversa
+            <svg class="jx-i" aria-hidden="true"><use href="#i-out"/></svg>
+          </a>
+          <button type="button" class="jx-btn jx-btn-ghost" data-sheet="d-passo">Como funciona e dúvidas</button>
+        </div>
+        <p class="jx-fine">Resposta em até 24 horas · Remoto e presencial · <button type="button" class="jx-linkbtn" data-sheet="d-legal">Avisos legais</button></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       BARRA DA JORNADA: voltar, trilha dos nove marcos, avançar
+       ====================================================================== -->
+  <nav class="jx-hud" aria-label="Navegação da jornada">
+    <button type="button" class="jx-hud-btn" data-go="prev" aria-label="Capítulo anterior">
+      <svg class="jx-i" aria-hidden="true"><use href="#i-arrow-l"/></svg>
+    </button>
+
+    <ol class="jx-trail">
+      <li><a href="#mirante" data-target="mirante"><span>·</span><em>Prólogo · O Mirante</em></a></li>
+      <li><a href="#partida" data-target="partida"><span>I</span><em>O Ponto de Partida</em></a></li>
+      <li><a href="#guia" data-target="guia"><span>II</span><em>O Guia</em></a></li>
+      <li><a href="#nevoa" data-target="nevoa"><span>III</span><em>A Névoa</em></a></li>
+      <li><a href="#mapa" data-target="mapa"><span>IV</span><em>O Mapa</em></a></li>
+      <li><a href="#fortaleza" data-target="fortaleza"><span>V</span><em>A Fortaleza</em></a></li>
+      <li><a href="#cume" data-target="cume"><span>VI</span><em>O Cume</em></a></li>
+      <li><a href="#farol" data-target="farol"><span>VII</span><em>O Farol</em></a></li>
+      <li><a href="#primeiro-passo" data-target="primeiro-passo"><span>·</span><em>Epílogo · O Primeiro Passo</em></a></li>
+    </ol>
+
+    <button type="button" class="jx-hud-index" popovertarget="jx-index">
+      <span id="jx-hud-count">1 de 9</span>
+      <strong id="jx-hud-title">Prólogo · O Mirante</strong>
+    </button>
+
+    <button type="button" class="jx-hud-btn jx-hud-next" data-go="next">
+      <span id="jx-next-label">Começar</span>
+      <svg class="jx-i" aria-hidden="true"><use href="#i-arrow-r"/></svg>
+    </button>
+  </nav>
+
+  <div id="jx-index" class="jx-index" popover>
+    <div class="jx-index-head">
+      <span>Capítulos da jornada</span>
+      <button type="button" class="jx-index-close" popovertarget="jx-index" popovertargetaction="hide" aria-label="Fechar índice">
+        <svg class="jx-i" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <ol>
+      <li><a href="#mirante"><span>·</span> Prólogo · O Mirante</a></li>
+      <li><a href="#partida"><span>I</span> O Ponto de Partida</a></li>
+      <li><a href="#guia"><span>II</span> O Guia</a></li>
+      <li><a href="#nevoa"><span>III</span> A Névoa</a></li>
+      <li><a href="#mapa"><span>IV</span> O Mapa</a></li>
+      <li><a href="#fortaleza"><span>V</span> A Fortaleza</a></li>
+      <li><a href="#cume"><span>VI</span> O Cume</a></li>
+      <li><a href="#farol"><span>VII</span> O Farol</a></li>
+      <li><a href="#primeiro-passo"><span>·</span> Epílogo · O Primeiro Passo</a></li>
+    </ol>
+    <div class="jx-index-more">
+      <p>Também no site</p>
+      <ol>
+        <li><a href="index.html"><span>·</span> Início</a></li>
+          <li><a href="instrumentos.html"><span>·</span> Calculadoras</a></li>
+        <li><a href="raiox.html"><span>·</span> Diagnóstico patrimonial</a></li>
+        <li><a href="blog.html"><span>·</span> Leitura semanal</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       PAINEL DE APROFUNDAMENTO
+       Abre por cima da cena, sem sair da tela. Cada bloco abaixo é o
+       conteúdo completo de um capítulo; só um aparece de cada vez.
+       ====================================================================== -->
+  <dialog class="jx-sheet" id="jx-sheet" aria-labelledby="jx-sheet-title">
+    <div class="jx-sheet-head">
+      <p class="jx-label" id="jx-sheet-kicker"></p>
+      <h2 class="jx-sheet-title" id="jx-sheet-title"></h2>
+      <button type="button" class="jx-sheet-close" data-sheet-close aria-label="Fechar e voltar à jornada">
+        <svg class="jx-i" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+
+    <div class="jx-sheet-body">
+
+      <!-- II · O Guia -->
+      <section class="jx-sheet-part" id="d-guia" data-kicker="Capítulo II" data-heading="Leonardo Arruda" hidden>
+        <figure class="jx-guide">
+          <img src="midias/jornada/guia-retrato.jpg" alt="Leonardo Arruda" loading="lazy"
+               onerror="this.onerror=null;this.src='midias/fotos%20novas%20do%20leonardo/leonardo-arruda-consultor-de-investimentos-portfel%20(4).jpeg';this.classList.add('is-photo')">
+          <figcaption>
+            <strong>Leonardo Arruda</strong>
+            <span>Consultor de investimentos · ANBIMA CEA</span>
+          </figcaption>
+        </figure>
+        <p class="jx-text">No mercado financeiro desde 2012, Leonardo atende investidores, empresários e famílias com patrimônio relevante que buscam estratégia, organização e acompanhamento de longo prazo. A abordagem une rigor técnico e linguagem clara: diagnóstico completo, alocação estruturada e presença em cada decisão relevante.</p>
+        <div class="jx-callout">
+          <p class="jx-label">Fee-based, em duas frases</p>
+          <p>Leonardo é remunerado diretamente por você, não por bancos ou gestoras. Qualquer comissão paga pelas instituições é devolvida integralmente ao cliente: a recomendação nunca depende do produto.</p>
+        </div>
+        <div class="jx-principles" id="jx-principios" hidden></div>
+        <p class="jx-label">A estrutura por trás · Portfel</p>
+        <dl class="jx-stats">
+          <div><dt>Sob consultoria</dt><dd>+R$ 22 bi</dd></div>
+          <div><dt>Clientes</dt><dd>+25 mil</dd></div>
+          <div><dt>Consultores</dt><dd>+700</dd></div>
+          <div><dt>NPS</dt><dd>97</dd></div>
+        </dl>
+        <p class="jx-fine">Números publicados pela Portfel, consultoria do ecossistema Grupo Primo pela qual Leonardo atua desde 2023. A Portfel informa já ter devolvido R$ 10 milhões em comissões aos clientes.</p>
+        <p class="jx-label">Na imprensa</p>
+        <ul class="jx-press">
+          <li><img src="midias/fotos%20da%20midia/logo_infomoney.webp" alt="InfoMoney" width="100" height="20" loading="lazy"></li>
+          <li><img src="midias/fotos%20da%20midia/logo_estadao.webp" alt="Estadão" width="98" height="20" loading="lazy"></li>
+          <li><img src="midias/fotos%20da%20midia/logo_gazeta_do_povo.webp" alt="Gazeta do Povo" width="120" height="20" loading="lazy"></li>
+          <li><img src="midias/fotos%20da%20midia/logo_jovem_pan.webp" alt="Jovem Pan" width="94" height="20" loading="lazy"></li>
+          <li><img src="midias/fotos%20da%20midia/logo_bp_money.webp" alt="BP Money" width="89" height="20" loading="lazy"></li>
+          <li><img src="midias/fotos%20da%20midia/logo_din.webp" alt="Dinheirama" width="121" height="20" loading="lazy"></li>
+        </ul>
+      </section>
+
+      <!-- III · A Névoa -->
+      <section class="jx-sheet-part" id="d-nevoa" data-kicker="Capítulo III · A Névoa" data-heading="O custo da névoa" hidden>
+        <p class="jx-text">A maior parte do custo de um patrimônio não aparece no relatório mensal. Isoladamente parece pequena; ao longo de décadas, se acumula como juros compostos ao contrário.</p>
+        <div data-instrumento="taxas" data-sem-titulo></div>
+        <div class="jx-callout jx-callout-tool">
+          <p class="jx-label">Diagnóstico patrimonial · 3 minutos</p>
+          <p>Dez perguntas sobre custos, diversificação, liquidez, impostos e sucessão. Nota de 0 a 100 e os dois pontos que mais pedem atenção.</p>
+          <a class="jx-btn jx-btn-ghost" href="raiox.html">Fazer o diagnóstico <svg class="jx-i" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+        </div>
+      </section>
+
+      <!-- IV · O Mapa: os quatro pilares -->
+      <section class="jx-sheet-part" id="d-mapa" data-kicker="Capítulo IV · O Mapa" data-heading="Os quatro pilares" hidden>
+        <div class="jx-tabs" data-tabs>
+          <div class="jx-tablist" role="tablist" aria-label="Os quatro pilares">
+            <button type="button" role="tab" id="tab-p1" aria-controls="pil-1" aria-selected="true"><span>01</span> Planejamento</button>
+            <button type="button" role="tab" id="tab-p2" aria-controls="pil-2" aria-selected="false" tabindex="-1"><span>02</span> Previdência</button>
+            <button type="button" role="tab" id="tab-p3" aria-controls="pil-3" aria-selected="false" tabindex="-1"><span>03</span> Proteção</button>
+            <button type="button" role="tab" id="tab-p4" aria-controls="pil-4" aria-selected="false" tabindex="-1"><span>04</span> Especiais</button>
+          </div>
+          <div class="jx-tabpanel" role="tabpanel" id="pil-1" aria-labelledby="tab-p1">
+            <h3>Planejamento financeiro</h3>
+            <p>Organização e crescimento: estratégia de longo prazo e carteira estruturada.</p>
+            <ul class="jx-services">
+              <li><strong>Carteira de investimentos</strong><span>Alocação estruturada e revisada.</span></li>
+              <li><strong>Fundo exclusivo</strong><span>Eficiência tributária e sucessória.</span></li>
+              <li><strong>Fundo exclusivo de previdência</strong><span>Benefícios fiscais de longo prazo.</span></li>
+              <li><strong>Financiamento imobiliário</strong><span>Acesso a capital com taxas otimizadas.</span></li>
+            </ul>
+          </div>
+          <div class="jx-tabpanel" role="tabpanel" id="pil-2" aria-labelledby="tab-p2">
+            <h3>Previdência e seguros</h3>
+            <p>Proteção de vida, de renda e do legado familiar.</p>
+            <ul class="jx-services">
+              <li><strong>Previdência privada</strong><span>Planejamento de aposentadoria.</span></li>
+              <li><strong>Pan American Seguros</strong><span>Proteção internacional de alto padrão.</span></li>
+              <li><strong>Seguros de vida</strong><span>Liquidez imediata para a família na sucessão.</span></li>
+              <li><strong>Fundo exclusivo de previdência</strong><span>Benefícios fiscais de longo prazo.</span></li>
+            </ul>
+          </div>
+          <div class="jx-tabpanel" role="tabpanel" id="pil-3" aria-labelledby="tab-p3">
+            <h3>Proteção e riscos</h3>
+            <p>Estruturas que preservam o que foi construído.</p>
+            <ul class="jx-services">
+              <li><strong>Holding patrimonial</strong><span>Organização societária e sucessão em vida.</span></li>
+              <li><strong>Holding offshore</strong><span>Diversificação e proteção em moeda forte.</span></li>
+              <li><strong>Unit linked</strong><span>Investimento no exterior com seguro.</span></li>
+              <li><strong>Proteção para exportação e importação</strong><span>Hedge cambial e mitigação de risco.</span></li>
+            </ul>
+          </div>
+          <div class="jx-tabpanel" role="tabpanel" id="pil-4" aria-labelledby="tab-p4">
+            <h3>Serviços especiais</h3>
+            <p>Operações complexas e atendimento exclusivo.</p>
+            <ul class="jx-services">
+              <li><strong>Private banking</strong><span>Acesso a mesas exclusivas.</span></li>
+              <li><strong>Concierge</strong><span>Facilitadores para a rotina patrimonial.</span></li>
+              <li><strong>M&amp;A · fusões e aquisições</strong><span>Assessoria em operações societárias.</span></li>
+              <li><strong>Estruturação de recebíveis</strong><span>Otimização do fluxo de caixa empresarial.</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="jx-fine">Acesso ao ecossistema da Portfel, em qualquer instituição financeira: Leonardo atende onde o seu patrimônio já está.</p>
+      </section>
+
+      <!-- IV · O Mapa: renda fixa -->
+      <section class="jx-sheet-part" id="d-rendafixa" data-kicker="Capítulo IV · O Mapa" data-heading="Comparador de renda fixa" hidden>
+        <p class="jx-text">A renda fixa costuma ser a base, e é onde os brasileiros mais estão mudando: os títulos privados triplicaram entre os investidores desde 2021, segundo a ANBIMA. A escolha muda com o prazo, porque o imposto muda com ele.</p>
+        <div data-instrumento="rendaFixa" data-sem-titulo></div>
+      </section>
+
+      <!-- V · A Fortaleza -->
+      <section class="jx-sheet-part" id="d-fortaleza" data-kicker="Capítulo V · A Fortaleza" data-heading="Proteção e sucessão" hidden>
+        <ol class="jx-walls">
+          <li><strong>Separar o pessoal do empresarial</strong><span>Holding patrimonial para organizar bens e participações e conduzir a sucessão em vida, com regras definidas pela família.</span></li>
+          <li><strong>Não depender de uma só moeda</strong><span>Estruturas offshore e investimento no exterior para reduzir a concentração no risco Brasil.</span></li>
+          <li><strong>Liquidez no momento mais difícil</strong><span>Seguros de vida e previdência como recursos disponíveis para a família quando ela mais precisa.</span></li>
+          <li><strong>Eficiência tributária</strong><span>Fundos exclusivos e planejamento tributário dentro da lei, revisados a cada mudança de regra.</span></li>
+        </ol>
+        <p class="jx-label">O custo da sucessão sem planejamento</p>
+        <div data-instrumento="sucessao" data-sem-titulo></div>
+        <p class="jx-fine">Cada estrutura é avaliada caso a caso, com os profissionais jurídicos e contábeis da família quando necessário.</p>
+      </section>
+
+      <!-- VI · O Cume -->
+      <section class="jx-sheet-part" id="d-cume" data-kicker="Capítulo VI · O Cume" data-heading="O ano da independência" hidden>
+        <div data-instrumento="independencia" data-sem-titulo></div>
+      </section>
+
+      <!-- VII · O Farol -->
+      <section class="jx-sheet-part" id="d-farol" data-kicker="Capítulo VII · O Farol" data-heading="Leitura da semana" hidden>
+        <ol class="jx-method" aria-label="O método">
+          <li><span>01</span><strong>Diagnóstico</strong><em>Entender antes de agir.</em></li>
+          <li><span>02</span><strong>Estratégia</strong><em>Estruturar com inteligência.</em></li>
+          <li class="is-current"><span>03</span><strong>Acompanhamento</strong><em>Presença contínua.</em></li>
+        </ol>
+        <div class="jx-radar" id="jx-radar">
+          <div class="jx-radar-head">
+            <p class="jx-label">Indicadores</p>
+            <span class="jx-radar-date" id="jx-radar-date"></span>
+          </div>
+          <dl class="jx-radar-grid" id="jx-radar-grid" data-radar="all"></dl>
+          <p class="jx-radar-summary" id="jx-radar-summary">Curadoria semanal com o que as notícias mudam, de fato, no seu patrimônio.</p>
+          <div class="jx-actions">
+            <a class="jx-btn jx-btn-ghost" href="blog.html">Ler a edição da semana <svg class="jx-i" aria-hidden="true"><use href="#i-arrow-r"/></svg></a>
+            <a class="jx-btn jx-btn-link" href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" rel="noopener">Newsletter no LinkedIn <svg class="jx-i" aria-hidden="true"><use href="#i-out"/></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Epílogo -->
+      <section class="jx-sheet-part" id="d-passo" data-kicker="Epílogo" data-heading="Como funciona" hidden>
+        <ol class="jx-steps" aria-label="Como funciona a consultoria">
+          <li><strong>Primeira conversa</strong><span>Apresentação da estrutura e do seu perfil de investidor.</span></li>
+          <li><strong>Levantamento</strong><span>Um formulário com as informações do seu patrimônio e dos seus objetivos.</span></li>
+          <li><strong>Planejamento</strong><span>Uma segunda reunião com o planejamento financeiro detalhado.</span></li>
+          <li><strong>Acompanhamento</strong><span>Os investimentos acompanhados e a carteira rebalanceada sempre que necessário.</span></li>
+        </ol>
+        <div class="jx-faq">
+          <p class="jx-label">Perguntas frequentes</p>
+          <details>
+            <summary>Por que contratar consultoria se já invisto sozinho?<svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>O valor está em organizar a estratégia, reduzir ruído e decidir com clareza sobre o patrimônio inteiro, e não apenas em indicar produtos.</p>
+          </details>
+          <details>
+            <summary>O que é fee-based e por que importa?<svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Leonardo é remunerado diretamente por você, não por bancos ou gestoras. Comissões pagas pelas instituições são devolvidas integralmente ao cliente. A recomendação não depende do produto.</p>
+          </details>
+          <details>
+            <summary>Existe conflito de interesse nas recomendações?<svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Não. A Portfel opera com remuneração transparente e sem comissão por produto. A independência é a base do serviço.</p>
+          </details>
+          <details>
+            <summary>Qual a relação do Leonardo com a Portfel e o Grupo Primo?<svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Leonardo atua de forma independente e, desde 2023, pela plataforma da Portfel, consultoria do ecossistema Grupo Primo, pela infraestrutura e pelo acesso a soluções no Brasil e no exterior.</p>
+          </details>
+          <details>
+            <summary>Preciso tirar meus investimentos de onde estão?<svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>Não. A consultoria acompanha o patrimônio em qualquer instituição financeira. A Portfel não faz custódia nem intermediação de recursos.</p>
+          </details>
+          <details>
+            <summary>Qual o patrimônio mínimo para começar?<svg class="jx-i" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+            <p>A conversa inicial é aberta. O encaixe é avaliado no diagnóstico, de forma honesta e sem pressão.</p>
+          </details>
+        </div>
+        <div class="jx-actions">
+          <a class="jx-btn jx-btn-cta" href="https://forms.office.com/Pages/ResponsePage.aspx?id=6ez5YgM1m0G2Yyy_xOsD25muVoj4MslItAJalz086_lURDhJV1Y0QlVaUTZFV0RORUZMMUg2S1NKTi4u" target="_blank" rel="noopener">Agendar a primeira conversa <svg class="jx-i" aria-hidden="true"><use href="#i-out"/></svg></a>
+        </div>
+      </section>
+
+      <!-- Avisos legais -->
+      <section class="jx-sheet-part" id="d-legal" data-kicker="Leonardo Arruda · Portfel" data-heading="Avisos legais" hidden>
+        <div class="jx-legal">
+          <p>Leonardo Arruda · Consultor de Investimentos · ANBIMA CEA · LA Consultoria &amp; Negócios · CNPJ 54.475.818/0001-90</p>
+          <p>A Portfel Consultoria Financeira LTDA, inscrita no CNPJ/ME sob o nº 37.576.416/0001-62, é registrada como Consultoria de Valores Mobiliários na Comissão de Valores Mobiliários (CVM), nos termos da Resolução CVM nº 19/2021, e é controlada pela O Primo Rico Mídia, Educacional e Participações S.A.</p>
+          <p>A Portfel não realiza intermediação, custódia ou administração de recursos de clientes. Todas as aplicações devem ser efetuadas diretamente em instituições autorizadas a operar pelo Banco Central do Brasil e/ou pela CVM.</p>
+          <p>As informações disponibilizadas têm caráter exclusivamente informativo e não constituem oferta ou recomendação de investimento. As simulações são ilustrativas. Rentabilidade passada não garante resultados futuros.</p>
+          <p class="jx-legal-links">
+            <a href="privacidade.html">Política de Privacidade</a>
+            <a href="termos.html">Termos de Uso</a>
+            <a href="instrumentos.html">Calculadoras</a>
+            <a href="https://www.linkedin.com/in/leonardo-arruda-b49ab8104/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.instagram.com/leoarruda.s/" target="_blank" rel="noopener">Instagram</a>
+            <span>© 2026 Leonardo Arruda</span>
+          </p>
+        </div>
+      </section>
+    </div>
+  </dialog>
+
+  <script src="data/premissas.js" defer></script>
+  <script src="js/calculos.js" defer></script>
+  <script src="js/instrumentos.js" defer></script>
+  <script src="data/editorial.js" defer></script>
+  <script src="data/filosofia.js" defer></script>
+  <script src="js/jornada.js" defer></script>
+</body>
+</html>

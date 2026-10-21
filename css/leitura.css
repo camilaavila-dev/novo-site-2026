@@ -1,0 +1,167 @@
+/* ==========================================================================
+   LEITURA SEMANAL · formato de newsletter
+   Usa os tokens, a barra superior e os botões de css/home.css.
+   Esta página rola normalmente: é texto para ler com calma.
+   ========================================================================== */
+
+html.js body.lw-page { overflow: auto; }
+.lw-page .hm-top { background: linear-gradient(180deg, rgba(7, 6, 26, 0.96), rgba(7, 6, 26, 0.85)); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+
+/* ---------- Faixa de indicadores ---------- */
+
+.lw-ticker {
+  margin-top: var(--top-h);
+  border-bottom: 1px solid var(--line);
+  background: rgba(14, 12, 43, 0.6);
+  display: flex; align-items: stretch;
+}
+.lw-ticker-date {
+  margin: 0; flex: none;
+  display: flex; align-items: center;
+  padding: 0 20px 0 var(--gx);
+  border-right: 1px solid var(--line);
+  font: 500 11px var(--f-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--txt-3);
+}
+.lw-ticker-list {
+  margin: 0; flex: 1; min-width: 0;
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.lw-ticker-list div { padding: 14px 20px; border-right: 1px solid var(--line); min-width: 0; }
+.lw-ticker-list div:last-child { border-right: 0; }
+.lw-ticker-list dt { font-size: 12px; color: var(--txt-3); }
+.lw-ticker-list dd { margin: 2px 0 0; display: grid; gap: 2px; }
+.lw-ticker-list strong { font: 500 18px var(--f-mono); letter-spacing: -0.02em; color: var(--txt); white-space: nowrap; }
+.lw-ticker-list small { font-size: 11.5px; line-height: 1.35; color: var(--txt-3); }
+
+/* ---------- Estrutura ---------- */
+
+.lw-main { padding: 0 var(--gx); }
+.lw-layout {
+  max-width: 1180px; margin: 0 auto; padding: clamp(36px, 6vw, 72px) 0 40px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(32px, 5vw, 72px); align-items: start;
+}
+.lw-col { max-width: 720px; }
+
+.lw-mast { padding-bottom: 24px; margin-bottom: 32px; border-bottom: 1px solid var(--line); }
+.lw-mast .hm-kicker { margin-bottom: 10px; }
+.lw-issue { padding: 2px 8px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--txt-2); letter-spacing: 0.04em; }
+.lw-issue:empty { display: none; }
+.lw-resumo-semana { margin: 0; font-size: 15px; line-height: 1.6; color: var(--txt-2); }
+
+.lw-label {
+  margin: 0 0 14px;
+  font: 500 11px var(--f-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--grn);
+}
+
+/* ---------- Edição ---------- */
+
+.lw-meta { margin: 0 0 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; font-size: 13px; color: var(--txt-3); }
+.lw-tag { padding: 3px 10px; border-radius: 999px; background: rgba(242, 193, 78, 0.12); color: var(--gold); font-weight: 500; }
+.lw-title {
+  margin: 0; font-family: var(--f-display); font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 54px); line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance;
+}
+.lw-byline { margin: 16px 0 0; font-size: 14px; color: var(--txt-3); }
+.lw-byline::before { content: ''; display: inline-block; width: 22px; height: 1px; margin-right: 10px; vertical-align: middle; background: var(--txt-3); }
+
+/* Número da semana */
+.lw-stat {
+  margin: 40px 0 0; padding: 28px 30px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 28px; align-items: center;
+  border: 1px solid var(--line); border-radius: 20px;
+  background:
+    radial-gradient(400px 200px at 0% 0%, rgba(28, 217, 138, 0.12), transparent 70%),
+    rgba(14, 12, 43, 0.6);
+}
+.lw-stat-num {
+  margin: 0; font: 500 clamp(52px, 7vw, 84px)/1 var(--f-mono); letter-spacing: -0.05em; color: var(--grn);
+}
+.lw-stat figcaption { display: grid; gap: 6px; }
+.lw-stat strong { font-family: var(--f-display); font-weight: 400; font-size: 24px; line-height: 1.2; }
+.lw-stat span { font-size: 14px; line-height: 1.55; color: var(--txt-2); }
+
+/* Em 1 minuto */
+.lw-brief { margin-top: 40px; }
+.lw-brief ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line); border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+.lw-brief li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 18px 22px; background: var(--ink); }
+.lw-brief li span { font: 500 13px var(--f-mono); color: var(--gold); padding-top: 3px; }
+.lw-brief li p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--txt); }
+
+/* Leitura completa */
+.lw-body { margin-top: 48px; }
+.lw-body p:not(.lw-label) {
+  margin: 0 0 22px;
+  font-family: var(--f-display); font-size: clamp(19px, 1.6vw, 21px); line-height: 1.65; color: rgba(239, 235, 221, 0.88);
+}
+.lw-body .lw-label + p::first-letter {
+  float: left; margin: 6px 12px 0 0;
+  font-size: 4.1em; line-height: 0.8; color: var(--gold);
+}
+
+/* O que observar */
+.lw-observe { margin-top: 48px; }
+.lw-observe ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lw-observe li {
+  padding: 20px 22px; border-radius: 16px;
+  border: 1px solid var(--line); background: rgba(14, 12, 43, 0.5);
+}
+.lw-observe-i { width: 22px; height: 22px; fill: none; stroke: var(--grn); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.lw-observe strong { display: block; margin: 12px 0 6px; font-size: 15px; font-weight: 500; }
+.lw-observe p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--txt-2); }
+
+/* Fontes */
+.lw-sources { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
+.lw-sources .lw-label { color: var(--txt-3); }
+.lw-sources ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 13.5px; color: var(--txt-3); }
+.lw-sources a { color: var(--txt-2); text-underline-offset: 3px; }
+.lw-sources a:hover { color: var(--txt); }
+
+/* ---------- Coluna lateral ---------- */
+
+.lw-side { position: sticky; top: calc(var(--top-h) + 24px); display: grid; gap: 16px; }
+.lw-card { padding: 22px; border-radius: 18px; border: 1px solid var(--line); background: rgba(14, 12, 43, 0.55); }
+.lw-card[hidden] { display: none; }
+.lw-card-label { margin: 0 0 8px; font: 500 11px var(--f-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--txt-3); }
+.lw-card > p:not(.lw-card-label) { margin: 0 0 18px; font-size: 14.5px; line-height: 1.55; color: var(--txt-2); }
+.lw-card .hm-btn { width: 100%; justify-content: center; }
+.lw-talk { border-color: rgba(28, 217, 138, 0.3); background: linear-gradient(180deg, rgba(28, 217, 138, 0.08), rgba(14, 12, 43, 0.55)); }
+
+.lw-arquivo { list-style: none; margin: 0; padding: 0; display: grid; }
+.lw-arquivo a { display: grid; gap: 2px; padding: 12px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.lw-arquivo li:first-child a { border-top: 0; }
+.lw-arquivo span { font: 11.5px var(--f-mono); color: var(--txt-3); }
+.lw-arquivo strong { font-size: 14px; font-weight: 400; line-height: 1.4; color: var(--txt-2); }
+.lw-arquivo a:hover strong, .lw-arquivo a[aria-current] strong { color: var(--txt); }
+.lw-arquivo a[aria-current] span { color: var(--grn); }
+.lw-filtros { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.lw-filtros[hidden] { display: none; }
+.lw-filtros button { padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; font-size: 12px; color: var(--txt-2); cursor: pointer; }
+.lw-filtros button[aria-pressed="true"] { background: var(--txt); color: var(--ink); border-color: var(--txt); }
+
+/* ---------- Rodapé ---------- */
+
+.lw-foot { max-width: 1180px; margin: 0 auto; padding: 32px 0 48px; border-top: 1px solid var(--line); }
+.lw-foot img { height: 32px; width: auto; margin-bottom: 18px; }
+.lw-foot p { margin: 0 0 10px; max-width: 900px; font-size: 11.5px; line-height: 1.6; color: var(--txt-3); }
+.lw-foot a { color: var(--txt-2); }
+
+/* ---------- Telas menores ---------- */
+
+@media (max-width: 1080px) {
+  .lw-ticker { flex-direction: column; }
+  .lw-ticker-date { padding: 10px var(--gx) 0; border-right: 0; }
+  .lw-ticker-list { display: flex; overflow-x: auto; scrollbar-width: none; padding: 0 calc(var(--gx) - 20px); }
+  .lw-ticker-list::-webkit-scrollbar { display: none; }
+  .lw-ticker-list div { flex: none; min-width: 168px; }
+}
+@media (max-width: 900px) {
+  .lw-layout { grid-template-columns: minmax(0, 1fr); }
+  .lw-side { position: static; }
+  .lw-col { max-width: none; }
+}
+@media (max-width: 560px) {
+  .lw-stat { grid-template-columns: minmax(0, 1fr); padding: 22px; }
+  .lw-observe ul { grid-template-columns: minmax(0, 1fr); }
+  .lw-brief li { grid-template-columns: 32px minmax(0, 1fr); padding: 16px; }
+  .lw-brief li p { font-size: 15px; }
+}

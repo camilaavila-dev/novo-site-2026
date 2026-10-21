@@ -1,0 +1,421 @@
+{
+  "viewports": {
+    "320px (iPhone SE 1st)": {
+      "winW": 320,
+      "scrollW": 320,
+      "clientW": 320,
+      "hasScrollX": false,
+      "overflowCount": 12,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 658,
+          "width": 444,
+          "snippet": "<div style=\"display:flex;align-items:center;gap:16px\"> <div style=\"display:f"
+        },
+        {
+          "tag": "DIV",
+          "id": "nav-links",
+          "cls": "",
+          "right": 542,
+          "width": 327,
+          "snippet": "<div style=\"display:flex;align-items:center;gap:32px\" id=\"nav-links\"> <a h"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link is-active",
+          "right": 345,
+          "width": 62,
+          "snippet": "<a href=\"simulador.html\" class=\"nav-link is-active\" style=\"font-family:var(--s);"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 409,
+          "width": 32,
+          "snippet": "<a href=\"raiox.html\" class=\"nav-link\" style=\"font-family:var(--s);font-size:13.5"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 475,
+          "width": 34,
+          "snippet": "<a href=\"blog.html\" class=\"nav-link\" style=\"font-family:var(--s);font-size:13.5p"
+        }
+      ]
+    },
+    "375px (iPhone SE 2nd/3rd)": {
+      "winW": 700,
+      "scrollW": 700,
+      "clientW": 375,
+      "hasScrollX": true,
+      "overflowCount": 0,
+      "topOverflowing": []
+    },
+    "390px (iPhone 14/15)": {
+      "winW": 390,
+      "scrollW": 390,
+      "clientW": 390,
+      "hasScrollX": false,
+      "overflowCount": 8,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 672,
+          "width": 457,
+          "snippet": "<div style=\"display:flex;align-items:center;gap:16px\"> <div style=\"display:f"
+        },
+        {
+          "tag": "DIV",
+          "id": "nav-links",
+          "cls": "",
+          "right": 550,
+          "width": 336,
+          "snippet": "<div style=\"display:flex;align-items:center;gap:32px\" id=\"nav-links\"> <a h"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 413,
+          "width": 34,
+          "snippet": "<a href=\"raiox.html\" class=\"nav-link\" style=\"font-family:var(--s);font-size:13.5"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 481,
+          "width": 36,
+          "snippet": "<a href=\"blog.html\" class=\"nav-link\" style=\"font-family:var(--s);font-size:13.5p"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 550,
+          "width": 37,
+          "snippet": "<a href=\"index.html#sobre\" class=\"nav-link\" style=\"font-family:var(--s);font-siz"
+        }
+      ]
+    },
+    "430px (iPhone 15/16 Pro Max)": {
+      "winW": 430,
+      "scrollW": 430,
+      "clientW": 430,
+      "hasScrollX": false,
+      "overflowCount": 7,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 672,
+          "width": 457,
+          "snippet": "<div style=\"display:flex;align-items:center;gap:16px\"> <div style=\"display:f"
+        },
+        {
+          "tag": "DIV",
+          "id": "nav-links",
+          "cls": "",
+          "right": 550,
+          "width": 336,
+          "snippet": "<div style=\"display:flex;align-items:center;gap:32px\" id=\"nav-links\"> <a h"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 481,
+          "width": 36,
+          "snippet": "<a href=\"blog.html\" class=\"nav-link\" style=\"font-family:var(--s);font-size:13.5p"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-link",
+          "right": 550,
+          "width": 37,
+          "snippet": "<a href=\"index.html#sobre\" class=\"nav-link\" style=\"font-family:var(--s);font-siz"
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "cls": "nav-cta",
+          "right": 672,
+          "width": 106,
+          "snippet": "<a href=\"index.html#cta\" class=\"nav-cta\" style=\"padding:11px 24px;background:var"
+        }
+      ]
+    },
+    "1440px (Desktop Outlier)": {
+      "winW": 1440,
+      "scrollW": 1425,
+      "clientW": 1425,
+      "hasScrollX": false,
+      "overflowCount": 1,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "sim-halo-accent",
+          "right": 1525,
+          "width": 600,
+          "snippet": "<div class=\"sim-halo-accent\"></div>"
+        }
+      ]
+    }
+  },
+  "canvasRetina": {
+    "DPR_1": {
+      "dpr": 1,
+      "cssWidth": 879,
+      "cssHeight": 380,
+      "canvasBufferWidth": 879,
+      "canvasBufferHeight": 380,
+      "expectedBufferWidth": 879,
+      "expectedBufferHeight": 380,
+      "bufferMatchesDpr": true,
+      "hasDrawnPixels": true
+    },
+    "DPR_2": {
+      "dpr": 2,
+      "cssWidth": 879,
+      "cssHeight": 380,
+      "canvasBufferWidth": 1758,
+      "canvasBufferHeight": 760,
+      "expectedBufferWidth": 1758,
+      "expectedBufferHeight": 760,
+      "bufferMatchesDpr": true,
+      "hasDrawnPixels": true
+    },
+    "DPR_3": {
+      "dpr": 3,
+      "cssWidth": 879,
+      "cssHeight": 380,
+      "canvasBufferWidth": 2637,
+      "canvasBufferHeight": 1140,
+      "expectedBufferWidth": 2637,
+      "expectedBufferHeight": 1140,
+      "bufferMatchesDpr": true,
+      "hasDrawnPixels": true
+    },
+    "DynamicResize": [
+      {
+        "vpW": 1440,
+        "cssW": 694,
+        "cssH": 380,
+        "bufferW": 1388,
+        "bufferH": 760,
+        "ratio": "2.00"
+      },
+      {
+        "vpW": 390,
+        "cssW": 300,
+        "cssH": 260,
+        "bufferW": 600,
+        "bufferH": 520,
+        "ratio": "2.00"
+      },
+      {
+        "vpW": 768,
+        "cssW": 678,
+        "cssH": 300,
+        "bufferW": 1356,
+        "bufferH": 600,
+        "ratio": "2.00"
+      },
+      {
+        "vpW": 1440,
+        "cssW": 694,
+        "cssH": 380,
+        "bufferW": 1388,
+        "bufferH": 760,
+        "ratio": "2.00"
+      }
+    ]
+  },
+  "canvasScrubbing": {
+    "eventsLog": [
+      {
+        "step": "touchstart_mid",
+        "tooltipOpacity": "0",
+        "tooltipDisplay": "block",
+        "tooltipHtml": ""
+      },
+      {
+        "step": "touchmove_steps",
+        "moveSteps": [
+          {
+            "pct": 0.25,
+            "tooltipOpacity": "0",
+            "tooltipLeft": 10,
+            "tooltipTop": 20,
+            "tooltipWidth": 220,
+            "hasDeltaGanho": true,
+            "tooltipContentPreview": "Tempo: 0.8 anos (mês 9) ● Fee-Based: R$ 614.222 ● Tradicional: R$ 609.255 ✦ Delta Ganho: +R$ 4.967"
+          },
+          {
+            "pct": 0.5,
+            "tooltipOpacity": "0",
+            "tooltipLeft": 30,
+            "tooltipTop": 20,
+            "tooltipWidth": 220,
+            "hasDeltaGanho": true,
+            "tooltipContentPreview": "Tempo: 6.3 anos (mês 75) ● Fee-Based: R$ 1.624.264 ● Tradicional: R$ 1.538.963 ✦ Delta Ganho: +R$ 85.301"
+          },
+          {
+            "pct": 0.75,
+            "tooltipOpacity": "0",
+            "tooltipLeft": 50,
+            "tooltipTop": 20,
+            "tooltipWidth": 220,
+            "hasDeltaGanho": true,
+            "tooltipContentPreview": "Tempo: 11.7 anos (mês 140) ● Fee-Based: R$ 2.993.324 ● Tradicional: R$ 2.720.568 ✦ Delta Ganho: +R$ 272.756"
+          }
+        ]
+      },
+      {
+        "step": "touchend",
+        "tooltipOpacity": "0"
+      },
+      {
+        "afterMouseMove": {
+          "step": "mousemove_mid",
+          "tooltipOpacity": "0"
+        },
+        "afterMouseLeave": {
+          "step": "mouseleave",
+          "tooltipOpacity": "0"
+        }
+      }
+    ],
+    "narrow320Tooltip": {
+      "leftSide": {
+        "ratio": 0.15,
+        "canvasWidth": 230,
+        "canvasWrapWidth": 230,
+        "ttWidth": 220,
+        "ttLeft": 55,
+        "ttRight": 275,
+        "cardLeft": 20,
+        "cardRight": 300,
+        "overflowsLeft": false,
+        "overflowsRight": false
+      },
+      "midSide": {
+        "ratio": 0.5,
+        "canvasWidth": 230,
+        "canvasWrapWidth": 230,
+        "ttWidth": 220,
+        "ttLeft": 25,
+        "ttRight": 245,
+        "cardLeft": 20,
+        "cardRight": 300,
+        "overflowsLeft": false,
+        "overflowsRight": false
+      },
+      "rightSide": {
+        "ratio": 0.85,
+        "canvasWidth": 230,
+        "canvasWrapWidth": 230,
+        "ttWidth": 220,
+        "ttLeft": 25,
+        "ttRight": 245,
+        "cardLeft": 20,
+        "cardRight": 300,
+        "overflowsLeft": false,
+        "overflowsRight": false
+      }
+    }
+  },
+  "dockOverlap": {
+    "320px (iPhone SE 1st)": {
+      "dockPresent": true,
+      "dockRect": {
+        "top": 490,
+        "bottom": 554,
+        "height": 64
+      },
+      "bodyPadBottom": 76,
+      "pageWrapperPadBottom": 110,
+      "atTopOverlaps": [],
+      "atBottomOverlaps": [],
+      "ctaVisibleUnobstructed": true,
+      "ctaRectWhenScrolled": {
+        "top": 246,
+        "bottom": 322
+      }
+    },
+    "375px (iPhone SE 2nd/3rd)": {
+      "dockPresent": true,
+      "dockRect": {
+        "top": 589,
+        "bottom": 653,
+        "height": 64
+      },
+      "bodyPadBottom": 76,
+      "pageWrapperPadBottom": 110,
+      "atTopOverlaps": [
+        {
+          "name": "Slider P0",
+          "top": 628,
+          "bottom": 636
+        }
+      ],
+      "atBottomOverlaps": [],
+      "ctaVisibleUnobstructed": true,
+      "ctaRectWhenScrolled": {
+        "top": 296,
+        "bottom": 372
+      }
+    },
+    "390px (iPhone 14/15)": {
+      "dockPresent": true,
+      "dockRect": {
+        "top": 766,
+        "bottom": 830,
+        "height": 64
+      },
+      "bodyPadBottom": 76,
+      "pageWrapperPadBottom": 110,
+      "atTopOverlaps": [
+        {
+          "name": "Slider PMT",
+          "top": 816,
+          "bottom": 824
+        }
+      ],
+      "atBottomOverlaps": [],
+      "ctaVisibleUnobstructed": true,
+      "ctaRectWhenScrolled": {
+        "top": 384,
+        "bottom": 460
+      }
+    },
+    "430px (iPhone 15/16 Pro Max)": {
+      "dockPresent": true,
+      "dockRect": {
+        "top": 854,
+        "bottom": 918,
+        "height": 64
+      },
+      "bodyPadBottom": 76,
+      "pageWrapperPadBottom": 110,
+      "atTopOverlaps": [],
+      "atBottomOverlaps": [],
+      "ctaVisibleUnobstructed": true,
+      "ctaRectWhenScrolled": {
+        "top": 428,
+        "bottom": 504
+      }
+    }
+  }
+}

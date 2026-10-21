@@ -1,0 +1,980 @@
+{
+  "index.html": {
+    "320px (iPhone SE 1st)": {
+      "winW": 320,
+      "winH": 568,
+      "scrollW": 320,
+      "clientW": 320,
+      "hasScrollX": false,
+      "overflowingCount": 6,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 3867,
+          "snippet": "<div style=\"display:flex;width:max-content;animation:marq 36s linear infinite\"> <span "
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 1934,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 352,
+          "width": 500,
+          "snippet": "<div style=\"position:absolute;top:20%;right:-10%;width:500px;height:500px;background:radia"
+        }
+      ],
+      "dockData": null,
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "375px (iPhone SE 2nd/3rd)": {
+      "winW": 375,
+      "winH": 667,
+      "scrollW": 375,
+      "clientW": 375,
+      "hasScrollX": false,
+      "overflowingCount": 3,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 3867,
+          "snippet": "<div style=\"display:flex;width:max-content;animation:marq 36s linear infinite\"> <span "
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 1934,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        }
+      ],
+      "dockData": null,
+      "fctaDisplay": "flex",
+      "bodyPadBottom": 0
+    },
+    "390px (iPhone 14/15)": {
+      "winW": 390,
+      "winH": 844,
+      "scrollW": 390,
+      "clientW": 390,
+      "hasScrollX": false,
+      "overflowingCount": 21,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 3867,
+          "snippet": "<div style=\"display:flex;width:max-content;animation:marq 36s linear infinite\"> <span "
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 1934,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 429,
+          "width": 500,
+          "snippet": "<div style=\"position:absolute;top:20%;right:-10%;width:500px;height:500px;background:radia"
+        }
+      ],
+      "dockData": null,
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "430px (iPhone 15/16 Pro Max)": {
+      "winW": 430,
+      "winH": 932,
+      "scrollW": 430,
+      "clientW": 430,
+      "hasScrollX": false,
+      "overflowingCount": 3,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 3867,
+          "snippet": "<div style=\"display:flex;width:max-content;animation:marq 36s linear infinite\"> <span "
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 1934,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        }
+      ],
+      "dockData": null,
+      "fctaDisplay": "flex",
+      "bodyPadBottom": 0
+    },
+    "768px (iPad Mini Portrait)": {
+      "winW": 768,
+      "winH": 1024,
+      "scrollW": 768,
+      "clientW": 768,
+      "hasScrollX": false,
+      "overflowingCount": 3,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 3867,
+          "snippet": "<div style=\"display:flex;width:max-content;animation:marq 36s linear infinite\"> <span "
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 1934,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        }
+      ],
+      "dockData": null,
+      "fctaDisplay": "flex",
+      "bodyPadBottom": 0
+    },
+    "1440px (Desktop Outlier)": {
+      "winW": 1440,
+      "winH": 900,
+      "scrollW": 1425,
+      "clientW": 1425,
+      "hasScrollX": false,
+      "overflowingCount": 3,
+      "topOverflowing": [
+        {
+          "tag": "DIV",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 3867,
+          "snippet": "<div style=\"display:flex;width:max-content;animation:marq 36s linear infinite\"> <span "
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 1934,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        },
+        {
+          "tag": "SPAN",
+          "id": "",
+          "cls": "",
+          "right": 3867,
+          "width": 1934,
+          "snippet": "<span style=\"flex:none;white-space:nowrap;font-family:var(--m);font-size:10.5px;letter-spa"
+        }
+      ],
+      "dockData": null,
+      "fctaDisplay": "flex",
+      "bodyPadBottom": 0
+    }
+  },
+  "termos.html": {
+    "320px (iPhone SE 1st)": {
+      "winW": 320,
+      "winH": 568,
+      "scrollW": 320,
+      "clientW": 320,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 292,
+        "left": 14,
+        "right": 306,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 58,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "375px (iPhone SE 2nd/3rd)": {
+      "winW": 375,
+      "winH": 667,
+      "scrollW": 375,
+      "clientW": 375,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 347,
+        "left": 14,
+        "right": 361,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 75.4,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "390px (iPhone 14/15)": {
+      "winW": 390,
+      "winH": 844,
+      "scrollW": 390,
+      "clientW": 390,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 362,
+        "left": 14,
+        "right": 376,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 78.4,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "430px (iPhone 15/16 Pro Max)": {
+      "winW": 430,
+      "winH": 932,
+      "scrollW": 430,
+      "clientW": 430,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 402,
+        "left": 14,
+        "right": 416,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 86.4,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "768px (iPad Mini Portrait)": {
+      "winW": 768,
+      "winH": 1024,
+      "scrollW": 768,
+      "clientW": 768,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 440,
+        "left": 164,
+        "right": 604,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 94,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "1440px (Desktop Outlier)": {
+      "winW": 1440,
+      "winH": 900,
+      "scrollW": 1425,
+      "clientW": 1425,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "none",
+        "width": 0,
+        "left": 0,
+        "right": 0,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "simulador",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "raiox",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "blog",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "cta",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          }
+        ]
+      },
+      "fctaDisplay": "flex",
+      "bodyPadBottom": 0
+    }
+  },
+  "privacidade.html": {
+    "320px (iPhone SE 1st)": {
+      "winW": 320,
+      "winH": 568,
+      "scrollW": 320,
+      "clientW": 320,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 292,
+        "left": 14,
+        "right": 306,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 50,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 58,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "375px (iPhone SE 2nd/3rd)": {
+      "winW": 375,
+      "winH": 667,
+      "scrollW": 375,
+      "clientW": 375,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 347,
+        "left": 14,
+        "right": 361,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 59.4,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 75.4,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "390px (iPhone 14/15)": {
+      "winW": 390,
+      "winH": 844,
+      "scrollW": 390,
+      "clientW": 390,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 362,
+        "left": 14,
+        "right": 376,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 62.4,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 78.4,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "430px (iPhone 15/16 Pro Max)": {
+      "winW": 430,
+      "winH": 932,
+      "scrollW": 430,
+      "clientW": 430,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 402,
+        "left": 14,
+        "right": 416,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 70.4,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 86.4,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "768px (iPad Mini Portrait)": {
+      "winW": 768,
+      "winH": 1024,
+      "scrollW": 768,
+      "clientW": 768,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "flex",
+        "width": 440,
+        "left": 164,
+        "right": 604,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 25.1,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "simulador",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 56.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "raiox",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 37.6,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "blog",
+            "width": 78,
+            "height": 50,
+            "labelWidth": 31.4,
+            "labelHeight": 10.4
+          },
+          {
+            "page": "cta",
+            "width": 94,
+            "height": 50,
+            "labelWidth": 43.9,
+            "labelHeight": 10.4
+          }
+        ]
+      },
+      "fctaDisplay": "none",
+      "bodyPadBottom": 76
+    },
+    "1440px (Desktop Outlier)": {
+      "winW": 1440,
+      "winH": 900,
+      "scrollW": 1425,
+      "clientW": 1425,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": {
+        "display": "none",
+        "width": 0,
+        "left": 0,
+        "right": 0,
+        "overflowsViewport": false,
+        "items": [
+          {
+            "page": "home",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "simulador",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "raiox",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "blog",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          },
+          {
+            "page": "cta",
+            "width": 0,
+            "height": 0,
+            "labelWidth": 0,
+            "labelHeight": 0
+          }
+        ]
+      },
+      "fctaDisplay": "flex",
+      "bodyPadBottom": 0
+    }
+  },
+  "linktree.html": {
+    "320px (iPhone SE 1st)": {
+      "winW": 320,
+      "winH": 568,
+      "scrollW": 320,
+      "clientW": 320,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": null,
+      "fctaDisplay": null,
+      "bodyPadBottom": 48
+    },
+    "375px (iPhone SE 2nd/3rd)": {
+      "winW": 375,
+      "winH": 667,
+      "scrollW": 375,
+      "clientW": 375,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": null,
+      "fctaDisplay": null,
+      "bodyPadBottom": 48
+    },
+    "390px (iPhone 14/15)": {
+      "winW": 390,
+      "winH": 844,
+      "scrollW": 390,
+      "clientW": 390,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": null,
+      "fctaDisplay": null,
+      "bodyPadBottom": 48
+    },
+    "430px (iPhone 15/16 Pro Max)": {
+      "winW": 430,
+      "winH": 932,
+      "scrollW": 430,
+      "clientW": 430,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": null,
+      "fctaDisplay": null,
+      "bodyPadBottom": 48
+    },
+    "768px (iPad Mini Portrait)": {
+      "winW": 768,
+      "winH": 1024,
+      "scrollW": 768,
+      "clientW": 768,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": null,
+      "fctaDisplay": null,
+      "bodyPadBottom": 48
+    },
+    "1440px (Desktop Outlier)": {
+      "winW": 1440,
+      "winH": 900,
+      "scrollW": 1425,
+      "clientW": 1425,
+      "hasScrollX": false,
+      "overflowingCount": 0,
+      "topOverflowing": [],
+      "dockData": null,
+      "fctaDisplay": null,
+      "bodyPadBottom": 48
+    }
+  }
+}
